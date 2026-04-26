@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Résultats Cliniques — Ryze™ Aligners</title>
+  <meta name="description" content="Découvrez les transformations réelles réalisées par Ryze™ Aligners. Résultats cliniques, cas patients et avant/après.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;1,300;1,400&family=Manrope:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --navy:#0071BB;
+      --bg:#fbfbfd;
+      --bg-alt:#f5f5f7;
+      --ink:#1d1d1f;
+      --ink-soft:#6e6e73;
+      --line:#d2d2d7;
+      --accent-soft:#e8efff;
+      --pastel-sand:#f1ebdd;
+      --pastel-rose:#ecdedb;
+      --pastel-sage:#dfe8dd;
+      --pastel-periwinkle:#dee1ef;
+      --pastel-clay:#e9dfd5;
+      --pastel-powder:#dee6ef;
+      --ease:cubic-bezier(.2,.8,.2,1);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Manrope',sans-serif;font-size:15px;line-height:1.7;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+
+    /* Typography */
+    h1,h2,h3,.serif-italic{font-family:'Noto Serif',serif;font-weight:300}
+    h1,h2{letter-spacing:-0.02em}
+    h3{letter-spacing:-0.01em}
+    .serif-italic{font-style:italic;font-weight:300}
+    .eyebrow{font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+    .btn-text{font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+
+    /* Material Symbols fix */
+    .material-symbols-outlined{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-smoothing:antialiased}
+
+    /* Global border */
+    .border-line{border:.5px solid var(--line)}
+    .border-t-line{border-top:.5px solid var(--line)}
+    .border-b-line{border-bottom:.5px solid var(--line)}
+
+    /* Transitions */
+    .trans{transition:all .4s var(--ease)}
+
+    /* Container */
+    .container-r{max-width:1200px;margin:0 auto;padding:0 24px}
+
+    /* Nav */
+    .nav-bar{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,251,253,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:.5px solid var(--line)}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-family:'Manrope',sans-serif;font-size:14px;font-weight:800;letter-spacing:.18em;color:var(--navy)}
+    .nav-links{display:flex;gap:32px;align-items:center}
+    .nav-links a{font-family:'Manrope',sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--ink-soft);text-decoration:none;transition:color .3s}
+    .nav-links a:hover,.nav-links a.active{color:var(--navy)}
+    .nav-links a.active{border-bottom:1.5px solid var(--navy);padding-bottom:2px}
+    .nav-cta{font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:#0071BB;border:none;padding:10px 24px;border-radius:999px;cursor:pointer;transition:all .3s}
+    .nav-cta:hover{opacity:.9}
+
+    /* Mobile nav */
+    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+    @media(max-width:768px){
+      .nav-links{display:none}
+      .hamburger{display:block}
+    }
+    .mobile-menu{position:fixed;top:56px;left:0;right:0;background:rgba(251,251,253,.97);backdrop-filter:blur(20px);z-index:99;padding:24px;display:none;flex-direction:column;gap:16px;border-bottom:.5px solid var(--line)}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{font-family:'Manrope',sans-serif;font-size:14px;font-weight:600;color:var(--ink);text-decoration:none}
+
+    /* ===== Hero — orbital carousel on light surface ===== */
+    .hero{
+      min-height:100vh;
+      padding:120px 0 80px;
+      position:relative;
+      overflow:hidden;
+      background:#ffffff;
+      color:#1d1d1f;
+      isolation:isolate;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+    }
+    .hero-bg{display:none}
+    .hero::before,.hero::after{display:none}
+    @keyframes heroRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+    /* Orbital stage */
+    .orbit-stage{
+      position:relative;
+      width:100%;max-width:880px;
+      height:440px;
+      margin:0 auto 24px;
+      perspective:1400px;
+      transform-style:preserve-3d;
+      transition:transform .4s cubic-bezier(.2,.8,.2,1);
+    }
+    .orbit-card{
+      position:absolute;
+      top:50%;left:50%;
+      width:160px;height:220px;
+      margin:-110px 0 0 -80px;
+      border-radius:14px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:
+        0 24px 50px -18px rgba(10,40,80,0.22),
+        0 8px 20px -10px rgba(10,40,80,0.14),
+        inset 0 0 0 .5px rgba(10,40,80,0.08);
+      will-change:transform;
+      backface-visibility:hidden;
+      opacity:0;
+      transition:box-shadow .4s ease, opacity .8s ease;
+    }
+    .orbit-card.ready{opacity:1}
+    .orbit-card img{
+      width:100%;height:100%;
+      object-fit:cover;
+      display:block;
+      filter:saturate(1.02) contrast(1.02);
+      transition:transform .5s ease;
+    }
+    .orbit-card::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg, transparent 70%, rgba(10,40,80,0.08) 100%);
+      pointer-events:none;
+    }
+    .orbit-card:hover{
+      box-shadow:
+        0 32px 70px -18px rgba(10,40,80,0.3),
+        0 14px 26px -10px rgba(232,51,74,0.18),
+        inset 0 0 0 1px rgba(232,51,74,0.4);
+      z-index:10;
+    }
+    .orbit-card:hover img{transform:scale(1.06)}
+
+    /* Center signature */
+    .orbit-core{
+      position:absolute;
+      top:50%;left:50%;
+      transform:translate(-50%,-50%);
+      width:56px;height:56px;
+      border-radius:50%;
+      background:#ffffff;
+      border:.5px solid rgba(232,51,74,0.35);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 0 0 4px rgba(232,51,74,0.08), 0 0 40px rgba(232,51,74,0.15), 0 8px 20px rgba(10,40,80,0.12);
+      z-index:5;
+      pointer-events:none;
+    }
+    .orbit-core::before{
+      content:"";
+      width:6px;height:6px;border-radius:50%;
+      background:#E8334A;
+      box-shadow:0 0 12px rgba(232,51,74,0.8);
+      animation:orbitPulse 2.4s ease-in-out infinite;
+    }
+    @keyframes orbitPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.5}}
+
+    /* Hero content */
+    .hero-frame{
+      max-width:880px;
+      margin:0 auto;padding:0 24px;
+      text-align:center;position:relative;z-index:2;
+    }
+    .hero .eyebrow{
+      display:inline-flex;align-items:center;gap:14px;
+      font-family:'Manrope',sans-serif;
+      font-size:10.5px;font-weight:800;
+      letter-spacing:.34em;text-transform:uppercase;
+      color:rgba(29,29,31,0.75);
+      margin-bottom:22px;
+    }
+    .hero .eyebrow::before,.hero .eyebrow::after{content:"";width:28px;height:1px;background:#E8334A}
+
+    .hero h1{
+      font-family:'Cormorant Garamond',serif;
+      font-weight:300;
+      font-size:clamp(36px,5.2vw,64px);
+      line-height:1.04;
+      letter-spacing:-0.025em;
+      color:#1a2b3c;
+      margin-bottom:18px;
+      max-width:780px;margin-left:auto;margin-right:auto;
+    }
+    .hero h1 em.serif-italic{
+      font-style:italic;
+      font-weight:400;
+      color:#0071BB;
+    }
+
+    .hero-signature{
+      display:inline-block;
+      font-family:'Caveat',cursive;
+      font-weight:500;
+      font-size:clamp(22px,2.4vw,30px);
+      color:#E8334A;
+      transform:rotate(-1.5deg);
+      line-height:1;
+      margin-bottom:32px;
+    }
+
+    /* Inline stats row */
+    .stat-strip{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:28px;flex-wrap:wrap;
+      padding:18px 32px;
+      background:transparent;
+      border:none;border-radius:0;
+      box-shadow:none;backdrop-filter:none;
+      position:relative;
+      margin:0 auto;
+    }
+    .stat-strip::before,.stat-strip::after{
+      content:"";
+      flex:0 0 60px;height:1px;
+      background:linear-gradient(90deg,transparent,rgba(232,51,74,0.55),transparent);
+    }
+    .stat-item{display:inline-flex;align-items:baseline;gap:8px;position:relative}
+    .stat-item:not(:last-of-type)::after{
+      content:"";
+      position:absolute;right:-18px;top:50%;
+      width:5px;height:5px;border-radius:50%;
+      background:#E8334A;
+      transform:translateY(-50%);
+      box-shadow:0 0 0 3px rgba(232,51,74,0.18);
+    }
+    .stat-item:not(:last-child)::before{display:none}
+    .stat-num{
+      font-family:'Cormorant Garamond',serif;
+      font-weight:400;font-style:italic;
+      font-size:clamp(22px,2.2vw,28px);
+      color:#1a2b3c;
+      letter-spacing:-0.02em;line-height:1;
+    }
+    .stat-label{
+      font-family:'Manrope',sans-serif;
+      font-size:9.5px;font-weight:700;
+      color:rgba(29,29,31,0.55);
+      letter-spacing:.22em;text-transform:uppercase;
+      margin-top:0;
+    }
+
+    .hero-mark{display:none}
+    .hero-visual{display:none}
+
+    @media(max-width:900px){
+      .hero{padding:110px 0 70px;min-height:auto}
+      .orbit-stage{height:360px;max-width:600px}
+      .orbit-card{width:130px;height:180px;margin:-90px 0 0 -65px}
+      .hero h1{font-size:clamp(30px,6vw,46px)}
+    }
+    @media(max-width:600px){
+      .hero{padding:100px 0 60px}
+      .orbit-stage{height:300px}
+      .orbit-card{width:100px;height:140px;margin:-70px 0 0 -50px}
+      .orbit-core{width:44px;height:44px}
+      .hero .eyebrow{font-size:9.5px;letter-spacing:.26em}
+      .hero .eyebrow::before,.hero .eyebrow::after{width:18px}
+      .stat-strip{gap:20px;padding:16px 12px}
+      .stat-strip::before,.stat-strip::after{flex-basis:30px}
+      .stat-item:not(:last-of-type)::after{right:-12px}
+      .stat-num{font-size:19px}
+      .stat-label{font-size:9px;letter-spacing:.18em}
+    }
+
+    /* Case comparator */
+    .comparator{position:relative;width:100%;aspect-ratio:16/10;border-radius:12px;overflow:hidden;cursor:ew-resize;touch-action:none;background:#e8e8ed}
+    .case-before,.case-after{position:absolute;inset:0;width:100%;height:100%}
+    .case-before{background:linear-gradient(135deg,#d8d8dc 0%,#c8c8cc 100%)}
+    .case-after{background:linear-gradient(135deg,#e8e8ec 0%,#d0d0d4 100%);clip-path:inset(0 var(--pos,50%) 0 0)}
+    .slider-handle{position:absolute;top:0;bottom:0;left:calc(100% - var(--pos,50%));width:3px;background:#fff;box-shadow:0 0 8px rgba(0,0,0,.15);z-index:10;transform:translateX(-50%)}
+    .slider-grip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.15);display:flex;align-items:center;justify-content:center;gap:2px}
+    .slider-grip .chevron{width:6px;height:10px;fill:var(--ink-soft)}
+    .stamp{position:absolute;top:12px;font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);background:rgba(251,251,253,.85);padding:4px 10px;border-radius:4px;border:.5px solid var(--line);z-index:5}
+    .stamp-before{left:12px}
+    .stamp-after{right:12px}
+
+    /* Case metadata — editorial with red hairline prefix */
+    .case-meta dl{display:flex;flex-direction:column;gap:0}
+    .case-meta dt{font-size:10px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:rgba(10,40,80,0.55);padding-left:22px;position:relative;margin-top:14px}
+    .case-meta dt:first-child{margin-top:0}
+    .case-meta dt::before{content:"";position:absolute;left:0;top:50%;width:14px;height:1px;background:#E8334A;transform:translateY(-50%)}
+    .case-meta dd{font-family:'Noto Serif',serif;font-weight:400;font-size:16px;color:var(--ink);margin:4px 0 0;padding-left:22px;letter-spacing:-0.005em}
+
+    /* Pull quote */
+    .pull-quote{font-family:'Noto Serif',serif;font-weight:300;font-style:italic;font-size:18px;line-height:1.8;color:var(--ink);text-align:center;max-width:720px;margin:0 auto;padding:60px 24px;position:relative}
+    .pull-quote::before{content:'\201C';position:absolute;top:20px;left:50%;transform:translateX(-50%);font-size:60px;color:var(--line);font-family:'Noto Serif',serif;line-height:1}
+
+    /* Filter chips */
+    .filter-bar{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;-ms-overflow-style:none;scrollbar-width:none}
+    .filter-bar::-webkit-scrollbar{display:none}
+    .filter-chip{position:relative;display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 18px;border-radius:999px;border:.5px solid var(--line);background:#fff;color:var(--ink);font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:all .35s var(--ease);flex-shrink:0}
+    .filter-chip:hover{border-color:var(--navy);transform:translateY(-1px)}
+    .filter-chip.active{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 6px 18px -6px rgba(0,113,187,0.45)}
+    .filter-chip.active::after{content:"";position:absolute;left:50%;bottom:-10px;width:22px;height:2px;background:#E8334A;transform:translateX(-50%);border-radius:2px}
+    .filter-chip .count{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:20px;padding:0 7px;border-radius:999px;font-family:'Noto Serif',serif;font-weight:400;font-style:italic;font-size:12px;letter-spacing:0;text-transform:none;background:rgba(0,0,0,.05);color:var(--ink-soft)}
+    .filter-chip.active .count{background:rgba(255,255,255,.18);color:#fff}
+
+    /* Cases grid */
+    .cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    @media(max-width:900px){.cases-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.cases-grid{grid-template-columns:1fr}}
+
+    .cases-section-title{display:flex;align-items:baseline;gap:14px;font-family:'Noto Serif',serif;font-weight:300;font-size:24px;color:var(--ink);margin:48px 0 22px;letter-spacing:-0.01em;position:relative;padding-left:36px}
+    .cases-section-title::before{content:"";position:absolute;left:0;top:14px;width:24px;height:1px;background:#E8334A}
+    .cases-section-title span{font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;color:var(--ink-soft);letter-spacing:.22em;text-transform:uppercase;margin:0}
+
+    /* Case card */
+    .case-card{position:relative;border-radius:14px;border:.5px solid var(--line);background:#fff;overflow:hidden;transition:transform .5s var(--ease), box-shadow .5s var(--ease), border-color .4s ease;display:flex;flex-direction:column}
+    .case-card:hover{box-shadow:0 22px 50px -20px rgba(10,40,80,0.18),0 4px 12px -6px rgba(10,40,80,0.08);transform:translateY(-5px);border-color:rgba(0,113,187,0.28)}
+    .case-card-visual{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .case-card-visual svg{width:60%;height:60%;opacity:.28;transition:transform .7s var(--ease),opacity .4s ease}
+    .case-card-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,40,80,0.06));pointer-events:none;opacity:0;transition:opacity .4s ease}
+    .case-card:hover .case-card-visual svg{transform:scale(1.08);opacity:.4}
+    .case-card:hover .case-card-visual::after{opacity:1}
+    /* Corner case number badge — only shown when data-num provided */
+    .case-card-visual[data-num]::before{content:attr(data-num);position:absolute;top:14px;left:14px;font-family:'Noto Serif',serif;font-style:italic;font-weight:400;font-size:16px;color:rgba(10,40,80,0.6);background:rgba(255,255,255,0.85);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:3px 10px;border-radius:4px;letter-spacing:-0.01em;z-index:2;border:.5px solid rgba(10,40,80,0.08)}
+    .case-card-body{padding:18px 22px 22px;flex:1;display:flex;flex-direction:column}
+    .case-card-meta{font-size:10.5px;font-weight:700;color:var(--ink-soft);letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;display:inline-flex;align-items:center;gap:10px}
+    .case-card-meta::before{content:"";width:5px;height:5px;border-radius:50%;background:#E8334A;flex-shrink:0}
+    .case-card h4{font-family:'Noto Serif',serif;font-weight:400;font-size:19px;margin-bottom:6px;letter-spacing:-0.01em;color:var(--ink)}
+    .case-card p{font-size:13px;color:var(--ink-soft);line-height:1.55;margin-bottom:18px;flex:1}
+    .case-card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:.5px solid var(--line)}
+    .case-card-tag{font-size:9.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--tag-color,#6e6e73);background:var(--tag-bg,#f5f5f7);padding:5px 11px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
+    .case-card-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--tag-dot,#6e6e73)}
+    .case-card-link{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap .35s var(--ease),color .3s}
+    .case-card-link::after{content:"→";transition:transform .35s var(--ease)}
+    .case-card:hover .case-card-link{color:#E8334A;gap:10px}
+    .case-card:hover .case-card-link::after{transform:translateX(3px)}
+
+    /* Color-coded pathology backgrounds + tag tokens */
+    .case-card[data-patho="chevauchements"] .case-card-visual{background:linear-gradient(170deg,#f9f4e7 0%,var(--pastel-sand) 100%)}
+    .case-card[data-patho="espacements"]   .case-card-visual{background:linear-gradient(170deg,#f4e8e5 0%,var(--pastel-rose) 100%)}
+    .case-card[data-patho="supraclusion"]  .case-card-visual{background:linear-gradient(170deg,#ecf1e9 0%,var(--pastel-sage) 100%)}
+    .case-card[data-patho="articule"]      .case-card-visual{background:linear-gradient(170deg,#ebedf5 0%,var(--pastel-periwinkle) 100%)}
+    .case-card[data-patho="beance"]        .case-card-visual{background:linear-gradient(170deg,#f3ebe0 0%,var(--pastel-clay) 100%)}
+    .case-card[data-patho="sous-occlusion"].case-card-visual{background:linear-gradient(170deg,#ebeef4 0%,var(--pastel-powder) 100%)}
+    .case-card[data-patho="chevauchements"]{--tag-bg:#f6efe0;--tag-color:#7a5d1f;--tag-dot:#b8965a}
+    .case-card[data-patho="espacements"]   {--tag-bg:#f6e5e1;--tag-color:#a03c3c;--tag-dot:#E8334A}
+    .case-card[data-patho="supraclusion"]  {--tag-bg:#e8f0e4;--tag-color:#3d6d5d;--tag-dot:#3d6d5d}
+    .case-card[data-patho="articule"]      {--tag-bg:#e6e9f3;--tag-color:#334c8a;--tag-dot:#0071BB}
+    .case-card[data-patho="beance"]        {--tag-bg:#f1e7d9;--tag-color:#8a6539;--tag-dot:#B8965A}
+    .case-card[data-patho="sous-occlusion"]{--tag-bg:#e5ebf3;--tag-color:#2a4b75;--tag-dot:#0A2540}
+
+    /* Load more */
+    .load-more{display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:#fff;border:.5px solid var(--line);cursor:pointer;padding:12px 26px;border-radius:999px;transition:all .35s var(--ease)}
+    .load-more::after{content:"";width:16px;height:1px;background:#E8334A;transition:width .35s var(--ease)}
+    .load-more:hover{border-color:var(--navy);color:var(--navy);transform:translateY(-1px);box-shadow:0 6px 16px -8px rgba(0,113,187,0.3)}
+    .load-more:hover::after{width:26px}
+
+    /* White testimonial break */
+    .dark-break{background:#ffffff;color:#0A2540;padding:110px 0;position:relative;overflow:hidden;isolation:isolate}
+    .dark-break::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 82% 18%,rgba(0,113,187,0.04),transparent 62%),radial-gradient(ellipse 50% 35% at 18% 82%,rgba(232,51,74,0.03),transparent 62%);pointer-events:none;z-index:-1}
+    .dark-break::after{content:"";position:absolute;top:10%;right:-120px;width:320px;height:320px;border-radius:50%;border:.5px dashed rgba(0,113,187,0.12);pointer-events:none;z-index:-1}
+    .dark-break .container-r{max-width:860px;text-align:center;position:relative}
+    .dark-break-kicker{display:inline-flex;align-items:center;gap:14px;font-family:'Manrope',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.32em;text-transform:uppercase;color:rgba(10,37,64,0.78);margin-bottom:36px}
+    .dark-break-kicker::before,.dark-break-kicker::after{content:"";width:28px;height:1px;background:#E8334A}
+    .dark-break-quote{font-family:'Noto Serif',serif;font-weight:300;font-size:clamp(22px,2.8vw,34px);line-height:1.35;letter-spacing:-0.012em;color:#0A2540;margin:0 auto 36px;max-width:820px}
+    .dark-break-quote em{font-style:italic;color:#0071BB;font-weight:400}
+    .dark-break-attribution{display:inline-flex;align-items:center;gap:14px;margin-top:4px}
+    .dark-break-name{font-family:'Manrope',sans-serif;font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#0A2540}
+    .dark-break-sep{width:22px;height:1px;background:rgba(10,37,64,0.3)}
+    .dark-break-case{font-family:'Noto Serif',serif;font-style:italic;font-weight:400;font-size:14px;color:rgba(10,37,64,0.7)}
+
+    /* Pathology grid — clean brand-aligned tiles */
+    .patho-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    @media(max-width:900px){.patho-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.patho-grid{grid-template-columns:1fr}}
+    .patho-tile{position:relative;border-radius:14px;border:.5px solid var(--line);background:#fff;padding:32px 24px 28px;transition:all .4s var(--ease)}
+    .patho-tile:hover{box-shadow:0 18px 40px -14px rgba(10,40,80,0.12),0 4px 12px -6px rgba(10,40,80,0.06);transform:translateY(-3px);border-color:rgba(0,113,187,0.22)}
+    .patho-tile:nth-child(1){--patho-accent:#B8965A}
+    .patho-tile:nth-child(2){--patho-accent:#E8334A}
+    .patho-tile:nth-child(3){--patho-accent:#3d6d5d}
+    .patho-tile:nth-child(4){--patho-accent:#0071BB}
+    .patho-tile:nth-child(5){--patho-accent:#B8965A}
+    .patho-tile:nth-child(6){--patho-accent:#0A2540}
+    .patho-tile-icon{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+    .patho-tile-icon svg *{stroke:var(--patho-accent)}
+    .patho-tile h4{font-family:'Noto Serif',serif;font-weight:400;font-size:19px;margin-bottom:8px;letter-spacing:-0.01em;color:var(--ink)}
+    .patho-tile p{font-size:13px;color:rgba(10,40,80,0.62);line-height:1.55;margin-bottom:14px}
+    .patho-tile a{font-size:10.5px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--patho-accent,#0071BB);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap .35s var(--ease)}
+    .patho-tile a::after{content:"→";transition:transform .35s var(--ease)}
+    .patho-tile:hover a{gap:10px}
+    .patho-tile:hover a::after{transform:translateX(3px)}
+
+    /* CTA section — dark green editorial close */
+    .cta-section{background:#1A2D2A;color:#F0EBDB;padding:110px 0;text-align:center;position:relative;overflow:hidden;isolation:isolate}
+    .cta-section::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 45% at 82% 15%,rgba(168,194,183,0.12),transparent 62%),radial-gradient(ellipse 55% 40% at 15% 85%,rgba(232,51,74,0.08),transparent 62%);pointer-events:none;z-index:-1}
+    .cta-section::after{content:"";position:absolute;top:8%;right:-130px;width:340px;height:340px;border-radius:50%;border:.5px dashed rgba(168,194,183,0.16);pointer-events:none;z-index:-1}
+    .cta-section .eyebrow{color:rgba(240,235,219,0.78)}
+    .cta-section h2{color:#F5F0DC}
+    .cta-section h2 em.serif-italic{color:#a8c2b7}
+    .cta-section > .container-r > p{color:rgba(240,235,219,0.75) !important}
+    .cta-section > .container-r > p strong{color:#F5F0DC}
+    .cta-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:40px 0}
+    @media(max-width:768px){.cta-cards{grid-template-columns:1fr}}
+    .cta-card{border-radius:14px;padding:32px 24px;text-align:left;border:.5px solid rgba(240,235,219,0.1);transition:transform .4s var(--ease),box-shadow .4s ease,border-color .3s ease}
+    .cta-card:hover{transform:translateY(-3px);box-shadow:0 20px 40px -16px rgba(0,0,0,0.35);border-color:rgba(232,51,74,0.3)}
+    .cta-card h4{font-family:'Noto Serif',serif;font-weight:400;font-size:19px;margin-bottom:6px;letter-spacing:-0.01em;color:#1a2b3c}
+    .cta-card p{font-size:13px;color:rgba(26,43,60,0.68);line-height:1.55}
+    .cta-card .material-symbols-outlined{font-size:28px;color:var(--navy);margin-bottom:12px}
+
+    .btn-primary{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 32px;border-radius:999px;background:#0071BB;color:#fff;font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:none;cursor:pointer;transition:all .3s var(--ease)}
+    .btn-primary:hover{opacity:.9}
+    .btn-ghost{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 32px;border-radius:999px;background:transparent;color:var(--ink);font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:.5px solid var(--line);cursor:pointer;transition:all .3s var(--ease)}
+    .btn-ghost:hover{border-color:var(--navy);color:var(--navy)}
+
+    /* Contact Form Card */
+    .contact-form-card{max-width:720px;margin:72px auto 0;padding:48px;background:#fff;border-radius:24px;border:.5px solid var(--line);text-align:left}
+    .form-grid{display:flex;flex-direction:column;gap:18px}
+    .form-row-2col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .form-field{display:flex;flex-direction:column}
+    .form-field label{font-family:'Manrope',sans-serif;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
+    .form-field .req{color:#c44}
+    .form-field input[type="text"],
+    .form-field input[type="email"],
+    .form-field input[type="tel"],
+    .form-field select,
+    .form-field textarea{padding:14px 16px;border:.5px solid var(--line);border-radius:10px;background:var(--bg);font-family:'Manrope',sans-serif;font-size:14px;color:var(--ink);transition:all .3s var(--ease);width:100%;box-sizing:border-box}
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus{border-color:var(--navy);background:#fff;outline:none}
+    .form-field input::placeholder,
+    .form-field textarea::placeholder{color:var(--ink-soft);opacity:.6}
+    .form-field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path fill='none' stroke='%236e6e73' stroke-width='1.5' d='M3 4.5 6 7.5 9 4.5'/></svg>");background-repeat:no-repeat;background-position:right 16px center;padding-right:44px}
+    .form-field-checkbox{flex-direction:row;align-items:flex-start;gap:0}
+    .checkbox-label{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-family:'Manrope',sans-serif;font-size:12px;color:var(--ink-soft);line-height:1.5}
+    .checkbox-label input[type="checkbox"]{margin-top:2px;accent-color:var(--navy);width:16px;height:16px;flex-shrink:0}
+    .field-error{font-family:'Manrope',sans-serif;font-size:11px;color:#c44;margin-top:4px;min-height:0}
+    .field-error.visible{min-height:16px}
+    .form-submit:disabled{opacity:.5;cursor:not-allowed}
+    @media(max-width:600px){
+      .contact-form-card{padding:28px}
+      .form-row-2col{grid-template-columns:1fr}
+    }
+
+    /* Footer */
+    .site-footer{background:#ffffff;color:var(--ink-soft);padding:80px 0 40px;border-top:.5px solid var(--line)}
+
+    /* Focus rings */
+    :focus-visible{outline:2px solid var(--navy);outline-offset:2px;border-radius:4px}
+
+    /* Reduced motion */
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+    }
+
+    /* Sections */
+    .section{padding:80px 0}
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav class="nav-bar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" style="text-decoration:none">RYZE&#8482; ALIGNERS</a>
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="treatment.html">Technologie</a>
+        <a href="scanner.html">Scanner</a>
+        <a href="results.html" class="active">Résultats</a>
+        <a href="tarifs.html">Tarifs</a>
+        <a href="junior.html">Junior</a>
+        <a href="blog.html">Articles</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="nav-cta">START SCAN</button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+          <span class="material-symbols-outlined" style="color:var(--ink);font-size:24px">menu</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Accueil</a>
+    <a href="treatment.html">Technologie</a>
+    <a href="results.html" style="color:var(--navy)">Résultats</a>
+    <a href="tarifs.html">Tarifs</a>
+    <a href="junior.html">Junior</a>
+    <a href="blog.html">Articles</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+  <!-- ==================== 4.1 HERO — orbital carousel ==================== -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <!-- Orbital carousel of smiles + aligners -->
+    <div class="orbit-stage" id="orbitStage" aria-hidden="true">
+      <div class="orbit-core"></div>
+      <div class="orbit-card" data-tilt="-12"><img src="assets/sarabloom._a_wide_black_and_white_portrait_of_a_joyful_woman__8d2e70e7-4698-4c17-9c94-620bd8e00832_3.png" alt=""></div>
+      <div class="orbit-card" data-tilt="6"><img src="assets/curated-art-1770067599472.png" alt=""></div>
+      <div class="orbit-card" data-tilt="-5"><img src="assets/sarabloom._casual_woman_around_30_years_old_front-facing_port_7ebb53e4-d269-45f1-958a-aa6ab6d9dfd4_0.png" alt=""></div>
+      <div class="orbit-card" data-tilt="10"><img src="assets/ChatGPT Image 5 févr. 2026, 19_50_33.png" alt=""></div>
+      <div class="orbit-card" data-tilt="-8"><img src="assets/curated-art-1770126503260.png" alt=""></div>
+      <div class="orbit-card" data-tilt="4"><img src="assets/aligner-clinical.png" alt=""></div>
+      <div class="orbit-card" data-tilt="-3"><img src="assets/sarabloom._a_wide_black_and_white_portrait_of_a_joyful_woman__8d2e70e7-4698-4c17-9c94-620bd8e00832_3.png" alt=""></div>
+      <div class="orbit-card" data-tilt="8"><img src="assets/sarabloom._casual_woman_around_30_years_old_front-facing_port_7ebb53e4-d269-45f1-958a-aa6ab6d9dfd4_0.png" alt=""></div>
+    </div>
+
+    <div class="hero-frame">
+      <p class="eyebrow">RÉSULTATS CLINIQUES</p>
+      <h1>Des sourires réels, <em class="serif-italic">transformés avec précision.</em></h1>
+      <span class="hero-signature">chaque sourire est unique.</span>
+
+      <div class="stat-strip">
+        <div class="stat-item">
+          <div class="stat-num">+10 000</div>
+          <div class="stat-label">patients</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">25 ans</div>
+          <div class="stat-label">d'expertise</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">dès 3 mois</div>
+          <div class="stat-label">résultats visibles</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      const stage = document.getElementById('orbitStage');
+      if (!stage) return;
+      const cards = Array.from(stage.querySelectorAll('.orbit-card'));
+      if (!cards.length) return;
+
+      const N = cards.length;
+      const STEP = 360 / N;
+
+      let base = 0;
+      let mouseX = 0.5, mouseY = 0.5;
+      let paused = false;
+
+      function radius(){
+        const w = stage.clientWidth;
+        if (w < 520) return w * 0.34;
+        if (w < 780) return w * 0.32;
+        return Math.min(280, w * 0.32);
+      }
+      function yFlatten(){
+        return stage.clientWidth < 600 ? 0.42 : 0.36;
+      }
+
+      function layout(){
+        const r = radius();
+        const flat = yFlatten();
+        cards.forEach((card, i) => {
+          const a = ((base + i * STEP) % 360) * Math.PI / 180;
+          const x = Math.cos(a) * r;
+          const y = Math.sin(a) * r * flat;
+          const depth = (Math.sin(a) + 1) / 2; // 0..1, 1 = closer to viewer
+          const scale = 0.82 + depth * 0.32;
+          const z = Math.round(depth * 100);
+          const tilt = parseFloat(card.dataset.tilt || 0);
+          card.style.transform =
+            'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0) ' +
+            'scale(' + scale.toFixed(3) + ') ' +
+            'rotate(' + tilt + 'deg)';
+          card.style.zIndex = z;
+          card.style.filter = 'brightness(' + (0.75 + depth * 0.3).toFixed(2) + ')';
+          if (!card.classList.contains('ready')) card.classList.add('ready');
+        });
+
+        // Mouse parallax on whole stage
+        const tiltX = (0.5 - mouseY) * 6;
+        const tiltY = (mouseX - 0.5) * 10;
+        stage.style.transform = 'rotateX(' + tiltX.toFixed(2) + 'deg) rotateY(' + tiltY.toFixed(2) + 'deg)';
+      }
+
+      function tick(){
+        if (!paused) base = (base + 0.12) % 360;
+        layout();
+        requestAnimationFrame(tick);
+      }
+
+      stage.addEventListener('mousemove', (e) => {
+        const r = stage.getBoundingClientRect();
+        mouseX = (e.clientX - r.left) / r.width;
+        mouseY = (e.clientY - r.top) / r.height;
+      });
+      stage.addEventListener('mouseleave', () => { mouseX = 0.5; mouseY = 0.5; });
+      stage.addEventListener('mouseenter', () => { paused = true; });
+      stage.addEventListener('mouseout', () => { paused = false; });
+      window.addEventListener('resize', layout);
+
+      layout();
+      tick();
+    })();
+  </script>
+
+  <!-- ==================== 4.2 FEATURED CASE ==================== -->
+  <section class="section" style="background:#f4fafd">
+    <div class="container-r">
+      <p class="eyebrow" style="margin-bottom:16px">DOSSIER CLINIQUE 014</p>
+      <h2 style="font-size:clamp(28px,4vw,42px);line-height:1.15;margin-bottom:48px">Une correction discrète, <em class="serif-italic">en 6 mois.</em></h2>
+
+      <div style="display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start">
+        <!-- Metadata -->
+        <div class="case-meta" style="padding-top:8px">
+          <dl>
+            <dt>Patient</dt>
+            <dd>Sophie, 28 ans</dd>
+            <dt>Pathologie</dt>
+            <dd>Chevauchements modérés</dd>
+            <dt>Durée</dt>
+            <dd>6 mois</dd>
+            <dt>Aligneurs</dt>
+            <dd>14</dd>
+            <dt>Praticien</dt>
+            <dd>Dr. Martin, Paris</dd>
+          </dl>
+        </div>
+
+        <!-- Before/After Slider -->
+        <div class="comparator" id="comparator" style="--pos:50%">
+          <div class="case-before">
+            <svg viewBox="0 0 400 250" style="width:100%;height:100%;opacity:.15"><ellipse cx="200" cy="125" rx="140" ry="80" fill="none" stroke="#999" stroke-width="1"/><ellipse cx="200" cy="125" rx="100" ry="55" fill="none" stroke="#999" stroke-width=".5"/></svg>
+          </div>
+          <div class="case-after">
+            <svg viewBox="0 0 400 250" style="width:100%;height:100%;opacity:.15"><ellipse cx="200" cy="125" rx="140" ry="80" fill="none" stroke="#999" stroke-width="1"/><ellipse cx="200" cy="125" rx="100" ry="55" fill="none" stroke="#999" stroke-width=".5"/></svg>
+          </div>
+          <div class="stamp stamp-before">T0 · Avant</div>
+          <div class="stamp stamp-after">T+6 mois · Après</div>
+          <div class="slider-handle" id="sliderHandle">
+            <div class="slider-grip">
+              <svg class="chevron" viewBox="0 0 6 10"><path d="M5 1L1 5l4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="chevron" viewBox="0 0 6 10"><path d="M1 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Responsive override for case layout -->
+  <style>
+    @media(max-width:768px){
+      .case-meta-grid{grid-template-columns:1fr!important}
+    }
+  </style>
+
+  <!-- ==================== 4.3 PULL QUOTE ==================== -->
+  <section style="padding:20px 0 60px;background:#f4fafd">
+    <div class="container-r">
+      <div class="pull-quote" style="border-top:.5px solid rgba(10,40,80,0.12);border-bottom:.5px solid rgba(10,40,80,0.12);padding:56px 24px;position:relative">
+        <span style="position:absolute;top:-4px;left:50%;transform:translateX(-50%);width:28px;height:1px;background:#E8334A"></span>
+        Nos patients apprécient particulièrement le fait d'obtenir ces résultats sans taquets visibles sur le devant des dents, pour une discrétion totale durant tout le traitement.
+        <span style="position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);width:28px;height:1px;background:#E8334A"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4.4 FILTERABLE GALLERY ==================== -->
+  <section class="section" style="background:#ffffff">
+    <div class="container-r">
+      <p class="eyebrow" style="margin-bottom:16px">EXPLOREZ NOS DOSSIERS PATIENTS</p>
+      <h2 style="font-size:clamp(28px,4vw,42px);line-height:1.15;margin-bottom:12px">Chaque sourire. <em class="serif-italic">Sa propre histoire.</em></h2>
+      <p style="font-size:15px;color:var(--ink-soft);max-width:520px;margin-bottom:32px">Filtrez par pathologie pour consulter l'ensemble des transformations réalisées par Ryze.</p>
+
+      <!-- Filter bar -->
+      <div class="filter-bar" id="filterBar" style="margin-bottom:40px">
+        <button class="filter-chip active" data-filter="all">Tous les cas <span class="count">42</span></button>
+        <button class="filter-chip" data-filter="chevauchements">Chevauchements <span class="count">14</span></button>
+        <button class="filter-chip" data-filter="espacements">Espacements <span class="count">8</span></button>
+        <button class="filter-chip" data-filter="supraclusion">Supraclusion <span class="count">7</span></button>
+        <button class="filter-chip" data-filter="articule">Articulé inversé <span class="count">5</span></button>
+        <button class="filter-chip" data-filter="beance">Béance <span class="count">4</span></button>
+        <button class="filter-chip" data-filter="sous-occlusion">Sous-occlusion <span class="count">4</span></button>
+      </div>
+
+      <!-- Cases sections -->
+      <div id="casesContainer">
+
+        <!-- CHEVAUCHEMENTS -->
+        <div class="cases-section" data-patho="chevauchements">
+          <h3 class="cases-section-title">Chevauchements <span>14 cas</span></h3>
+          <div class="cases-grid" id="grid-chevauchements">
+            <div class="case-card" data-patho="chevauchements"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#c8b89a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">6 mois · 14 aligneurs</div><h4>Sophie, 28 ans</h4><p>Correction d'un chevauchement antérieur modéré avec alignement complet.</p><div class="case-card-footer"><span class="case-card-tag">Chevauchements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="chevauchements"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#c8b89a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">5 mois · 12 aligneurs</div><h4>Camille, 24 ans</h4><p>Alignement des incisives inférieures avec légère rotation corrigée.</p><div class="case-card-footer"><span class="case-card-tag">Chevauchements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="chevauchements"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#c8b89a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">7 mois · 16 aligneurs</div><h4>Nadia, 31 ans</h4><p>Chevauchement sévère traité avec expansion progressive de l'arcade.</p><div class="case-card-footer"><span class="case-card-tag">Chevauchements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="chevauchements"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#c8b89a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">8 mois · 18 aligneurs</div><h4>Marc, 42 ans</h4><p>Correction tardive d'un chevauchement avec recul canin bilatéral.</p><div class="case-card-footer"><span class="case-card-tag">Chevauchements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="chevauchements" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#c8b89a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">6 mois · 14 aligneurs</div><h4>Hugo, 38 ans</h4><p>Réalignement complet après récidive orthodontique post-adolescence.</p><div class="case-card-footer"><span class="case-card-tag">Chevauchements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="chevauchements" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#c8b89a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">4 mois · 10 aligneurs</div><h4>Julie, 22 ans</h4><p>Chevauchement léger des incisives centrales supérieures.</p><div class="case-card-footer"><span class="case-card-tag">Chevauchements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="chevauchements" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#c8b89a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">7 mois · 15 aligneurs</div><h4>Antoine, 35 ans</h4><p>Encombrement modéré avec correction de la ligne médiane.</p><div class="case-card-footer"><span class="case-card-tag">Chevauchements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="chevauchements" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#c8b89a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">5 mois · 11 aligneurs</div><h4>Inès, 26 ans</h4><p>Correction d'une rotation des prémolaires avec alignement global.</p><div class="case-card-footer"><span class="case-card-tag">Chevauchements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="chevauchements" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#c8b89a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">9 mois · 20 aligneurs</div><h4>Romain, 44 ans</h4><p>Encombrement sévère avec extraction programmée et fermeture d'espace.</p><div class="case-card-footer"><span class="case-card-tag">Chevauchements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="chevauchements" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#c8b89a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">6 mois · 13 aligneurs</div><h4>Clara, 30 ans</h4><p>Chevauchement bimaxillaire léger traité sans attachements visibles.</p><div class="case-card-footer"><span class="case-card-tag">Chevauchements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="chevauchements" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#c8b89a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">5 mois · 12 aligneurs</div><h4>Yanis, 27 ans</h4><p>Rotation incisive et alignement du secteur antérieur inférieur.</p><div class="case-card-footer"><span class="case-card-tag">Chevauchements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="chevauchements" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#c8b89a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">6 mois · 14 aligneurs</div><h4>Manon, 33 ans</h4><p>Encombrement modéré avec correction de la supraclusion associée.</p><div class="case-card-footer"><span class="case-card-tag">Chevauchements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="chevauchements" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#c8b89a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">4 mois · 9 aligneurs</div><h4>Liam, 20 ans</h4><p>Chevauchement minime résolu avec un traitement express Ryze.</p><div class="case-card-footer"><span class="case-card-tag">Chevauchements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="chevauchements" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#c8b89a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">7 mois · 16 aligneurs</div><h4>Fatima, 39 ans</h4><p>Correction d'un encombrement post-extraction avec gestion d'espace.</p><div class="case-card-footer"><span class="case-card-tag">Chevauchements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+          </div>
+          <div style="text-align:center;margin-top:20px"><button class="load-more" data-section="chevauchements">Charger plus de dossiers &rarr;</button></div>
+        </div>
+
+        <!-- ESPACEMENTS -->
+        <div class="cases-section" data-patho="espacements">
+          <h3 class="cases-section-title">Espacements <span>8 cas</span></h3>
+          <div class="cases-grid" id="grid-espacements">
+            <div class="case-card" data-patho="espacements"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#b8908a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">4 mois · 10 aligneurs</div><h4>Léa, 19 ans</h4><p>Fermeture d'un diastème inter-incisif de 2mm sans composite.</p><div class="case-card-footer"><span class="case-card-tag">Espacements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="espacements"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#b8908a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">5 mois · 12 aligneurs</div><h4>Paul, 45 ans</h4><p>Espaces généralisés fermés par mésialisation progressive.</p><div class="case-card-footer"><span class="case-card-tag">Espacements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="espacements"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#b8908a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">3 mois · 8 aligneurs</div><h4>Emma, 23 ans</h4><p>Diastème central et espaces latéraux corrigés en un seul traitement.</p><div class="case-card-footer"><span class="case-card-tag">Espacements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="espacements"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#b8908a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">6 mois · 14 aligneurs</div><h4>Lucas, 34 ans</h4><p>Fermeture d'espaces multiples avec correction du torque incisif.</p><div class="case-card-footer"><span class="case-card-tag">Espacements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="espacements" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#b8908a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">4 mois · 10 aligneurs</div><h4>Chloé, 21 ans</h4><p>Diastème de 3mm fermé avec contention collée postérieure.</p><div class="case-card-footer"><span class="case-card-tag">Espacements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="espacements" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#b8908a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">5 mois · 11 aligneurs</div><h4>Mehdi, 29 ans</h4><p>Espaces résiduels post-orthodontiques fermés avec refinement Ryze.</p><div class="case-card-footer"><span class="case-card-tag">Espacements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="espacements" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#b8908a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">3 mois · 7 aligneurs</div><h4>Alice, 25 ans</h4><p>Micro-espaces antérieurs fermés pour un sourire plus harmonieux.</p><div class="case-card-footer"><span class="case-card-tag">Espacements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="espacements" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#b8908a" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">6 mois · 13 aligneurs</div><h4>Victor, 40 ans</h4><p>Fermeture d'espaces généralisés avec stabilisation parodontale.</p><div class="case-card-footer"><span class="case-card-tag">Espacements</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+          </div>
+          <div style="text-align:center;margin-top:20px"><button class="load-more" data-section="espacements">Charger plus de dossiers &rarr;</button></div>
+        </div>
+
+        <!-- SUPRACLUSION -->
+        <div class="cases-section" data-patho="supraclusion">
+          <h3 class="cases-section-title">Supraclusion <span>7 cas</span></h3>
+          <div class="cases-grid" id="grid-supraclusion">
+            <div class="case-card" data-patho="supraclusion"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#8ea888" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">8 mois · 18 aligneurs</div><h4>Thomas, 35 ans</h4><p>Supraclusion profonde corrigée par ingression des incisives supérieures.</p><div class="case-card-footer"><span class="case-card-tag">Supraclusion</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="supraclusion"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#8ea888" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">7 mois · 16 aligneurs</div><h4>Sarah, 29 ans</h4><p>Réduction du recouvrement incisif avec amélioration du guide antérieur.</p><div class="case-card-footer"><span class="case-card-tag">Supraclusion</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="supraclusion"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#8ea888" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">9 mois · 20 aligneurs</div><h4>Alexandre, 41 ans</h4><p>Supraclusion sévère avec égression molaire et nivellement complet.</p><div class="case-card-footer"><span class="case-card-tag">Supraclusion</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="supraclusion"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#8ea888" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">6 mois · 14 aligneurs</div><h4>Marine, 26 ans</h4><p>Correction de la courbe de Spee avec ouverture de l'occlusion.</p><div class="case-card-footer"><span class="case-card-tag">Supraclusion</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="supraclusion" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#8ea888" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">7 mois · 15 aligneurs</div><h4>Julien, 32 ans</h4><p>Supraclusion modérée associée à un encombrement antérieur léger.</p><div class="case-card-footer"><span class="case-card-tag">Supraclusion</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="supraclusion" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#8ea888" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">8 mois · 17 aligneurs</div><h4>Laura, 37 ans</h4><p>Recouvrement total traité par plan de morsure intégré aux aligneurs.</p><div class="case-card-footer"><span class="case-card-tag">Supraclusion</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="supraclusion" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#8ea888" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">6 mois · 13 aligneurs</div><h4>Nicolas, 28 ans</h4><p>Ouverture de l'occlusion antérieure avec stabilisation postérieure.</p><div class="case-card-footer"><span class="case-card-tag">Supraclusion</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+          </div>
+          <div style="text-align:center;margin-top:20px"><button class="load-more" data-section="supraclusion">Charger plus de dossiers &rarr;</button></div>
+        </div>
+
+        <!-- ARTICULE INVERSE -->
+        <div class="cases-section" data-patho="articule">
+          <h3 class="cases-section-title">Articulé inversé <span>5 cas</span></h3>
+          <div class="cases-grid" id="grid-articule">
+            <div class="case-card" data-patho="articule"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#9295b0" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">10 mois · 22 aligneurs</div><h4>Élise, 33 ans</h4><p>Articulé inversé antérieur corrigé par vestibulo-version des incisives.</p><div class="case-card-footer"><span class="case-card-tag">Articulé inversé</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="articule"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#9295b0" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">9 mois · 20 aligneurs</div><h4>Bastien, 30 ans</h4><p>Crossbite unilatéral corrigé avec expansion asymétrique contrôlée.</p><div class="case-card-footer"><span class="case-card-tag">Articulé inversé</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="articule"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#9295b0" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">8 mois · 18 aligneurs</div><h4>Amandine, 27 ans</h4><p>Correction d'un articulé inversé postérieur bilatéral léger.</p><div class="case-card-footer"><span class="case-card-tag">Articulé inversé</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="articule"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#9295b0" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">11 mois · 24 aligneurs</div><h4>Rémi, 36 ans</h4><p>Crossbite antérieur avec recul mandibulaire fonctionnel résolu.</p><div class="case-card-footer"><span class="case-card-tag">Articulé inversé</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="articule" style="display:none"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#9295b0" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">9 mois · 19 aligneurs</div><h4>Céline, 31 ans</h4><p>Articulé inversé sur deux dents latérales corrigé par torque différentiel.</p><div class="case-card-footer"><span class="case-card-tag">Articulé inversé</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+          </div>
+          <div style="text-align:center;margin-top:20px"><button class="load-more" data-section="articule">Charger plus de dossiers &rarr;</button></div>
+        </div>
+
+        <!-- BEANCE -->
+        <div class="cases-section" data-patho="beance">
+          <h3 class="cases-section-title">Béance <span>4 cas</span></h3>
+          <div class="cases-grid" id="grid-beance">
+            <div class="case-card" data-patho="beance"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#b5a28e" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">10 mois · 22 aligneurs</div><h4>Océane, 24 ans</h4><p>Béance antérieure fermée par ingression molaire et égression incisive.</p><div class="case-card-footer"><span class="case-card-tag">Béance</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="beance"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#b5a28e" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">9 mois · 20 aligneurs</div><h4>Maxime, 31 ans</h4><p>Béance modérée corrigée avec rééducation linguale associée.</p><div class="case-card-footer"><span class="case-card-tag">Béance</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="beance"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#b5a28e" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">11 mois · 24 aligneurs</div><h4>Agathe, 28 ans</h4><p>Béance squelettique légère compensée par mouvements dento-alvéolaires.</p><div class="case-card-footer"><span class="case-card-tag">Béance</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="beance"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#b5a28e" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">8 mois · 18 aligneurs</div><h4>Théo, 22 ans</h4><p>Fermeture d'une béance antérieure de 3mm avec contrôle vertical.</p><div class="case-card-footer"><span class="case-card-tag">Béance</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+          </div>
+        </div>
+
+        <!-- SOUS-OCCLUSION -->
+        <div class="cases-section" data-patho="sous-occlusion">
+          <h3 class="cases-section-title">Sous-occlusion <span>4 cas</span></h3>
+          <div class="cases-grid" id="grid-sous-occlusion">
+            <div class="case-card" data-patho="sous-occlusion"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#8a90a8" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">12 mois · 26 aligneurs</div><h4>Gabriel, 38 ans</h4><p>Sous-occlusion légère compensée par recul incisif mandibulaire.</p><div class="case-card-footer"><span class="case-card-tag">Sous-occlusion</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="sous-occlusion"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#8a90a8" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">10 mois · 22 aligneurs</div><h4>Margot, 25 ans</h4><p>Classe III dentaire corrigée par avancée du bloc incisivo-canin supérieur.</p><div class="case-card-footer"><span class="case-card-tag">Sous-occlusion</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="sous-occlusion"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#8a90a8" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">11 mois · 24 aligneurs</div><h4>Damien, 33 ans</h4><p>Compensation dento-alvéolaire d'une sous-occlusion squelettique modérée.</p><div class="case-card-footer"><span class="case-card-tag">Sous-occlusion</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+            <div class="case-card" data-patho="sous-occlusion"><div class="case-card-visual"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="45" rx="45" ry="30" fill="none" stroke="#8a90a8" stroke-width=".7"/></svg></div><div class="case-card-body"><div class="case-card-meta">9 mois · 20 aligneurs</div><h4>Salomé, 29 ans</h4><p>Edge-to-edge corrigé avec vestibulo-version maxillaire contrôlée.</p><div class="case-card-footer"><span class="case-card-tag">Sous-occlusion</span><a href="#" class="case-card-link">Voir le dossier</a></div></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4.4b DARK TESTIMONIAL BREAK ==================== -->
+  <section class="dark-break">
+    <div class="container-r">
+      <span class="dark-break-kicker">Témoignage patient</span>
+      <blockquote class="dark-break-quote">
+        « Je ne pensais pas qu'un traitement aussi <em>discret</em> pouvait donner un résultat aussi <em>précis</em>. Six mois plus tard, je souris sans y penser. »
+      </blockquote>
+      <div class="dark-break-attribution">
+        <span class="dark-break-name">Sophie, 28 ans</span>
+        <span class="dark-break-sep" aria-hidden="true"></span>
+        <span class="dark-break-case">Dossier clinique 014</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4.5 PATHOLOGY OVERVIEW ==================== -->
+  <section class="section" style="background:#f0f7f3">
+    <div class="container-r">
+      <p class="eyebrow" style="margin-bottom:16px">PATHOLOGIES TRAITÉES</p>
+      <h2 style="font-size:clamp(28px,4vw,42px);line-height:1.15;margin-bottom:48px">Ryze corrige <em class="serif-italic">la majorité des cas.</em></h2>
+
+      <div class="patho-grid">
+        <div class="patho-tile">
+          <div class="patho-tile-icon" style="background:linear-gradient(135deg,#f9f4e7,var(--pastel-sand))">
+            <svg viewBox="0 0 40 40" width="32" height="32"><ellipse cx="20" cy="20" rx="14" ry="10" fill="none" stroke="#8a7a5a" stroke-width=".8"/><line x1="16" y1="14" x2="18" y2="26" stroke="#8a7a5a" stroke-width=".5"/><line x1="22" y1="13" x2="24" y2="27" stroke="#8a7a5a" stroke-width=".5"/></svg>
+          </div>
+          <h4>Chevauchements</h4>
+          <p>Dents qui se superposent ou se chevauchent par manque d'espace sur l'arcade.</p>
+          <a href="#">En savoir plus</a>
+        </div>
+        <div class="patho-tile">
+          <div class="patho-tile-icon" style="background:linear-gradient(135deg,#f4e8e5,var(--pastel-rose))">
+            <svg viewBox="0 0 40 40" width="32" height="32"><ellipse cx="20" cy="20" rx="14" ry="10" fill="none" stroke="#9a6a60" stroke-width=".8"/><line x1="14" y1="20" x2="17" y2="20" stroke="#9a6a60" stroke-width=".5" stroke-dasharray="1,2"/><line x1="23" y1="20" x2="26" y2="20" stroke="#9a6a60" stroke-width=".5" stroke-dasharray="1,2"/></svg>
+          </div>
+          <h4>Espacements</h4>
+          <p>Espaces visibles entre les dents, y compris le diastème inter-incisif.</p>
+          <a href="#">En savoir plus</a>
+        </div>
+        <div class="patho-tile">
+          <div class="patho-tile-icon" style="background:linear-gradient(135deg,#ecf1e9,var(--pastel-sage))">
+            <svg viewBox="0 0 40 40" width="32" height="32"><path d="M10 22 Q20 10 30 22" fill="none" stroke="#6a8a60" stroke-width=".8"/><path d="M12 24 Q20 30 28 24" fill="none" stroke="#6a8a60" stroke-width=".8"/></svg>
+          </div>
+          <h4>Supraclusion</h4>
+          <p>Les dents supérieures recouvrent excessivement les dents inférieures.</p>
+          <a href="#">En savoir plus</a>
+        </div>
+        <div class="patho-tile">
+          <div class="patho-tile-icon" style="background:linear-gradient(135deg,#f3ebe0,var(--pastel-clay))">
+            <svg viewBox="0 0 40 40" width="32" height="32"><path d="M10 18 Q20 28 30 18" fill="none" stroke="#8a7050" stroke-width=".8"/><path d="M12 22 Q20 14 28 22" fill="none" stroke="#8a7050" stroke-width=".8"/></svg>
+          </div>
+          <h4>Béance</h4>
+          <p>Les dents antérieures ne se touchent pas lorsque les mâchoires sont fermées.</p>
+          <a href="#">En savoir plus</a>
+        </div>
+        <div class="patho-tile">
+          <div class="patho-tile-icon" style="background:linear-gradient(135deg,#ebedf5,var(--pastel-periwinkle))">
+            <svg viewBox="0 0 40 40" width="32" height="32"><path d="M12 16 Q20 22 28 16" fill="none" stroke="#6a6a9a" stroke-width=".8"/><path d="M10 24 Q20 18 30 24" fill="none" stroke="#6a6a9a" stroke-width=".8"/></svg>
+          </div>
+          <h4>Articulé inversé</h4>
+          <p>Une ou plusieurs dents supérieures se ferment à l'intérieur des inférieures.</p>
+          <a href="#">En savoir plus</a>
+        </div>
+        <div class="patho-tile">
+          <div class="patho-tile-icon" style="background:linear-gradient(135deg,#ebeef4,var(--pastel-powder))">
+            <svg viewBox="0 0 40 40" width="32" height="32"><path d="M10 20 Q20 14 30 20" fill="none" stroke="#6a7a9a" stroke-width=".8"/><path d="M8 24 Q20 20 32 24" fill="none" stroke="#6a7a9a" stroke-width=".8"/><line x1="20" y1="14" x2="20" y2="28" stroke="#6a7a9a" stroke-width=".3" stroke-dasharray="1,2"/></svg>
+          </div>
+          <h4>Sous-occlusion</h4>
+          <p>Les dents inférieures dépassent les supérieures en position fermée.</p>
+          <a href="#">En savoir plus</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4.6 CTA ==================== -->
+  <section class="cta-section">
+    <div class="container-r">
+      <p class="eyebrow" style="margin-bottom:16px">PARLEZ À UN EXPERT RYZE</p>
+      <h2 style="font-size:clamp(28px,4vw,42px);line-height:1.15;margin-bottom:12px">Une question ? Un doute ? <em class="serif-italic" style="color:#E8334A">Parlons-en.</em></h2>
+      <p style="font-size:15px;color:var(--ink-soft);max-width:560px;margin:0 auto 0">Notre équipe et nos praticiens partenaires se tiennent à votre disposition <strong>7j/7</strong> pour répondre à toutes vos questions et vous accompagner dans votre parcours.</p>
+
+      <div class="cta-cards">
+        <div class="cta-card" style="background:linear-gradient(160deg,#ECEDEF 0%,#DADCE0 100%)">
+          <span class="material-symbols-outlined" style="color:#0071BB">videocam</span>
+          <h4>Visioconsultation gratuite</h4>
+          <p>Échangez en visio avec un conseiller Ryze pour évaluer votre cas en toute confidentialité.</p>
+        </div>
+        <div class="cta-card" style="background:linear-gradient(160deg,#EAF3FA 0%,#D5E6F5 100%)">
+          <span class="material-symbols-outlined" style="color:#B8965A">location_on</span>
+          <h4>Trouver un praticien</h4>
+          <p>Localisez un orthodontiste partenaire certifié Ryze près de chez vous.</p>
+        </div>
+        <div class="cta-card" style="background:linear-gradient(160deg,#FFFFFF 0%,#F3F4F6 100%)">
+          <span class="material-symbols-outlined" style="color:#E8334A">chat</span>
+          <h4>Échanger avec un conseiller</h4>
+          <p>Posez vos questions par chat ou téléphone, nous sommes disponibles 7j/7.</p>
+        </div>
+      </div>
+
+      <!-- Smart Contact Form Card -->
+      <div class="contact-form-card" id="contactFormCard">
+        <div id="formContent">
+          <p style="font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:12px">FORMULAIRE DE CONTACT</p>
+          <h3 style="font-family:'Noto Serif',serif;font-size:28px;font-weight:300;letter-spacing:-.015em;color:var(--ink);margin-bottom:8px">Parlez-nous de votre situation.</h3>
+          <p style="font-family:'Manrope',sans-serif;font-size:14px;color:var(--ink-soft);margin-bottom:32px;line-height:1.6">Un conseiller Ryze vous répond sous 24h ouvrées avec une première évaluation personnalisée.</p>
+
+          <form id="smartContactForm" novalidate>
+            <div class="form-grid">
+              <!-- Row 1: Prénom + Nom -->
+              <div class="form-row-2col">
+                <div class="form-field">
+                  <label for="cf-firstName">Prénom <span class="req">*</span></label>
+                  <input type="text" id="cf-firstName" name="firstName" required aria-required="true" placeholder="Jean" autocomplete="given-name">
+                  <span class="field-error" aria-live="polite"></span>
+                </div>
+                <div class="form-field">
+                  <label for="cf-lastName">Nom <span class="req">*</span></label>
+                  <input type="text" id="cf-lastName" name="lastName" required aria-required="true" placeholder="Dupont" autocomplete="family-name">
+                  <span class="field-error" aria-live="polite"></span>
+                </div>
+              </div>
+              <!-- Row 2: E-mail + Téléphone -->
+              <div class="form-row-2col">
+                <div class="form-field">
+                  <label for="cf-email">E-mail <span class="req">*</span></label>
+                  <input type="email" id="cf-email" name="email" required aria-required="true" placeholder="jean@exemple.com" autocomplete="email">
+                  <span class="field-error" aria-live="polite"></span>
+                </div>
+                <div class="form-field">
+                  <label for="cf-phone">Téléphone</label>
+                  <input type="tel" id="cf-phone" name="phone" placeholder="06 12 34 56 78" autocomplete="tel">
+                </div>
+              </div>
+              <!-- Situation select -->
+              <div class="form-field">
+                <label for="cf-situation">Ma situation actuelle <span class="req">*</span></label>
+                <select id="cf-situation" name="situation" required aria-required="true">
+                  <option value="" disabled selected>Sélectionnez votre cas…</option>
+                  <option value="chevauchement">Mes dents se chevauchent (Encombrement)</option>
+                  <option value="espacement">J'ai des espaces entre les dents (Diastèmes)</option>
+                  <option value="decalage">J'ai un décalage de mâchoire (Supraclusion / Articulé inversé)</option>
+                  <option value="beance">Je remarque une béance antérieure</option>
+                  <option value="autre">Autre / Je ne sais pas</option>
+                </select>
+                <span class="field-error" aria-live="polite"></span>
+              </div>
+              <!-- Message textarea -->
+              <div class="form-field">
+                <label for="cf-message">Votre message</label>
+                <textarea id="cf-message" name="message" rows="4" placeholder="Ex : Je souhaite savoir si je suis éligible au traitement sans taquets." style="resize:vertical"></textarea>
+              </div>
+              <!-- RGPD checkbox -->
+              <div class="form-field form-field-checkbox">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="cf-rgpd" name="rgpd" required aria-required="true">
+                  <span>J'accepte d'être recontacté·e par Ryze concernant ma demande. Mes données sont traitées conformément au <a href="/mentions-legales#rgpd" style="color:var(--navy);text-decoration:underline">RGPD</a>.</span>
+                </label>
+                <span class="field-error" aria-live="polite"></span>
+              </div>
+              <!-- Submit -->
+              <button type="submit" class="btn-primary form-submit" id="formSubmitBtn" style="width:100%;padding:18px;margin-top:8px">Envoyer ma demande</button>
+            </div>
+          </form>
+
+          <div style="border-top:.5px solid var(--line);margin-top:32px;padding-top:24px;text-align:center">
+            <p style="font-family:'Manrope',sans-serif;font-size:13px;color:var(--ink-soft)">Ou préférez-vous un échange direct ? <a href="index.html#contact" style="color:var(--navy);font-weight:600;text-decoration:none">Trouver un praticien près de chez moi &rarr;</a></p>
+          </div>
+        </div>
+
+        <!-- Success state (hidden by default) -->
+        <div id="formSuccess" style="display:none;text-align:center;padding:48px 24px" role="status">
+          <div style="width:64px;height:64px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;margin:0 auto 24px">
+            <span class="material-symbols-outlined" style="font-size:32px;color:var(--navy)">check_circle</span>
+          </div>
+          <h3 style="font-family:'Noto Serif',serif;font-size:24px;font-weight:300;color:var(--ink);margin-bottom:12px">Merci, votre demande a bien été envoyée.</h3>
+          <p style="font-family:'Manrope',sans-serif;font-size:14px;color:var(--ink-soft);line-height:1.6">Un conseiller vous recontacte sous 24h.</p>
+        </div>
+      </div>
+
+      <p style="font-family:'Manrope',sans-serif;font-size:13px;font-style:italic;color:var(--ink-soft);margin-top:32px;text-align:center">Rejoignez la communauté Ryze et devenez notre prochain succès.</p>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:48px;margin-bottom:64px">
+        <div>
+          <div style="font-family:'Manrope',sans-serif;font-size:14px;font-weight:800;letter-spacing:.18em;color:#0071BB;margin-bottom:24px">RYZE&#8482; ALIGNERS</div>
+          <p style="font-size:13px;line-height:1.6;color:#64748b;max-width:240px">L'excellence de l'orthodontie invisible, conçue et fabriquée en France pour un sourire sans compromis.</p>
+        </div>
+        <div>
+          <h4 style="font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#1a2b3c;margin-bottom:16px">Parcours</h4>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
+            <li><a href="index.html" style="font-size:13px;color:#475569;text-decoration:none;transition:color .3s">Accueil</a></li>
+            <li><a href="treatment.html" style="font-size:13px;color:#475569;text-decoration:none;transition:color .3s">Technologie</a></li>
+            <li><a href="junior.html" style="font-size:13px;color:#475569;text-decoration:none;transition:color .3s">Ryze Junior</a></li>
+            <li><a href="results.html" style="font-size:13px;color:#475569;text-decoration:none;transition:color .3s">Résultats</a></li>
+            <li><a href="tarifs.html" style="font-size:13px;color:#475569;text-decoration:none;transition:color .3s">Tarifs</a></li>
+            <li><a href="blog.html" style="font-size:13px;color:#475569;text-decoration:none;transition:color .3s">Articles</a></li>
+            <li><a href="faq.html" style="font-size:13px;color:#475569;text-decoration:none;transition:color .3s">FAQ</a></li>
+            <li><a href="contact.html" style="font-size:13px;color:#475569;text-decoration:none;transition:color .3s">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#1a2b3c;margin-bottom:16px">Légal</h4>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
+            <li><a href="#" style="font-size:13px;color:#475569;text-decoration:none;transition:color .3s">Mentions légales</a></li>
+            <li><a href="#" style="font-size:13px;color:#475569;text-decoration:none;transition:color .3s">Confidentialité</a></li>
+            <li><a href="#" style="font-size:13px;color:#475569;text-decoration:none;transition:color .3s">CGV</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#1a2b3c;margin-bottom:16px">Contact</h4>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:13px;color:#64748b">
+            <li>contact@ryze-aligners.fr</li>
+            <li>+33 1 23 45 67 89</li>
+            <li>Paris, France</li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top:.5px solid var(--line);padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+        <p style="font-size:12px;color:#94a3b8">&copy; 2026 Ryze&#8482; Aligners. Tous droits réservés.</p>
+        <p style="font-size:12px;color:#94a3b8">Fabriqué avec précision en France</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Footer responsive -->
+  <style>
+    @media(max-width:768px){
+      .site-footer [style*="grid-template-columns:repeat(4"] {
+        grid-template-columns:1fr 1fr!important;
+      }
+    }
+    @media(max-width:480px){
+      .site-footer [style*="grid-template-columns:repeat(4"] {
+        grid-template-columns:1fr!important;
+      }
+    }
+    /* Comparator responsive */
+    @media(max-width:768px){
+      section .container-r > [style*="grid-template-columns:280px"] {
+        grid-template-columns:1fr!important;
+      }
+    }
+  </style>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    /* ---- Before/After Slider ---- */
+    (function(){
+      const comp = document.getElementById('comparator');
+      if(!comp) return;
+      let dragging = false;
+
+      function updatePos(clientX){
+        const rect = comp.getBoundingClientRect();
+        let pct = ((clientX - rect.left) / rect.width) * 100;
+        pct = Math.max(0, Math.min(100, pct));
+        // --pos represents how much of the "after" is clipped from the right
+        comp.style.setProperty('--pos', (100 - pct) + '%');
+      }
+
+      comp.addEventListener('pointerdown', function(e){
+        dragging = true;
+        comp.setPointerCapture(e.pointerId);
+        updatePos(e.clientX);
+        e.preventDefault();
+      });
+      comp.addEventListener('pointermove', function(e){
+        if(!dragging) return;
+        updatePos(e.clientX);
+      });
+      comp.addEventListener('pointerup', function(){
+        dragging = false;
+      });
+      comp.addEventListener('pointercancel', function(){
+        dragging = false;
+      });
+    })();
+
+    /* ---- Filter Chips ---- */
+    (function(){
+      const chips = document.querySelectorAll('.filter-chip');
+      const sections = document.querySelectorAll('.cases-section');
+
+      chips.forEach(function(chip){
+        chip.addEventListener('click', function(){
+          const filter = this.getAttribute('data-filter');
+
+          // Update active chip
+          chips.forEach(function(c){ c.classList.remove('active'); });
+          this.classList.add('active');
+
+          // Show/hide sections and cards
+          if(filter === 'all'){
+            sections.forEach(function(s){ s.style.display = ''; });
+          } else {
+            sections.forEach(function(s){
+              s.style.display = s.getAttribute('data-patho') === filter ? '' : 'none';
+            });
+          }
+        });
+      });
+    })();
+
+    /* ---- Load More ---- */
+    (function(){
+      const buttons = document.querySelectorAll('.load-more');
+      buttons.forEach(function(btn){
+        btn.addEventListener('click', function(){
+          const section = this.getAttribute('data-section');
+          const grid = document.getElementById('grid-' + section);
+          if(!grid) return;
+          const hidden = grid.querySelectorAll('.case-card[style*="display:none"]');
+          hidden.forEach(function(card){ card.style.display = ''; });
+          this.style.display = 'none';
+        });
+      });
+    })();
+
+    /* ---- Mobile Hamburger ---- */
+    (function(){
+      const btn = document.getElementById('hamburgerBtn');
+      const menu = document.getElementById('mobileMenu');
+      if(!btn || !menu) return;
+      btn.addEventListener('click', function(){
+        menu.classList.toggle('open');
+      });
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.remove('open');
+        });
+      });
+    })();
+
+    // ===== Smart Contact Form =====
+    (function(){
+      var form = document.getElementById('smartContactForm');
+      if(!form) return;
+      var submitBtn = document.getElementById('formSubmitBtn');
+      var formContent = document.getElementById('formContent');
+      var formSuccess = document.getElementById('formSuccess');
+
+      function showError(field, msg){
+        var el = field.parentElement.querySelector('.field-error');
+        if(el){ el.textContent = msg; el.classList.add('visible'); }
+        field.style.borderColor = '#c44';
+      }
+      function clearError(field){
+        var el = field.parentElement.querySelector('.field-error');
+        if(el){ el.textContent = ''; el.classList.remove('visible'); }
+        field.style.borderColor = '';
+      }
+
+      // Clear errors on input
+      form.querySelectorAll('input,select,textarea').forEach(function(f){
+        f.addEventListener('input', function(){ clearError(f); });
+        f.addEventListener('change', function(){ clearError(f); });
+      });
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var valid = true;
+
+        var firstName = form.querySelector('#cf-firstName');
+        var lastName = form.querySelector('#cf-lastName');
+        var email = form.querySelector('#cf-email');
+        var situation = form.querySelector('#cf-situation');
+        var rgpd = form.querySelector('#cf-rgpd');
+
+        // Clear all
+        [firstName,lastName,email,situation,rgpd].forEach(clearError);
+
+        if(!firstName.value.trim()){ showError(firstName,'Prénom requis'); valid=false; }
+        if(!lastName.value.trim()){ showError(lastName,'Nom requis'); valid=false; }
+        if(!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){
+          showError(email,'E-mail invalide'); valid=false;
+        }
+        if(!situation.value){ showError(situation,'Veuillez sélectionner votre situation'); valid=false; }
+        if(!rgpd.checked){
+          var errEl = rgpd.closest('.form-field').querySelector('.field-error') || rgpd.closest('.form-field-checkbox').querySelector('.field-error');
+          if(errEl){ errEl.textContent='Veuillez accepter pour continuer'; errEl.classList.add('visible'); }
+          valid=false;
+        }
+
+        if(!valid) return;
+
+        // Submit
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Envoi en cours…';
+
+        // Simulate API call
+        setTimeout(function(){
+          formContent.style.display = 'none';
+          formSuccess.style.display = 'block';
+          // Scroll to success message
+          document.getElementById('contactFormCard').scrollIntoView({behavior:'smooth',block:'center'});
+        }, 1200);
+      });
+    })();
+  </script>
+</body>
+</html>

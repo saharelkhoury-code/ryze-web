@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Technologie Ryze — Innovation orthodontique francaise</title>
+  <meta name="description" content="Decouvrez la technologie Ryze Aligners : Precision Trigger Points, 80% moins de taquets, fabrication 100% francaise. Resultats des 3 mois.">
+  <link rel="canonical" href="https://www.ryzealigners.fr/treatment.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Technologie Ryze — Innovation orthodontique francaise">
+  <meta property="og:description" content="Precision Trigger Points, 80% moins de taquets visibles, fabrication robotisee 100% francaise. Decouvrez notre approche unique.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.ryzealigners.fr/treatment.html">
+  <meta property="og:image" content="https://picsum.photos/seed/ryze-tech/1200/630">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- JSON-LD BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ryzealigners.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Technologie", "item": "https://www.ryzealigners.fr/treatment.html" }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Bento color variants */
+    .bento__item--neutral-50  { background: var(--p-neutral-50); color: var(--color-text); }
+    .bento__item--neutral-800 { background: var(--p-neutral-800); color: #fff; }
+    .bento__item--neutral-800 .body-sm { color: rgba(255,255,255,.75); }
+    .bento__item--neutral-800 .eyebrow { color: rgba(255,255,255,.6); }
+    .bento__item--blue-500    { background: var(--p-blue-500); color: #fff; }
+    .bento__item--blue-500 .body-sm { color: rgba(255,255,255,.85); }
+    .bento__item--blue-500 .eyebrow { color: rgba(255,255,255,.7); }
+    .bento__item--blue-50     { background: var(--p-blue-50); color: var(--color-text); }
+    .bento__item--gold        { background: linear-gradient(135deg, #faf6ee 0%, #f0ead6 100%); color: var(--color-text); }
+    .bento__item--gold .body-sm { color: #5a4a2a; }
+    .bento__item--gold .eyebrow { color: #a87e10; }
+
+    .bento__item--neutral-800 .bento__icon,
+    .bento__item--blue-500 .bento__icon { background: rgba(255,255,255,.15); color: #fff; }
+    .bento__item--gold .bento__icon { background: rgba(168,126,16,.12); color: #a87e10; }
+
+    .bento__icon {
+      width: 48px; height: 48px; border-radius: var(--p-radius-md);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: var(--p-space-5); background: var(--p-blue-50); color: var(--color-brand);
+    }
+
+    /* Process vertical timeline */
+    .process { max-width: 640px; }
+    .process__step { display: grid; grid-template-columns: 56px 1fr; gap: 0 var(--p-space-6); padding-bottom: var(--p-space-10); position: relative; }
+    .process__step:last-child { padding-bottom: 0; }
+    .process__step:not(:last-child)::after {
+      content: ''; position: absolute; left: 27px; top: 56px; bottom: 0; width: 1px;
+      background: var(--color-border);
+    }
+    .process__dot {
+      width: 56px; height: 56px; border-radius: 50%; background: var(--p-blue-50);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-weight: 600; font-size: var(--p-text-sm);
+      color: var(--color-brand); position: relative; z-index: 1;
+      transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+    }
+    .process__step:hover .process__dot { background: var(--color-accent); color: #fff; }
+
+    /* Stats band */
+    .stats-band { background: var(--p-neutral-800); }
+    .stats-band__grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .stats-band__item { text-align: center; padding: var(--p-space-10) var(--p-space-6); border-right: 1px solid rgba(255,255,255,.06); }
+    .stats-band__item:last-child { border-right: none; }
+    .stats-band__number { font-family: var(--font-display); font-size: clamp(2.5rem,5vw,var(--p-text-5xl)); font-weight: 300; color: #fff; line-height: 1; }
+    .stats-band__label { font-size: var(--p-text-xs); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-top: var(--p-space-2); }
+
+    /* CTA band */
+    .cta-band { background: var(--p-neutral-900); color: #fff; padding: var(--p-space-20) 0; }
+
+    @media (max-width: 640px) {
+      .stats-band__grid { grid-template-columns: 1fr 1fr; }
+      .process__step { grid-template-columns: 48px 1fr; gap: 0 var(--p-space-4); }
+      .process__dot { width: 48px; height: 48px; }
+      .process__step:not(:last-child)::after { left: 23px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip to content -->
+  <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+  <!-- ====== NAV ====== -->
+  <nav class="nav" id="mainNav">
+    <div class="nav__inner">
+      <a href="index.html"><img src="assets/logo.svg" alt="Ryze Aligners" class="nav__logo"></a>
+      <div class="nav__links">
+        <a href="index.html" class="nav__link">Accueil</a>
+        <a href="treatment.html" class="nav__link" aria-current="page">Technologie</a>
+        <a href="junior.html" class="nav__link">Ryze Junior</a>
+        <a href="results.html" class="nav__link">Resultats</a>
+        <a href="tarifs.html" class="nav__link">Tarifs</a>
+        <a href="blog.html" class="nav__link">Articles</a>
+        <a href="faq.html" class="nav__link">FAQ</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </div>
+      <a href="contact.html#scan" class="nav__cta">Start Scan</a>
+      <button class="nav__burger" id="navBurger" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="navMobile">
+      <a href="index.html" class="nav__link">Accueil</a>
+      <a href="treatment.html" class="nav__link" aria-current="page">Technologie</a>
+      <a href="junior.html" class="nav__link">Ryze Junior</a>
+      <a href="results.html" class="nav__link">Resultats</a>
+      <a href="tarifs.html" class="nav__link">Tarifs</a>
+      <a href="blog.html" class="nav__link">Articles</a>
+      <a href="faq.html" class="nav__link">FAQ</a>
+      <a href="contact.html" class="nav__link">Contact</a>
+      <a href="contact.html#scan" class="btn btn--accent btn--lg">Start Scan</a>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- ====== BREADCRUMB ====== -->
+    <div class="container" style="padding-top:calc(var(--nav-height) + var(--p-space-4))">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="index.html">Accueil</a>
+        <span class="breadcrumb__sep" aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">Technologie</span>
+      </nav>
+    </div>
+
+    <!-- ====== HERO (short) ====== -->
+    <section class="hero hero--short reveal">
+      <div class="container">
+        <div class="hero__red-line"></div>
+        <p class="eyebrow hero__eyebrow">Technologie</p>
+        <h1 class="h1 hero__title">La precision au service<br>de votre sourire</h1>
+        <p class="lead hero__sub">Notre technologie brevetee Precision Trigger Points elimine jusqu'a 80&nbsp;% des taquets visibles, pour un traitement orthodontique quasi-invisible fabrique integralement en France.</p>
+        <div class="hero__actions">
+          <a href="contact.html#scan" class="btn btn--accent btn--lg">Commencer mon traitement</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== KEY DIFFERENTIATORS (3 cards) ====== -->
+    <section class="section section--bg reveal">
+      <div class="container">
+        <div class="grid grid--3">
+          <div class="card card--flat reveal" data-delay="1">
+            <div class="card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <h3 class="card__title">Precision Trigger Points&trade;</h3>
+            <p class="card__text">Notre technologie proprietaire remplace les taquets traditionnels par des micropoints de pression calcules algorithmiquement. Le resultat : un aligneur qui travaille avec precision sans compromettre la discretion.</p>
+          </div>
+          <div class="card card--flat reveal" data-delay="2">
+            <div class="card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"/><rect width="18" height="18" x="3" y="4" rx="2"/><circle cx="12" cy="10" r="2"/><line x1="8" x2="8" y1="2" y2="4"/><line x1="16" x2="16" y1="2" y2="4"/></svg>
+            </div>
+            <h3 class="card__title">80&nbsp;% moins de taquets</h3>
+            <p class="card__text">La ou les systemes classiques necessitent de nombreux attachements colles sur les dents, Ryze en reduit le nombre de facon spectaculaire. Personne ne remarque que vous portez un aligneur.</p>
+          </div>
+          <div class="card card--flat reveal" data-delay="3">
+            <div class="card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/></svg>
+            </div>
+            <h3 class="card__title">Fabrication francaise 100&nbsp;%</h3>
+            <p class="card__text">Chaque aligneur est concu, thermoformee et controle dans nos laboratoires en France. Cette proximite garantit tracabilite, reactivite et une qualite medicale exemplaire.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== FABRICATION BENTO GRID ====== -->
+    <section class="section reveal" id="fabrication">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Fabrication sur-mesure</p>
+          <h2 class="h2">De la modelisation a l'expedition, chaque detail compte</h2>
+          <p class="lead">Cinq etapes de precision pour creer des aligneurs qui transforment votre sourire en toute securite.</p>
+        </div>
+
+        <div class="bento bento--2x2">
+          <!-- Card 1: Modelisation 3D — neutral-50 -->
+          <div class="bento__item bento__item--neutral-50 reveal">
+            <div class="bento__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M3 12h18"/><circle cx="12" cy="12" r="9"/><path d="M12 3a15.3 15.3 0 0 1 4 9 15.3 15.3 0 0 1-4 9"/><path d="M12 3a15.3 15.3 0 0 0-4 9 15.3 15.3 0 0 0 4 9"/></svg>
+            </div>
+            <p class="eyebrow">Etape 1</p>
+            <h4 class="h4" style="margin-bottom:var(--p-space-3)">Modelisation 3D de votre sourire</h4>
+            <p class="body-sm">A partir d'un scan numerique de vos dents, un orthodontiste etudie votre sourire dans ses moindres details. Chaque mouvement est planifie pour un resultat precis et stable.</p>
+            <span class="bento__stat">3D</span>
+          </div>
+
+          <!-- Card 2: Thermoformage — neutral-800 (dark) -->
+          <div class="bento__item bento__item--neutral-800 reveal" data-delay="1">
+            <div class="bento__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <p class="eyebrow">Etape 2</p>
+            <h4 class="h4" style="margin-bottom:var(--p-space-3);color:#fff">Thermoformage haute performance</h4>
+            <p class="body-sm">Les aligneurs Ryze sont thermoformes a partir d'un materiau souple, resistant et biocompatible, selectionne pour maintenir une force constante et controlee.</p>
+            <span class="bento__stat" style="color:#fff;opacity:.1">99.8%</span>
+          </div>
+
+          <!-- Card 3: Decoupe robotisee — blue-500 -->
+          <div class="bento__item bento__item--blue-500 reveal" data-delay="2">
+            <div class="bento__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <p class="eyebrow">Etape 3</p>
+            <h4 class="h4" style="margin-bottom:var(--p-space-3);color:#fff">Decoupe robotisee de precision</h4>
+            <p class="body-sm">Chaque aligneur est decoupe grace a un systeme robotise haute vitesse, suivant precisement la ligne gingivale naturelle pour un ajustement parfait.</p>
+            <span class="bento__stat" style="color:#fff;opacity:.15">0.1mm</span>
+          </div>
+
+          <!-- Card 4: Controle qualite — blue-50 spanning 2 rows -->
+          <div class="bento__item bento__item--blue-50 bento__item--span-rows reveal" data-delay="1">
+            <div class="bento__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <p class="eyebrow">Etape 4</p>
+            <h4 class="h4" style="margin-bottom:var(--p-space-3)">Controle qualite renforce</h4>
+            <p class="body-sm">Chaque aligneur est nettoye, inspecte et valide individuellement. Les finitions sont verifiees manuellement pour garantir une surface parfaitement lisse, sans asperite. Notre taux de conformite depasse les 99,8&nbsp;%.</p>
+            <span class="bento__stat" style="color:var(--color-brand);opacity:.1">100%</span>
+          </div>
+
+          <!-- Card 5: Expedition — gold -->
+          <div class="bento__item bento__item--gold reveal" data-delay="3">
+            <div class="bento__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="m16 8 5 3-5 3z"/><path d="M1 10h15"/></svg>
+            </div>
+            <p class="eyebrow">Etape 5</p>
+            <h4 class="h4" style="margin-bottom:var(--p-space-3)">Expedition rapide et securisee</h4>
+            <p class="body-sm">Grace a une fabrication 100&nbsp;% francaise en circuit court, vos aligneurs sont expedies rapidement vers le cabinet de votre praticien. Reactivite maximale et continuite optimale du traitement.</p>
+            <span class="bento__stat" style="color:#a87e10;opacity:.15">24h</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TREATMENT PROCESS (4 vertical steps) ====== -->
+    <section class="section section--bg reveal">
+      <div class="container">
+        <div class="grid grid--2">
+          <div>
+            <div class="section-header">
+              <p class="eyebrow">Votre parcours</p>
+              <h2 class="h2">Quatre etapes vers votre nouveau sourire</h2>
+              <p class="lead">Moins d'attachements. Plus de confort. Un sourire durable grace a l'expertise medicale et la precision Ryze.</p>
+            </div>
+
+            <div class="process">
+              <div class="process__step reveal" data-delay="1">
+                <div class="process__dot">01</div>
+                <div style="padding-top:var(--p-space-2)">
+                  <h4 class="h4" style="margin-bottom:var(--p-space-1)">Trouvez un praticien</h4>
+                  <p class="body-sm">Completez une evaluation en ligne et trouvez un orthodontiste partenaire certifie Ryze pres de chez vous.</p>
+                </div>
+              </div>
+              <div class="process__step reveal" data-delay="2">
+                <div class="process__dot">02</div>
+                <div style="padding-top:var(--p-space-2)">
+                  <h4 class="h4" style="margin-bottom:var(--p-space-1)">Scan 3D de votre sourire</h4>
+                  <p class="body-sm">Un scanner numerique rapide et sans douleur permet de creer un modele precis de votre dentition et de simuler le resultat final.</p>
+                </div>
+              </div>
+              <div class="process__step reveal" data-delay="3">
+                <div class="process__dot">03</div>
+                <div style="padding-top:var(--p-space-2)">
+                  <h4 class="h4" style="margin-bottom:var(--p-space-1)">Plan personnalise</h4>
+                  <p class="body-sm">Votre orthodontiste elabore un plan de traitement sur-mesure. Chaque mouvement est calcule pour un resultat optimal et durable.</p>
+                </div>
+              </div>
+              <div class="process__step reveal" data-delay="4">
+                <div class="process__dot">04</div>
+                <div style="padding-top:var(--p-space-2)">
+                  <h4 class="h4" style="margin-bottom:var(--p-space-1)">Aligneurs livres</h4>
+                  <p class="body-sm">Recevez vos aligneurs fabriques en France avec une precision robotisee. Les premiers resultats sont visibles des 3 mois.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal" data-delay="2">
+            <img src="https://picsum.photos/seed/ryze-process/600/800" alt="Patiente souriante avec aligneur Ryze" width="600" height="800" loading="lazy" style="border-radius:var(--card-radius);width:100%;height:auto;object-fit:cover;position:sticky;top:calc(var(--nav-height) + var(--p-space-8))">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== STATS BAND ====== -->
+    <section class="stats-band reveal">
+      <div class="container">
+        <div class="stats-band__grid">
+          <div class="stats-band__item">
+            <div class="stats-band__number">10&nbsp;000+</div>
+            <div class="stats-band__label">Patients transformes</div>
+          </div>
+          <div class="stats-band__item">
+            <div class="stats-band__number">25 ans</div>
+            <div class="stats-band__label">D'expertise orthodontique</div>
+          </div>
+          <div class="stats-band__item">
+            <div class="stats-band__number">3 mois</div>
+            <div class="stats-band__label">Premiers resultats visibles</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== FAQ ====== -->
+    <section class="section reveal">
+      <div class="container container--narrow">
+        <div class="section-header section-header--center">
+          <p class="eyebrow">Questions frequentes</p>
+          <h2 class="h2">Tout savoir sur notre technologie</h2>
+        </div>
+
+        <div class="accordion">
+          <details class="accordion__item">
+            <summary class="accordion__trigger">
+              Pourquoi les aligneurs Ryze sont-ils plus discrets que les autres ?
+              <svg class="accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="accordion__body">
+              Grace a notre technologie brevetee Precision Trigger Points, nous reduisons jusqu'a 80&nbsp;% le besoin d'attaches (taquets) visibles sur vos dents par rapport aux systemes classiques. Le resultat : un aligneur quasi-invisible que personne ne remarque.
+            </div>
+          </details>
+
+          <details class="accordion__item">
+            <summary class="accordion__trigger">
+              Ou sont fabriques les aligneurs Ryze ?
+              <svg class="accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="accordion__body">
+              Chaque aligneur est issu d'une fabrication robotisee 100&nbsp;% francaise, dans nos propres laboratoires. Cette proximite garantit une tracabilite totale, une reactivite maximale et une qualite medicale exemplaire.
+            </div>
+          </details>
+
+          <details class="accordion__item">
+            <summary class="accordion__trigger">
+              Suis-je eligible meme si mon cas est complexe ?
+              <svg class="accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="accordion__body">
+              La grande majorite des patients sont eligibles au traitement Ryze. Seul un scan 3D et l'analyse de nos orthodontistes experts pourront confirmer le plan ideal adapte a votre situation. Nous traitons aussi bien les cas simples que les malocclusions complexes.
+            </div>
+          </details>
+
+          <details class="accordion__item">
+            <summary class="accordion__trigger">
+              Combien de temps dure un traitement Ryze ?
+              <svg class="accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="accordion__body">
+              Chaque sourire est unique. La duree depend de la complexite de votre cas, mais les premiers changements sont souvent visibles des 3 mois. Nos algorithmes optimisent chaque mouvement pour reduire le temps de traitement au maximum.
+            </div>
+          </details>
+
+          <details class="accordion__item">
+            <summary class="accordion__trigger">
+              Les resultats sont-ils permanents ?
+              <svg class="accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="accordion__body">
+              Oui, a condition de porter votre appareil de contention (retainer) apres le traitement pour stabiliser votre nouveau sourire. Nous fournissons des solutions de contention adaptees et assurons un suivi regulier pour perenniser les resultats.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== CTA BAND ====== -->
+    <section class="cta-band reveal">
+      <div class="container text-center">
+        <h2 class="h2" style="color:#fff;margin-bottom:var(--p-space-4)">Pret a transformer votre sourire&nbsp;?</h2>
+        <p class="lead" style="color:rgba(255,255,255,.7);margin:0 auto var(--p-space-8)">Prenez rendez-vous pour une consultation gratuite et decouvrez votre futur sourire grace a la simulation 3D.</p>
+        <a href="contact.html#scan" class="btn btn--accent btn--lg">Commencer mon traitement</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/logo.svg" alt="Ryze Aligners" class="footer__logo">
+          <p class="footer__desc">L'excellence de l'orthodontie invisible, concue et fabriquee en France pour un sourire sans compromis.</p>
+          <p class="body-sm" style="color:var(--p-neutral-400)">contact@ryzealigners.fr</p>
+          <p class="body-sm" style="color:var(--p-neutral-400)">+33 1 84 80 00 00</p>
+        </div>
+        <div>
+          <p class="footer__heading">Soins</p>
+          <a href="treatment.html" class="footer__link">Technologie</a>
+          <a href="junior.html" class="footer__link">Ryze Junior</a>
+          <a href="results.html" class="footer__link">Resultats</a>
+          <a href="tarifs.html" class="footer__link">Tarifs</a>
+        </div>
+        <div>
+          <p class="footer__heading">Informations</p>
+          <a href="blog.html" class="footer__link">Articles</a>
+          <a href="faq.html" class="footer__link">FAQ</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+        </div>
+        <div>
+          <p class="footer__heading">Legal</p>
+          <a href="mentions-legales.html" class="footer__link">Mentions legales</a>
+          <a href="cgv.html" class="footer__link">CGV</a>
+          <a href="confidentialite.html" class="footer__link">Confidentialite</a>
+          <a href="cookies.html" class="footer__link">Cookies</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2024 Ryze Aligners. Tous droits reserves.</p>
+        <div class="footer__legal">
+          <a href="mentions-legales.html">Mentions legales</a>
+          <a href="confidentialite.html">Confidentialite</a>
+          <a href="cgv.html">CGV</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====== COOKIE BANNER ====== -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-banner__inner">
+      <p class="cookie-banner__text">Nous utilisons des cookies pour ameliorer votre experience. En poursuivant, vous acceptez notre politique de cookies.</p>
+      <div class="cookie-banner__actions">
+        <button class="btn btn--primary btn--sm" id="cookieAccept">Accepter</button>
+        <button class="btn btn--ghost btn--sm" id="cookieRefuse">Refuser</button>
+        <button class="btn btn--ghost btn--sm" id="cookieCustomize">Personnaliser</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/motion.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/cookies.js"></script>
+</body>
+</html>

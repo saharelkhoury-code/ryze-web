@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Articles — Ryze™ Aligners | Guides & Conseils Orthodontie Invisible</title>
+<meta name="description" content="Guides cliniques, conseils experts et décryptages sur les aligneurs invisibles — par l'équipe Ryze.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;font-size:16px;line-height:1.75;color:#0F172A;background:#F8FAFC;-webkit-font-smoothing:antialiased}
+:root{
+  --blue:#0071BB;--blue-dark:#005a96;--navy:#1A2D2A;--red:#E8334A;
+  --text:#0F172A;--text-soft:#64748B;--text-light:#94A3B8;
+  --bg:#F8FAFC;--white:#fff;--border:#E2E8F0;--blue-bg:#EAF3FA;
+  --f-d:'Cormorant Garamond',Georgia,serif;
+  --f-s:'Manrope',system-ui,sans-serif;
+}
+
+/* NAV */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.site-nav-inner{display:flex;justify-content:space-between;align-items:center;padding:18px 24px 18px 48px;max-width:1920px;margin:0 auto;position:relative}
+.logo-link{font-family:var(--f-s);font-weight:700;font-size:22px;letter-spacing:.15em;color:var(--blue);text-decoration:none;flex-shrink:0}
+.logo-link sup{font-size:.65em;vertical-align:super}
+.nav-center{display:flex;align-items:center;gap:40px;position:absolute;left:50%;transform:translateX(-50%);font-family:var(--f-s);font-size:13.5px;font-weight:500;color:var(--blue)}
+.nav-center a{text-decoration:none;color:inherit;transition:opacity .25s;white-space:nowrap}
+.nav-center a:hover{opacity:.6}
+.nav-center a.active{border-bottom:2px solid var(--blue);padding-bottom:2px}
+.nav-cta{display:inline-flex;align-items:center;padding:12px 32px;border-radius:100px;background:var(--blue);color:#fff;font-family:var(--f-s);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;transition:all .25s;flex-shrink:0}
+.nav-cta:hover{background:var(--blue-dark);transform:translateY(-1px)}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;z-index:99;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:24px;flex-direction:column;gap:0}
+.mobile-menu a{font-family:var(--f-s);font-size:15px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:12px 0;display:block;border-bottom:1px solid var(--border)}
+.mobile-menu a.active{color:var(--blue)}
+@media(max-width:1024px){.nav-center{display:none}}
+@media(min-width:1025px){.hamburger-btn{display:none!important}}
+
+/* PAGE HEADER */
+.page-header{background:#fff;padding:120px 24px 0;border-bottom:1px solid var(--border);text-align:center}
+.breadcrumb{font-family:var(--f-s);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text-light);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:8px}
+.breadcrumb a{color:inherit;text-decoration:none;transition:color .2s}
+.breadcrumb a:hover{color:var(--blue)}
+.breadcrumb span{opacity:.35}
+.page-header h1{font-family:var(--f-d);font-weight:300;font-size:clamp(40px,5.5vw,72px);line-height:1.05;letter-spacing:-.03em;color:var(--text);margin-bottom:14px}
+.page-header h1 em{font-style:italic;color:var(--blue)}
+.ph-sub{font-family:var(--f-s);font-size:15px;color:var(--text-soft);max-width:520px;margin:0 auto 40px;line-height:1.65}
+.header-stats{display:flex;align-items:center;justify-content:center;gap:0;padding:18px 0;border-top:1px solid var(--border);flex-wrap:wrap}
+.hstat{font-family:var(--f-s);font-size:12px;font-weight:500;color:var(--text-soft);padding:0 20px;display:flex;align-items:center;gap:6px;border-right:1px solid var(--border)}
+.hstat:last-child{border-right:none}
+.hstat strong{color:var(--text);font-weight:700}
+
+/* FILTER BAR */
+.filter-bar{background:#fff;padding:24px 24px 0;position:sticky;top:68px;z-index:50;border-bottom:1px solid var(--border)}
+.filter-inner{max-width:1200px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;padding-bottom:24px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.filter-inner::-webkit-scrollbar{display:none}
+.filter-pill{flex-shrink:0;padding:8px 18px;border-radius:100px;font-family:var(--f-s);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--border);color:var(--text-soft);background:#fff;cursor:pointer;transition:all .22s;white-space:nowrap}
+.filter-pill:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-bg)}
+.filter-pill.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* FEATURED */
+.featured-section{max-width:1200px;margin:0 auto;padding:48px 24px 0}
+.section-label{font-family:var(--f-s);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--text-light);margin-bottom:16px}
+.featured-card{display:grid;grid-template-columns:1.15fr 1fr;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06),0 8px 32px rgba(0,0,0,.04);border:1px solid var(--border);transition:box-shadow .3s,transform .3s}
+.featured-card:hover{box-shadow:0 8px 36px rgba(0,0,0,.1);transform:translateY(-3px)}
+.feat-thumb{display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;min-height:340px;background:linear-gradient(145deg,#d0e8f5 0%,#e8f5ff 100%)}
+.feat-thumb::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(0,113,187,.1) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.feat-thumb svg{width:130px;height:130px;opacity:.72;position:relative;z-index:1}
+.feat-body{padding:48px 52px;display:flex;flex-direction:column;justify-content:center}
+.feat-cat{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-s);font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
+.feat-cat-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0}
+.feat-title{font-family:var(--f-d);font-weight:300;font-size:clamp(24px,2.8vw,36px);line-height:1.15;letter-spacing:-.02em;color:var(--text);margin-bottom:16px}
+.feat-title a{text-decoration:none;color:inherit;transition:color .25s}
+.feat-title a:hover{color:var(--blue)}
+.feat-excerpt{font-family:var(--f-s);font-size:14.5px;line-height:1.7;color:var(--text-soft);margin-bottom:24px;flex:1}
+.feat-meta{display:flex;align-items:center;gap:8px;font-family:var(--f-s);font-size:12px;color:var(--text-light);margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.feat-meta .dot{width:3px;height:3px;border-radius:50%;background:currentColor;flex-shrink:0}
+.feat-read{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-s);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);text-decoration:none;transition:gap .25s}
+.feat-read:hover{gap:14px}
+.feat-read .material-symbols-outlined{font-size:16px}
+
+/* BLOG GRID */
+.blog-main{max-width:1200px;margin:0 auto;padding:52px 24px 80px}
+.grid-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:8px}
+.grid-title{font-family:var(--f-d);font-weight:300;font-size:clamp(22px,2.8vw,34px);line-height:1.1;letter-spacing:-.02em;color:var(--text)}
+.grid-title em{font-style:italic;color:var(--blue)}
+.grid-count{font-family:var(--f-s);font-size:12px;font-weight:600;color:var(--text-light);letter-spacing:.08em}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+/* BLOG CARD */
+.blog-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--border);box-shadow:0 1px 4px rgba(0,0,0,.04);transition:box-shadow .3s,transform .3s,border-color .3s;display:flex;flex-direction:column}
+.blog-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.09);transform:translateY(-3px);border-color:rgba(0,113,187,.22)}
+.blog-card a{text-decoration:none;color:inherit;display:flex;flex-direction:column;height:100%}
+.card-thumb{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0}
+.card-thumb svg{width:54px;height:54px;opacity:.68;transition:transform .4s,opacity .35s}
+.blog-card:hover .card-thumb svg{transform:scale(1.1);opacity:.9}
+.thumb-traitement{background:linear-gradient(145deg,#d8eeff 0%,#ecf7ff 100%)}
+.thumb-technologie{background:linear-gradient(145deg,#cce8e0 0%,#e0f3ed 100%)}
+.thumb-tarifs{background:linear-gradient(145deg,#fde0c8 0%,#fff0e4 100%)}
+.thumb-conseils{background:linear-gradient(145deg,#dcd4ff 0%,#eee8ff 100%)}
+.thumb-hygiene{background:linear-gradient(145deg,#c8ecd8 0%,#e0f5ea 100%)}
+.thumb-badge{position:absolute;top:12px;left:12px;padding:4px 10px;border-radius:100px;background:rgba(255,255,255,.82);backdrop-filter:blur(6px);font-family:var(--f-s);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-soft)}
+.card-body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.card-title{font-family:var(--f-s);font-size:15.5px;font-weight:600;line-height:1.35;color:var(--text);margin-bottom:10px;transition:color .25s}
+.blog-card:hover .card-title{color:var(--blue)}
+.card-excerpt{font-family:var(--f-s);font-size:13.5px;color:var(--text-soft);line-height:1.6;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-footer{margin-top:16px;padding-top:14px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.card-meta{font-family:var(--f-s);font-size:11.5px;color:var(--text-light);display:flex;align-items:center;gap:7px}
+.card-meta .mdot{width:3px;height:3px;border-radius:50%;background:currentColor;flex-shrink:0}
+.card-link{font-family:var(--f-s);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:4px;opacity:0;transition:opacity .25s,gap .25s}
+.blog-card:hover .card-link{opacity:1;gap:8px}
+.card-link .material-symbols-outlined{font-size:14px}
+
+/* DIVIDER */
+.grid-divider{max-width:1200px;margin:0 auto 48px;padding:0 24px;display:flex;align-items:center;gap:16px}
+.grid-divider::before,.grid-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.gd-label{font-family:var(--f-s);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text-light);white-space:nowrap;padding:0 4px}
+
+/* NEWSLETTER */
+.newsletter{background:var(--navy);color:#fff;padding:80px 24px;text-align:center;position:relative;overflow:hidden}
+.newsletter::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:700px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,113,187,.22) 0%,transparent 65%);pointer-events:none}
+.newsletter>*{position:relative;z-index:1}
+.nl-eyebrow{font-family:var(--f-s);font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px}
+.newsletter h2{font-family:var(--f-d);font-weight:300;font-size:clamp(28px,4vw,48px);line-height:1.1;letter-spacing:-.025em;color:#fff;margin-bottom:10px}
+.newsletter h2 em{font-style:italic;color:#7ec8e3}
+.newsletter p{font-family:var(--f-s);font-size:14px;color:rgba(255,255,255,.5);margin-bottom:36px}
+.nl-form{display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.nl-input{flex:1;min-width:220px;padding:14px 20px;border:1.5px solid rgba(255,255,255,.15);border-radius:100px;background:rgba(255,255,255,.08);color:#fff;font-family:var(--f-s);font-size:14px;outline:none;transition:border-color .25s,background .25s}
+.nl-input::placeholder{color:rgba(255,255,255,.32)}
+.nl-input:focus{border-color:rgba(0,160,220,.6);background:rgba(255,255,255,.12)}
+.nl-btn{padding:14px 28px;border:none;border-radius:100px;background:var(--blue);color:#fff;font-family:var(--f-s);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .25s,transform .25s}
+.nl-btn:hover{background:#0585d4;transform:translateY(-1px)}
+
+/* FOOTER */
+footer{background:#fff;color:var(--text-soft);padding:5rem 3rem 2.5rem;border-top:1px solid var(--border)}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border)}
+.footer-grid h4{font-family:var(--f-s);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--text);margin-bottom:1.25rem}
+.footer-grid a{display:block;font-size:13px;color:var(--text-soft);text-decoration:none;margin-bottom:.65rem;transition:color .2s}
+.footer-grid a:hover{color:var(--blue)}
+.footer-grid p{font-size:13px;line-height:1.9;color:var(--text-soft)}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:1.75rem;display:flex;justify-content:space-between;font-size:11px;color:var(--text-light)}
+
+/* NO RESULTS */
+.no-results{text-align:center;padding:80px 24px;color:var(--text-soft);font-size:17px;display:none;font-family:var(--f-d);font-style:italic;font-weight:300}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .featured-card{grid-template-columns:1fr}
+  .feat-thumb{min-height:240px}
+  .feat-body{padding:32px 36px}
+  .blog-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .page-header{padding:100px 24px 0}
+  .blog-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+  .feat-body{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" id="mainNav">
+  <div class="site-nav-inner">
+    <a href="index.html" class="logo-link">RYZE<sup>&#8482;</sup> ALIGNERS</a>
+    <div class="nav-center">
+      <a href="index.html">Accueil</a>
+      <a href="treatment.html">Technologie</a>
+      <a href="scanner.html">Scanner</a>
+      <a href="results.html">R&eacute;sultats</a>
+      <a href="tarifs.html">Tarifs</a>
+      <a href="junior.html">Junior</a>
+      <a href="blog.html" class="active">Articles</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
+      <a href="index.html#clinic-finder" class="nav-cta">START SCAN</a>
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu" style="background:none;border:none;padding:8px;cursor:pointer;">
+        <span class="material-symbols-outlined" style="font-size:26px;color:#0F172A;">menu</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Accueil</a>
+  <a href="treatment.html">Technologie</a>
+  <a href="scanner.html">Scanner</a>
+  <a href="results.html">R&eacute;sultats</a>
+  <a href="tarifs.html">Tarifs</a>
+  <a href="junior.html">Junior</a>
+  <a href="blog.html" class="active">Articles</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="breadcrumb">
+    <a href="index.html">Accueil</a>
+    <span>/</span>
+    <span style="color:var(--text-soft)">Articles</span>
+  </div>
+  <h1>Nos <em>articles</em> &amp; guides</h1>
+  <p class="ph-sub">Guides cliniques, conseils experts et d&eacute;cryptages sur les aligneurs invisibles, votre hygi&egrave;ne dentaire et votre parcours — par l&rsquo;&eacute;quipe Ryze.</p>
+  <div class="header-stats">
+    <div class="hstat"><strong>13</strong> guides</div>
+    <div class="hstat"><strong>5</strong> cat&eacute;gories</div>
+    <div class="hstat"><strong>Mis &agrave; jour</strong> Avril 2026</div>
+    <div class="hstat"><strong>3–5 min</strong> de lecture</div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner" id="filterBar">
+    <button class="filter-pill active" data-cat="all">Tous les articles</button>
+    <button class="filter-pill" data-cat="Traitement">Traitement</button>
+    <button class="filter-pill" data-cat="Technologie">Technologie</button>
+    <button class="filter-pill" data-cat="Tarifs & Mutuelle">Tarifs &amp; Mutuelle</button>
+    <button class="filter-pill" data-cat="Conseils">Conseils</button>
+    <button class="filter-pill" data-cat="Hygiène">Hygi&egrave;ne</button>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<div class="featured-section" id="featuredSection">
+  <p class="section-label">Article &agrave; la une</p>
+  <div class="featured-card" data-cat="Conseils">
+    <div class="feat-thumb">
+      <!-- Lightbulb / conseils SVG -->
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="50" r="28" stroke="#0071BB" stroke-width="3.5"/>
+        <path d="M48 68 L48 78 C48 80.2 49.8 82 52 82 L68 82 C70.2 82 72 80.2 72 78 L72 68" stroke="#0071BB" stroke-width="3" stroke-linecap="round"/>
+        <line x1="50" y1="86" x2="70" y2="86" stroke="#0071BB" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+        <line x1="53" y1="92" x2="67" y2="92" stroke="#0071BB" stroke-width="3" stroke-linecap="round" opacity=".3"/>
+        <path d="M52 52 L58 58 L70 44" stroke="#0071BB" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="60" cy="20" r="3" fill="#0071BB" opacity=".3"/>
+        <circle cx="88" cy="50" r="3" fill="#0071BB" opacity=".3"/>
+        <circle cx="32" cy="50" r="3" fill="#0071BB" opacity=".3"/>
+        <circle cx="79" cy="29" r="2.5" fill="#0071BB" opacity=".2"/>
+        <circle cx="41" cy="29" r="2.5" fill="#0071BB" opacity=".2"/>
+      </svg>
+    </div>
+    <div class="feat-body">
+      <div class="feat-cat"><span class="feat-cat-dot"></span>Conseils</div>
+      <h2 class="feat-title"><a href="blog/guide-pilier-1-aligneurs-invisibles-vs-bagues-classiques.html">Guide Pilier 1 : Aligneurs invisibles vs Bagues classiques</a></h2>
+      <p class="feat-excerpt">Comparez esth&eacute;tique, confort et pr&eacute;cision clinique. Les aligneurs invisibles r&eacute;volutionnent l&rsquo;orthodontie moderne &mdash; d&eacute;couvrez pourquoi le choix &eacute;vident n&rsquo;est pas toujours celui qu&rsquo;on croit.</p>
+      <div class="feat-meta">
+        <span>3 min de lecture</span>
+        <span class="dot"></span>
+        <span>14 avril 2026</span>
+      </div>
+      <a href="blog/guide-pilier-1-aligneurs-invisibles-vs-bagues-classiques.html" class="feat-read">Lire l&rsquo;article <span class="material-symbols-outlined">arrow_forward</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG GRID -->
+<div class="blog-main">
+  <div class="grid-header">
+    <h2 class="grid-title">Tous les <em>guides</em></h2>
+    <span class="grid-count" id="gridCount">12 articles</span>
+  </div>
+
+  <div class="blog-grid" id="blogGrid">
+
+    <!-- 1 -->
+    <article class="blog-card" data-cat="Technologie">
+      <a href="blog/la-technologie-precision-trigger-points.html">
+        <div class="card-thumb thumb-technologie">
+          <!-- Scanner / precision SVG -->
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="12" y="12" width="56" height="56" rx="6" stroke="#1A7A5E" stroke-width="2.5"/>
+            <line x1="12" y1="26" x2="68" y2="26" stroke="#1A7A5E" stroke-width="1.5" opacity=".3"/>
+            <line x1="12" y1="40" x2="68" y2="40" stroke="#1A7A5E" stroke-width="2.5" opacity=".7"/>
+            <line x1="12" y1="54" x2="68" y2="54" stroke="#1A7A5E" stroke-width="1.5" opacity=".3"/>
+            <circle cx="40" cy="40" r="9" stroke="#1A7A5E" stroke-width="2"/>
+            <circle cx="40" cy="40" r="2.5" fill="#1A7A5E"/>
+            <path d="M12 18 L12 12 L18 12" stroke="#1A7A5E" stroke-width="2" stroke-linecap="round"/>
+            <path d="M62 12 L68 12 L68 18" stroke="#1A7A5E" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 62 L12 68 L18 68" stroke="#1A7A5E" stroke-width="2" stroke-linecap="round"/>
+            <path d="M62 68 L68 68 L68 62" stroke="#1A7A5E" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span class="thumb-badge">Technologie</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">La technologie Precision Trigger Points</h3>
+          <p class="card-excerpt">D&eacute;couvrez comment cette technologie brevet&eacute;e r&eacute;duit jusqu&rsquo;&agrave; 80&nbsp;% les taquets visibles. Pr&eacute;cision clinique et discr&eacute;tion garanties.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>4 min</span><span class="mdot"></span><span>Technologie</span></div>
+            <span class="card-link">Lire <span class="material-symbols-outlined">arrow_forward</span></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 2 -->
+    <article class="blog-card" data-cat="Conseils">
+      <a href="blog/orthodontie-pour-adolescents.html">
+        <div class="card-thumb thumb-conseils">
+          <!-- Star / adolescent SVG -->
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M40 14C30 14 22 21 22 30C22 38 26 43 30 48 L30 58C30 60.2 31.8 62 34 62 L46 62C48.2 62 50 60.2 50 58 L50 48C54 43 58 38 58 30C58 21 50 14 40 14Z" stroke="#5048A0" stroke-width="2.5" stroke-linejoin="round"/>
+            <line x1="32" y1="54" x2="48" y2="54" stroke="#5048A0" stroke-width="2" opacity=".4"/>
+            <line x1="34" y1="58" x2="46" y2="58" stroke="#5048A0" stroke-width="2" opacity=".3"/>
+            <path d="M34 34 L37.5 37.5 L46 28" stroke="#5048A0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="thumb-badge">Conseils</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Orthodontie pour adolescents</h3>
+          <p class="card-excerpt">L&rsquo;adolescence est le moment id&eacute;al pour corriger l&rsquo;alignement. Un traitement invisible pour un sourire discret et une confiance renforc&eacute;e.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>3 min</span><span class="mdot"></span><span>Conseils</span></div>
+            <span class="card-link">Lire <span class="material-symbols-outlined">arrow_forward</span></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 3 -->
+    <article class="blog-card" data-cat="Technologie">
+      <a href="blog/fabrication-francaise.html">
+        <div class="card-thumb thumb-technologie">
+          <!-- French/precision manufacturing SVG -->
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M40 12 L66 24 L66 44 C66 56 54 66 40 70 C26 66 14 56 14 44 L14 24 Z" stroke="#1A7A5E" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M28 40 L35 47 L52 30" stroke="#1A7A5E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="thumb-badge">Technologie</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Fabrication Fran&ccedil;aise</h3>
+          <p class="card-excerpt">Chaque aligneur est fabriqu&eacute; en France avec une pr&eacute;cision robotis&eacute;e. Qualit&eacute; m&eacute;dicale, tra&ccedil;abilit&eacute; et r&eacute;activit&eacute; optimale.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>3 min</span><span class="mdot"></span><span>Technologie</span></div>
+            <span class="card-link">Lire <span class="material-symbols-outlined">arrow_forward</span></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 4 -->
+    <article class="blog-card" data-cat="Traitement">
+      <a href="blog/dents-tourdues.html">
+        <div class="card-thumb thumb-traitement">
+          <!-- Tooth SVG -->
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M40 12C30 12 22 19 22 29C22 37 24 43 27 54C28.5 59 30 64 32 67C33 69.5 34.5 71 36.5 71C38.5 71 40 69 40 69C40 69 41.5 71 43.5 71C45.5 71 47 69.5 48 67C50 64 51.5 59 53 54C56 43 58 37 58 29C58 19 50 12 40 12Z" stroke="#0071BB" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M31 26C33 23 36.5 21.5 40 21.5C43.5 21.5 47 23 49 26" stroke="#0071BB" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+            <!-- correction arrows -->
+            <path d="M24 35 L20 35 M20 33 L18 35 L20 37" stroke="#0071BB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
+            <path d="M56 35 L60 35 M60 33 L62 35 L60 37" stroke="#0071BB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
+          </svg>
+          <span class="thumb-badge">Traitement</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Dents Tordues</h3>
+          <p class="card-excerpt">Les dents tordues affectent esth&eacute;tique et fonction. Les aligneurs les corrigent progressivement sans bagues visibles ni contraintes quotidiennes.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>2 min</span><span class="mdot"></span><span>Traitement</span></div>
+            <span class="card-link">Lire <span class="material-symbols-outlined">arrow_forward</span></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 5 -->
+    <article class="blog-card" data-cat="Traitement">
+      <a href="blog/dent-manquante-comment-les-aligneurs-preparent-votre-futur-sourire.html">
+        <div class="card-thumb thumb-traitement">
+          <!-- Gap tooth SVG -->
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 15C18 15 14 20 14 27C14 33 16 37 18 44L20 54C20.5 56.5 22 58 24 58C26 58 27 56 27.5 53.5L29 44C31 37 33 33 33 27C33 20 30 15 24 15Z" stroke="#0071BB" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M56 15C50 15 46 20 46 27C46 33 48 37 50 44L52 54C52.5 56.5 54 58 56 58C58 58 59 56 59.5 53.5L61 44C63 37 65 33 65 27C65 20 62 15 56 15Z" stroke="#0071BB" stroke-width="2.5" stroke-linejoin="round"/>
+            <!-- gap arrow -->
+            <path d="M33 35 L40 35 L47 35" stroke="#0071BB" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 3" opacity=".5"/>
+            <path d="M38 32 L35 35 L38 38" stroke="#0071BB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/>
+            <path d="M42 32 L45 35 L42 38" stroke="#0071BB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/>
+          </svg>
+          <span class="thumb-badge">Traitement</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Dent manquante : Comment les aligneurs pr&eacute;parent votre futur sourire</h3>
+          <p class="card-excerpt">Avant un implant, les aligneurs repositionnent les dents adjacentes. Pr&eacute;paration clinique et esth&eacute;tique garantie pour des r&eacute;sultats durables.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>3 min</span><span class="mdot"></span><span>Traitement</span></div>
+            <span class="card-link">Lire <span class="material-symbols-outlined">arrow_forward</span></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 6 -->
+    <article class="blog-card" data-cat="Traitement">
+      <a href="blog/supraclusion-liberez-votre-sourire-et-protegez-vos-dents.html">
+        <div class="card-thumb thumb-traitement">
+          <!-- Overbite SVG -->
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="16" y="20" width="48" height="16" rx="4" stroke="#0071BB" stroke-width="2.5"/>
+            <rect x="16" y="46" width="48" height="16" rx="4" stroke="#0071BB" stroke-width="2.5" opacity=".55"/>
+            <path d="M40 36 L40 46" stroke="#0071BB" stroke-width="2" stroke-linecap="round" stroke-dasharray="2.5 2.5"/>
+            <path d="M30 24 L30 20" stroke="#0071BB" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+            <path d="M40 24 L40 20" stroke="#0071BB" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+            <path d="M50 24 L50 20" stroke="#0071BB" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+          </svg>
+          <span class="thumb-badge">Traitement</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Supraclusion : Lib&eacute;rez votre sourire et prot&eacute;gez vos dents</h3>
+          <p class="card-excerpt">La supraclusion expose vos dents &agrave; l&rsquo;usure. Les aligneurs corrigent cet alignement anormal discr&egrave;tement et durablement.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>3 min</span><span class="mdot"></span><span>Traitement</span></div>
+            <span class="card-link">Lire <span class="material-symbols-outlined">arrow_forward</span></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+  </div><!-- /first grid -->
+
+  <!-- DIVIDER -->
+  <div class="grid-divider" style="margin-top:48px">
+    <span class="gd-label">Suite des articles</span>
+  </div>
+
+  <div class="blog-grid" id="blogGrid2">
+
+    <!-- 7 -->
+    <article class="blog-card" data-cat="Traitement">
+      <a href="blog/espacement-dentaire-diastemes-comment-retrouver-un-sourire-harmonieux.html">
+        <div class="card-thumb thumb-traitement">
+          <!-- Diastema SVG -->
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M26 14C20 14 16 19.5 16 26C16 32 18 36.5 20 43L22 52C22.5 54.5 24 56 26 56C28 56 29 54 29.5 51.5L31 42C33 35.5 34 32 34 26C34 19.5 32 14 26 14Z" stroke="#0071BB" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M54 14C48 14 44 19.5 44 26C44 32 46 36.5 48 43L50 52C50.5 54.5 52 56 54 56C56 56 57 54 57.5 51.5L59 42C61 35.5 62 32 62 26C62 19.5 60 14 54 14Z" stroke="#0071BB" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M34 34 Q40 30 46 34" stroke="#0071BB" stroke-width="1.5" stroke-linecap="round" opacity=".4" stroke-dasharray="3 2"/>
+          </svg>
+          <span class="thumb-badge">Traitement</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Espacement dentaire (Diast&egrave;mes)</h3>
+          <p class="card-excerpt">Les espaces dentaires affectent l&rsquo;esth&eacute;tique du sourire. Retrouvez un sourire harmonieux sans taquets visibles ni contraintes.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>3 min</span><span class="mdot"></span><span>Traitement</span></div>
+            <span class="card-link">Lire <span class="material-symbols-outlined">arrow_forward</span></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 8 -->
+    <article class="blog-card" data-cat="Traitement">
+      <a href="blog/beance-dentaire-comment-fermer-l-espace-entre-vos-dents.html">
+        <div class="card-thumb thumb-traitement">
+          <!-- Open bite SVG -->
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 28 Q40 20 66 28" stroke="#0071BB" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M14 52 Q40 60 66 52" stroke="#0071BB" stroke-width="3" stroke-linecap="round" fill="none" opacity=".6"/>
+            <path d="M28 28 L28 52" stroke="#0071BB" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 3" opacity=".4"/>
+            <path d="M40 24 L40 56" stroke="#0071BB" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 3" opacity=".4"/>
+            <path d="M52 28 L52 52" stroke="#0071BB" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 3" opacity=".4"/>
+            <path d="M36 38 L40 40 L44 38" stroke="#0071BB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/>
+          </svg>
+          <span class="thumb-badge">Traitement</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">B&eacute;ance dentaire : Comment fermer l&rsquo;espace entre vos dents</h3>
+          <p class="card-excerpt">La b&eacute;ance dentaire cr&eacute;e un espace entre haut et bas. Les aligneurs ferment cet espace discr&egrave;tement et efficacement.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>3 min</span><span class="mdot"></span><span>Traitement</span></div>
+            <span class="card-link">Lire <span class="material-symbols-outlined">arrow_forward</span></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 9 -->
+    <article class="blog-card" data-cat="Traitement">
+      <a href="blog/cas-traitables-quels-problemes-dentaires-les-aligneurs-invisibles-corrigent.html">
+        <div class="card-thumb thumb-traitement">
+          <!-- Checklist SVG -->
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="16" y="12" width="48" height="56" rx="6" stroke="#0071BB" stroke-width="2.5"/>
+            <path d="M26 30 L32 36 L42 24" stroke="#0071BB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="46" y1="30" x2="56" y2="30" stroke="#0071BB" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+            <path d="M26 46 L32 52 L42 40" stroke="#0071BB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".6"/>
+            <line x1="46" y1="46" x2="56" y2="46" stroke="#0071BB" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+          </svg>
+          <span class="thumb-badge">Traitement</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Cas traitables : Quels probl&egrave;mes les aligneurs corrigent</h3>
+          <p class="card-excerpt">De l&rsquo;encombrement aux espaces, d&eacute;couvrez tous les cas trait&eacute;s. La majorit&eacute; des situations cliniques sont &eacute;ligibles aux aligneurs.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>3 min</span><span class="mdot"></span><span>Traitement</span></div>
+            <span class="card-link">Lire <span class="material-symbols-outlined">arrow_forward</span></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 10 -->
+    <article class="blog-card" data-cat="Tarifs & Mutuelle">
+      <a href="blog/aligneurs-par-internet-vs-suivi-en-cabinet-pourquoi-le-prix-ne-fait-pas-tout.html">
+        <div class="card-thumb thumb-tarifs">
+          <!-- Screen vs person SVG -->
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="20" width="30" height="22" rx="3" stroke="#C65A1A" stroke-width="2.5"/>
+            <path d="M10 42 L10 46 L40 46 L40 42" stroke="#C65A1A" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+            <line x1="25" y1="46" x2="25" y2="52" stroke="#C65A1A" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+            <path d="M56 34C56 37.3 53.3 40 50 40C46.7 40 44 37.3 44 34C44 30.7 46.7 28 50 28C53.3 28 56 30.7 56 34Z" stroke="#C65A1A" stroke-width="2.5"/>
+            <path d="M42 54C42 49 45.6 46 50 46C54.4 46 58 49 58 54" stroke="#C65A1A" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M36 31 L44 31" stroke="#C65A1A" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 2" opacity=".4"/>
+          </svg>
+          <span class="thumb-badge">Tarifs &amp; Mutuelle</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Aligneurs par internet vs Suivi en cabinet</h3>
+          <p class="card-excerpt">Les aligneurs en ligne semblent moins chers mais manquent d&rsquo;expertise m&eacute;dicale. Le suivi expert garantit des r&eacute;sultats durables.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>3 min</span><span class="mdot"></span><span>Tarifs &amp; Mutuelle</span></div>
+            <span class="card-link">Lire <span class="material-symbols-outlined">arrow_forward</span></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 11 -->
+    <article class="blog-card" data-cat="Hygiène">
+      <a href="blog/guide-pratique-comment-nettoyer-vos-aligneurs-pour-une-transparence-cristal.html">
+        <div class="card-thumb thumb-hygiene">
+          <!-- Water drop / clean SVG -->
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M40 12C40 12 20 32 20 47C20 58.6 29 68 40 68C51 68 60 58.6 60 47C60 32 40 12 40 12Z" stroke="#1A7A5E" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M30 50C31 56 36 60 40 62" stroke="#1A7A5E" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+            <circle cx="55" cy="22" r="3.5" stroke="#1A7A5E" stroke-width="1.5" opacity=".35"/>
+            <circle cx="62" cy="32" r="2.5" stroke="#1A7A5E" stroke-width="1.5" opacity=".25"/>
+            <circle cx="52" cy="14" r="2" stroke="#1A7A5E" stroke-width="1.5" opacity=".2"/>
+          </svg>
+          <span class="thumb-badge">Hygi&egrave;ne</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Comment nettoyer vos aligneurs pour une transparence cristal</h3>
+          <p class="card-excerpt">Un nettoyage r&eacute;gulier pr&eacute;serve la transparence et l&rsquo;hygi&egrave;ne. Voici les meilleures techniques pour des aligneurs impeccables.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>3 min</span><span class="mdot"></span><span>Hygi&egrave;ne</span></div>
+            <span class="card-link">Lire <span class="material-symbols-outlined">arrow_forward</span></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 12 -->
+    <article class="blog-card" data-cat="Tarifs & Mutuelle">
+      <a href="blog/tarifs-et-mutuelle-le-prix-d-un-traitement-par-aligneurs.html">
+        <div class="card-thumb thumb-tarifs">
+          <!-- Price / euro SVG -->
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="26" stroke="#C65A1A" stroke-width="2.5"/>
+            <path d="M40 16 L40 20" stroke="#C65A1A" stroke-width="2" stroke-linecap="round" opacity=".3"/>
+            <path d="M40 60 L40 64" stroke="#C65A1A" stroke-width="2" stroke-linecap="round" opacity=".3"/>
+            <path d="M50 28C47.5 26 44.5 25 40 25C34 25 29 29.5 29 36C29 42.5 34 47 40 47C44.5 47 48 45.5 50 43" stroke="#C65A1A" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="27" y1="34" x2="48" y2="34" stroke="#C65A1A" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+            <line x1="27" y1="39" x2="46" y2="39" stroke="#C65A1A" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+          </svg>
+          <span class="thumb-badge">Tarifs &amp; Mutuelle</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Tarifs et mutuelle : Le prix d&rsquo;un traitement par aligneurs</h3>
+          <p class="card-excerpt">Le prix d&eacute;pend de la complexit&eacute; du cas. D&eacute;couvrez comment financer votre traitement et optimiser les remboursements mutuels.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>3 min</span><span class="mdot"></span><span>Tarifs &amp; Mutuelle</span></div>
+            <span class="card-link">Lire <span class="material-symbols-outlined">arrow_forward</span></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+  </div><!-- /grid2 -->
+
+  <p class="no-results" id="noResults">Aucun article dans cette cat&eacute;gorie pour le moment.</p>
+</div><!-- /blog-main -->
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <p class="nl-eyebrow">Newsletter</p>
+  <h2>Recevez nos guides <em>avant tout le monde.</em></h2>
+  <p>Chaque mois, les meilleures ressources cliniques dans votre bo&icirc;te mail.</p>
+  <form class="nl-form" onsubmit="return false;">
+    <input type="email" class="nl-input" placeholder="Votre adresse e-mail" required>
+    <button type="submit" class="nl-btn">S&rsquo;abonner</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div style="font-family:var(--f-s);font-size:18px;font-weight:700;letter-spacing:.15em;color:var(--blue);margin-bottom:1rem;">RYZE<span style="font-size:.65em;vertical-align:super;">&#8482;</span> ALIGNERS</div>
+      <p style="max-width:260px;">Aligneurs orthodontiques invisibles de haute pr&eacute;cision, fabriqu&eacute;s en France. Technologie sur-mesure pour un sourire parfaitement align&eacute;.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <a href="index.html">Accueil</a>
+      <a href="treatment.html">Technologie</a>
+      <a href="scanner.html">Scanner</a>
+      <a href="junior.html">Ryze Junior</a>
+      <a href="results.html">R&eacute;sultats</a>
+      <a href="tarifs.html">Tarifs</a>
+      <a href="blog.html">Articles</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>
+      <h4>L&eacute;gal</h4>
+      <a href="#">Mentions l&eacute;gales</a>
+      <a href="#">Confidentialit&eacute;</a>
+      <a href="#">CGV</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p style="margin-bottom:.65rem;">contact@ryze-aligners.fr</p>
+      <p style="margin-bottom:.65rem;">+33 1 23 45 67 89</p>
+      <p>Paris, France</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Ryze&#8482; Aligners &mdash; Made in France &middot; CE 2797 &middot; ISO 13485</span>
+    <span>Fabrication fran&ccedil;aise &middot; Aligneurs sur-mesure</span>
+  </div>
+</footer>
+
+<script>
+// Mobile menu
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburgerBtn.addEventListener('click', function() {
+  const isOpen = mobileMenu.style.display === 'flex';
+  mobileMenu.style.display = isOpen ? 'none' : 'flex';
+  hamburgerBtn.querySelector('.material-symbols-outlined').textContent = isOpen ? 'menu' : 'close';
+});
+
+// Category filter
+const pills = document.querySelectorAll('.filter-pill');
+const allCards = document.querySelectorAll('.blog-card');
+const featuredCard = document.querySelector('.featured-card');
+const featuredSection = document.getElementById('featuredSection');
+const noResults = document.getElementById('noResults');
+const gridCount = document.getElementById('gridCount');
+
+pills.forEach(function(pill) {
+  pill.addEventListener('click', function() {
+    pills.forEach(function(p) { p.classList.remove('active'); });
+    pill.classList.add('active');
+    const cat = pill.dataset.cat;
+    let visible = 0;
+
+    if (cat === 'all' || featuredCard.dataset.cat === cat) {
+      featuredSection.style.display = '';
+      visible++;
+    } else {
+      featuredSection.style.display = 'none';
+    }
+
+    allCards.forEach(function(card) {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.style.display = '';
+        visible++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+    gridCount.textContent = (visible > 0 ? (cat === 'all' ? 12 : visible - (featuredSection.style.display === '' && cat !== 'all' ? 1 : 0)) : 0) + ' article' + (visible !== 1 ? 's' : '');
+  });
+});
+</script>
+</body>
+</html>

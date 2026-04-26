@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ryze Aligners — Aligneurs invisibles fabriques en France</title>
+  <meta name="description" content="Ryze Aligners conçoit des aligneurs dentaires invisibles, fabriqués en France avec la technologie Precision Trigger Points™. Résultats visibles dès 3 mois.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ryze Aligners — Aligneurs invisibles fabriques en France">
+  <meta property="og:description" content="Des aligneurs sur-mesure fabriqués en France. Technologie Precision Trigger Points™ pour un sourire transformé sans compromis.">
+  <meta property="og:image" content="https://placehold.co/1200x630/1E7FBF/FFFFFF?text=Ryze+Aligners">
+  <meta property="og:url" content="https://ryzealigners.fr/">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ryze Aligners — Aligneurs invisibles fabriques en France">
+  <meta name="twitter:description" content="Des aligneurs sur-mesure fabriqués en France. Technologie Precision Trigger Points™ pour un sourire transformé sans compromis.">
+  <meta name="twitter:image" content="https://placehold.co/1200x630/1E7FBF/FFFFFF?text=Ryze+Aligners">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://ryzealigners.fr/">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400..700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Ryze Aligners",
+    "description": "Aligneurs dentaires invisibles fabriqués en France avec la technologie Precision Trigger Points™.",
+    "email": "contact@ryzealigners.fr",
+    "telephone": "+33 1 84 80 00 00",
+    "url": "https://ryzealigners.fr",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "FR"
+    },
+    "medicalSpecialty": "Orthodontics"
+  }
+  </script>
+
+  <!-- Critical inline CSS for above-fold -->
+  <style>
+    .nav{background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .hero{display:flex;align-items:center;min-height:85vh}
+    @font-face{font-display:swap}
+
+    /* Page-specific styles */
+    .hero__bg{background:linear-gradient(180deg,var(--color-bg-subtle) 0%,var(--color-bg) 100%)}
+    .trust-band{background:var(--color-bg-subtle);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border)}
+    .step-number{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:var(--p-text-lg);background:var(--p-blue-50);color:var(--color-brand)}
+    .ba-pair{position:relative;overflow:hidden;border-radius:var(--p-radius-lg)}
+    .ba-pair img{width:100%;height:100%;object-fit:cover}
+    .ba-label{position:absolute;bottom:var(--p-space-3);padding:var(--p-space-1) var(--p-space-3);border-radius:var(--p-radius-full);font-size:var(--p-text-xs);font-weight:700;color:#fff}
+    .ba-label--before{left:var(--p-space-3);background:var(--p-neutral-700)}
+    .ba-label--after{right:var(--p-space-3);background:var(--color-accent)}
+    .stars{color:var(--color-accent);font-size:var(--p-text-lg);letter-spacing:2px}
+    .newsletter-band{background:var(--p-neutral-800);color:#fff}
+    .newsletter-band .form__input{background:var(--p-neutral-700);border-color:var(--p-neutral-600);color:#fff}
+    .newsletter-band .form__input::placeholder{color:var(--p-neutral-400)}
+    .cookie-customize{display:none;padding:var(--p-space-4) 0}
+    .cookie-customize.open{display:block}
+  </style>
+</head>
+<body>
+
+  <!-- Skip to content -->
+  <a href="#main" class="skip-link">Aller au contenu</a>
+
+  <!-- ====== NAVIGATION ====== -->
+  <nav class="nav" role="navigation" aria-label="Navigation principale">
+    <div class="nav__inner">
+      <a href="index.html" aria-label="Ryze Aligners — Accueil">
+        <img src="assets/logo.svg" alt="Ryze Aligners" class="nav__logo" width="140" height="32">
+      </a>
+
+      <div class="nav__links">
+        <a href="index.html" class="nav__link" aria-current="page">Accueil</a>
+        <a href="treatment.html" class="nav__link">Technologie</a>
+        <a href="junior.html" class="nav__link">Ryze Junior</a>
+        <a href="results.html" class="nav__link">Resultats</a>
+        <a href="tarifs.html" class="nav__link">Tarifs</a>
+        <a href="blog.html" class="nav__link">Articles</a>
+        <a href="faq.html" class="nav__link">FAQ</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+        <a href="contact.html#scan" class="nav__cta">Start Scan</a>
+      </div>
+
+      <!-- Mobile burger -->
+      <button class="nav__burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="nav__mobile" id="navMobile" role="menu">
+      <a href="index.html" class="nav__link" aria-current="page" role="menuitem">Accueil</a>
+      <a href="treatment.html" class="nav__link" role="menuitem">Technologie</a>
+      <a href="junior.html" class="nav__link" role="menuitem">Ryze Junior</a>
+      <a href="results.html" class="nav__link" role="menuitem">Resultats</a>
+      <a href="tarifs.html" class="nav__link" role="menuitem">Tarifs</a>
+      <a href="blog.html" class="nav__link" role="menuitem">Articles</a>
+      <a href="faq.html" class="nav__link" role="menuitem">FAQ</a>
+      <a href="contact.html" class="nav__link" role="menuitem">Contact</a>
+      <a href="contact.html#scan" class="btn btn--accent btn--lg" role="menuitem">Start Scan</a>
+    </div>
+  </nav>
+
+  <!-- ====== MAIN ====== -->
+  <main id="main">
+
+    <!-- ====== HERO ====== -->
+    <section class="hero hero__bg">
+      <div class="container">
+        <div class="hero__red-line" data-stagger="0"></div>
+        <p class="eyebrow hero__eyebrow" data-stagger="1">Aligneurs invisibles · Fabrique en France</p>
+        <h1 class="display hero__title" data-stagger="2">Votre sourire, reinvente avec precision.</h1>
+        <p class="lead hero__sub" data-stagger="3">Ryze Aligners associe la rigueur orthodontique a une fabrication francaise de pointe. Grace a la technologie Precision Trigger Points™, vos dents se repositionnent en douceur, sans taquets visibles, pour un traitement veritablement invisible.</p>
+        <div class="hero__actions" data-stagger="4">
+          <a href="contact.html#scan" class="btn btn--accent btn--lg">Commencer mon traitement</a>
+          <a href="treatment.html" class="btn btn--ghost btn--lg">Decouvrir la technologie</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TRUST STATS ====== -->
+    <section class="section--sm trust-band">
+      <div class="container">
+        <div class="grid grid--4 text-center">
+          <div class="stat reveal" data-delay="0">
+            <div class="stat__number stat__accent" data-count="10000">10 000+</div>
+            <div class="stat__label">patients accompagnes</div>
+          </div>
+          <div class="stat reveal" data-delay="1">
+            <div class="stat__number stat__accent" data-count="25">25</div>
+            <div class="stat__label">ans d'expertise orthodontique</div>
+          </div>
+          <div class="stat reveal" data-delay="2">
+            <div class="stat__number stat__accent" data-count="80">80%</div>
+            <div class="stat__label">moins de taquets que les systemes classiques</div>
+          </div>
+          <div class="stat reveal" data-delay="3">
+            <div class="stat__number stat__accent" data-count="3">3 mois</div>
+            <div class="stat__label">pour observer les premiers resultats</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== PROCESS ====== -->
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <p class="eyebrow">Votre parcours</p>
+          <h2 class="h2">Comment ca marche</h2>
+          <p class="lead mx-auto">Quatre etapes simples vous separent de votre nouveau sourire. Chaque phase est supervisee par un orthodontiste qualifie.</p>
+        </div>
+
+        <div class="grid grid--4">
+          <!-- Step 1 -->
+          <div class="card card--flat reveal" data-delay="0">
+            <div class="card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 1 0 8 0 4 4 0 0 0-8 0"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+            </div>
+            <div class="step-number">1</div>
+            <h3 class="card__title">Consultation</h3>
+            <p class="card__text">Rencontrez un praticien partenaire Ryze pres de chez vous. Il evalue votre situation et determine si les aligneurs sont adaptes a vos besoins.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="card card--flat reveal" data-delay="1">
+            <div class="card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+            </div>
+            <div class="step-number">2</div>
+            <h3 class="card__title">Scan 3D</h3>
+            <p class="card__text">Une empreinte numerique ultra-precise de votre dentition est realisee en quelques minutes, sans pate ni inconfort.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="card card--flat reveal" data-delay="2">
+            <div class="card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+            </div>
+            <div class="step-number">3</div>
+            <h3 class="card__title">Plan de traitement</h3>
+            <p class="card__text">Nos orthodontistes concoivent un plan de deplacement personnalise avec la technologie Precision Trigger Points™, optimisant chaque mouvement.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="card card--flat reveal" data-delay="3">
+            <div class="card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="step-number">4</div>
+            <h3 class="card__title">Aligneurs sur-mesure</h3>
+            <p class="card__text">Vos aligneurs sont fabriques en France avec une precision robotisee, puis livres chez votre praticien. Portez-les, et laissez la transformation operer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== BENEFITS ====== -->
+    <section class="section section--bg" id="benefits">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <p class="eyebrow">Pourquoi Ryze</p>
+          <h2 class="h2">Une approche pensee pour vous</h2>
+        </div>
+
+        <div class="grid grid--3">
+          <!-- Benefit 1 -->
+          <div class="card reveal" data-delay="0">
+            <div class="card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <h3 class="card__title">Precision Trigger Points™</h3>
+            <p class="card__text">Notre technologie brevetee applique des forces ciblees directement dans l'aligneur, reduisant de 80% le besoin de taquets colles sur vos dents. Le traitement reste reellement invisible.</p>
+          </div>
+
+          <!-- Benefit 2 -->
+          <div class="card reveal" data-delay="1">
+            <div class="card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3 class="card__title">Confort optimal</h3>
+            <p class="card__text">Des aligneurs fins, lisses, concus pour epouser parfaitement votre dentition. Pas de bagues metalliques, pas d'irritations. Vous les portez, vous les oubliez.</p>
+          </div>
+
+          <!-- Benefit 3 -->
+          <div class="card reveal" data-delay="2">
+            <div class="card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
+            </div>
+            <h3 class="card__title">Fabrication francaise</h3>
+            <p class="card__text">Chaque aligneur est fabrique dans notre laboratoire en France, avec un controle qualite rigoureux a chaque etape. Tracabilite totale, de la conception a la livraison.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== BEFORE / AFTER ====== -->
+    <section class="section" id="before-after">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <p class="eyebrow">Resultats</p>
+          <h2 class="h2">Des sourires transformes</h2>
+          <p class="lead mx-auto">Decouvrez les transformations realisees par nos praticiens partenaires, sans taquets visibles.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <!-- Pair 1 -->
+          <div class="reveal" data-delay="0">
+            <div class="ba-pair" style="aspect-ratio:4/5;">
+              <img src="https://picsum.photos/seed/ryze-before1/400/500" alt="Sourire avant traitement Ryze, cas 1" width="400" height="500" loading="lazy">
+              <span class="ba-label ba-label--before">Avant</span>
+            </div>
+            <div class="ba-pair" style="aspect-ratio:4/5;margin-top:var(--p-space-3);">
+              <img src="https://picsum.photos/seed/ryze-after1/400/500" alt="Sourire apres traitement Ryze, cas 1" width="400" height="500" loading="lazy">
+              <span class="ba-label ba-label--after">Apres</span>
+            </div>
+          </div>
+
+          <!-- Pair 2 -->
+          <div class="reveal" data-delay="1">
+            <div class="ba-pair" style="aspect-ratio:4/5;">
+              <img src="https://picsum.photos/seed/ryze-before2/400/500" alt="Sourire avant traitement Ryze, cas 2" width="400" height="500" loading="lazy">
+              <span class="ba-label ba-label--before">Avant</span>
+            </div>
+            <div class="ba-pair" style="aspect-ratio:4/5;margin-top:var(--p-space-3);">
+              <img src="https://picsum.photos/seed/ryze-after2/400/500" alt="Sourire apres traitement Ryze, cas 2" width="400" height="500" loading="lazy">
+              <span class="ba-label ba-label--after">Apres</span>
+            </div>
+          </div>
+
+          <!-- Pair 3 -->
+          <div class="reveal" data-delay="2">
+            <div class="ba-pair" style="aspect-ratio:4/5;">
+              <img src="https://picsum.photos/seed/ryze-before3/400/500" alt="Sourire avant traitement Ryze, cas 3" width="400" height="500" loading="lazy">
+              <span class="ba-label ba-label--before">Avant</span>
+            </div>
+            <div class="ba-pair" style="aspect-ratio:4/5;margin-top:var(--p-space-3);">
+              <img src="https://picsum.photos/seed/ryze-after3/400/500" alt="Sourire apres traitement Ryze, cas 3" width="400" height="500" loading="lazy">
+              <span class="ba-label ba-label--after">Apres</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top:var(--p-space-10);">
+          <a href="results.html" class="btn btn--primary btn--lg">Voir tous les resultats</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TESTIMONIALS ====== -->
+    <section class="section section--bg" id="testimonials">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <p class="eyebrow">Temoignages</p>
+          <h2 class="h2">Ce que disent nos patients</h2>
+        </div>
+
+        <div class="grid grid--3">
+          <!-- Testimonial 1 -->
+          <div class="card reveal" data-delay="0">
+            <div class="stars" aria-label="5 etoiles sur 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="card__text" style="margin:var(--p-space-4) 0;">« Je n'aurais jamais pense qu'un traitement orthodontique puisse etre aussi discret. Mes collegues n'ont rien remarque pendant six mois. Le resultat est magnifique. »</p>
+            <p class="body-sm accent-dot" style="font-weight:600;color:var(--color-text);"><strong>Sophie M.</strong>, 34 ans</p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="card reveal" data-delay="1">
+            <div class="stars" aria-label="5 etoiles sur 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="card__text" style="margin:var(--p-space-4) 0;">« Apres des annees a hesiter, j'ai enfin franchi le pas grace a Ryze. Pas de taquets, pas de gene. En trois mois, je voyais deja la difference. Un vrai bonheur. »</p>
+            <p class="body-sm accent-dot" style="font-weight:600;color:var(--color-text);"><strong>Thomas L.</strong>, 28 ans</p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="card reveal" data-delay="2">
+            <div class="stars" aria-label="5 etoiles sur 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="card__text" style="margin:var(--p-space-4) 0;">« En tant que professionnelle en contact avec des clients, la discretion etait essentielle. Ryze a tenu sa promesse : personne ne s'est doute de rien, et mon sourire a completement change. »</p>
+            <p class="body-sm accent-dot" style="font-weight:600;color:var(--color-text);"><strong>Amina R.</strong>, 41 ans</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== NEWSLETTER ====== -->
+    <section class="section--sm newsletter-band">
+      <div class="container">
+        <div class="flex flex--col flex--center text-center gap-6" style="padding:var(--p-space-12) 0;">
+          <h2 class="h3" style="color:#fff;">Restez informe</h2>
+          <p class="body-sm" style="color:var(--p-neutral-300);max-width:480px;">Conseils orthodontiques, actualites Ryze et offres reservees a nos abonnes. Pas de spam, promis.</p>
+          <form class="flex gap-4" data-form="newsletter" style="width:100%;max-width:480px;flex-wrap:wrap;justify-content:center;" aria-label="Inscription newsletter">
+            <label for="newsletter-email" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Adresse e-mail</label>
+            <input type="email" id="newsletter-email" name="email" class="form__input" placeholder="votre@email.fr" required style="flex:1;min-width:200px;">
+            <button type="submit" class="btn btn--accent">S'inscrire</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Brand column -->
+        <div class="footer__brand">
+          <img src="assets/logo.svg" alt="Ryze Aligners" class="footer__logo" width="140" height="28" loading="lazy">
+          <p class="footer__desc">Des aligneurs invisibles concus par des orthodontistes et fabriques en France. Precision, confort et resultats, sans compromis.</p>
+          <p class="footer__desc">
+            <a href="mailto:contact@ryzealigners.fr" class="footer__link" style="display:inline;">contact@ryzealigners.fr</a><br>
+            <a href="tel:+33184800000" class="footer__link" style="display:inline;">+33 1 84 80 00 00</a>
+          </p>
+        </div>
+
+        <!-- Soins -->
+        <div>
+          <p class="footer__heading">Soins</p>
+          <a href="treatment.html" class="footer__link">Technologie</a>
+          <a href="junior.html" class="footer__link">Ryze Junior</a>
+          <a href="results.html" class="footer__link">Resultats</a>
+        </div>
+
+        <!-- Informations -->
+        <div>
+          <p class="footer__heading">Informations</p>
+          <a href="tarifs.html" class="footer__link">Tarifs</a>
+          <a href="blog.html" class="footer__link">Articles</a>
+          <a href="faq.html" class="footer__link">FAQ</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <p class="footer__heading">Legal</p>
+          <a href="mentions-legales.html" class="footer__link">Mentions legales</a>
+          <a href="cgv.html" class="footer__link">CGV</a>
+          <a href="confidentialite.html" class="footer__link">Confidentialite</a>
+          <a href="cookies.html" class="footer__link">Cookies</a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2024 Ryze Aligners. Tous droits reserves.</p>
+        <div class="footer__legal">
+          <a href="mentions-legales.html">Mentions legales</a>
+          <a href="cgv.html">CGV</a>
+          <a href="confidentialite.html">Confidentialite</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====== COOKIE BANNER (CNIL) ====== -->
+  <div class="cookie-banner show" id="cookieBanner" role="dialog" aria-label="Gestion des cookies" aria-modal="false">
+    <div class="cookie-banner__inner">
+      <p class="cookie-banner__text">
+        Nous utilisons des cookies pour ameliorer votre experience, analyser le trafic et personnaliser les contenus. Conformement a la reglementation CNIL, vous pouvez accepter, refuser ou personnaliser vos preferences a tout moment.
+      </p>
+      <div class="cookie-banner__actions">
+        <button class="btn btn--accent btn--sm" id="cookieAccept">Accepter</button>
+        <button class="btn btn--ghost btn--sm" id="cookieReject">Refuser</button>
+        <button class="btn btn--ghost btn--sm" id="cookieCustomize">Personnaliser</button>
+      </div>
+    </div>
+    <!-- Customize panel -->
+    <div class="cookie-customize" id="cookiePanel">
+      <div class="container">
+        <div class="flex flex--col gap-4" style="padding:var(--p-space-4) 0;max-width:600px;">
+          <div class="form__checkbox">
+            <input type="checkbox" id="cookieNecessary" checked disabled>
+            <label for="cookieNecessary" class="body-sm">Cookies necessaires (toujours actifs)</label>
+          </div>
+          <div class="form__checkbox">
+            <input type="checkbox" id="cookieAnalytics">
+            <label for="cookieAnalytics" class="body-sm">Cookies analytiques — mesure d'audience et amelioration du site</label>
+          </div>
+          <div class="form__checkbox">
+            <input type="checkbox" id="cookieMarketing">
+            <label for="cookieMarketing" class="body-sm">Cookies marketing — publicites personnalisees et reseaux sociaux</label>
+          </div>
+          <button class="btn btn--primary btn--sm" id="cookieSavePrefs" style="align-self:flex-start;">Enregistrer mes preferences</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/motion.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/cookies.js"></script>
+
+  <!-- Inline fallback: burger toggle + cookie panel toggle -->
+  <script>
+    // Mobile menu toggle
+    (function(){
+      var burger=document.getElementById('navBurger');
+      var mobile=document.getElementById('navMobile');
+      if(burger&&mobile){
+        burger.addEventListener('click',function(){
+          var open=burger.classList.toggle('open');
+          mobile.classList.toggle('open');
+          burger.setAttribute('aria-expanded',open);
+          burger.setAttribute('aria-label',open?'Fermer le menu':'Ouvrir le menu');
+        });
+      }
+    })();
+
+    // Cookie customize panel toggle
+    (function(){
+      var btn=document.getElementById('cookieCustomize');
+      var panel=document.getElementById('cookiePanel');
+      if(btn&&panel){
+        btn.addEventListener('click',function(){
+          panel.classList.toggle('open');
+        });
+      }
+      // Accept / Reject hide banner
+      var banner=document.getElementById('cookieBanner');
+      ['cookieAccept','cookieReject','cookieSavePrefs'].forEach(function(id){
+        var el=document.getElementById(id);
+        if(el&&banner){
+          el.addEventListener('click',function(){
+            banner.classList.remove('show');
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

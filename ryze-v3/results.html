@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Resultats — Transformations Ryze Aligners</title>
+<meta name="description" content="Decouvrez les transformations reelles realisees par Ryze Aligners. Resultats cliniques, cas patients et avant/apres documentes.">
+
+<!-- OG Tags -->
+<meta property="og:title" content="Resultats — Transformations Ryze Aligners">
+<meta property="og:description" content="Decouvrez les transformations reelles realisees par Ryze Aligners. Resultats cliniques et avant/apres documentes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ryzealigners.fr/results.html">
+<meta property="og:image" content="https://picsum.photos/seed/ryze-og-results/1200/630">
+
+<link rel="canonical" href="https://ryzealigners.fr/results.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<!-- JSON-LD BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://ryzealigners.fr/" },
+    { "@type": "ListItem", "position": 2, "name": "Resultats", "item": "https://ryzealigners.fr/results.html" }
+  ]
+}
+</script>
+
+<style>
+/* Page-specific: before/after card layout */
+.ba-card{overflow:hidden}
+.ba-card__images{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.ba-card__images img{width:100%;height:200px;object-fit:cover}
+.ba-card__body{padding:var(--p-space-5)}
+.ba-card__info{font-size:var(--p-text-sm);color:var(--color-text-soft);margin-top:var(--p-space-2)}
+.ba-card__label{position:absolute;top:var(--p-space-2);font-size:var(--p-text-xs);font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-muted);background:rgba(255,255,255,.85);padding:2px 8px;border-radius:var(--p-radius-sm)}
+.ba-card__label--before{left:var(--p-space-2)}
+.ba-card__label--after{left:calc(50% + var(--p-space-2))}
+.ba-card__images{position:relative}
+
+/* Filter pills container */
+.filter-bar{display:flex;gap:var(--p-space-2);flex-wrap:wrap;justify-content:center;margin-bottom:var(--p-space-10)}
+
+/* Filter hide/show */
+.ba-card[data-category]{transition:opacity var(--p-dur-normal) var(--ease),transform var(--p-dur-normal) var(--ease)}
+.ba-card.hidden{display:none}
+
+/* Stats band */
+.stats-band{background:var(--p-neutral-800);color:#fff;padding:var(--p-space-16) 0}
+.stats-band .stat__number{color:var(--color-accent)}
+.stats-band .stat__label{color:var(--p-neutral-300)}
+
+/* CTA band */
+.cta-band{background:var(--color-brand);color:#fff;padding:var(--p-space-16) 0;text-align:center}
+.cta-band .h2{color:#fff;margin-bottom:var(--p-space-6)}
+.cta-band .lead{color:rgba(255,255,255,.8);margin:0 auto var(--p-space-8)}
+</style>
+</head>
+<body>
+
+<!-- Skip to content -->
+<a href="#main" class="skip-link">Aller au contenu principal</a>
+
+<!-- ══════════ NAVIGATION ══════════ -->
+<nav class="nav" id="mainNav">
+  <div class="nav__inner">
+    <a href="index.html" aria-label="Ryze Aligners — Accueil">
+      <img src="assets/logo.svg" alt="Ryze Aligners" class="nav__logo" width="120" height="32">
+    </a>
+    <div class="nav__links">
+      <a href="index.html" class="nav__link">Accueil</a>
+      <a href="technologie.html" class="nav__link">Technologie</a>
+      <a href="junior.html" class="nav__link">Ryze Junior</a>
+      <a href="results.html" class="nav__link" aria-current="page">Resultats</a>
+      <a href="tarifs.html" class="nav__link">Tarifs</a>
+      <a href="articles.html" class="nav__link">Articles</a>
+      <a href="faq.html" class="nav__link">FAQ</a>
+      <a href="contact.html" class="nav__link">Contact</a>
+      <a href="contact.html#scan" class="nav__cta">Start Scan</a>
+    </div>
+    <button class="nav__burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="nav__mobile" id="navMobile" role="dialog" aria-label="Menu mobile">
+  <a href="index.html" class="nav__link">Accueil</a>
+  <a href="technologie.html" class="nav__link">Technologie</a>
+  <a href="junior.html" class="nav__link">Ryze Junior</a>
+  <a href="results.html" class="nav__link" aria-current="page">Resultats</a>
+  <a href="tarifs.html" class="nav__link">Tarifs</a>
+  <a href="articles.html" class="nav__link">Articles</a>
+  <a href="faq.html" class="nav__link">FAQ</a>
+  <a href="contact.html" class="nav__link">Contact</a>
+  <a href="contact.html#scan" class="btn btn--accent btn--lg" style="margin-top:var(--p-space-4)">Start Scan</a>
+</div>
+
+<main id="main">
+
+  <!-- ══════════ BREADCRUMB ══════════ -->
+  <div class="container" style="padding-top:calc(var(--nav-height) + var(--p-space-4))">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="index.html">Accueil</a>
+      <span class="breadcrumb__sep" aria-hidden="true">/</span>
+      <span aria-current="page">Resultats</span>
+    </nav>
+  </div>
+
+  <!-- ══════════ 1. HERO (short) ══════════ -->
+  <section class="hero hero--short reveal">
+    <div class="container text-center" style="max-width:720px;margin:0 auto">
+      <p class="eyebrow hero__eyebrow">Resultats cliniques</p>
+      <div class="hero__red-line mx-auto"></div>
+      <h1 class="h1 hero__title">Nos resultats parlent d'eux-memes</h1>
+      <p class="lead hero__sub mx-auto">Chaque sourire presente ici est une transformation reelle, realisee par des orthodontistes experts avec la technologie Ryze Aligners. Pas de retouches, pas de promesses en l'air — juste des resultats cliniques documentes.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 2. FILTER PILLS ══════════ -->
+  <section class="section--sm reveal">
+    <div class="container">
+      <div class="filter-bar" role="group" aria-label="Filtrer les resultats par categorie">
+        <button class="pill active" data-filter="all">Tous</button>
+        <button class="pill" data-filter="chevauchements">Chevauchements</button>
+        <button class="pill" data-filter="espacements">Espacements</button>
+        <button class="pill" data-filter="supraclusion">Supraclusion</button>
+        <button class="pill" data-filter="articule-inverse">Articule inverse</button>
+        <button class="pill" data-filter="beance">Beance</button>
+        <button class="pill" data-filter="sous-occlusion">Sous-occlusion</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 3. RESULTS GRID ══════════ -->
+  <section class="section--sm reveal">
+    <div class="container">
+      <div class="grid grid--3" id="resultsGrid">
+
+        <!-- Case 1 -->
+        <article class="card ba-card" data-category="chevauchements">
+          <div class="ba-card__images">
+            <span class="ba-card__label ba-card__label--before">Avant</span>
+            <span class="ba-card__label ba-card__label--after">Apres</span>
+            <img src="https://picsum.photos/seed/ryze-case1-before/300/400" alt="Avant traitement — cas de chevauchements" width="300" height="400" loading="lazy">
+            <img src="https://picsum.photos/seed/ryze-case1-after/300/400" alt="Apres traitement — cas de chevauchements" width="300" height="400" loading="lazy">
+          </div>
+          <div class="ba-card__body">
+            <span class="pill pill--accent btn--sm" style="pointer-events:none">Chevauchements</span>
+            <p class="ba-card__info">Patient de 28 ans — Traitement de 8 mois</p>
+          </div>
+        </article>
+
+        <!-- Case 2 -->
+        <article class="card ba-card" data-category="espacements">
+          <div class="ba-card__images">
+            <span class="ba-card__label ba-card__label--before">Avant</span>
+            <span class="ba-card__label ba-card__label--after">Apres</span>
+            <img src="https://picsum.photos/seed/ryze-case2-before/300/400" alt="Avant traitement — cas d'espacements" width="300" height="400" loading="lazy">
+            <img src="https://picsum.photos/seed/ryze-case2-after/300/400" alt="Apres traitement — cas d'espacements" width="300" height="400" loading="lazy">
+          </div>
+          <div class="ba-card__body">
+            <span class="pill pill--accent btn--sm" style="pointer-events:none">Espacements</span>
+            <p class="ba-card__info">Patiente de 34 ans — Traitement de 6 mois</p>
+          </div>
+        </article>
+
+        <!-- Case 3 -->
+        <article class="card ba-card" data-category="supraclusion">
+          <div class="ba-card__images">
+            <span class="ba-card__label ba-card__label--before">Avant</span>
+            <span class="ba-card__label ba-card__label--after">Apres</span>
+            <img src="https://picsum.photos/seed/ryze-case3-before/300/400" alt="Avant traitement — cas de supraclusion" width="300" height="400" loading="lazy">
+            <img src="https://picsum.photos/seed/ryze-case3-after/300/400" alt="Apres traitement — cas de supraclusion" width="300" height="400" loading="lazy">
+          </div>
+          <div class="ba-card__body">
+            <span class="pill pill--accent btn--sm" style="pointer-events:none">Supraclusion</span>
+            <p class="ba-card__info">Patient de 22 ans — Traitement de 10 mois</p>
+          </div>
+        </article>
+
+        <!-- Case 4 -->
+        <article class="card ba-card" data-category="articule-inverse">
+          <div class="ba-card__images">
+            <span class="ba-card__label ba-card__label--before">Avant</span>
+            <span class="ba-card__label ba-card__label--after">Apres</span>
+            <img src="https://picsum.photos/seed/ryze-case4-before/300/400" alt="Avant traitement — cas d'articule inverse" width="300" height="400" loading="lazy">
+            <img src="https://picsum.photos/seed/ryze-case4-after/300/400" alt="Apres traitement — cas d'articule inverse" width="300" height="400" loading="lazy">
+          </div>
+          <div class="ba-card__body">
+            <span class="pill pill--accent btn--sm" style="pointer-events:none">Articule inverse</span>
+            <p class="ba-card__info">Patiente de 19 ans — Traitement de 12 mois</p>
+          </div>
+        </article>
+
+        <!-- Case 5 -->
+        <article class="card ba-card" data-category="beance">
+          <div class="ba-card__images">
+            <span class="ba-card__label ba-card__label--before">Avant</span>
+            <span class="ba-card__label ba-card__label--after">Apres</span>
+            <img src="https://picsum.photos/seed/ryze-case5-before/300/400" alt="Avant traitement — cas de beance" width="300" height="400" loading="lazy">
+            <img src="https://picsum.photos/seed/ryze-case5-after/300/400" alt="Apres traitement — cas de beance" width="300" height="400" loading="lazy">
+          </div>
+          <div class="ba-card__body">
+            <span class="pill pill--accent btn--sm" style="pointer-events:none">Beance</span>
+            <p class="ba-card__info">Patient de 31 ans — Traitement de 9 mois</p>
+          </div>
+        </article>
+
+        <!-- Case 6 -->
+        <article class="card ba-card" data-category="sous-occlusion">
+          <div class="ba-card__images">
+            <span class="ba-card__label ba-card__label--before">Avant</span>
+            <span class="ba-card__label ba-card__label--after">Apres</span>
+            <img src="https://picsum.photos/seed/ryze-case6-before/300/400" alt="Avant traitement — cas de sous-occlusion" width="300" height="400" loading="lazy">
+            <img src="https://picsum.photos/seed/ryze-case6-after/300/400" alt="Apres traitement — cas de sous-occlusion" width="300" height="400" loading="lazy">
+          </div>
+          <div class="ba-card__body">
+            <span class="pill pill--accent btn--sm" style="pointer-events:none">Sous-occlusion</span>
+            <p class="ba-card__info">Patiente de 26 ans — Traitement de 7 mois</p>
+          </div>
+        </article>
+
+        <!-- Case 7 -->
+        <article class="card ba-card" data-category="chevauchements">
+          <div class="ba-card__images">
+            <span class="ba-card__label ba-card__label--before">Avant</span>
+            <span class="ba-card__label ba-card__label--after">Apres</span>
+            <img src="https://picsum.photos/seed/ryze-case7-before/300/400" alt="Avant traitement — cas de chevauchements" width="300" height="400" loading="lazy">
+            <img src="https://picsum.photos/seed/ryze-case7-after/300/400" alt="Apres traitement — cas de chevauchements" width="300" height="400" loading="lazy">
+          </div>
+          <div class="ba-card__body">
+            <span class="pill pill--accent btn--sm" style="pointer-events:none">Chevauchements</span>
+            <p class="ba-card__info">Patient de 41 ans — Traitement de 11 mois</p>
+          </div>
+        </article>
+
+        <!-- Case 8 -->
+        <article class="card ba-card" data-category="espacements">
+          <div class="ba-card__images">
+            <span class="ba-card__label ba-card__label--before">Avant</span>
+            <span class="ba-card__label ba-card__label--after">Apres</span>
+            <img src="https://picsum.photos/seed/ryze-case8-before/300/400" alt="Avant traitement — cas d'espacements" width="300" height="400" loading="lazy">
+            <img src="https://picsum.photos/seed/ryze-case8-after/300/400" alt="Apres traitement — cas d'espacements" width="300" height="400" loading="lazy">
+          </div>
+          <div class="ba-card__body">
+            <span class="pill pill--accent btn--sm" style="pointer-events:none">Espacements</span>
+            <p class="ba-card__info">Patiente de 17 ans — Traitement de 5 mois</p>
+          </div>
+        </article>
+
+        <!-- Case 9 -->
+        <article class="card ba-card" data-category="supraclusion">
+          <div class="ba-card__images">
+            <span class="ba-card__label ba-card__label--before">Avant</span>
+            <span class="ba-card__label ba-card__label--after">Apres</span>
+            <img src="https://picsum.photos/seed/ryze-case9-before/300/400" alt="Avant traitement — cas de supraclusion" width="300" height="400" loading="lazy">
+            <img src="https://picsum.photos/seed/ryze-case9-after/300/400" alt="Apres traitement — cas de supraclusion" width="300" height="400" loading="lazy">
+          </div>
+          <div class="ba-card__body">
+            <span class="pill pill--accent btn--sm" style="pointer-events:none">Supraclusion</span>
+            <p class="ba-card__info">Patient de 38 ans — Traitement de 14 mois</p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Load more -->
+      <div class="text-center" style="margin-top:var(--p-space-10)">
+        <button class="btn btn--ghost" id="loadMoreBtn">Voir plus de resultats</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 5. STATS BAND ══════════ -->
+  <section class="stats-band reveal">
+    <div class="container">
+      <div class="grid grid--3 text-center">
+        <div class="stat">
+          <div class="stat__number stat__accent">10 000+</div>
+          <div class="stat__label">sourires transformes</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number stat__accent">42</div>
+          <div class="stat__label">cas documentes</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number stat__accent">99,8%</div>
+          <div class="stat__label">taux de satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 6. CTA BAND ══════════ -->
+  <section class="cta-band reveal">
+    <div class="container text-center">
+      <h2 class="h2">Votre sourire pourrait etre le prochain</h2>
+      <p class="lead">Rejoignez les milliers de patients qui ont deja transforme leur sourire avec Ryze Aligners. Prenez rendez-vous pour une consultation gratuite.</p>
+      <a href="contact.html#scan" class="btn btn--accent btn--lg">Prendre rendez-vous</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="assets/logo.svg" alt="Ryze Aligners" class="footer__logo" width="120" height="28">
+        <p class="footer__desc">Ryze Aligners transforme les sourires grace a une technologie francaise de pointe, guidee par l'expertise de praticiens orthodontistes.</p>
+        <p class="footer__desc">
+          <a href="mailto:contact@ryzealigners.fr" class="footer__link">contact@ryzealigners.fr</a>
+        </p>
+        <p class="footer__desc">
+          <a href="tel:+33184800000" class="footer__link">+33 1 84 80 00 00</a>
+        </p>
+      </div>
+      <div>
+        <p class="footer__heading">Soins</p>
+        <a href="technologie.html" class="footer__link">Technologie</a>
+        <a href="junior.html" class="footer__link">Ryze Junior</a>
+        <a href="results.html" class="footer__link">Resultats</a>
+        <a href="tarifs.html" class="footer__link">Tarifs</a>
+      </div>
+      <div>
+        <p class="footer__heading">Informations</p>
+        <a href="articles.html" class="footer__link">Articles</a>
+        <a href="faq.html" class="footer__link">FAQ</a>
+        <a href="contact.html" class="footer__link">Contact</a>
+      </div>
+      <div>
+        <p class="footer__heading">Legal</p>
+        <a href="mentions-legales.html" class="footer__link">Mentions legales</a>
+        <a href="cgv.html" class="footer__link">CGV</a>
+        <a href="confidentialite.html" class="footer__link">Confidentialite</a>
+        <a href="cookies.html" class="footer__link">Cookies</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 Ryze Aligners. Tous droits reserves.</p>
+      <div class="footer__legal">
+        <a href="mentions-legales.html">Mentions legales</a>
+        <a href="cgv.html">CGV</a>
+        <a href="confidentialite.html">Confidentialite</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════ COOKIE BANNER ══════════ -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Gestion des cookies">
+  <div class="cookie-banner__inner">
+    <p class="cookie-banner__text">Nous utilisons des cookies pour ameliorer votre experience. Vous pouvez accepter, refuser ou personnaliser vos preferences.</p>
+    <div class="cookie-banner__actions">
+      <button class="btn btn--sm btn--primary" id="cookieAccept">Accepter</button>
+      <button class="btn btn--sm btn--ghost" id="cookieRefuse">Refuser</button>
+      <button class="btn btn--sm btn--ghost" id="cookieCustomize">Personnaliser</button>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="js/motion.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/cookies.js"></script>
+
+<!-- Filter pills + burger menu -->
+<script>
+(function(){
+  // Mobile burger
+  const burger = document.getElementById('navBurger');
+  const mobile = document.getElementById('navMobile');
+  if(burger && mobile){
+    burger.addEventListener('click',function(){
+      const open = burger.classList.toggle('open');
+      mobile.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+  }
+
+  // Nav scroll
+  const nav = document.getElementById('mainNav');
+  if(nav){
+    window.addEventListener('scroll',function(){
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    });
+  }
+
+  // Filter pills
+  const pills = document.querySelectorAll('.pill[data-filter]');
+  const cards = document.querySelectorAll('.ba-card[data-category]');
+
+  pills.forEach(function(pill){
+    pill.addEventListener('click',function(){
+      pills.forEach(function(p){ p.classList.remove('active'); });
+      pill.classList.add('active');
+
+      var filter = pill.getAttribute('data-filter');
+      cards.forEach(function(card){
+        if(filter === 'all' || card.getAttribute('data-category') === filter){
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

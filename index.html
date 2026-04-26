@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ryze™ Aligners — Orthodontie Invisible Premium</title>
+  <meta name="description" content="Des aligneurs invisibles fabriqués en France avec une précision clinique inégalée. Découvrez Ryze™ Aligners.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Caveat:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0071BB',
+            'primary-dark': '#005a96',
+            surface: '#f6fafe',
+            'dark-bg': '#1A2D2A',
+          },
+          fontFamily: {
+            headline: ['Manrope', 'sans-serif'],
+            display: ['Cormorant Garamond', 'serif'],
+            editorial: ['Cormorant Garamond', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: #ffffff;
+      color: #1a2b3c;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes breath {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-breath { animation: breath 8s ease-in-out infinite; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .reveal { opacity: 0; }
+    .reveal.visible { animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .stagger > .reveal.visible:nth-child(1) { animation-delay: 0ms; }
+    .stagger > .reveal.visible:nth-child(2) { animation-delay: 120ms; }
+    .stagger > .reveal.visible:nth-child(3) { animation-delay: 240ms; }
+
+    /* Before/After Slider */
+    .comparison-slider { position: relative; overflow: hidden; cursor: col-resize; }
+    .comparison-slider .resize {
+      position: absolute; top: 0; left: 0; height: 100%;
+      overflow: hidden; border-right: none;
+    }
+    .comparison-slider .resize img {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+    .comparison-slider .handle {
+      position: absolute; top: 0; bottom: 0;
+      left: 50%; width: 4px;
+      background: white; cursor: ew-resize; z-index: 10;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .comparison-slider .handle::after {
+      content: "↔"; position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px; height: 48px; background: white;
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; color: #0071BB; font-size: 20px;
+      font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      border: 2px solid #0071BB;
+    }
+
+    /* Glass play button */
+    .glass-play-button {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      transition: all 0.3s ease;
+    }
+    .glass-play-button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    /* FAQ */
+    .faq-accordion[open] .faq-icon { transform: rotate(180deg); }
+    .faq-icon { transition: transform 0.3s ease; }
+
+    /* Step tabs */
+    .step-tab[data-active="true"] { border-color: #0071BB; color: #1a2b3c; }
+    .step-tab[data-active="true"] .step-number { background-color: #0071BB; color: white; }
+    .step-image { transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; }
+
+    /* Material Symbols fix */
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal; font-style: normal;
+      font-size: 24px; line-height: 1;
+      letter-spacing: normal; text-transform: none;
+      display: inline-block; white-space: nowrap;
+      word-wrap: normal; direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr !important; }
+      .hero-sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav class="fixed top-0 w-full z-50 bg-white shadow-sm">
+    <div class="flex justify-between items-center px-6 md:px-12 py-5 max-w-[1920px] mx-auto">
+      <a href="/" class="shrink-0 inline-block" aria-label="Ryze Aligners"><img src="assets/ryze-logo.svg" alt="Ryze Aligners" style="height:48px;width:auto;display:block;"></a>
+      <div class="hidden lg:flex items-center space-x-12 font-headline tracking-tight text-sm font-medium absolute left-1/2 -translate-x-1/2" style="color: #0071BB;">
+        <a class="border-b border-[#0071BB] pb-1 hover:opacity-80 transition-opacity duration-300" href="#process">Accueil</a>
+        <a class="hover:opacity-80 transition-colors duration-300" href="treatment.html">Technologie</a>
+        <a class="hover:opacity-80 transition-colors duration-300" href="scanner.html">Scanner</a>
+        <a class="hover:opacity-80 transition-colors duration-300" href="junior.html">Ryze Junior</a>
+        <a class="hover:opacity-80 transition-colors duration-300" href="results.html">Résultats</a>
+        <a class="hover:opacity-80 transition-colors duration-300" href="tarifs.html">Tarifs</a>
+        <a class="hover:opacity-80 transition-colors duration-300" href="blog.html">Articles</a>
+        <a class="hover:opacity-80 transition-colors duration-300" href="faq.html">FAQ</a>
+        <a class="hover:opacity-80 transition-colors duration-300" href="contact.html">Contact</a>
+      </div>
+      <div class="shrink-0 flex items-center gap-3">
+        <button class="text-white px-10 py-4 rounded-full font-headline font-semibold text-[11px] tracking-widest shadow-lg hover:shadow-xl hover:brightness-110 transition-all duration-300 uppercase" style="background-color: #0071BB;">
+          START SCAN
+        </button>
+        <button class="lg:hidden p-2" id="hamburgerBtn" aria-label="Menu">
+          <span class="material-symbols-outlined text-2xl" style="color:#1a2b3c;">menu</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="fixed top-[72px] left-0 right-0 bg-white/97 backdrop-blur-md z-40 p-6 flex-col gap-4 hidden" id="mobileMenu">
+    <a class="font-headline font-medium text-base" style="color:#0071BB;" href="#process">Accueil</a>
+    <a class="font-headline font-medium text-base text-slate-600" href="treatment.html">Technologie</a>
+    <a class="font-headline font-medium text-base text-slate-600" href="results.html">Résultats</a>
+    <a class="font-headline font-medium text-base text-slate-600" href="tarifs.html">Tarifs</a>
+    <a class="font-headline font-medium text-base text-slate-600" href="blog.html">Articles</a>
+    <a class="font-headline font-medium text-base text-slate-600" href="faq.html">FAQ</a>
+    <a class="font-headline font-medium text-base text-slate-600" href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="relative min-h-screen flex items-center pt-20 overflow-hidden" style="background: radial-gradient(circle at center, #eef9ff 0%, #f8fafc 60%, #ffffff 100%);">
+    <div class="container mx-auto px-6 md:px-8 relative z-20 h-full flex flex-col md:grid md:grid-cols-12 gap-8 items-center min-h-[90vh]">
+      <!-- Left text -->
+      <div class="md:col-span-5 space-y-6 md:pb-20">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/40 backdrop-blur-md rounded-full border border-white/60 reveal">
+          <span class="material-symbols-outlined text-[14px]" style="color:#b8965a;">waves</span>
+          <span class="text-[10px] font-bold tracking-widest uppercase" style="color:#b8965a;">Fabriqu&#233; en France &middot; Technologie Precision Trigger Points&#8482;</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-7xl leading-[1.1] text-[#1a2b3c] flex flex-col reveal">
+          <span class="font-light tracking-tight">Le futur de l'orthodontie</span>
+          <span class="font-bold tracking-tighter uppercase">est invisible.</span>
+          <span class="font-light tracking-tight italic text-primary/80">Votre sourire, lui, est éclatant.</span>
+        </h1>
+        <p class="max-w-md text-[#1a2b3c]/70 text-sm leading-relaxed font-medium reveal">Des aligneurs sur-mesure, conçus en France, sans taquets visibles ni bagues. Une technologie clinique avancée pour un résultat visible dès 3 mois.</p>
+      </div>
+
+      <!-- Center aligner image -->
+      <div class="md:col-span-4 relative flex justify-center items-center h-full py-12">
+        <div class="relative w-full aspect-square animate-breath">
+          <img alt="3D Dental Aligner" class="w-full h-full object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.15)] animate-float reveal"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQZ6znPWiMllU41MLAtP7O8HLrZ1jC27n5O8rWPKauLWrfr7E8OZMVfVeZeKE9UoXm2NqodCYbPLYsIRBbJsuM13UJk0cm4sAY1MZkhX4undqeoZXtyVFXy_GNkUbvsIAD574iJHtUY0yIfRlA_Qi_aNjBdtZp2VxRRW2DxlrW_kMt7HsOajb_yUkb25ASejSsjK5JaE8ZrLPMw-V9kx-lCXTjzPspjP5-qmM3fPDy6vuq-1uR_Cw9nVDnolF989XohVBJIsd6vn4V">
+        </div>
+      </div>
+
+      <!-- Right sidebar stats -->
+      <div class="md:col-span-3 flex flex-col justify-center space-y-8 pl-4 hero-sidebar">
+        <div class="space-y-6 border-l border-slate-200/50 pl-6">
+          <div class="space-y-1 reveal">
+            <p class="text-[10px] font-bold tracking-[0.2em] uppercase" style="color:#b8965a;">Efficacité</p>
+            <div class="w-full h-24 mb-3 overflow-hidden rounded-sm">
+              <img alt="Aligneur transparent Ryze" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                src="assets/aligner-clinical.png">
+            </div>
+            <p class="text-sm font-medium text-[#1a2b3c]/90 leading-tight">Jusqu'à 80 % d'attaches en moins que les systèmes classiques</p>
+          </div>
+          <div class="space-y-1 reveal">
+            <p class="text-[10px] font-bold tracking-[0.2em] uppercase" style="color:#b8965a;">Exclusivité</p>
+            <div class="w-full h-24 mb-3 overflow-hidden rounded-sm">
+              <img alt="Technology" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh6bwZyWUlOs2e6aRgA4MaCq_CLWsuWNs6LdbPP3PX6kfGs_e7Vf7tN_vfynpgxQI53GALa1-apMZ1BBOpmloeHYMTABLHxlBDYOGQr-Gj0pc_F5HFOcugKMcbdBnTkqYtsKw0QN4cckN9PB12gXqor55GqPBGQeu2OneT4yO3a384SKS_33G2Kr6vLR-iVI_gTtEcmU_h2N8o9ffx74wv3-d5TMqfBQ7D7_AsZ-ujS9tUDOeAWgy7rWRP21NPvZfggyYruR89ca-E">
+            </div>
+            <p class="text-sm font-medium text-[#1a2b3c]/90 leading-tight">Technologie Precision Trigger Points™ exclusive</p>
+          </div>
+          <div class="space-y-1 reveal">
+            <p class="text-[10px] font-bold tracking-[0.2em] uppercase" style="color:#b8965a;">Expertise</p>
+            <div class="w-full h-24 mb-3 overflow-hidden rounded-sm">
+              <img alt="Expert plans" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmSKH44L0hktWXe-Mem58ozKU86Zu4dAJxh38tY0wlcQ3apXEbpqCuakecfvQETvigR1nQaXsZSYl0JIhfK1LYaWWyGNaR6TYgnVfXLXJYYHUTyIN22or2EqxMY--jO9_Ql_1Im7shdMYwwfEcr9n6v74dLN_fIrz6z_fvqzprtOIZSYdyYt-e1tu5EaVfkHVp3yAA4--MPimbBf38T0gdxs66ELpQeC3M5NehXqeZfIiA4D8CHTaL6-O1MadPc7VRbzHbCMjal172">
+            </div>
+            <p class="text-sm font-medium text-[#1a2b3c]/90 leading-tight">Plans conçus exclusivement par des orthodontistes experts</p>
+          </div>
+          <div class="space-y-1 reveal">
+            <p class="text-[10px] font-bold tracking-[0.2em] uppercase" style="color:#b8965a;">Héritage</p>
+            <div class="w-full h-24 mb-3 overflow-hidden rounded-sm">
+              <img alt="Robotic fabrication" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgKTR-edkqOjnA9d91ojGo7Zc6hhHb-bWjuQ_Aca6Juqwa8aU-lJpPBkR94r89SE20STz3_YHCo07ahxWFBLTWV-cPiPqxB5RMT4F9GzuWX5FQ7jiMGKujl88ZYyQ8KLwj6thgKEgo0YVpvWbLjDzsCvfJK5k14jrrfVvuXqw6wLRZOzQ2Zly8DQhbncOIJX5vkhPzGa94QPGhRGlVC9v8WZ_0DUcWTE2ijvebMzbWD5NXvW7WcJlz2iUUZAw-zLeudZqK-sMbx0oe">
+            </div>
+            <p class="text-sm font-medium text-[#1a2b3c]/90 leading-tight">Fabrication robotisée en France – contrôle clinique total</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-4">
+      <button class="group relative flex items-center justify-center">
+        <div class="absolute inset-0 rounded-full border border-blue-200 animate-ping opacity-20"></div>
+        <div class="w-24 h-24 rounded-full border border-blue-100 flex items-center justify-center bg-white/20 backdrop-blur-md group-hover:bg-white/40 transition-all duration-500 overflow-hidden">
+          <div class="flex flex-col items-center">
+            <span class="material-symbols-outlined text-slate-800 text-2xl ml-1 mb-1">play_arrow</span>
+            <span class="text-[8px] font-bold tracking-tighter text-slate-800 uppercase text-center leading-[0.8] px-4">Explorez<br>Ryze</span>
+          </div>
+        </div>
+      </button>
+      <button class="mt-8 px-8 py-4 border border-slate-800 text-slate-800 font-headline font-bold text-[11px] tracking-widest hover:bg-slate-800 hover:text-white active:bg-[#E8334A] active:border-[#E8334A] active:text-white focus:bg-[#E8334A] focus:border-[#E8334A] focus:text-white focus:outline-none transition-all uppercase rounded-sm">
+        Trouver un praticien
+      </button>
+    </div>
+  </section>
+
+  <!-- ==================== DARK VALUE PROPOSITION ==================== -->
+  <section class="py-32 md:py-48" style="background-color: #1A2D2A;">
+    <div class="container mx-auto px-6 md:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
+        <div class="md:col-span-5 space-y-12 flex flex-col justify-center relative">
+          <div class="space-y-8">
+            <div class="space-y-4">
+              <h2 class="font-display text-4xl md:text-6xl font-light tracking-tight text-white mb-6 reveal">L'alliance parfaite entre esthétique et rigueur clinique.</h2>
+            </div>
+            <p class="font-headline leading-relaxed max-w-lg text-lg opacity-90 font-light text-white/70 reveal">Ryze est né d'un constat simple : vous ne devriez jamais avoir à choisir entre votre confort et l'efficacité de votre traitement. Là où les systèmes classiques imposent des taquets visibles et encombrants, la technologie Precision Trigger Points™ de Ryze™ permet une maîtrise clinique totale avec une discrétion inégalée. Conçus par des experts de santé en France, nos aligneurs répondent aux exigences les plus strictes pour un sourire transformé, sans compromis.</p>
+            <div class="pt-4 flex flex-wrap gap-4 reveal">
+              <button class="font-headline text-xs font-bold tracking-[0.2em] uppercase py-4 px-10 border border-white/30 text-white hover:bg-white hover:text-[#1A2D2A] transition-all duration-500">
+                Découvrir notre technologie
+              </button>
+              <button class="text-white px-10 py-4 rounded-full font-headline font-semibold shadow-lg hover:shadow-xl hover:brightness-110 transition-all duration-300" style="background-color: #0071BB;">
+                Trouver un praticien
+              </button>
+            </div>
+            <div class="mt-12 pt-12 border-t border-white/10 max-w-sm reveal">
+              <p class="font-headline text-[13px] font-light leading-relaxed tracking-wide text-white/60 italic">
+                <span class="block font-bold mb-2 not-italic tracking-[0.2em] uppercase text-[10px]" style="color:#b8965a;">Le secret Ryze™</span>
+                Grâce à notre technologie, nous redressons vos dents sans avoir besoin de coller de "taquets" visibles sur le devant. C'est 100% invisible, vraiment.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-7 reveal">
+          <div class="relative aspect-square overflow-hidden rounded-sm">
+            <img class="w-full h-full object-cover opacity-90"
+              alt="Close-up of Ryze aligner"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmSKH44L0hktWXe-Mem58ozKU86Zu4dAJxh38tY0wlcQ3apXEbpqCuakecfvQETvigR1nQaXsZSYl0JIhfK1LYaWWyGNaR6TYgnVfXLXJYYHUTyIN22or2EqxMY--jO9_Ql_1Im7shdMYwwfEcr9n6v74dLN_fIrz6z_fvqzprtOIZSYdyYt-e1tu5EaVfkHVp3yAA4--MPimbBf38T0gdxs66ELpQeC3M5NehXqeZfIiA4D8CHTaL6-O1MadPc7VRbzHbCMjal172">
+            <div class="absolute inset-0" style="border: 20px solid #1A2D2A;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BEFORE/AFTER COMPARISON ==================== -->
+  <section id="results" class="py-32 bg-[#F0F8FF]">
+    <div class="container mx-auto px-6 md:px-8">
+      <div class="max-w-4xl mx-auto text-center mb-16 space-y-6">
+        <div class="inline-block px-4 py-1 border border-primary/30 rounded-full mb-4 reveal">
+          <span class="text-[10px] font-bold tracking-[0.3em] uppercase" style="color:#b8965a;">Transformations Réelles</span>
+        </div>
+        <h2 class="font-display text-4xl md:text-5xl font-light leading-tight text-slate-900 reveal">
+          Ce que personne ne remarque... <span class="text-primary italic">Ce sont vos aligneurs.</span>
+        </h2>
+        <p class="font-headline text-lg max-w-2xl mx-auto opacity-80 text-slate-700 reveal">
+          Ce que tout le monde voit... c'est votre nouveau sourire. Des résultats concrets, obtenus sans taquets visibles.
+        </p>
+      </div>
+      <div class="max-w-6xl mx-auto relative rounded-xl overflow-hidden shadow-2xl bg-white group reveal">
+        <div class="comparison-slider" id="dentalSlider">
+          <img alt="After treatment" class="w-full aspect-[21/9] object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnrG9iKNoF8j5fB_y-H7G_jV5Uv_9XwE9f-Gj_z_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f">
+          <div class="resize" id="sliderResize" style="width: 50%;">
+            <img alt="Before treatment" class="max-w-none w-full h-full object-cover grayscale brightness-90"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh6bwZyWUlOs2e6aRgA4MaCq_CLWsuWNs6LdbPP3PX6kfGs_e7Vf7tN_vfynpgxQI53GALa1-apMZ1BBOpmloeHYMTABLHxlBDYOGQr-Gj0pc_F5HFOcugKMcbdBnTkqYtsKw0QN4cckN9PB12gXqor55GqPBGQeu2OneT4yO3a384SKS_33G2Kr6vLR-iVI_gTtEcmU_h2N8o9ffx74wv3-d5TMqfBQ7D7_AsZ-ujS9tUDOeAWgy7rWRP21NPvZfggyYruR89ca-E">
+          </div>
+          <div class="handle" id="sliderHandle" style="left: 50%;"></div>
+          <div class="absolute bottom-8 left-8 z-20 px-4 py-1.5 bg-white/80 backdrop-blur shadow-sm rounded-full">
+            <span class="text-[10px] font-bold tracking-widest uppercase text-slate-900">Avant</span>
+          </div>
+          <div class="absolute bottom-8 right-8 z-20 px-4 py-1.5 bg-white/80 backdrop-blur shadow-sm rounded-full">
+            <span class="text-[10px] font-bold tracking-widest uppercase text-slate-900">Après</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <p class="text-[10px] font-medium tracking-widest uppercase text-slate-600 reveal">Glissez le curseur pour comparer · Photos de patients réels</p>
+        <button class="mt-10 text-white px-10 py-4 rounded-full font-headline font-semibold shadow-lg hover:shadow-xl hover:brightness-110 transition-all duration-300 reveal" style="background-color: #0071BB;">
+          Voir tous les résultats
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DENTAL CASES ==================== -->
+  <section id="technology" class="py-32 bg-white">
+    <div class="container mx-auto px-6 md:px-8">
+      <div class="max-w-4xl mx-auto text-center mb-20 space-y-6">
+        <h2 class="font-display text-4xl md:text-5xl font-light text-slate-900 reveal">Ryze™ est-il fait pour vous ?</h2>
+        <p class="font-headline text-sm tracking-[0.2em] uppercase font-bold reveal" style="color:#b8965a;">À chaque sourire sa solution.</p>
+        <p class="font-headline text-lg max-w-2xl mx-auto text-slate-600 reveal">
+          Que votre besoin soit esthétique ou fonctionnel, Ryze™ traite la grande majorité des cas avec une précision médicale :
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto stagger">
+        <!-- Card 1: ESPACEMENTS (gaps between teeth) -->
+        <div class="group p-8 bg-slate-50/80 rounded-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 reveal">
+          <div class="aspect-[4/3] mb-6 overflow-hidden flex items-center justify-center bg-slate-100/60 rounded-lg">
+            <svg viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4/5 h-4/5">
+              <!-- Upper teeth with gaps -->
+              <path d="M60 95 Q62 55 72 50 Q80 47 85 55 Q88 65 87 95" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M95 95 Q96 50 105 42 Q112 38 118 42 Q125 50 126 95" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M134 95 Q135 45 143 38 Q148 35 153 38 Q160 45 161 95" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M169 95 Q170 50 178 42 Q185 38 191 42 Q198 50 199 95" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M207 95 Q209 55 218 50 Q224 47 228 55 Q231 65 230 95" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <!-- Lower teeth with gaps -->
+              <path d="M65 108 Q63 145 70 152 Q77 157 82 152 Q87 145 85 108" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M97 108 Q95 148 103 158 Q110 163 117 158 Q124 148 122 108" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M135 108 Q133 145 140 155 Q147 160 153 155 Q160 145 158 108" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M170 108 Q168 148 175 158 Q182 163 189 158 Q196 148 194 108" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M208 108 Q206 145 213 152 Q219 157 224 152 Q229 145 227 108" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <!-- Gum lines -->
+              <path d="M45 95 Q70 85 90 95 Q110 82 130 95 Q150 82 165 95 Q185 82 205 95 Q225 85 245 95" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.5"/>
+              <path d="M50 108 Q72 118 88 108 Q108 120 125 108 Q145 120 162 108 Q182 120 198 108 Q218 118 240 108" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3 class="font-headline font-bold text-center tracking-widest text-sm text-slate-900 uppercase">ESPACEMENTS</h3>
+        </div>
+        <!-- Card 2: CHEVAUCHEMENTS (crowding) -->
+        <div class="group p-8 bg-slate-50/80 rounded-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 reveal">
+          <div class="aspect-[4/3] mb-6 overflow-hidden flex items-center justify-center bg-slate-100/60 rounded-lg">
+            <svg viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4/5 h-4/5">
+              <!-- Upper teeth overlapping -->
+              <path d="M62 95 Q64 58 73 52 Q79 48 84 52 Q90 58 91 95" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M85 95 Q88 48 97 40 Q103 36 108 42 Q112 52 110 95" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M106 90 Q112 44 120 38 Q126 34 131 38 Q137 44 140 90" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M135 95 Q138 42 146 36 Q152 32 157 38 Q162 48 162 95" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M158 90 Q162 44 170 40 Q176 36 181 42 Q186 52 185 90" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M182 95 Q184 48 192 42 Q198 38 203 45 Q208 58 207 95" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M204 95 Q206 60 214 55 Q219 52 223 58 Q226 68 225 95" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <!-- Lower teeth overlapping -->
+              <path d="M68 108 Q66 142 72 150 Q78 155 83 150 Q88 142 86 108" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M83 108 Q82 145 88 155 Q94 160 100 155 Q106 145 105 108" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M101 112 Q100 148 106 157 Q112 162 118 157 Q124 148 123 112" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M120 108 Q118 148 125 158 Q131 163 137 158 Q143 148 141 108" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M138 112 Q137 148 143 157 Q149 162 155 157 Q161 148 160 112" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M157 108 Q155 145 162 155 Q168 160 174 155 Q180 145 178 108" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M176 108 Q175 142 181 150 Q186 155 191 150 Q196 142 195 108" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M193 108 Q192 140 197 148 Q202 153 207 148 Q212 140 210 108" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <!-- Gum lines -->
+              <path d="M50 95 Q75 84 95 95 Q115 84 135 95 Q155 84 175 95 Q195 84 215 95 Q230 88 240 95" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.5"/>
+              <path d="M55 108 Q75 118 92 108 Q110 120 130 108 Q148 120 165 108 Q182 120 198 108 Q215 118 230 108" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3 class="font-headline font-bold text-center tracking-widest text-sm text-slate-900 uppercase">CHEVAUCHEMENTS</h3>
+        </div>
+        <!-- Card 3: BÉANCE (open bite) -->
+        <div class="group p-8 bg-slate-50/80 rounded-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 reveal">
+          <div class="aspect-[4/3] mb-6 overflow-hidden flex items-center justify-center bg-slate-100/60 rounded-lg">
+            <svg viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4/5 h-4/5">
+              <!-- Upper teeth - front teeth shorter (open bite) -->
+              <path d="M55 90 Q57 58 66 52 Q72 48 77 55 Q80 62 79 90" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M84 90 Q86 55 94 48 Q100 44 106 48 Q113 55 114 90" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M119 82 Q121 55 128 50 Q134 47 139 50 Q145 55 146 82" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M151 82 Q153 55 160 50 Q166 47 171 50 Q177 55 178 82" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M183 90 Q185 55 193 48 Q199 44 205 48 Q212 55 213 90" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M218 90 Q220 58 228 52 Q233 48 237 55 Q240 62 239 90" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <!-- Lower teeth - front teeth shorter (gap in middle) -->
+              <path d="M58 112 Q56 142 63 150 Q69 155 75 150 Q80 142 78 112" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M86 112 Q84 145 91 155 Q97 160 103 155 Q110 145 108 112" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M115 120 Q114 148 120 155 Q126 159 132 155 Q138 148 137 120" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M143 120 Q142 148 148 155 Q154 159 160 155 Q166 148 165 120" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M172 112 Q170 145 177 155 Q183 160 189 155 Q196 145 194 112" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M200 112 Q198 142 205 150 Q211 155 216 150 Q222 142 220 112" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <!-- Gum lines -->
+              <path d="M42 90 Q65 80 82 90 Q100 78 120 82 Q140 78 160 82 Q180 78 200 90 Q220 80 248 90" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.5"/>
+              <path d="M45 112 Q65 122 82 112 Q100 124 118 120 Q138 124 158 120 Q178 124 195 112 Q215 122 235 112" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3 class="font-headline font-bold text-center tracking-widest text-sm text-slate-900 uppercase">BÉANCE</h3>
+        </div>
+        <!-- Card 4: SUPRACLUSION (deep bite) -->
+        <div class="group p-8 bg-slate-50/80 rounded-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 reveal">
+          <div class="aspect-[4/3] mb-6 overflow-hidden flex items-center justify-center bg-slate-100/60 rounded-lg">
+            <svg viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4/5 h-4/5">
+              <!-- Upper teeth - covering lower front teeth (deep bite) -->
+              <path d="M55 85 Q57 52 66 46 Q72 42 77 49 Q80 56 79 85" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M84 85 Q86 48 94 40 Q100 36 106 40 Q113 48 114 85" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M119 85 Q121 42 128 35 Q134 31 139 35 Q145 42 146 85" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M151 85 Q153 42 160 35 Q166 31 171 35 Q177 42 178 85" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M183 85 Q185 48 193 40 Q199 36 205 40 Q212 48 213 85" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M218 85 Q220 52 228 46 Q233 42 237 49 Q240 56 239 85" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <!-- Lower teeth - upper overlap significantly, lower teeth barely visible -->
+              <path d="M60 118 Q58 145 65 152 Q71 157 77 152 Q82 145 80 118" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M88 118 Q86 148 93 158 Q99 163 105 158 Q112 148 110 118" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M120 118 Q118 148 125 158 Q131 163 137 158 Q143 148 141 118" stroke="#64748b" stroke-width="1.5" fill="none" opacity="0.4"/>
+              <path d="M152 118 Q150 148 157 158 Q163 163 169 158 Q175 148 173 118" stroke="#64748b" stroke-width="1.5" fill="none" opacity="0.4"/>
+              <path d="M184 118 Q182 148 189 158 Q195 163 201 158 Q208 148 206 118" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M216 118 Q214 145 221 152 Q226 157 231 152 Q236 145 234 118" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <!-- Upper front teeth extend far down to overlap -->
+              <path d="M119 85 L119 112" stroke="#64748b" stroke-width="1.5" fill="none" opacity="0.3"/>
+              <path d="M146 85 L146 112" stroke="#64748b" stroke-width="1.5" fill="none" opacity="0.3"/>
+              <path d="M151 85 L151 112" stroke="#64748b" stroke-width="1.5" fill="none" opacity="0.3"/>
+              <path d="M178 85 L178 112" stroke="#64748b" stroke-width="1.5" fill="none" opacity="0.3"/>
+              <!-- Gum lines -->
+              <path d="M42 85 Q65 75 82 85 Q100 73 120 85 Q140 73 160 85 Q180 73 200 85 Q220 75 248 85" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.5"/>
+              <path d="M47 118 Q68 128 84 118 Q105 130 125 118 Q145 130 165 118 Q185 130 205 118 Q225 128 245 118" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3 class="font-headline font-bold text-center tracking-widest text-sm text-slate-900 uppercase">SUPRACLUSION</h3>
+        </div>
+        <!-- Card 5: ARTICULÉ D'INVERSÉ (crossbite) -->
+        <div class="group p-8 bg-slate-50/80 rounded-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 reveal">
+          <div class="aspect-[4/3] mb-6 overflow-hidden flex items-center justify-center bg-slate-100/60 rounded-lg">
+            <svg viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4/5 h-4/5">
+              <!-- Upper teeth - narrower arch (crossbite - lower wider than upper on sides) -->
+              <path d="M70 90 Q72 58 80 52 Q85 48 90 55 Q93 62 92 90" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M97 90 Q99 52 106 45 Q112 41 117 45 Q123 52 124 90" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M129 90 Q131 48 138 42 Q143 39 148 42 Q154 48 155 90" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M160 90 Q162 52 169 45 Q175 41 180 45 Q186 52 187 90" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M192 90 Q194 58 201 52 Q206 48 211 55 Q214 62 213 90" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <!-- Lower teeth - wider arch (crossbite) -->
+              <path d="M55 110 Q53 145 60 155 Q67 160 74 155 Q80 145 78 110" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M83 110 Q81 148 88 158 Q95 163 102 158 Q108 148 106 110" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M115 110 Q113 148 120 158 Q127 163 133 158 Q140 148 138 110" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M148 110 Q146 148 153 158 Q160 163 166 158 Q172 148 170 110" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M180 110 Q178 148 185 158 Q192 163 199 158 Q205 148 203 110" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M210 110 Q208 145 215 155 Q221 160 227 155 Q233 145 231 110" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <!-- Gum lines -->
+              <path d="M58 90 Q78 80 95 90 Q112 78 130 90 Q148 78 165 90 Q182 78 200 90 Q215 82 225 90" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.5"/>
+              <path d="M42 110 Q60 120 80 110 Q100 122 118 110 Q138 122 155 110 Q175 122 195 110 Q215 120 240 110" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3 class="font-headline font-bold text-center tracking-widest text-sm text-slate-900 uppercase">ARTICULÉ D'INVERSÉ</h3>
+        </div>
+        <!-- Card 6: SOUS-OCCLUSION (underbite) -->
+        <div class="group p-8 bg-slate-50/80 rounded-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 reveal">
+          <div class="aspect-[4/3] mb-6 overflow-hidden flex items-center justify-center bg-slate-100/60 rounded-lg">
+            <svg viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4/5 h-4/5">
+              <!-- Upper teeth - set back -->
+              <path d="M65 88 Q67 58 75 52 Q80 48 85 55 Q88 62 87 88" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M95 88 Q97 52 105 45 Q111 41 116 45 Q122 52 123 88" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M130 88 Q132 50 139 44 Q144 41 149 44 Q155 50 156 88" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M163 88 Q165 52 172 45 Q178 41 183 45 Q189 52 190 88" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M197 88 Q199 58 207 52 Q212 48 217 55 Q220 62 219 88" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <!-- Lower teeth - protruding forward past upper teeth -->
+              <path d="M55 105 Q53 140 60 150 Q67 155 74 150 Q80 140 78 105" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M82 105 Q80 142 87 152 Q94 157 101 152 Q107 142 105 105" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M112 105 Q110 142 117 155 Q124 160 131 155 Q138 142 136 105" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M145 105 Q143 142 150 155 Q157 160 164 155 Q170 142 168 105" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M178 105 Q176 142 183 152 Q190 157 197 152 Q203 142 201 105" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <path d="M208 105 Q206 140 213 150 Q219 155 225 150 Q231 140 229 105" stroke="#64748b" stroke-width="1.5" fill="none"/>
+              <!-- Gum lines -->
+              <path d="M52 88 Q72 78 90 88 Q110 76 130 88 Q150 76 170 88 Q190 78 225 88" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.5"/>
+              <path d="M42 105 Q62 115 80 105 Q100 117 118 105 Q138 117 155 105 Q175 117 198 105 Q218 115 240 105" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3 class="font-headline font-bold text-center tracking-widest text-sm text-slate-900 uppercase">SOUS-OCCLUSION</h3>
+        </div>
+      </div>
+      <div class="mt-20 pt-12 border-t border-slate-100 max-w-2xl mx-auto text-center reveal">
+        <p class="font-headline text-[14px] font-light leading-relaxed tracking-wide text-slate-600 italic">
+          <span class="block font-bold mb-2 not-italic tracking-[0.2em] uppercase text-[10px]" style="color:#b8965a;">Le secret Ryze™</span>
+          Grâce à notre technologie, nous redressons vos dents sans avoir besoin de coller de "taquets" visibles sur le devant. C'est 100% invisible, vraiment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TREATMENT PROCESS ==================== -->
+  <section id="process" class="py-32 bg-white overflow-hidden">
+    <div class="container mx-auto px-6 md:px-8 max-w-7xl">
+      <div class="text-center mb-16 space-y-4">
+        <h2 class="font-display text-4xl md:text-5xl font-light text-slate-900 reveal">Déroulement du Traitement</h2>
+        <p class="font-headline text-sm tracking-[0.2em] uppercase font-bold reveal" style="color:#b8965a;">Une expérience fluide et maîtrisée de A à Z.</p>
+      </div>
+      <div class="flex flex-col space-y-12">
+        <!-- Focal image -->
+        <div class="relative w-full aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl bg-slate-100 group reveal">
+          <img alt="Step Visual" class="step-image w-full h-full object-cover" id="focalStepImage"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmSKH44L0hktWXe-Mem58ozKU86Zu4dAJxh38tY0wlcQ3apXEbpqCuakecfvQETvigR1nQaXsZSYl0JIhfK1LYaWWyGNaR6TYgnVfXLXJYYHUTyIN22or2EqxMY--jO9_Ql_1Im7shdMYwwfEcr9n6v74dLN_fIrz6z_fvqzprtOIZSYdyYt-e1tu5EaVfkHVp3yAA4--MPimbBf38T0gdxs66ELpQeC3M5NehXqeZfIiA4D8CHTaL6-O1MadPc7VRbzHbCMjal172">
+          <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end min-h-[50%]">
+            <div class="max-w-2xl transition-all duration-500 transform translate-y-0 opacity-100" id="stepContent">
+              <h3 class="font-display text-3xl md:text-4xl text-white mb-4" id="stepTitle">Trouvez un praticien proche de chez vous</h3>
+              <p class="text-white/80 text-lg font-headline leading-relaxed" id="stepDescription">Complétez une évaluation en ligne et trouvez un praticien partenaire certifié près de chez vous</p>
+            </div>
+          </div>
+        </div>
+        <!-- Tabs -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-8 reveal">
+          <button class="step-tab group flex flex-col items-center text-center space-y-4 p-6 border-b-2 border-transparent transition-all duration-300 text-slate-400 hover:text-slate-600" data-active="true" onclick="changeStep(0)">
+            <span class="step-number w-10 h-10 rounded-full border border-current flex items-center justify-center text-sm font-bold transition-colors">1</span>
+            <span class="text-xs font-bold tracking-widest uppercase font-headline">Diagnostic</span>
+          </button>
+          <button class="step-tab group flex flex-col items-center text-center space-y-4 p-6 border-b-2 border-transparent transition-all duration-300 text-slate-400 hover:text-slate-600" data-active="false" onclick="changeStep(1)">
+            <span class="step-number w-10 h-10 rounded-full border border-current flex items-center justify-center text-sm font-bold transition-colors">2</span>
+            <span class="text-xs font-bold tracking-widest uppercase font-headline">Scanner 3D</span>
+          </button>
+          <button class="step-tab group flex flex-col items-center text-center space-y-4 p-6 border-b-2 border-transparent transition-all duration-300 text-slate-400 hover:text-slate-600" data-active="false" onclick="changeStep(2)">
+            <span class="step-number w-10 h-10 rounded-full border border-current flex items-center justify-center text-sm font-bold transition-colors">3</span>
+            <span class="text-xs font-bold tracking-widest uppercase font-headline">Planification</span>
+          </button>
+          <button class="step-tab group flex flex-col items-center text-center space-y-4 p-6 border-b-2 border-transparent transition-all duration-300 text-slate-400 hover:text-slate-600" data-active="false" onclick="changeStep(3)">
+            <span class="step-number w-10 h-10 rounded-full border border-current flex items-center justify-center text-sm font-bold transition-colors">4</span>
+            <span class="text-xs font-bold tracking-widest uppercase font-headline">Fabrication</span>
+          </button>
+          <button class="step-tab group flex flex-col items-center text-center space-y-4 p-6 border-b-2 border-transparent transition-all duration-300 text-slate-400 hover:text-slate-600" data-active="false" onclick="changeStep(4)">
+            <span class="step-number w-10 h-10 rounded-full border border-current flex items-center justify-center text-sm font-bold transition-colors">5</span>
+            <span class="text-xs font-bold tracking-widest uppercase font-headline">Transformation</span>
+          </button>
+        </div>
+        <!-- CTA Trouver une clinique -->
+        <div class="flex justify-center pt-8 reveal">
+          <a href="#cliniques" class="inline-flex items-center gap-3 text-white px-10 py-4 rounded-full font-headline font-semibold shadow-lg hover:shadow-xl hover:brightness-110 active:bg-[#E8334A] focus:bg-[#E8334A] focus:outline-none transition-all duration-300" style="background-color: #0071BB;">
+            Trouver une clinique
+            <span class="material-symbols-outlined text-xl">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VIDEO METHOD ==================== -->
+  <section class="py-32 bg-white">
+    <div class="container mx-auto px-6 md:px-8 max-w-6xl">
+      <div class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl group cursor-pointer bg-slate-900 reveal">
+        <img alt="La Méthode Ryze™ Video Thumbnail" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmSKH44L0hktWXe-Mem58ozKU86Zu4dAJxh38tY0wlcQ3apXEbpqCuakecfvQETvigR1nQaXsZSYl0JIhfK1LYaWWyGNaR6TYgnVfXLXJYYHUTyIN22or2EqxMY--jO9_Ql_1Im7shdMYwwfEcr9n6v74dLN_fIrz6z_fvqzprtOIZSYdyYt-e1tu5EaVfkHVp3yAA4--MPimbBf38T0gdxs66ELpQeC3M5NehXqeZfIiA4D8CHTaL6-O1MadPc7VRbzHbCMjal172">
+        <div class="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-transparent"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-24 h-24 rounded-full glass-play-button flex items-center justify-center text-white">
+            <span class="material-symbols-outlined text-5xl ml-1">play_arrow</span>
+          </div>
+        </div>
+        <div class="absolute bottom-12 right-12">
+          <h2 class="font-display text-4xl md:text-6xl text-white tracking-tight drop-shadow-lg">La Méthode Ryze™</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== RYZE DESIGN INSERT (méthode + réseau partenaire) ==================== -->
+  <style>
+    .ryze-design-insert {
+      --ryze-blue: #2A8FBD;
+      --ryze-red: #E8334A;
+      --ink: #0A0A0A;
+      --teal: #0A2A2A;
+      --text-dark: #E0E0E0;
+      --text-dark-muted: #9A9A9A;
+      --text-dark-faint: #5A5A5A;
+      --hair-d: rgba(255,255,255,0.08);
+      --f-display: "Cormorant Garamond", Georgia, serif;
+      --f-body: "DM Sans", system-ui, sans-serif;
+      --f-script: "Caveat", cursive;
+      --f-mono: "JetBrains Mono", ui-monospace, monospace;
+      font-family: var(--f-body);
+      font-size: 15px; line-height: 1.55;
+    }
+    .ryze-design-insert .eyebrow {
+      display: inline-flex;
+      color: var(--ryze-blue);
+      font-family: var(--f-mono); font-size: 11px;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      font-weight: 500;
+      align-items: center; gap: 14px;
+    }
+    .ryze-design-insert .eyebrow::before {
+      content: ""; display: inline-block;
+      width: 32px; height: 1px; background: var(--ryze-blue);
+    }
+
+    /* SECTION 6 — LA MÉTHODE */
+    .ryze-design-insert .method {
+      background: var(--ink); color: var(--text-dark);
+      padding: 0; position: relative; overflow: hidden;
+    }
+    .ryze-design-insert .method-img {
+      position: relative; aspect-ratio: 21/9; background: #050505; overflow: hidden;
+    }
+    .ryze-design-insert .method-img::before {
+      content: ""; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 50%, rgba(42,143,189,0.22) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 40%, rgba(255,255,255,0.04) 0%, transparent 50%),
+        repeating-linear-gradient(15deg, rgba(255,255,255,0.03) 0 2px, transparent 2px 14px);
+    }
+    .ryze-design-insert .method-img .ph-tag {
+      position: absolute; top: 24px; left: 28px;
+      font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--text-dark-faint);
+      background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);
+      padding: 6px 10px;
+    }
+    .ryze-design-insert .method-img .script-overlay {
+      position: absolute; left: 56px; bottom: 48px;
+      font-family: var(--f-script); font-size: 96px; color: var(--ryze-red);
+      font-weight: 500; line-height: 1;
+    }
+    .ryze-design-insert .method-img .overlay-sub {
+      position: absolute; right: 56px; bottom: 56px; text-align: right; color: #fff;
+    }
+    .ryze-design-insert .method-img .overlay-sub .eyebrow {
+      color: var(--ryze-blue); margin-bottom: 8px; justify-content: flex-end;
+    }
+    .ryze-design-insert .method-img .overlay-sub .eyebrow::before { display: none; }
+    .ryze-design-insert .method-img .overlay-sub .t {
+      font-family: var(--f-display); font-weight: 300;
+      font-size: 44px; line-height: 1.05; letter-spacing: -0.015em;
+    }
+    .ryze-design-insert .method-img .overlay-sub .t em {
+      font-style: italic; color: var(--ryze-blue); font-weight: 400;
+    }
+    .ryze-design-insert .method-cols {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; background: var(--hair-d);
+      border-top: 1px solid var(--hair-d);
+    }
+    .ryze-design-insert .method-col {
+      background: var(--ink); padding: 64px 48px;
+    }
+    .ryze-design-insert .method-col .n {
+      font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.24em;
+      color: var(--ryze-blue); text-transform: uppercase; margin-bottom: 20px;
+    }
+    .ryze-design-insert .method-col h3 {
+      font-family: var(--f-display); font-weight: 400;
+      font-size: 30px; line-height: 1.12; letter-spacing: -0.01em;
+      color: #fff; margin: 0 0 16px;
+    }
+    .ryze-design-insert .method-col h3 em { font-style: italic; color: var(--ryze-blue); }
+    .ryze-design-insert .method-col p {
+      font-size: 14px; line-height: 1.65;
+      color: var(--text-dark-muted); margin: 0;
+    }
+
+    /* SECTION 7 — FIND CLINIC */
+    .ryze-design-insert .clinic {
+      padding: 0; background: var(--teal); color: var(--text-dark);
+      display: grid; grid-template-columns: 1.15fr 1fr; gap: 0;
+    }
+    .ryze-design-insert .clinic-left { padding: 120px 56px; }
+    .ryze-design-insert .clinic-left .eyebrow { margin-bottom: 24px; }
+    .ryze-design-insert .clinic-left h2 {
+      font-family: var(--f-display); font-weight: 300;
+      font-size: 78px; line-height: 0.98; letter-spacing: -0.025em;
+      color: #fff; margin: 0 0 16px; text-wrap: balance;
+    }
+    .ryze-design-insert .clinic-left h2 em {
+      font-style: italic; color: var(--ryze-blue); font-weight: 400;
+    }
+    .ryze-design-insert .clinic-left .sub {
+      font-family: var(--f-display); font-style: italic; font-weight: 300;
+      font-size: 22px; color: var(--text-dark); margin-bottom: 48px;
+      max-width: 480px; line-height: 1.45;
+    }
+    .ryze-design-insert .search-card {
+      background: var(--ink); padding: 40px;
+      border: 1px solid var(--hair-d); max-width: 520px;
+    }
+    .ryze-design-insert .search-card .lbl {
+      font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.22em;
+      color: var(--text-dark-muted); text-transform: uppercase; margin-bottom: 12px;
+    }
+    .ryze-design-insert .search-input {
+      display: flex; align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 0; margin-bottom: 28px;
+    }
+    .ryze-design-insert .search-input svg {
+      width: 18px; height: 18px; stroke: var(--ryze-blue);
+      stroke-width: 1.4; fill: none; margin-right: 14px; flex-shrink: 0;
+    }
+    .ryze-design-insert .search-input input {
+      background: transparent; border: none; color: #fff;
+      font-family: var(--f-body); font-size: 17px; flex: 1; outline: none; padding: 8px 0;
+    }
+    .ryze-design-insert .search-input input::placeholder { color: var(--text-dark-faint); }
+    .ryze-design-insert .search-card .locations {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px;
+    }
+    .ryze-design-insert .search-card .chip {
+      font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em;
+      text-transform: uppercase; padding: 8px 12px;
+      background: rgba(255,255,255,0.06); color: var(--text-dark-muted);
+      border-radius: 999px; cursor: pointer; transition: all .2s;
+    }
+    .ryze-design-insert .search-card .chip:hover {
+      background: rgba(42,143,189,0.15); color: var(--ryze-blue);
+    }
+    .ryze-design-insert .search-card .chip.active { background: var(--ryze-blue); color: #fff; }
+    .ryze-design-insert .clinic-right {
+      position: relative; background: #050505; min-height: 720px; overflow: hidden;
+    }
+    .ryze-design-insert .clinic-right::before {
+      content: ""; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 35%, rgba(42,143,189,0.2) 0%, transparent 55%),
+        repeating-linear-gradient(25deg, rgba(255,255,255,0.03) 0 2px, transparent 2px 14px);
+    }
+    .ryze-design-insert .clinic-right .ph-tag {
+      position: absolute; top: 24px; right: 24px;
+      font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--text-dark-faint);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 6px 10px; background: rgba(0,0,0,0.4);
+    }
+    .ryze-design-insert .clinic-right .card-count {
+      position: absolute; bottom: 32px; left: 32px; right: 32px;
+      background: var(--ink); border: 1px solid var(--hair-d);
+      padding: 24px 28px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .ryze-design-insert .clinic-right .card-count .n {
+      font-family: var(--f-display); font-weight: 300; font-size: 40px;
+      color: var(--ryze-blue); line-height: 1;
+    }
+    .ryze-design-insert .clinic-right .card-count .txt {
+      font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.22em;
+      color: var(--text-dark-muted); text-transform: uppercase;
+      margin-left: 14px; max-width: 160px; line-height: 1.5;
+    }
+
+    /* BUTTONS */
+    .ryze-design-insert .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--f-body); font-weight: 500;
+      text-decoration: none; cursor: pointer;
+      transition: background .2s, opacity .2s;
+      text-transform: uppercase;
+    }
+    .ryze-design-insert .btn-primary {
+      background: var(--ryze-blue); color: #fff;
+      padding: 18px 32px; font-size: 11px; letter-spacing: 0.2em;
+    }
+    .ryze-design-insert .btn-primary:hover { background: #1E6B8A; }
+    .ryze-design-insert .btn-lg { padding: 20px 36px; }
+    .ryze-design-insert .btn-ghost {
+      background: transparent; color: #fff;
+      padding: 14px 20px; font-size: 11px; letter-spacing: 0.18em;
+    }
+    .ryze-design-insert .btn-ghost:hover { opacity: 0.7; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .ryze-design-insert .method-cols { grid-template-columns: 1fr; }
+      .ryze-design-insert .clinic { grid-template-columns: 1fr; }
+      .ryze-design-insert .clinic-left { padding: 80px 32px; }
+      .ryze-design-insert .clinic-left h2 { font-size: 54px; }
+      .ryze-design-insert .clinic-right { min-height: 420px; }
+      .ryze-design-insert .method-img .script-overlay { font-size: 64px; left: 28px; bottom: 28px; }
+      .ryze-design-insert .method-img .overlay-sub { right: 28px; bottom: 28px; }
+      .ryze-design-insert .method-img .overlay-sub .t { font-size: 30px; }
+      .ryze-design-insert .method-col { padding: 48px 32px; }
+    }
+    @media (max-width: 640px) {
+      .ryze-design-insert .clinic-left h2 { font-size: 40px; }
+      .ryze-design-insert .method-img .script-overlay { font-size: 48px; }
+      .ryze-design-insert .method-img .overlay-sub .t { font-size: 22px; }
+    }
+  </style>
+
+  <div class="ryze-design-insert">
+    <!-- 6. LA MÉTHODE -->
+    <section class="method">
+      <div class="method-img">
+        <span class="ph-tag">Editorial · close-up · lumière latérale</span>
+        <div class="script-overlay">La Méthode Ryze<sup style="font-size: 0.35em; vertical-align: top;">™</sup></div>
+        <div class="overlay-sub">
+          <div class="eyebrow">Signature clinique</div>
+          <div class="t">Trois <em>promesses</em><br>jamais négociées.</div>
+        </div>
+      </div>
+      <div class="method-cols">
+        <div class="method-col">
+          <div class="n">Promesse 01</div>
+          <h3>Un <em>orthodontiste</em>,<br>pas un tutoriel.</h3>
+          <p>Votre traitement est conçu, supervisé et signé par un spécialiste diplômé. En cabinet, en France. Toujours.</p>
+        </div>
+        <div class="method-col">
+          <div class="n">Promesse 02</div>
+          <h3>Une finition <em>éditoriale</em>,<br>pas industrielle.</h3>
+          <p>Chaque gouttière est inspectée à la main. Bords lissés, transparence parfaite. La qualité se voit — et surtout, ne se voit pas.</p>
+        </div>
+        <div class="method-col">
+          <div class="n">Promesse 03</div>
+          <h3>Un <em>prix</em> transparent,<br>des options humaines.</h3>
+          <p>Un devis détaillé, sans surprise. Paiement en plusieurs fois sans frais. Mutuelles partenaires.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FIND CLINIC -->
+    <section class="clinic" id="cliniques">
+      <div class="clinic-left">
+        <div class="eyebrow">Réseau partenaire</div>
+        <h2>Trouver une clinique <em>près de chez vous</em>.</h2>
+        <div class="sub">42 cabinets d'orthodontie certifiés Ryze, partout en France. Un premier rendez-vous, offert.</div>
+
+        <div class="search-card">
+          <div class="lbl">Votre ville ou code postal</div>
+          <div class="search-input">
+            <svg viewBox="0 0 24 24"><path d="M12 2 C8 2 5 5 5 9 C5 15 12 22 12 22 C12 22 19 15 19 9 C19 5 16 2 12 2 Z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+            <input type="text" placeholder="Paris, Lyon, 75008…">
+          </div>
+          <div class="lbl">Ou choisir une grande ville</div>
+          <div class="locations">
+            <span class="chip active">Paris</span>
+            <span class="chip">Lyon</span>
+            <span class="chip">Marseille</span>
+            <span class="chip">Bordeaux</span>
+            <span class="chip">Toulouse</span>
+            <span class="chip">Lille</span>
+            <span class="chip">Nantes</span>
+            <span class="chip">Nice</span>
+          </div>
+          <a href="#" class="btn btn-primary btn-lg" style="width: 100%;">Voir les cliniques disponibles</a>
+        </div>
+      </div>
+      <div class="clinic-right">
+        <span class="ph-tag">Portrait · Inès · Lyon 6ᵉ</span>
+        <div class="card-count">
+          <div style="display: flex; align-items: baseline;">
+            <span class="n">42</span>
+            <span class="txt">Cliniques partenaires · France</span>
+          </div>
+          <a href="#" class="btn btn-ghost" style="color: var(--ryze-blue); padding: 0; font-size: 11px;">Voir toutes</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== CLINIC FINDER FORM ==================== -->
+  <section class="py-32 overflow-hidden" style="background-color: #f0f7f4;">
+    <div class="container mx-auto px-6 md:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-16 items-center">
+          <!-- Form -->
+          <div class="w-full lg:w-1/2 space-y-10">
+            <div class="space-y-4">
+              <h2 class="font-headline text-3xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight uppercase reveal">Trouver une clinique partenaire près de chez vous</h2>
+              <div class="w-16 h-1 rounded-full reveal" style="background-color: #0071BB;"></div>
+              <p class="font-display text-2xl text-slate-700 italic reveal">Planifier votre consultation</p>
+            </div>
+            <form class="space-y-6" onsubmit="event.preventDefault();">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-1 reveal">
+                  <label class="text-[10px] font-bold tracking-widest uppercase text-slate-600">Votre nom *</label>
+                  <input class="w-full bg-white border border-slate-200 rounded-sm focus:ring-1 focus:ring-primary focus:border-primary px-4 py-3 text-slate-900 placeholder:text-slate-400 outline-none transition-all" placeholder="Jean Dupont" type="text">
+                </div>
+                <div class="space-y-1 reveal">
+                  <label class="text-[10px] font-bold tracking-widest uppercase text-slate-600">Téléphone *</label>
+                  <input class="w-full bg-white border border-slate-200 rounded-sm focus:ring-1 focus:ring-primary focus:border-primary px-4 py-3 text-slate-900 placeholder:text-slate-400 outline-none transition-all" placeholder="06 12 34 56 78" type="tel">
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-1 reveal">
+                  <label class="text-[10px] font-bold tracking-widest uppercase text-slate-600">Email *</label>
+                  <input class="w-full bg-white border border-slate-200 rounded-sm focus:ring-1 focus:ring-primary focus:border-primary px-4 py-3 text-slate-900 placeholder:text-slate-400 outline-none transition-all" placeholder="contact@exemple.com" type="email">
+                </div>
+                <div class="space-y-1 reveal">
+                  <label class="text-[10px] font-bold tracking-widest uppercase text-slate-600">Code postal *</label>
+                  <input class="w-full bg-white border border-slate-200 rounded-sm focus:ring-1 focus:ring-primary focus:border-primary px-4 py-3 text-slate-900 placeholder:text-slate-400 outline-none transition-all" placeholder="75001" type="text" maxlength="5" inputmode="numeric">
+                </div>
+              </div>
+              <div class="space-y-1 reveal">
+                <label class="text-[10px] font-bold tracking-widest uppercase text-slate-600">Ma situation</label>
+                <select class="w-full bg-white border border-slate-200 rounded-sm focus:ring-1 focus:ring-primary focus:border-primary px-4 py-3 text-slate-900 outline-none transition-all appearance-none" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2364748b%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>');background-repeat:no-repeat;background-position:right 16px center;">
+                  <option value="" disabled selected>Choisir ma situation</option>
+                  <option value="espacements">Espacements (dents écartées)</option>
+                  <option value="chevauchements">Chevauchements (dents qui se chevauchent)</option>
+                  <option value="beance">Béance (dents qui ne se touchent pas)</option>
+                  <option value="supraclusion">Supraclusion (dents du haut recouvrent trop)</option>
+                  <option value="articule-inverse">Articulé d'inversé (mâchoire décalée)</option>
+                  <option value="sous-occlusion">Sous-occlusion (mâchoire inférieure avancée)</option>
+                  <option value="autre">Autre / Je ne sais pas</option>
+                </select>
+              </div>
+              <button type="submit" class="w-full text-white font-headline font-semibold px-10 py-4 rounded-full shadow-lg hover:shadow-xl hover:brightness-110 transition-all duration-300 reveal" style="background-color: #0071BB;">
+                Envoyer la demande
+              </button>
+            </form>
+          </div>
+          <!-- Image -->
+          <div class="w-full lg:w-1/2 reveal">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img alt="Smiling Patient" class="w-full aspect-[4/5] object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmSKH44L0hktWXe-Mem58ozKU86Zu4dAJxh38tY0wlcQ3apXEbpqCuakecfvQETvigR1nQaXsZSYl0JIhfK1LYaWWyGNaR6TYgnVfXLXJYYHUTyIN22or2EqxMY--jO9_Ql_1Im7shdMYwwfEcr9n6v74dLN_fIrz6z_fvqzprtOIZSYdyYt-e1tu5EaVfkHVp3yAA4--MPimbBf38T0gdxs66ELpQeC3M5NehXqeZfIiA4D8CHTaL6-O1MadPc7VRbzHbCMjal172">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section class="py-32 bg-white">
+    <div class="container mx-auto px-6 md:px-8">
+      <div class="text-center mb-24 space-y-6">
+        <span class="text-[10px] font-bold tracking-[0.4em] uppercase text-primary reveal">Success Stories</span>
+        <h2 class="font-display text-4xl md:text-6xl font-light text-slate-900 tracking-tight reveal">Des sourires transformés. Des patients libérés.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto stagger">
+        <!-- Testimonial 1 -->
+        <div class="flex flex-col items-center text-center space-y-8 p-12 border border-slate-100 bg-[#FBFBFA] rounded-sm transition-all duration-500 hover:shadow-2xl hover:border-primary/10 reveal">
+          <div class="flex gap-1.5 text-primary">
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+          </div>
+          <p class="font-display text-xl md:text-2xl text-slate-800 leading-[1.6] italic">"Incroyablement discret. Personne au bureau n'a remarqué que je portais des aligneurs. Mon sourire est parfait après seulement 6 mois."</p>
+          <div class="pt-6 border-t border-slate-200 w-12"></div>
+          <h4 class="font-headline font-bold text-xs tracking-[0.2em] text-slate-900 uppercase">Sophie L., 28 ans</h4>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="flex flex-col items-center text-center space-y-8 p-12 border border-slate-100 bg-[#FBFBFA] rounded-sm transition-all duration-500 hover:shadow-2xl hover:border-primary/10 reveal">
+          <div class="flex gap-1.5 text-primary">
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+          </div>
+          <p class="font-display text-xl md:text-2xl text-slate-800 leading-[1.6] italic">"Le suivi avec mon orthodontiste local combiné à la technologie Ryze m'a mis en confiance dès le début. Le résultat dépasse mes attentes."</p>
+          <div class="pt-6 border-t border-slate-200 w-12"></div>
+          <h4 class="font-headline font-bold text-xs tracking-[0.2em] text-slate-900 uppercase">Thomas M., 34 ans</h4>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="flex flex-col items-center text-center space-y-8 p-12 border border-slate-100 bg-[#FBFBFA] rounded-sm transition-all duration-500 hover:shadow-2xl hover:border-primary/10 reveal">
+          <div class="flex gap-1.5 text-primary">
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+          </div>
+          <p class="font-display text-xl md:text-2xl text-slate-800 leading-[1.6] italic">"Fini les complexes ! Les aligneurs sont super confortables et j'ai pu voir l'évolution de mon sourire semaine après semaine."</p>
+          <div class="pt-6 border-t border-slate-200 w-12"></div>
+          <h4 class="font-headline font-bold text-xs tracking-[0.2em] text-slate-900 uppercase">Julie V., 25 ans</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section class="py-32 bg-[#F8FAFC]">
+    <div class="container mx-auto px-6 md:px-8 max-w-4xl">
+      <div class="text-center mb-16 space-y-4">
+        <h2 class="font-display text-4xl md:text-5xl font-light text-slate-900 reveal">Tout savoir sur votre parcours Ryze™</h2>
+        <p class="text-slate-500 font-headline text-sm uppercase tracking-widest reveal">Questions Fréquentes</p>
+      </div>
+      <div class="space-y-4">
+        <details class="faq-accordion group bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm reveal">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+            <h3 class="font-headline font-bold text-slate-900 pr-4">Pourquoi les aligneurs Ryze™ sont-ils plus discrets ?</h3>
+            <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+          </summary>
+          <div class="p-6 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+            Grâce à notre technologie brevetée, nous réduisons jusqu'à 80 % le besoin d'attaches (taquets) visibles sur vos dents par rapport aux systèmes classiques.
+          </div>
+        </details>
+        <details class="faq-accordion group bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm reveal">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+            <h3 class="font-headline font-bold text-slate-900 pr-4">Où sont fabriqués les aligneurs ?</h3>
+            <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+          </summary>
+          <div class="p-6 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+            Chaque aligneur est issu d'une fabrication robotisée en France, garantissant une traçabilité et une qualité médicale exemplaire.
+          </div>
+        </details>
+        <details class="faq-accordion group bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm reveal">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+            <h3 class="font-headline font-bold text-slate-900 pr-4">À qui s'adresse ce traitement ?</h3>
+            <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+          </summary>
+          <div class="p-6 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+            Aux adultes et adolescents souhaitant une solution orthodontique haut de gamme, rapide et surtout invisible.
+          </div>
+        </details>
+        <details class="faq-accordion group bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm reveal">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+            <h3 class="font-headline font-bold text-slate-900 pr-4">Suis-je éligible si mon cas est complexe ?</h3>
+            <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+          </summary>
+          <div class="p-6 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+            La majorité des patients sont éligibles. Seul un scan 3D et l'analyse de nos orthodontistes pourront confirmer le plan idéal pour vous.
+          </div>
+        </details>
+        <details class="faq-accordion group bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm reveal">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+            <h3 class="font-headline font-bold text-slate-900 pr-4">Le traitement est-il plus long pour une supraclusion ?</h3>
+            <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+          </summary>
+          <div class="p-6 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+            Chaque cas est unique, mais nos algorithmes optimisent les mouvements pour réduire la durée du traitement, souvent dès 3 mois.
+          </div>
+        </details>
+        <details class="faq-accordion group bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm reveal">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+            <h3 class="font-headline font-bold text-slate-900 pr-4">Les résultats sont-ils permanents ?</h3>
+            <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+          </summary>
+          <div class="p-6 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+            Oui, à condition de porter votre appareil de contention (retainer) après le traitement pour stabiliser votre nouveau sourire.
+          </div>
+        </details>
+        <details class="faq-accordion group bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm reveal">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+            <h3 class="font-headline font-bold text-slate-900 pr-4">La première consultation est-elle payante ?</h3>
+            <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+          </summary>
+          <div class="p-6 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+            La première consultation est remboursable. Vous rencontrez un praticien certifié, bénéficiez d'un diagnostic complet et repartez avec un plan de traitement personnalisé — sans engagement.
+          </div>
+        </details>
+        <details class="faq-accordion group bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm reveal">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+            <h3 class="font-headline font-bold text-slate-900 pr-4">Comment trouver un praticien partenaire Ryze ?</h3>
+            <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+          </summary>
+          <div class="p-6 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+            Vous souhaitez commencer un traitement avec Ryze Aligners™ ? Rien de plus simple.<br><br>
+            Parlez-en à votre dentiste ou orthodontiste habituel : s'il est déjà partenaire, il pourra vous proposer directement notre solution.<br><br>
+            S'il ne l'est pas encore, vous pouvez nous laisser ses coordonnées — ou les vôtres — et notre équipe se charge de tout pour le contacter et lui présenter Ryze.<br><br>
+            Vous pouvez aussi échanger directement avec nous par WhatsApp, c'est rapide, confidentiel et sans engagement.
+          </div>
+        </details>
+        <details class="faq-accordion group bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm reveal">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+            <h3 class="font-headline font-bold text-slate-900 pr-4">Comment obtenir un devis ?</h3>
+            <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+          </summary>
+          <div class="p-6 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+            Un devis clair et personnalisé vous sera remis dès la première consultation gratuite, après un examen complet réalisé par un praticien partenaire.<br><br>
+            Vous pourrez ensuite transmettre ce document à votre mutuelle pour connaître les modalités de prise en charge.
+          </div>
+        </details>
+        <details class="faq-accordion group bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm reveal">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+            <h3 class="font-headline font-bold text-slate-900 pr-4">Comment se déroule un traitement Ryze ?</h3>
+            <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+          </summary>
+          <div class="p-6 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+            Tout commence par une consultation gratuite avec un praticien partenaire. Il réalise un diagnostic complet et établit un plan de traitement personnalisé, avec une simulation 3D de l'évolution de votre sourire.<br><br>
+            Une fois le plan validé, le traitement débute : votre praticien vous remet une série d'aligneurs sur mesure, à porter progressivement selon les instructions. Vous bénéficiez d'un suivi régulier toutes les 10 à 12 semaines pour vérifier l'avancée du traitement et ajuster si besoin.<br><br>
+            À la fin, des contentions de stabilisation (fils ou gouttières de nuit) sont posées pour maintenir durablement les résultats obtenus.
+          </div>
+        </details>
+        <details class="faq-accordion group bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm reveal">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+            <h3 class="font-headline font-bold text-slate-900 pr-4">Quel est le prix d'un traitement Ryze ?</h3>
+            <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+          </summary>
+          <div class="p-6 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+            Le prix dépend de la complexité de votre cas, de la durée du traitement et des honoraires du praticien.<br><br>
+            Un devis précis vous sera remis dès la première consultation, sans engagement.
+          </div>
+        </details>
+        <details class="faq-accordion group bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm reveal">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+            <h3 class="font-headline font-bold text-slate-900 pr-4">Quelle prise en charge pour un traitement Ryze ?</h3>
+            <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+          </summary>
+          <div class="p-6 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+            Les traitements d'alignement invisible ne sont généralement pas remboursés par la Sécurité sociale à l'âge adulte, mais peuvent être partiellement pris en charge par certaines mutuelles. N'hésitez pas à leur transmettre le devis remis lors de votre première consultation.<br><br>
+            <strong>Bon à savoir :</strong> pour les patients de moins de 16 ans, une prise en charge par l'Assurance Maladie est possible, sur prescription de l'orthodontiste.<br><br>
+            Vous souhaitez payer en plusieurs fois ? Discutez-en directement avec votre praticien : des solutions de paiement échelonné peuvent être proposées selon l'établissement.
+          </div>
+        </details>
+        <details class="faq-accordion group bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm reveal">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+            <h3 class="font-headline font-bold text-slate-900 pr-4">Comment contacter le service client Ryze ?</h3>
+            <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+          </summary>
+          <div class="p-6 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+            Vous pouvez joindre notre équipe par téléphone, email ou message, du lundi au vendredi, de 9h à 18h.<br><br>
+            Pour une réponse rapide, vous pouvez aussi nous contacter sur WhatsApp ou par message direct, 7 jours sur 7.
+          </div>
+        </details>
+      </div>
+      <div class="mt-20 text-center border-t border-slate-200 pt-16 reveal">
+        <h3 class="font-display text-3xl text-slate-900 mb-8">Prêt à commencer votre transformation ?</h3>
+        <button class="text-white px-10 py-4 rounded-full font-headline font-semibold shadow-lg hover:shadow-xl hover:brightness-110 transition-all duration-300" style="background-color: #0071BB;">
+          Trouver un praticien
+        </button>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ==================== PRICING TRANSPARENCY ==================== -->
+  <section id="pricing" class="py-32" style="background: radial-gradient(circle at center, #eef9ff 0%, #f8fafc 60%, #ffffff 100%);">
+    <div class="container mx-auto px-6 md:px-8 max-w-4xl text-center">
+      <div class="max-w-4xl mx-auto space-y-8">
+        <div class="space-y-4">
+          <div class="inline-block px-4 py-1 border border-primary/30 rounded-full mb-4 reveal">
+            <span class="text-[10px] font-bold tracking-[0.3em] uppercase" style="color:#b8965a;">Transparence Totale</span>
+          </div>
+          <div class="reveal" style="font-family:'Caveat',cursive;color:#E8334A;font-size:clamp(3rem,6vw,5rem);line-height:1;font-weight:500;margin:8px 0;">enfin.</div>
+          <h2 class="font-display text-3xl md:text-5xl font-light text-slate-900 leading-tight uppercase tracking-tight reveal">
+            Vous savez exactement <span class="text-primary italic">où vous allez</span>
+          </h2>
+        </div>
+        <p class="font-headline text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto reveal">
+          Un tarif clair qui inclut l'ensemble du traitement, le suivi régulier avec votre praticien et la phase finale de stabilisation du sourire.
+        </p>
+        <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 pt-8 reveal">
+          <div class="flex items-center gap-3 text-slate-800">
+            <span class="material-symbols-outlined text-primary text-3xl">euro_symbol</span>
+            <span class="font-headline font-bold text-sm uppercase tracking-widest">Pas de frais cachés</span>
+          </div>
+          <div class="flex items-center gap-3 text-slate-800">
+            <span class="material-symbols-outlined text-primary text-3xl">hourglass_empty</span>
+            <span class="font-headline font-bold text-sm uppercase tracking-widest">Pas d'attente inutile</span>
+          </div>
+        </div>
+        <div class="pt-12 reveal">
+          <button class="text-white px-10 py-4 rounded-full font-headline font-semibold text-[11px] tracking-widest uppercase hover:shadow-xl hover:brightness-110 transition-all duration-300 shadow-lg" style="background-color: #0071BB;">
+            Trouver Un Praticien
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="py-20 text-white" style="background-color: #1A2D2A;">
+    <div class="container mx-auto px-6 md:px-8 max-w-7xl">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div class="md:col-span-1">
+          <img src="assets/ryze-logo.svg" alt="Ryze Aligners" style="height:56px;width:auto;display:block;margin-bottom:20px;filter:brightness(0) invert(1);">
+          <p class="text-sm leading-relaxed max-w-xs text-white/70">
+            L'excellence de l'orthodontie invisible, conçue et fabriquée en France pour un sourire sans compromis.
+          </p>
+        </div>
+        <div class="space-y-4">
+          <h4 class="font-headline font-bold text-xs tracking-widest uppercase text-white/90">Parcours</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a class="hover:text-white transition-colors text-white/70" href="index.html">Accueil</a></li>
+            <li><a class="hover:text-white transition-colors text-white/70" href="treatment.html">Technologie</a></li>
+            <li><a class="hover:text-white transition-colors text-white/70" href="junior.html">Ryze Junior</a></li>
+            <li><a class="hover:text-white transition-colors text-white/70" href="results.html">Résultats</a></li>
+            <li><a class="hover:text-white transition-colors text-white/70" href="tarifs.html">Tarifs</a></li>
+            <li><a class="hover:text-white transition-colors text-white/70" href="blog.html">Articles</a></li>
+            <li><a class="hover:text-white transition-colors text-white/70" href="faq.html">FAQ</a></li>
+            <li><a class="hover:text-white transition-colors text-white/70" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="space-y-4">
+          <h4 class="font-headline font-bold text-xs tracking-widest uppercase text-white/90">Légal</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a class="hover:text-white transition-colors text-white/70" href="#">Mentions légales</a></li>
+            <li><a class="hover:text-white transition-colors text-white/70" href="#">Confidentialité</a></li>
+            <li><a class="hover:text-white transition-colors text-white/70" href="#">CGV</a></li>
+          </ul>
+        </div>
+        <div class="space-y-4">
+          <h4 class="font-headline font-bold text-xs tracking-widest uppercase text-white/90">Contact</h4>
+          <ul class="space-y-2 text-sm text-white/70">
+            <li>contact@ryze-aligners.fr</li>
+            <li>+33 1 23 45 67 89</li>
+            <li>Paris, France</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-xs text-white/40">© 2026 Ryze™ Aligners. Tous droits réservés.</p>
+        <p class="text-xs text-white/40">Fabriqué avec précision en France</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // Intersection Observer for scroll reveals
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Before/After Slider
+    document.addEventListener('DOMContentLoaded', function() {
+      const slider = document.getElementById('dentalSlider');
+      const resize = document.getElementById('sliderResize');
+      const handle = document.getElementById('sliderHandle');
+      let isResizing = false;
+
+      function setSliderPos(x) {
+        if (!slider) return;
+        const rect = slider.getBoundingClientRect();
+        let pos = ((x - rect.left) / rect.width) * 100;
+        pos = Math.max(0, Math.min(pos, 100));
+        resize.style.width = pos + '%';
+        handle.style.left = pos + '%';
+      }
+
+      handle.addEventListener('mousedown', () => isResizing = true);
+      window.addEventListener('mouseup', () => isResizing = false);
+      window.addEventListener('mousemove', (e) => {
+        if (!isResizing) return;
+        setSliderPos(e.pageX);
+      });
+
+      // Touch support
+      handle.addEventListener('touchstart', () => isResizing = true);
+      window.addEventListener('touchend', () => isResizing = false);
+      window.addEventListener('touchmove', (e) => {
+        if (!isResizing) return;
+        setSliderPos(e.touches[0].pageX);
+      });
+    });
+
+    // Step data & tab switching
+    const steps = [
+      {
+        title: "Trouvez un praticien proche de chez vous",
+        description: "Complétez une évaluation en ligne et trouvez un praticien partenaire certifié près de chez vous",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAmSKH44L0hktWXe-Mem58ozKU86Zu4dAJxh38tY0wlcQ3apXEbpqCuakecfvQETvigR1nQaXsZSYl0JIhfK1LYaWWyGNaR6TYgnVfXLXJYYHUTyIN22or2EqxMY--jO9_Ql_1Im7shdMYwwfEcr9n6v74dLN_fIrz6z_fvqzprtOIZSYdyYt-e1tu5EaVfkHVp3yAA4--MPimbBf38T0gdxs66ELpQeC3M5NehXqeZfIiA4D8CHTaL6-O1MadPc7VRbzHbCMjal172"
+      },
+      {
+        title: "Réalisez un examen approfondi de votre sourire",
+        description: "Effectuez un scanner 3D précis et recevez un plan de traitement personnalisé.",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAh6bwZyWUlOs2e6aRgA4MaCq_CLWsuWNs6LdbPP3PX6kfGs_e7Vf7tN_vfynpgxQI53GALa1-apMZ1BBOpmloeHYMTABLHxlBDYOGQr-Gj0pc_F5HFOcugKMcbdBnTkqYtsKw0QN4cckN9PB12gXqor55GqPBGQeu2OneT4yO3a384SKS_33G2Kr6vLR-iVI_gTtEcmU_h2N8o9ffx74wv3-d5TMqfBQ7D7_AsZ-ujS9tUDOeAWgy7rWRP21NPvZfggyYruR89ca-E"
+      },
+      {
+        title: "Découvrez votre futur sourire",
+        description: "Visualisez le résultat final de votre traitement grâce à notre technologie avancée.",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAnrG9iKNoF8j5fB_y-H7G_jV5Uv_9XwE9f-Gj_z_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f_p_f"
+      },
+      {
+        title: "Suivez votre traitement",
+        description: "Recevez vos aligneurs sur-mesure, fabriqués avec une précision robotisée.",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCgKTR-edkqOjnA9d91ojGo7Zc6hhHb-bWjuQ_Aca6Juqwa8aU-lJpPBkR94r89SE20STz3_YHCo07ahxWFBLTWV-cPiPqxB5RMT4F9GzuWX5FQ7jiMGKujl88ZYyQ8KLwj6thgKEgo0YVpvWbLjDzsCvfJK5k14jrrfVvuXqw6wLRZOzQ2Zly8DQhbncOIJX5vkhPzGa94QPGhRGlVC9v8WZ_0DUcWTE2ijvebMzbWD5NXvW7WcJlz2iUUZAw-zLeudZqK-sMbx0oe"
+      },
+      {
+        title: "Obtenez des résultats",
+        description: "Révélez votre nouveau sourire en seulement quelques mois. Pour pérenniser ce résultat, nous fournissons des solutions de contention adaptées.",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBQZ6znPWiMllU41MLAtP7O8HLrZ1jC27n5O8rWPKauLWrfr7E8OZMVfVeZeKE9UoXm2NqodCYbPLYsIRBbJsuM13UJk0cm4sAY1MZkhX4undqeoZXtyVFXy_GNkUbvsIAD574iJHtUY0yIfRlA_Qi_aNjBdtZp2VxRRW2DxlrW_kMt7HsOajb_yUkb25ASejSsjK5JaE8ZrLPMw-V9kx-lCXTjzPspjP5-qmM3fPDy6vuq-1uR_Cw9nVDnolF989XohVBJIsd6vn4V"
+      }
+    ];
+
+    function changeStep(index) {
+      const tabs = document.querySelectorAll('.step-tab');
+      const image = document.getElementById('focalStepImage');
+      const title = document.getElementById('stepTitle');
+      const description = document.getElementById('stepDescription');
+      const content = document.getElementById('stepContent');
+
+      if (!tabs.length || !image || !title || !description || !content) return;
+
+      tabs.forEach((tab, i) => {
+        tab.setAttribute('data-active', i === index ? 'true' : 'false');
+      });
+
+      content.style.opacity = '0';
+      content.style.transform = 'translateY(10px)';
+      image.style.opacity = '0.5';
+
+      setTimeout(() => {
+        image.src = steps[index].image;
+        title.textContent = steps[index].title;
+        description.textContent = steps[index].description;
+        image.style.opacity = '1';
+        content.style.opacity = '1';
+        content.style.transform = 'translateY(0)';
+      }, 300);
+    }
+
+    // Mobile hamburger
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      });
+    });
+  </script>
+</body>
+</html>

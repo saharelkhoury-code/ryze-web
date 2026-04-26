@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Panda P3 — Scanner Intra-oral | Ryze Aligners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#0071BB;
+  --blue-dim:#005fa0;
+  --dark:#1A2D2A;
+  --red:#E8334A;
+  --sky:#EAF3FA;
+  --border:rgba(0,113,187,.1);
+  --muted:#64748b;
+  --f-serif:'Cormorant Garamond',Georgia,serif;
+  --f-sans:'Manrope',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--f-sans);color:var(--dark);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* ─────────────────────────────────────────
+   PROGRESS BAR
+───────────────────────────────────────── */
+#progress-bar{
+  position:fixed;top:0;left:0;z-index:200;
+  height:2px;width:0%;
+  background:linear-gradient(90deg,var(--blue),#38bdf8);
+  transition:width .1s linear;
+}
+
+/* ─────────────────────────────────────────
+   TOPBAR
+───────────────────────────────────────── */
+.nav{
+  position:fixed;top:2px;left:0;right:0;z-index:100;
+  height:58px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2.5rem;
+  transition:background .3s,box-shadow .3s;
+}
+.nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--border)}
+.nav-logo{font-family:var(--f-sans);font-size:.78rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--dark)}
+.nav-logo span{color:var(--blue)}
+.nav-links{
+  display:flex;align-items:center;gap:2rem;
+  position:absolute;left:50%;transform:translateX(-50%);
+}
+.nav-links a{font-size:.75rem;font-weight:500;color:var(--muted);letter-spacing:.02em;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--blue)}
+.nav-links a.active{font-weight:600}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--blue);color:#fff;
+  font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  padding:.5rem 1.3rem;border-radius:999px;
+  transition:background .2s,box-shadow .2s;
+  box-shadow:0 0 0 0 rgba(0,113,187,0);
+}
+.nav-cta:hover{background:var(--dark);box-shadow:0 4px 20px rgba(0,113,187,.3)}
+
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+.hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:0 2.5rem 0 2.5rem;
+  padding-top:58px;
+  position:relative;overflow:hidden;
+  background:#fff;
+}
+
+/* Animated mesh gradient background */
+.hero-bg{
+  position:absolute;inset:0;pointer-events:none;overflow:hidden;
+}
+.hero-blob{
+  position:absolute;border-radius:50%;filter:blur(80px);opacity:.55;
+  animation:blob-drift 12s ease-in-out infinite alternate;
+}
+.hero-blob-1{width:600px;height:600px;background:radial-gradient(circle,#c7e3f5 0%,transparent 70%);top:-10%;right:-5%;animation-delay:0s}
+.hero-blob-2{width:400px;height:400px;background:radial-gradient(circle,#dbeeff 0%,transparent 70%);bottom:5%;right:20%;animation-delay:4s}
+.hero-blob-3{width:300px;height:300px;background:radial-gradient(circle,#e8f4fb 0%,transparent 70%);top:30%;right:50%;animation-delay:8s}
+@keyframes blob-drift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(30px,20px) scale(1.08)}}
+
+/* Large background text */
+.hero-bg-text{
+  position:absolute;bottom:-4rem;right:-1rem;
+  font-family:var(--f-serif);font-size:clamp(10rem,20vw,18rem);font-weight:300;
+  color:rgba(0,113,187,.04);line-height:1;
+  pointer-events:none;letter-spacing:-.02em;
+  user-select:none;
+}
+
+.hero-left{position:relative;z-index:2;padding:5rem 4rem 5rem 1.5rem;max-width:580px}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--sky);
+  border:.5px solid rgba(0,113,187,.15);
+  border-radius:999px;
+  padding:.35rem 1rem;
+  font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:2rem;
+}
+.hero-tag::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--blue);animation:pulse-dot 2s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+
+.hero-title{
+  font-family:var(--f-serif);font-size:clamp(3.2rem,5.5vw,5.2rem);
+  font-weight:300;line-height:1.02;letter-spacing:-.02em;
+  color:var(--dark);margin-bottom:1.2rem;
+}
+.hero-title em{font-style:italic;color:var(--blue)}
+.hero-title .line-accent{
+  position:relative;display:inline-block;
+}
+.hero-title .line-accent::after{
+  content:'';position:absolute;bottom:4px;left:0;right:0;
+  height:2px;background:linear-gradient(90deg,var(--blue),transparent);
+  border-radius:2px;opacity:.4;
+}
+.hero-sub{
+  font-size:.95rem;font-weight:300;line-height:1.8;
+  color:var(--muted);margin-bottom:2.8rem;max-width:420px;
+}
+.hero-actions{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;margin-bottom:3.5rem}
+.btn-fill{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--dark);color:#fff;
+  font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.85rem 2rem;border-radius:999px;
+  transition:background .2s,box-shadow .25s,transform .2s;
+  box-shadow:0 4px 20px rgba(26,45,42,.15);
+}
+.btn-fill:hover{background:var(--blue);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,113,187,.3)}
+.btn-line{
+  display:inline-flex;align-items:center;gap:.5rem;
+  color:var(--dark);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:.85rem 1.6rem;border-radius:999px;
+  border:.5px solid rgba(26,45,42,.2);
+  transition:border-color .2s,color .2s;
+}
+.btn-line:hover{border-color:var(--blue);color:var(--blue)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.hstat{
+  padding:1.1rem 1rem;
+  background:#fff;
+  border:.5px solid var(--border);border-radius:14px;
+  box-shadow:0 2px 12px rgba(0,113,187,.05);
+  transition:box-shadow .2s,transform .2s;
+}
+.hstat:hover{box-shadow:0 8px 24px rgba(0,113,187,.1);transform:translateY(-2px)}
+.hstat-val{
+  font-family:var(--f-serif);font-size:2rem;font-weight:300;
+  color:var(--dark);line-height:1;
+}
+.hstat-val span{font-size:.95rem;color:var(--blue)}
+.hstat-lbl{font-size:.64rem;font-weight:600;letter-spacing:.07em;color:var(--muted);margin-top:.3rem;text-transform:uppercase}
+
+/* Scanner visual */
+.hero-right{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:center;
+  height:100%;min-height:70vh;
+}
+.scanner-wrap{position:relative;width:320px;height:520px}
+.scanner-glow{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(0,113,187,.12) 0%,transparent 65%);
+  border-radius:50%;
+  animation:glow-pulse 3s ease-in-out infinite;
+}
+@keyframes glow-pulse{0%,100%{opacity:.7;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}}
+
+.chip{
+  position:absolute;
+  display:flex;align-items:center;gap:.5rem;
+  background:rgba(255,255,255,.9);
+  border:.5px solid rgba(0,113,187,.12);
+  backdrop-filter:blur(12px);
+  border-radius:999px;padding:.4rem .85rem;
+  font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--dark);box-shadow:0 4px 20px rgba(0,113,187,.08);
+  white-space:nowrap;
+}
+.chip-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0}
+.chip-1{top:6%;left:-24%;animation:float 5s ease-in-out infinite 0s}
+.chip-2{top:40%;right:-22%;animation:float 5s ease-in-out infinite 1.8s}
+.chip-3{bottom:12%;left:-16%;animation:float 5s ease-in-out infinite 3.5s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* ─────────────────────────────────────────
+   MARQUEE
+───────────────────────────────────────── */
+.marquee{background:var(--dark);padding:.85rem 0;overflow:hidden}
+.marquee-track{display:flex;animation:run 36s linear infinite;width:max-content}
+.marquee-track:hover{animation-play-state:paused}
+.mi{
+  display:flex;align-items:center;gap:.65rem;padding:0 2rem;
+  font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);white-space:nowrap;
+}
+.mi strong{color:rgba(255,255,255,.9)}
+.mi .dot{width:3px;height:3px;border-radius:50%;background:var(--blue)}
+@keyframes run{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ─────────────────────────────────────────
+   INTRO NUMBERS  (full-width stats bar)
+───────────────────────────────────────── */
+.numbers-bar{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-bottom:.5px solid var(--border);
+}
+.nb-item{
+  padding:3.5rem 2.5rem;
+  border-right:.5px solid var(--border);
+  position:relative;overflow:hidden;
+  transition:background .25s;
+}
+.nb-item:last-child{border-right:none}
+.nb-item:hover{background:var(--sky)}
+.nb-item::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--blue),transparent);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .3s;
+}
+.nb-item:hover::before{transform:scaleX(1)}
+.nb-val{font-family:var(--f-serif);font-size:3.2rem;font-weight:300;line-height:1;color:var(--dark);margin-bottom:.4rem}
+.nb-val span{font-size:1.2rem;color:var(--blue)}
+.nb-lbl{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.nb-desc{font-size:.8rem;font-weight:300;color:var(--muted);margin-top:.4rem;line-height:1.5}
+
+/* ─────────────────────────────────────────
+   EDITORIAL
+───────────────────────────────────────── */
+.editorial{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:80vh;
+}
+.ed-left{
+  padding:7rem 5rem 7rem 3rem;
+  display:flex;flex-direction:column;justify-content:center;
+  border-right:.5px solid var(--border);
+}
+.ed-right{
+  padding:7rem 3rem 7rem 5rem;
+  display:flex;flex-direction:column;justify-content:center;
+  background:var(--sky);
+}
+.ed-eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:1.5rem;display:flex;align-items:center;gap:.5rem}
+.ed-eyebrow::before{content:'—';opacity:.5}
+.ed-h{font-family:var(--f-serif);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;line-height:1.15;color:var(--dark);margin-bottom:2rem}
+.ed-h em{font-style:italic;color:var(--blue)}
+.ed-body p{font-size:.95rem;font-weight:300;line-height:1.9;color:var(--muted);margin-bottom:1.2rem}
+.ed-body p strong{color:var(--dark);font-weight:600}
+.ed-quote{
+  font-family:var(--f-serif);font-size:1.65rem;font-weight:300;font-style:italic;
+  line-height:1.5;color:var(--dark);
+  border-left:2px solid var(--blue);
+  padding-left:1.5rem;margin-bottom:2rem;
+}
+.ed-quote em{color:var(--blue);font-style:normal}
+.ed-cite{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* ─────────────────────────────────────────
+   FEATURES BENTO
+───────────────────────────────────────── */
+.bento-sec{padding:7rem 2.5rem;background:#fff}
+.bento-top{display:flex;align-items:flex-end;justify-content:space-between;max-width:1200px;margin:0 auto 3rem}
+.bento-top h2{font-family:var(--f-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:var(--dark);line-height:1.1}
+.bento-top h2 em{font-style:italic;color:var(--blue)}
+.bento-top p{max-width:320px;font-size:.85rem;font-weight:300;line-height:1.7;color:var(--muted);padding-bottom:.3rem}
+
+.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:min-content;gap:1rem;max-width:1200px;margin:0 auto}
+.bc{
+  background:#fff;
+  border:.5px solid rgba(0,113,187,.1);
+  border-radius:20px;padding:2.2rem;
+  position:relative;overflow:hidden;
+  transition:box-shadow .3s,transform .3s,border-color .3s;
+}
+.bc:hover{box-shadow:0 20px 60px rgba(0,113,187,.1);transform:translateY(-3px);border-color:rgba(0,113,187,.25)}
+.bc::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(0,113,187,.04) 0%,transparent 60%);
+  opacity:0;transition:opacity .3s;pointer-events:none;
+}
+.bc:hover::before{opacity:1}
+.bc.c3{grid-column:span 3}
+.bc.c4{grid-column:span 4}
+.bc.c5{grid-column:span 5}
+.bc.c6{grid-column:span 6}
+.bc.c7{grid-column:span 7}
+.bc.c8{grid-column:span 8}
+.bc.c12{grid-column:span 12}
+.bc-icon{
+  width:46px;height:46px;border-radius:12px;
+  background:var(--sky);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--blue);margin-bottom:1.4rem;
+  transition:background .2s;
+}
+.bc:hover .bc-icon{background:var(--blue);color:#fff}
+.bc-tag{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem}
+.bc h3{font-family:var(--f-serif);font-size:1.25rem;font-weight:400;color:var(--dark);margin-bottom:.6rem;line-height:1.2}
+.bc p{font-size:.84rem;font-weight:300;line-height:1.7;color:var(--muted)}
+.bc-big{font-family:var(--f-serif);font-size:3.5rem;font-weight:300;color:var(--dark);line-height:1;margin:.4rem 0 .2rem}
+.bc-big span{font-size:1.4rem;color:var(--blue);font-family:var(--f-sans)}
+
+/* Dark Ryze card */
+.bc.ryze{
+  background:var(--dark);border-color:transparent;
+  display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;
+}
+.bc.ryze:hover{box-shadow:0 24px 60px rgba(26,45,42,.4);border-color:rgba(0,113,187,.3)}
+.bc.ryze .bc-tag{color:rgba(255,255,255,.4)}
+.bc.ryze h3{color:#fff}
+.bc.ryze h3 em{font-style:italic;color:#7ebde8}
+.bc.ryze p{color:rgba(255,255,255,.55)}
+.ryze-kpi{display:flex;flex-direction:column;gap:.75rem}
+.kpi-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.9rem 1.2rem;
+  background:rgba(255,255,255,.05);border:.5px solid rgba(255,255,255,.07);
+  border-radius:12px;
+}
+.kpi-val{font-family:var(--f-serif);font-size:1.8rem;font-weight:300;color:#fff;line-height:1}
+.kpi-val span{font-size:.85rem;color:#7ebde8;font-family:var(--f-sans)}
+.kpi-lbl{font-size:.66rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35);text-align:right}
+.ryze-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--blue);color:#fff;
+  font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.55rem 1.2rem;border-radius:999px;margin-top:1.2rem;
+  transition:background .2s;
+}
+.ryze-btn:hover{background:#005fa0}
+
+/* ─────────────────────────────────────────
+   WORKFLOW
+───────────────────────────────────────── */
+.workflow{padding:7rem 2.5rem;background:var(--sky)}
+.wf-inner{max-width:1200px;margin:0 auto}
+.wf-head{margin-bottom:4rem}
+.wf-head h2{font-family:var(--f-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:var(--dark);line-height:1.1}
+.wf-head h2 em{font-style:italic;color:var(--blue)}
+.wf-head p{font-size:.9rem;font-weight:300;color:var(--muted);margin-top:.6rem;max-width:460px;line-height:1.7}
+.wf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.wf-step{
+  background:#fff;border-radius:20px;
+  padding:2.5rem 2rem;
+  border:.5px solid rgba(0,113,187,.08);
+  position:relative;overflow:hidden;
+  transition:box-shadow .25s,transform .25s;
+}
+.wf-step:hover{box-shadow:0 16px 40px rgba(0,113,187,.1);transform:translateY(-3px)}
+/* connecting line */
+.wf-step:not(:last-child)::after{
+  content:'';
+  position:absolute;top:3.2rem;right:-.6rem;
+  width:1.2rem;height:1px;
+  background:linear-gradient(90deg,var(--border),transparent);
+  z-index:1;
+}
+.wf-num{
+  font-family:var(--f-serif);font-size:4rem;font-weight:300;
+  color:rgba(0,113,187,.07);line-height:1;margin-bottom:.2rem;
+}
+.wf-icon{width:40px;height:40px;background:var(--sky);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--blue);margin-bottom:1.2rem;transition:background .2s}
+.wf-step:hover .wf-icon{background:var(--blue);color:#fff}
+.wf-title{font-size:.9rem;font-weight:700;color:var(--dark);margin-bottom:.5rem}
+.wf-body{font-size:.82rem;font-weight:300;line-height:1.65;color:var(--muted)}
+
+/* ─────────────────────────────────────────
+   SPECS
+───────────────────────────────────────── */
+.specs{padding:7rem 2.5rem;background:var(--dark);position:relative;overflow:hidden}
+.specs-mesh{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 50% 60% at 90% 20%,rgba(0,113,187,.12) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 50% at 10% 80%,rgba(0,113,187,.07) 0%,transparent 60%);
+}
+.specs-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.specs-head{margin-bottom:4rem}
+.specs-head h2{font-family:var(--f-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:#fff;line-height:1.1}
+.specs-head h2 em{font-style:italic;color:#7ebde8}
+.specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem}
+.specs-section-title{
+  font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:.6rem;
+}
+.specs-section-title::before{content:'—';opacity:.4}
+table.st{width:100%;border-collapse:collapse}
+table.st tr{border-bottom:.5px solid rgba(255,255,255,.06);cursor:default;transition:background .2s}
+table.st tr:last-child{border-bottom:none}
+table.st tr:hover{background:rgba(255,255,255,.03)}
+table.st td{padding:.9rem .5rem;font-size:.85rem;vertical-align:middle}
+table.st td:first-child{color:rgba(255,255,255,.35);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;width:40%;padding-right:1rem}
+table.st td:last-child{color:#fff;font-weight:400}
+.sbadge{
+  display:inline-block;
+  background:rgba(0,113,187,.18);color:#7ebde8;
+  font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.18rem .6rem;border-radius:4px;
+  border:.5px solid rgba(0,113,187,.3);
+  margin-left:.5rem;vertical-align:middle;
+}
+.specs-note{
+  margin-top:2rem;padding:1.4rem;
+  background:rgba(0,113,187,.07);
+  border:.5px solid rgba(0,113,187,.18);
+  border-radius:14px;
+}
+.specs-note p{font-size:.82rem;font-weight:300;line-height:1.7;color:rgba(255,255,255,.55)}
+.specs-note strong{color:#7ebde8;font-weight:600}
+
+/* ─────────────────────────────────────────
+   PRICING
+───────────────────────────────────────── */
+.pricing{padding:7rem 2.5rem;background:#fff}
+.pricing-inner{max-width:1100px;margin:0 auto}
+.pricing-head{text-align:center;margin-bottom:1.5rem}
+.pricing-head h2{font-family:var(--f-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:var(--dark);line-height:1.1;margin-bottom:.5rem}
+.pricing-head h2 em{font-style:italic;color:var(--blue)}
+.pricing-head p{font-size:.88rem;font-weight:300;color:var(--muted);line-height:1.7}
+.ptoggle{
+  display:flex;align-items:center;justify-content:center;gap:.3rem;
+  background:var(--sky);border:.5px solid var(--border);
+  border-radius:999px;padding:.3rem;
+  width:max-content;margin:0 auto 3.5rem;
+}
+.ptbtn{
+  padding:.45rem 1.3rem;
+  font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  border-radius:999px;border:none;cursor:pointer;
+  background:transparent;color:var(--muted);
+  transition:background .2s,color .2s,box-shadow .2s;
+}
+.ptbtn.on{background:#fff;color:var(--dark);box-shadow:0 2px 8px rgba(0,113,187,.1)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.pc{
+  border:.5px solid var(--border);border-radius:22px;padding:2.5rem;
+  position:relative;transition:box-shadow .3s,transform .3s,border-color .3s;
+}
+.pc:hover{box-shadow:0 24px 60px rgba(0,113,187,.1);transform:translateY(-4px);border-color:rgba(0,113,187,.25)}
+.pc.star{border-color:var(--blue);background:linear-gradient(160deg,#fff 0%,var(--sky) 100%)}
+.pc.star::before{
+  content:'Recommandé';
+  position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+  background:var(--blue);color:#fff;
+  font-size:.58rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  padding:.25rem .85rem;border-radius:0 0 10px 10px;
+  box-shadow:0 4px 12px rgba(0,113,187,.3);
+}
+.pc-badge{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.9rem;display:flex;align-items:center;gap:.4rem}
+.pc-badge::before{content:'—';opacity:.4}
+.pc h3{font-family:var(--f-serif);font-size:1.3rem;font-weight:400;color:var(--dark);margin-bottom:.4rem}
+.pc-desc{font-size:.8rem;font-weight:300;color:var(--muted);line-height:1.6;margin-bottom:1.8rem}
+.pc-price{font-family:var(--f-serif);font-size:3rem;font-weight:300;color:var(--dark);line-height:1;margin-bottom:.2rem;transition:opacity .15s}
+.pc-price sup{font-size:1rem;font-family:var(--f-sans);color:var(--muted);vertical-align:super}
+.pc-vat{font-size:.7rem;color:var(--muted);margin-bottom:1.8rem}
+.pc-div{height:.5px;background:var(--border);margin:1.5rem 0}
+.pc-ul{list-style:none;margin-bottom:2rem}
+.pc-ul li{display:flex;align-items:flex-start;gap:.55rem;font-size:.82rem;font-weight:300;color:var(--muted);padding:.38rem 0;line-height:1.45}
+.pc-ul li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:.42rem}
+.pc-btn{
+  display:block;width:100%;padding:.8rem;border-radius:999px;
+  font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  text-align:center;transition:all .2s;cursor:pointer;
+}
+.pc-btn-o{border:.5px solid rgba(26,45,42,.18);color:var(--dark);background:transparent}
+.pc-btn-o:hover{border-color:var(--blue);color:var(--blue)}
+.pc-btn-f{background:var(--dark);color:#fff;border:none}
+.pc-btn-f:hover{background:var(--blue)}
+.pricing-footnote{text-align:center;font-size:.76rem;color:var(--muted);margin-top:1.2rem}
+.pricing-footnote strong{color:var(--dark)}
+
+/* ─────────────────────────────────────────
+   PACK
+───────────────────────────────────────── */
+.pack{padding:7rem 2.5rem;background:var(--sky)}
+.pack-inner{max-width:1100px;margin:0 auto}
+.pack-head{margin-bottom:3rem}
+.pack-head h2{font-family:var(--f-serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:300;color:var(--dark);line-height:1.1}
+.pack-head h2 em{font-style:italic;color:var(--blue)}
+.pack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}
+.pi{
+  background:#fff;border:.5px solid var(--border);
+  border-radius:18px;padding:1.6rem 1.4rem;
+  display:flex;flex-direction:column;gap:.4rem;
+  transition:box-shadow .2s,transform .2s,border-color .2s;
+}
+.pi:hover{box-shadow:0 12px 36px rgba(0,113,187,.1);transform:translateY(-2px);border-color:rgba(0,113,187,.2)}
+.pi-num{font-family:var(--f-serif);font-size:1.8rem;font-weight:300;font-style:italic;color:rgba(0,113,187,.15);line-height:1}
+.pi-icon{width:36px;height:36px;background:var(--sky);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--blue);margin:.2rem 0}
+.pi-name{font-size:.88rem;font-weight:700;color:var(--dark);line-height:1.3;margin-top:.2rem}
+.pi-sub{font-size:.75rem;font-weight:300;color:var(--muted);line-height:1.5}
+
+/* ─────────────────────────────────────────
+   FAQ
+───────────────────────────────────────── */
+.faq{padding:7rem 2.5rem;background:#fff}
+.faq-inner{max-width:800px;margin:0 auto}
+.faq-head{margin-bottom:3rem}
+.faq-head h2{font-family:var(--f-serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:300;color:var(--dark);line-height:1.1}
+.faq-head h2 em{font-style:italic;color:var(--blue)}
+.fq{border-bottom:.5px solid var(--border)}
+.fq-btn{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.5rem 0;text-align:left}
+.fq-txt{font-size:.95rem;font-weight:500;color:var(--dark);line-height:1.4}
+.fq-ico{
+  width:26px;height:26px;flex-shrink:0;
+  border:.5px solid var(--border);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-size:.85rem;
+  transition:transform .3s,background .2s,border-color .2s,color .2s;
+}
+.fq.open .fq-ico{transform:rotate(45deg);background:var(--blue);border-color:var(--blue);color:#fff}
+.fq-ans{overflow:hidden;max-height:0;transition:max-height .4s ease}
+.fq-body{padding:0 0 1.5rem;font-size:.88rem;font-weight:300;line-height:1.85;color:var(--muted)}
+.fq-body strong{color:var(--dark);font-weight:600}
+
+/* ─────────────────────────────────────────
+   FINAL CTA
+───────────────────────────────────────── */
+.cta{
+  padding:10rem 2.5rem;
+  background:var(--dark);
+  position:relative;overflow:hidden;text-align:center;
+}
+.cta::before{
+  content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);
+  width:80vw;height:80vw;max-width:800px;max-height:800px;
+  background:radial-gradient(circle,rgba(0,113,187,.18) 0%,transparent 55%);
+  pointer-events:none;
+}
+/* Large watermark */
+.cta-wm{
+  position:absolute;bottom:-3rem;left:50%;transform:translateX(-50%);
+  font-family:var(--f-serif);font-size:clamp(6rem,15vw,14rem);font-weight:300;
+  color:rgba(255,255,255,.03);white-space:nowrap;
+  pointer-events:none;letter-spacing:-.03em;
+}
+.cta-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+.cta-eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.cta-eyebrow::before,.cta-eyebrow::after{content:'—';opacity:.3}
+.cta h2{font-family:var(--f-serif);font-size:clamp(2.5rem,5vw,4.2rem);font-weight:300;color:#fff;line-height:1.08;margin-bottom:1.2rem;letter-spacing:-.01em}
+.cta h2 em{font-style:italic;color:#7ebde8}
+.cta p{font-size:.95rem;font-weight:300;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:3rem}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-bottom:3.5rem}
+.cbtn-fill{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--blue);color:#fff;
+  font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.9rem 2.2rem;border-radius:999px;
+  transition:background .2s,box-shadow .25s,transform .2s;
+}
+.cbtn-fill:hover{background:#005fa0;box-shadow:0 8px 30px rgba(0,113,187,.4);transform:translateY(-2px)}
+.cbtn-ghost{
+  display:inline-flex;align-items:center;gap:.5rem;
+  color:rgba(255,255,255,.7);
+  font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:.9rem 1.8rem;border-radius:999px;
+  border:.5px solid rgba(255,255,255,.15);
+  transition:border-color .2s,color .2s;
+}
+.cbtn-ghost:hover{border-color:rgba(255,255,255,.4);color:#fff}
+.cta-meta{display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+.cmeta{display:flex;align-items:center;gap:.55rem;font-size:.78rem;color:rgba(255,255,255,.35)}
+.cmeta a{color:rgba(255,255,255,.65);transition:color .2s}
+.cmeta a:hover{color:#fff}
+.cmeta svg{color:var(--blue)}
+
+/* FOOTER */
+.footer{padding:1.8rem 2.5rem;background:#0f1a18;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-brand{font-family:var(--f-sans);font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.footer-brand span{color:var(--blue)}
+.footer-c{font-size:.7rem;color:rgba(255,255,255,.2)}
+
+/* ─────────────────────────────────────────
+   REVEAL
+───────────────────────────────────────── */
+.r{opacity:0;transform:translateY(30px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.r.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+.r-left{opacity:0;transform:translateX(-24px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.r-left.in{opacity:1;transform:none}
+.r-scale{opacity:0;transform:scale(.95);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.r-scale.in{opacity:1;transform:none}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media(max-width:1100px){
+  .hero{grid-template-columns:1fr;padding:5rem 2rem 3rem}
+  .hero::after{display:none}
+  .hero-left{padding:2rem 0 0;max-width:100%}
+  .hero-right{min-height:400px}
+  .nav-links{display:none}
+  .editorial{grid-template-columns:1fr}
+  .ed-left{border-right:none;border-bottom:.5px solid var(--border);padding:5rem 2rem}
+  .ed-right{padding:4rem 2rem}
+  .bento{grid-template-columns:repeat(6,1fr)}
+  .bc.c3{grid-column:span 3}.bc.c4{grid-column:span 3}.bc.c5{grid-column:span 6}.bc.c7{grid-column:span 6}.bc.c8{grid-column:span 6}
+  .bc.ryze{grid-template-columns:1fr}
+  .numbers-bar{grid-template-columns:repeat(2,1fr)}
+  .nb-item:nth-child(2){border-right:none}
+  .nb-item:nth-child(3){border-top:.5px solid var(--border)}
+  .wf-grid{grid-template-columns:repeat(2,1fr)}
+  .specs-grid{grid-template-columns:1fr;gap:3rem}
+  .pgrid{grid-template-columns:1fr}
+  .pack-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .hero{padding:4rem 1.2rem 2rem}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .bento-sec,.workflow,.specs,.pricing,.pack,.faq,.cta{padding:5rem 1.2rem}
+  .bento{grid-template-columns:1fr 1fr}
+  .bc.c3,.bc.c4,.bc.c5,.bc.c6,.bc.c7,.bc.c8,.bc.c12{grid-column:span 2}
+  .numbers-bar{grid-template-columns:1fr 1fr}
+  .nb-item{padding:2rem 1.5rem}
+  .wf-grid{grid-template-columns:1fr}
+  .pack-grid{grid-template-columns:1fr 1fr}
+  .ed-left,.ed-right{padding:4rem 1.2rem}
+}
+
+/* === Scanner photo strip === */
+.scanner-photo-strip{display:flex;line-height:0}
+.sps-cell{flex:1;overflow:hidden;aspect-ratio:3/2}
+.sps-cell.sps-wide{flex:1.6}
+.sps-cell img{width:100%;height:100%;object-fit:cover;filter:brightness(.92) contrast(1.04);transition:transform .65s cubic-bezier(.2,.8,.2,1),filter .4s;display:block}
+.sps-cell:hover img{transform:scale(1.06);filter:brightness(1) contrast(1.06)}
+@media(max-width:640px){.scanner-photo-strip{display:grid;grid-template-columns:1fr 1fr}.sps-cell.sps-wide{flex:1;grid-column:span 2;aspect-ratio:16/7}}
+
+/* === Editorial photo panel === */
+.ed-right.has-photo{padding:0;position:relative;overflow:hidden;min-height:500px}
+.ed-photo-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:brightness(.55)}
+.ed-quote-panel{position:relative;z-index:2;padding:7rem 3rem 7rem 5rem;height:100%;display:flex;flex-direction:column;justify-content:center}
+@media(max-width:768px){.ed-quote-panel{padding:4rem 1.5rem}}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">RYZE <span>ALIGNERS</span></a>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="treatment.html">Technologie</a>
+    <a href="scanner.html" class="active">Scanner</a>
+    <a href="junior.html">Ryze Junior</a>
+    <a href="results.html">Résultats</a>
+    <a href="tarifs.html">Tarifs</a>
+    <a href="blog.html">Articles</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="contact.html" class="nav-cta">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    START SCAN
+  </a>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    <div class="hero-blob hero-blob-3"></div>
+    <div class="hero-bg-text">P3</div>
+  </div>
+  <div class="hero-left">
+    <div class="hero-tag r">Scanner Intra-oral — Panda P3</div>
+    <h1 class="hero-title r d1">
+      La précision<br>
+      <em>clinique</em>,<br>
+      <span class="line-accent">enfin portable.</span>
+    </h1>
+    <p class="hero-sub r d2">Le Panda P3 redéfinit l'imagerie numérique en cabinet. 10&nbsp;µm de précision, 1&nbsp;min par arcade, 228&nbsp;g en main — intégré nativement au protocole Ryze Aligners.</p>
+    <div class="hero-actions r d3">
+      <a href="#pricing" class="btn-fill">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Voir les offres
+      </a>
+      <a href="#faq" class="btn-line">En savoir plus</a>
+    </div>
+    <div class="hero-stats r d4">
+      <div class="hstat">
+        <div class="hstat-val" data-target="10" data-suffix="µm">10<span>µm</span></div>
+        <div class="hstat-lbl">Précision</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-val">1–2<span>min</span></div>
+        <div class="hstat-lbl">Par arcade</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-val" data-target="228" data-suffix="g">228<span>g</span></div>
+        <div class="hstat-lbl">Poids en main</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right r-scale">
+    <div class="scanner-wrap">
+      <div class="scanner-glow"></div>
+      <div class="chip chip-1"><span class="chip-dot"></span>Full HD</div>
+      <div class="chip chip-2"><span class="chip-dot"></span>IA embarquée</div>
+      <div class="chip chip-3"><span class="chip-dot"></span>Gyroscope 6 axes</div>
+      <!-- Scanner SVG -->
+      <svg viewBox="0 0 280 520" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+        <!-- Body shadow -->
+        <ellipse cx="140" cy="510" rx="55" ry="8" fill="rgba(0,113,187,0.08)"/>
+        <!-- Main body -->
+        <rect x="90" y="25" width="100" height="270" rx="20" fill="#1A2D2A"/>
+        <!-- Body shine -->
+        <rect x="90" y="25" width="100" height="270" rx="20" fill="url(#bodyGrad)"/>
+        <!-- Screen area -->
+        <rect x="100" y="38" width="80" height="100" rx="10" fill="#0d1a17"/>
+        <!-- Screen glow -->
+        <rect x="103" y="41" width="74" height="94" rx="8" fill="url(#screenGrad)"/>
+        <!-- Screen content - graph -->
+        <polyline points="112,105 124,90 134,97 146,79 158,88 168,72" stroke="#0071BB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <polyline points="112,105 124,90 134,97 146,79 158,88 168,72 168,107 112,107" stroke="none" fill="url(#chartFill)" fill-opacity=".25"/>
+        <!-- Status indicators -->
+        <circle cx="114" cy="50" r="3" fill="#22c55e" opacity=".9"><animate attributeName="opacity" values="0.9;0.4;0.9" dur="2.5s" repeatCount="indefinite"/></circle>
+        <rect x="121" y="48" width="28" height="4" rx="2" fill="rgba(255,255,255,.12)"/>
+        <rect x="121" y="48" width="20" height="4" rx="2" fill="#0071BB" opacity=".6"/>
+        <!-- Bottom line labels -->
+        <rect x="110" y="115" width="60" height="3" rx="1.5" fill="#0071BB" opacity=".2"/>
+        <rect x="110" y="121" width="40" height="2" rx="1" fill="rgba(255,255,255,.1)"/>
+        <!-- 3 buttons -->
+        <rect x="107" y="155" width="22" height="22" rx="6" fill="#243d36" stroke="#0071BB" stroke-width=".5"/>
+        <rect x="136" y="155" width="22" height="22" rx="6" fill="#0071BB"/>
+        <rect x="165" y="155" width="22" height="22" rx="6" fill="#243d36" stroke="#0071BB" stroke-width=".5"/>
+        <!-- Button icons -->
+        <line x1="118" y1="166" x2="118" y2="166" stroke="rgba(255,255,255,.5)" stroke-width="1.5" stroke-linecap="round"/>
+        <rect x="115" y="163" width="6" height="6" rx="1" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+        <path d="M143 162l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="172" y1="165" x2="175" y2="168" stroke="rgba(255,255,255,.4)" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="175" y1="165" x2="172" y2="168" stroke="rgba(255,255,255,.4)" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Grip ribs -->
+        <rect x="100" y="196" width="80" height="2.5" rx="1.25" fill="#152420"/>
+        <rect x="100" y="204" width="80" height="2.5" rx="1.25" fill="#152420"/>
+        <rect x="100" y="212" width="80" height="2.5" rx="1.25" fill="#152420"/>
+        <rect x="100" y="220" width="80" height="2.5" rx="1.25" fill="#152420"/>
+        <rect x="100" y="228" width="80" height="2.5" rx="1.25" fill="#152420"/>
+        <!-- Side accent line -->
+        <line x1="90" y1="140" x2="90" y2="220" stroke="#0071BB" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+        <!-- Neck transition -->
+        <path d="M110 290 L110 318 Q110 326 118 326 L162 326 Q170 326 170 318 L170 290 Z" fill="#1A2D2A"/>
+        <!-- Wand -->
+        <rect x="115" y="318" width="50" height="150" rx="10" fill="#1A2D2A"/>
+        <rect x="117" y="320" width="46" height="146" rx="9" fill="url(#wandGrad)"/>
+        <!-- Tip -->
+        <rect x="123" y="460" width="34" height="45" rx="8" fill="#1A2D2A"/>
+        <rect x="125" y="462" width="30" height="41" rx="7" fill="#0d1a17"/>
+        <!-- Lens window -->
+        <rect x="127" y="464" width="26" height="14" rx="4" fill="url(#lensGrad)" opacity=".8"/>
+        <!-- Scan emission -->
+        <line x1="140" y1="504" x2="140" y2="519" stroke="#0071BB" stroke-width="2" stroke-linecap="round" opacity=".8"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="1.2s" repeatCount="indefinite"/></line>
+        <line x1="131" y1="506" x2="123" y2="519" stroke="#0071BB" stroke-width="1.2" stroke-linecap="round" opacity=".5"><animate attributeName="opacity" values="0.5;0.1;0.5" dur="1.2s" begin="0.2s" repeatCount="indefinite"/></line>
+        <line x1="149" y1="506" x2="157" y2="519" stroke="#0071BB" stroke-width="1.2" stroke-linecap="round" opacity=".5"><animate attributeName="opacity" values="0.5;0.1;0.5" dur="1.2s" begin="0.4s" repeatCount="indefinite"/></line>
+        <!-- USB-C port -->
+        <rect x="128" y="22" width="24" height="7" rx="2.5" fill="#0d1a17" stroke="rgba(0,113,187,.5)" stroke-width=".8"/>
+        <!-- Brand text -->
+        <text x="140" y="260" text-anchor="middle" font-family="'Manrope',sans-serif" font-size="6.5" fill="rgba(255,255,255,0.12)" letter-spacing="3" font-weight="700">PANDA P3</text>
+        <!-- Annotation lines -->
+        <line x1="90" y1="52" x2="55" y2="38" stroke="#0071BB" stroke-width=".6" opacity=".4" stroke-dasharray="4 3"/>
+        <circle cx="55" cy="38" r="2.5" fill="#0071BB" opacity=".4"/>
+        <line x1="190" y1="166" x2="225" y2="155" stroke="#0071BB" stroke-width=".6" opacity=".4" stroke-dasharray="4 3"/>
+        <circle cx="225" cy="155" r="2.5" fill="#0071BB" opacity=".4"/>
+        <line x1="90" y1="471" x2="52" y2="484" stroke="#0071BB" stroke-width=".6" opacity=".4" stroke-dasharray="4 3"/>
+        <circle cx="52" cy="484" r="2.5" fill="#0071BB" opacity=".4"/>
+        <!-- Defs -->
+        <defs>
+          <linearGradient id="bodyGrad" x1="90" y1="25" x2="190" y2="25" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="rgba(255,255,255,0.06)"/>
+            <stop offset="0.5" stop-color="rgba(255,255,255,0.0)"/>
+            <stop offset="1" stop-color="rgba(0,0,0,0.1)"/>
+          </linearGradient>
+          <linearGradient id="screenGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#162e2a"/><stop offset="1" stop-color="#0d1a17"/>
+          </linearGradient>
+          <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#0071BB" stop-opacity=".6"/><stop offset="1" stop-color="#0071BB" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="wandGrad" x1="115" y1="0" x2="165" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#243d36"/><stop offset="1" stop-color="#1A2D2A"/>
+          </linearGradient>
+          <linearGradient id="lensGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#0071BB" stop-opacity=".5"/><stop offset="1" stop-color="#003d6b" stop-opacity=".3"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="mi"><strong>Précision</strong><span class="dot"></span>10 µm</div>
+    <div class="mi"><strong>Acquisition</strong><span class="dot"></span>1–2 min / arcade</div>
+    <div class="mi"><strong>Poids</strong><span class="dot"></span>228 g</div>
+    <div class="mi"><strong>Résolution</strong><span class="dot"></span>Full HD 1080p</div>
+    <div class="mi"><strong>Connexion</strong><span class="dot"></span>Wi-Fi 6 + USB-C</div>
+    <div class="mi"><strong>Batterie</strong><span class="dot"></span>4 h autonomie</div>
+    <div class="mi"><strong>Protocole</strong><span class="dot"></span>Ryze Aligners natif</div>
+    <div class="mi"><strong>Logiciel</strong><span class="dot"></span>RyzeScan inclus</div>
+    <div class="mi"><strong>Garantie</strong><span class="dot"></span>2 ans pièces & main d'œuvre</div>
+    <div class="mi"><strong>Fabrication</strong><span class="dot"></span>10 jours ouvrés</div>
+    <div class="mi"><strong>Précision</strong><span class="dot"></span>10 µm</div>
+    <div class="mi"><strong>Acquisition</strong><span class="dot"></span>1–2 min / arcade</div>
+    <div class="mi"><strong>Poids</strong><span class="dot"></span>228 g</div>
+    <div class="mi"><strong>Résolution</strong><span class="dot"></span>Full HD 1080p</div>
+    <div class="mi"><strong>Connexion</strong><span class="dot"></span>Wi-Fi 6 + USB-C</div>
+    <div class="mi"><strong>Batterie</strong><span class="dot"></span>4 h autonomie</div>
+    <div class="mi"><strong>Protocole</strong><span class="dot"></span>Ryze Aligners natif</div>
+    <div class="mi"><strong>Logiciel</strong><span class="dot"></span>RyzeScan inclus</div>
+    <div class="mi"><strong>Garantie</strong><span class="dot"></span>2 ans pièces & main d'œuvre</div>
+    <div class="mi"><strong>Fabrication</strong><span class="dot"></span>10 jours ouvrés</div>
+  </div>
+</div>
+
+<!-- NUMBERS BAR -->
+<div class="numbers-bar">
+  <div class="nb-item r">
+    <div class="nb-val">≤ 10<span>µm</span></div>
+    <div class="nb-lbl">Précision de scan</div>
+    <div class="nb-desc">Lumière structurée active multi-angle, certifiée ISO</div>
+  </div>
+  <div class="nb-item r d1">
+    <div class="nb-val">1–2<span>min</span></div>
+    <div class="nb-lbl">Par arcade complète</div>
+    <div class="nb-desc">Guidage IA temps réel pour zéro zone lacunaire</div>
+  </div>
+  <div class="nb-item r d2">
+    <div class="nb-val">228<span>g</span></div>
+    <div class="nb-lbl">Poids en main</div>
+    <div class="nb-desc">Le scanner le plus léger de sa catégorie</div>
+  </div>
+  <div class="nb-item r d3">
+    <div class="nb-val">24<span>h</span></div>
+    <div class="nb-lbl">Devis Ryze après scan</div>
+    <div class="nb-desc">Transmission automatique, simulation 3D incluse</div>
+  </div>
+</div>
+
+<!-- PHOTO STRIP -->
+<div class="scanner-photo-strip" aria-hidden="true">
+  <div class="sps-cell"><img src="assets/lab-1.jpg" alt="" loading="lazy"></div>
+  <div class="sps-cell sps-wide"><img src="assets/lab-4.jpg" alt="" loading="lazy"></div>
+  <div class="sps-cell"><img src="assets/aligner-clinical.png" alt="" loading="lazy"></div>
+</div>
+
+<!-- EDITORIAL -->
+<section class="editorial">
+  <div class="ed-left r-left">
+    <div class="ed-eyebrow">— Introduction</div>
+    <h2 class="ed-h">Un scanner pensé pour <em>l'orthodontie numérique</em> de bout en bout.</h2>
+    <div class="ed-body">
+      <p>Le Panda P3 n'est pas simplement un scanner — c'est le chaînon manquant entre la prise d'empreinte clinique et la fabrication d'aligneurs sur-mesure. <strong>Chaque scan transmis génère automatiquement un devis Ryze Aligners en 24 heures.</strong></p>
+      <p>Sa technologie d'imagerie active par lumière structurée capture des données occlusales d'une précision de 10 microns, sans artefacts ni recalibration manuelle. Le logiciel RyzeScan détecte en temps réel les zones à rescanner avant la fin de la séance.</p>
+      <p>Conçu avec les praticiens partenaires Ryze : <strong>une arcade complète en moins de deux minutes</strong>, sans adaptateur, sans calibration quotidienne.</p>
+    </div>
+  </div>
+  <div class="ed-right has-photo r">
+    <img class="ed-photo-fill" src="assets/firas-5.jpg" alt="" loading="lazy">
+    <div class="ed-quote-panel">
+      <div class="ed-quote">
+        &laquo;&nbsp;Ce scanner a r&eacute;duit mon temps de prise d&rsquo;empreinte de <em>70&nbsp;%</em>. Le devis arrive dans ma bo&icirc;te le lendemain matin.&nbsp;&raquo;
+      </div>
+      <div class="ed-cite">Dr. L. Morin &middot; Chirurgien-Dentiste, Lyon &middot; Partenaire Ryze depuis 2022</div>
+    </div>
+  </div>
+</section>
+
+<!-- BENTO FEATURES -->
+<section class="bento-sec">
+  <div class="bento-top r">
+    <h2>Ingénierie de <em>précision</em></h2>
+    <p>Six innovations qui redéfinissent ce que vous attendez d'un scanner intra-oral.</p>
+  </div>
+  <div class="bento">
+
+    <div class="bc c4 r">
+      <div class="bc-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="3" fill="currentColor" opacity=".3"/><line x1="10" y1="1" x2="10" y2="4" stroke="currentColor" stroke-width="1.5"/><line x1="10" y1="16" x2="10" y2="19" stroke="currentColor" stroke-width="1.5"/><line x1="1" y1="10" x2="4" y2="10" stroke="currentColor" stroke-width="1.5"/><line x1="16" y1="10" x2="19" y2="10" stroke="currentColor" stroke-width="1.5"/></svg></div>
+      <div class="bc-tag">Imagerie active</div>
+      <h3>Précision à 10 µm</h3>
+      <div class="bc-big">10<span> µm</span></div>
+      <p>Lumière structurée multi-angle. Fidélité occlusale inégalée, zéro distorsion en zones postérieures.</p>
+    </div>
+
+    <div class="bc c4 r d1">
+      <div class="bc-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10h6M10 7v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="bc-tag">Intelligence artificielle</div>
+      <h3>Guidage IA temps réel</h3>
+      <p>Détection automatique des zones lacunaires. Zéro rescan inopiné en fin de séance.</p>
+    </div>
+
+    <div class="bc c4 r d2">
+      <div class="bc-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v2M10 15v2M3 10H1M19 10h-2M5.05 5.05 3.64 3.64M16.36 16.36l-1.41-1.41M5.05 14.95l-1.41 1.41M16.36 3.64l-1.41 1.41" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="10" cy="10" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+      <div class="bc-tag">Confort clinique</div>
+      <h3>Anti-buée actif</h3>
+      <p>Embout thermorégulé — captures sans condensation même en zone postérieure profonde.</p>
+    </div>
+
+    <!-- Ryze card wide -->
+    <div class="bc c7 ryze r">
+      <div>
+        <div class="bc-tag">Intégration native</div>
+        <h3>Connecté au protocole <em>Ryze Aligners</em></h3>
+        <p>Chaque acquisition déclenche automatiquement l'analyse 3D, la simulation de traitement et la génération du devis — le tout sous 24 heures.</p>
+        <a href="treatment.html" class="ryze-btn">Découvrir la technologie →</a>
+      </div>
+      <div class="ryze-kpi">
+        <div class="kpi-row">
+          <div><div class="kpi-val">24<span>h</span></div></div>
+          <div class="kpi-lbl">Devis après scan</div>
+        </div>
+        <div class="kpi-row">
+          <div><div class="kpi-val">10<span>j</span></div></div>
+          <div class="kpi-lbl">Fabrication</div>
+        </div>
+        <div class="kpi-row">
+          <div><div class="kpi-val">98<span>%</span></div></div>
+          <div class="kpi-lbl">Satisfaction praticiens</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bc c5 r d1">
+      <div class="bc-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 8.5A9.97 9.97 0 0 1 10 6a9.97 9.97 0 0 1 7 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M5.5 11.5A6.5 6.5 0 0 1 10 9.5a6.5 6.5 0 0 1 4.5 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1.5" fill="currentColor"/></svg></div>
+      <div class="bc-tag">Connectivité</div>
+      <h3>Wi-Fi 6 + USB-C</h3>
+      <p>Transmission immédiate au cloud Ryze. Zéro câble, zéro manipulation de fichier en routine.</p>
+    </div>
+
+    <div class="bc c4 r d2">
+      <div class="bc-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6.5 3.5v10a3.5 3.5 0 0 0 7 0v-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M3.5 8.5A6.5 6.5 0 0 0 10 15a6.5 6.5 0 0 0 6.5-6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="bc-tag">Retour haptique</div>
+      <h3>Vibrations de guidage</h3>
+      <p>Feedback tactile discret — signal immédiat si qualité insuffisante.</p>
+    </div>
+
+    <div class="bc c3 r d3">
+      <div class="bc-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16V8l6-5 6 5v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z" stroke="currentColor" stroke-width="1.5"/><path d="M8 17v-6h4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="bc-tag">Ergonomie</div>
+      <h3>228 g</h3>
+      <div class="bc-big">228<span> g</span></div>
+      <p>Le plus léger de sa catégorie.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- WORKFLOW -->
+<section class="workflow">
+  <div class="wf-inner">
+    <div class="wf-head r">
+      <div style="font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem"><span style="opacity:.4">—</span> Protocole</div>
+      <h2>De l'empreinte à la <em>livraison</em><br>en 4 étapes</h2>
+      <p>Un workflow entièrement intégré — du cabinet à l'atelier Ryze.</p>
+    </div>
+    <div class="wf-grid">
+      <div class="wf-step r">
+        <div class="wf-num">01</div>
+        <div class="wf-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M5 9h8M9 5v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="wf-title">Scanner</div>
+        <div class="wf-body">1 à 2 minutes par arcade. L'IA guide et valide la complétude en temps réel.</div>
+      </div>
+      <div class="wf-step r d1">
+        <div class="wf-num">02</div>
+        <div class="wf-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2v10M5 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 14h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="wf-title">Transmettre</div>
+        <div class="wf-body">Envoi automatique au cloud Ryze via Wi-Fi 6. Aucune manipulation de fichier.</div>
+      </div>
+      <div class="wf-step r d2">
+        <div class="wf-num">03</div>
+        <div class="wf-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3a6 6 0 1 0 0 12A6 6 0 0 0 9 3Z" stroke="currentColor" stroke-width="1.5"/><path d="M9 7v2l1.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="wf-title">Planifier</div>
+        <div class="wf-body">Simulation 3D et plan de traitement sous 24h. Devis inclus, validation en 1 clic.</div>
+      </div>
+      <div class="wf-step r d3">
+        <div class="wf-num">04</div>
+        <div class="wf-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="8" width="12" height="8" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M6 8V6a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="wf-title">Fabriquer</div>
+        <div class="wf-body">Fabrication en 10 jours ouvrés. Livraison directe au cabinet avec kit patient.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section class="specs">
+  <div class="specs-mesh"></div>
+  <div class="specs-inner">
+    <div class="specs-head r">
+      <div style="font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem"><span style="opacity:.4">—</span> Caractéristiques</div>
+      <h2>Spécifications <em>techniques</em></h2>
+    </div>
+    <div class="specs-grid">
+      <div class="r">
+        <div class="specs-section-title">— Hardware</div>
+        <table class="st">
+          <tr><td>Technologie</td><td>Lumière structurée active — multi-angle</td></tr>
+          <tr><td>Précision</td><td>≤ 10 µm <span class="sbadge">ISO certifié</span></td></tr>
+          <tr><td>Résolution</td><td>Full HD — 1920 × 1080 px</td></tr>
+          <tr><td>Acquisition</td><td>1 à 2 min / arcade complète</td></tr>
+          <tr><td>Poids</td><td>228 g</td></tr>
+          <tr><td>Gyroscope</td><td>6 axes — compensation auto</td></tr>
+          <tr><td>Batterie</td><td>3 200 mAh — 4 h autonomie</td></tr>
+          <tr><td>Connectivité</td><td>Wi-Fi 6 + USB-C 3.2</td></tr>
+          <tr><td>Format de sortie</td><td>STL · PLY · OBJ · RyzeScan native</td></tr>
+          <tr><td>Désinfection</td><td>Embout autoclavable 134°C</td></tr>
+        </table>
+      </div>
+      <div class="r d2">
+        <div class="specs-section-title">— Logiciel RyzeScan</div>
+        <table class="st">
+          <tr><td>Plateforme</td><td>Windows 10/11 — macOS 12+</td></tr>
+          <tr><td>Guidage temps réel</td><td>Détection des zones lacunaires</td></tr>
+          <tr><td>Intégration cloud</td><td>Ryze Aligners — transmission auto</td></tr>
+          <tr><td>Visualisation 3D</td><td>Rotation, coupe, mesure occlusale</td></tr>
+          <tr><td>Mises à jour</td><td>OTA automatiques incluses</td></tr>
+          <tr><td>Langue</td><td>FR / EN / DE / ES</td></tr>
+          <tr><td>Support</td><td>Chat intégré + hotline dédiée</td></tr>
+          <tr><td>Formation</td><td>E-learning certifiant DPC</td></tr>
+        </table>
+        <div class="specs-note r d3">
+          <p><strong>RyzeScan</strong> est mis à jour automatiquement à chaque évolution du protocole Ryze Aligners. Toujours la dernière version, sans frais supplémentaires.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-head r">
+      <div style="font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;display:flex;align-items:center;justify-content:center;gap:.5rem"><span style="opacity:.4">—</span> Tarifs</div>
+      <h2>Choisissez votre <em>offre</em></h2>
+      <p>Toutes les offres incluent RyzeScan, la garantie 2 ans et la formation initiale.</p>
+    </div>
+    <div class="ptoggle r">
+      <button class="ptbtn on" id="btn-s" onclick="setMode('s')">Scanner seul</button>
+      <button class="ptbtn" id="btn-p" onclick="setMode('p')">Scanner + PC dédié</button>
+    </div>
+    <div class="pgrid">
+      <div class="pc r">
+        <div class="pc-badge">Standard</div>
+        <h3>Panda P3 Standard</h3>
+        <p class="pc-desc">Débutez votre transition numérique avec l'essentiel.</p>
+        <div class="pc-price" id="p1"><sup>€</sup>5 990</div>
+        <div class="pc-vat">HT — hors options</div>
+        <div class="pc-div"></div>
+        <ul class="pc-ul">
+          <li>Scanner Panda P3 + embout × 2</li>
+          <li>Logiciel RyzeScan Pro</li>
+          <li>Formation e-learning certifiante</li>
+          <li>Garantie 2 ans pièces & main d'œuvre</li>
+          <li>Support email & chat</li>
+        </ul>
+        <a href="contact.html" class="pc-btn pc-btn-o">Demander un devis</a>
+      </div>
+      <div class="pc star r d1">
+        <div class="pc-badge">Partenaire Ryze</div>
+        <h3>Panda P3 Partenaire</h3>
+        <p class="pc-desc">Accès prioritaire + tarifs préférentiels sur les traitements.</p>
+        <div class="pc-price" id="p2"><sup>€</sup>4 990</div>
+        <div class="pc-vat">HT — sous conditions</div>
+        <div class="pc-div"></div>
+        <ul class="pc-ul">
+          <li>Tout le Standard, plus :</li>
+          <li>Tarifs préférentiels traitements Ryze</li>
+          <li>Formation présentielle 1 jour</li>
+          <li>Account manager dédié</li>
+          <li>Support téléphonique prioritaire</li>
+        </ul>
+        <a href="contact.html" class="pc-btn pc-btn-f">Devenir partenaire</a>
+      </div>
+      <div class="pc r d2">
+        <div class="pc-badge">Partenaire Premium</div>
+        <h3>Panda P3 Premium</h3>
+        <p class="pc-desc">Fort volume, économies maximales et services exclusifs.</p>
+        <div class="pc-price" id="p3"><sup>€</sup>3 990</div>
+        <div class="pc-vat">HT — volume ≥ 10 cas/mois</div>
+        <div class="pc-div"></div>
+        <ul class="pc-ul">
+          <li>Tout le Partenaire, plus :</li>
+          <li>Remises volume dès le 1er cas</li>
+          <li>Scanner de remplacement sous 48h</li>
+          <li>Formation équipe illimitée</li>
+          <li>Marketing co-brandé Ryze</li>
+        </ul>
+        <a href="contact.html" class="pc-btn pc-btn-o">Nous contacter</a>
+      </div>
+    </div>
+    <p class="pricing-footnote r">PC dédié en option : <strong>+1 210 € HT</strong> · Leasing sur 24/36/48 mois · TVA 20% · Livraison offerte France métropolitaine</p>
+  </div>
+</section>
+
+<!-- PACK -->
+<section class="pack">
+  <div class="pack-inner">
+    <div class="pack-head r">
+      <div style="font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem"><span style="opacity:.4">—</span> Contenu</div>
+      <h2>Ce qui est <em>inclus</em><br>dans la boîte</h2>
+    </div>
+    <div class="pack-grid">
+      <div class="pi r"><div class="pi-num">I</div><div class="pi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="4" y="1" width="8" height="14" rx="3" stroke="currentColor" stroke-width="1.3"/><circle cx="8" cy="12" r="1" fill="currentColor"/></svg></div><div class="pi-name">Scanner Panda P3</div><div class="pi-sub">Corps principal + dragonne ergonomique</div></div>
+      <div class="pi r d1"><div class="pi-num">II</div><div class="pi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M4 5h8M4 11h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="pi-name">Embouts × 2</div><div class="pi-sub">Autoclavables 134°C</div></div>
+      <div class="pi r d2"><div class="pi-num">III</div><div class="pi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v4l2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 13a6 6 0 1 1 8 0" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="pi-name">Station de charge</div><div class="pi-sub">USB-C 65W inclus</div></div>
+      <div class="pi r d3"><div class="pi-num">IV</div><div class="pi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M5 13h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="pi-name">Licence RyzeScan Pro</div><div class="pi-sub">1 an inclus, renouvelable</div></div>
+      <div class="pi r"><div class="pi-num">V</div><div class="pi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L2 5v6l6 3 6-3V5L8 2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></div><div class="pi-name">Housse rigide</div><div class="pi-sub">Protection intégrale IP54</div></div>
+      <div class="pi r d1"><div class="pi-num">VI</div><div class="pi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 4h10v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4Z" stroke="currentColor" stroke-width="1.3"/><path d="M1 4h14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="pi-name">Kit de nettoyage</div><div class="pi-sub">Produits certifiés × 3 mois</div></div>
+      <div class="pi r d2"><div class="pi-num">VII</div><div class="pi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2a6 6 0 1 0 0 12A6 6 0 0 0 8 2Z" stroke="currentColor" stroke-width="1.3"/><path d="M8 6v2l1.5 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="pi-name">Accès formation</div><div class="pi-sub">E-learning DPC + guide clinique PDF</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-head r">
+      <div style="font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem"><span style="opacity:.4">—</span> Questions fréquentes</div>
+      <h2>Tout ce que vous<br>devez <em>savoir</em></h2>
+    </div>
+    <div class="fq r">
+      <button class="fq-btn" onclick="toggleFq(this)"><span class="fq-txt">Le Panda P3 fonctionne-t-il avec d'autres logiciels que RyzeScan ?</span><span class="fq-ico">+</span></button>
+      <div class="fq-ans"><div class="fq-body">Oui. Le Panda P3 exporte en STL, PLY et OBJ. L'intégration <strong>native Ryze via RyzeScan</strong> offre cependant des fonctionnalités exclusives : transmission automatique, guidage IA, et génération de devis en 24h.</div></div>
+    </div>
+    <div class="fq r">
+      <button class="fq-btn" onclick="toggleFq(this)"><span class="fq-txt">Quelle est la durée de la formation initiale ?</span><span class="fq-ico">+</span></button>
+      <div class="fq-ans"><div class="fq-body"><strong>E-learning de 3h</strong> certifiant DPC + session de 1h à distance avec un expert Ryze. Les offres Partenaire et Premium incluent une journée de <strong>formation présentielle en cabinet</strong>.</div></div>
+    </div>
+    <div class="fq r">
+      <button class="fq-btn" onclick="toggleFq(this)"><span class="fq-txt">Que couvre la garantie 2 ans ?</span><span class="fq-ico">+</span></button>
+      <div class="fq-ans"><div class="fq-body">Toutes les <strong>pièces et la main d'œuvre</strong> en cas de défaut de fabrication. Remplacement sous 5 jours ouvrés (48h en Premium). Les embouts consommables ne sont pas couverts.</div></div>
+    </div>
+    <div class="fq r">
+      <button class="fq-btn" onclick="toggleFq(this)"><span class="fq-txt">Est-il possible de financer en leasing ?</span><span class="fq-ico">+</span></button>
+      <div class="fq-ans"><div class="fq-body">Oui — <strong>leasing sur 24, 36 ou 48 mois</strong> avec des partenaires financiers spécialisés en équipement médical. Loyers 100% déductibles fiscalement. Simulation gratuite sur demande.</div></div>
+    </div>
+    <div class="fq r">
+      <button class="fq-btn" onclick="toggleFq(this)"><span class="fq-txt">Quel délai entre scan et plan de traitement ?</span><span class="fq-ico">+</span></button>
+      <div class="fq-ans"><div class="fq-body">Simulation 3D + devis livré <strong>sous 24 heures ouvrées</strong> après validation du scan.</div></div>
+    </div>
+    <div class="fq r">
+      <button class="fq-btn" onclick="toggleFq(this)"><span class="fq-txt">Comment se déroule l'entretien et la désinfection ?</span><span class="fq-ico">+</span></button>
+      <div class="fq-ans"><div class="fq-body"><strong>Embouts autoclavables 134°C.</strong> Corps du scanner : lingettes haute tolérance fournies. Calibration recommandée tous les 6 mois depuis RyzeScan (5 min).</div></div>
+    </div>
+    <div class="fq r">
+      <button class="fq-btn" onclick="toggleFq(this)"><span class="fq-txt">Puis-je essayer avant de m'engager ?</span><span class="fq-ico">+</span></button>
+      <div class="fq-ans"><div class="fq-body">Oui — <strong>démonstration en cabinet</strong> dans toute la France, sur rendez-vous, sans engagement. Un représentant Ryze se déplace avec le matériel.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta">
+  <div class="cta-wm">Panda P3</div>
+  <div class="cta-inner">
+    <div class="cta-eyebrow r">Contact</div>
+    <h2 class="r d1">Prêt à passer au numérique<br><em>sans compromis</em>&nbsp;?</h2>
+    <p class="r d2">Rencontrez un expert Ryze Aligners dans votre cabinet. Démonstration gratuite, sans engagement, dans toute la France.</p>
+    <div class="cta-btns r d3">
+      <a href="contact.html" class="cbtn-fill">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Demander une démo
+      </a>
+      <a href="contact.html" class="cbtn-ghost">Recevoir un devis</a>
+    </div>
+    <div class="cta-meta r d4">
+      <div class="cmeta">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 3h10a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.3"/><path d="m1 4 6 4 6-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        <a href="contact.html">Formulaire de contact</a>
+      </div>
+      <div class="cmeta">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.3"/><path d="M7 4.5v3l1.5 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        <span>Réponse sous 24h ouvrées</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-brand">RYZE <span>ALIGNERS</span></div>
+  <div class="footer-c">© 2024 Ryze Aligners — Tous droits réservés</div>
+</footer>
+
+<script>
+/* ── Progress bar ── */
+window.addEventListener('scroll',function(){
+  var d=document.documentElement,b=document.body;
+  var p=(d.scrollTop||b.scrollTop)/(d.scrollHeight-d.clientHeight||1)*100;
+  document.getElementById('progress-bar').style.width=p+'%';
+  document.getElementById('nav').classList.toggle('scrolled',d.scrollTop>20||b.scrollTop>20);
+});
+
+/* ── Reveal ── */
+var all=document.querySelectorAll('.r,.r-left,.r-scale');
+var io=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:0.07,rootMargin:'0px 0px -20px 0px'});
+all.forEach(function(el){io.observe(el);});
+
+/* ── Bento card mouse glow ── */
+document.querySelectorAll('.bc').forEach(function(card){
+  card.addEventListener('mousemove',function(e){
+    var r=card.getBoundingClientRect();
+    card.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+    card.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+  });
+});
+
+/* ── Pricing toggle ── */
+var px={s:['5 990','4 990','3 990'],p:['7 200','6 200','5 200']};
+function setMode(m){
+  document.getElementById('btn-s').classList.toggle('on',m==='s');
+  document.getElementById('btn-p').classList.toggle('on',m==='p');
+  ['p1','p2','p3'].forEach(function(id,i){
+    var el=document.getElementById(id);
+    el.style.opacity='0';
+    setTimeout(function(){el.innerHTML='<sup>€</sup>'+px[m][i];el.style.opacity='1';},130);
+  });
+}
+
+/* ── FAQ ── */
+function toggleFq(btn){
+  var fq=btn.parentElement,open=fq.classList.contains('open');
+  document.querySelectorAll('.fq.open').forEach(function(o){
+    o.classList.remove('open');o.querySelector('.fq-ans').style.maxHeight='0';
+  });
+  if(!open){fq.classList.add('open');var a=fq.querySelector('.fq-ans');a.style.maxHeight=a.scrollHeight+'px';}
+}
+</script>
+</body>
+</html>

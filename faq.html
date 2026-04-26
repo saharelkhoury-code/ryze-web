@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FAQ | RYZE ALIGNERS — Questions Fr&eacute;quentes sur les Aligneurs Invisibles</title>
+<meta name="description" content="Toutes vos questions sur les aligneurs Ryze™. Technologie, tarifs, dur&eacute;e du traitement, remboursement mutuelle, praticiens partenaires. R&eacute;ponses claires et transparentes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Pourquoi les aligneurs Ryze sont-ils plus discrets ?","acceptedAnswer":{"@type":"Answer","text":"Gr\u00e2ce \u00e0 notre technologie brevet\u00e9e, nous r\u00e9duisons jusqu\u2019\u00e0 80% le besoin d\u2019attaches visibles sur vos dents par rapport aux syst\u00e8mes classiques."}},{"@type":"Question","name":"O\u00f9 sont fabriqu\u00e9s les aligneurs ?","acceptedAnswer":{"@type":"Answer","text":"Chaque aligneur est issu d\u2019une fabrication robotis\u00e9e en France, garantissant une tra\u00e7abilit\u00e9 et une qualit\u00e9 m\u00e9dicale exemplaire."}},{"@type":"Question","name":"La premi\u00e8re consultation est-elle payante ?","acceptedAnswer":{"@type":"Answer","text":"Non, chez Ryze, la premi\u00e8re consultation est offerte. Vous rencontrez un praticien certifi\u00e9, b\u00e9n\u00e9ficiez d\u2019un diagnostic complet et repartez avec un plan de traitement personnalis\u00e9 \u2014 sans engagement."}}]}</script>
+<style>
+/* ═══════════════════════════════════════════
+   RYZE DNA — CSS TOKENS & BASE
+═══════════════════════════════════════════ */
+:root{
+  --red:#E8334A;
+  --blue:#0071BB;
+  --blue-dark:#005a96;
+  --accent:#0071BB;
+  --gold:#B8965A;
+  --gold-soft:#e8d5a0;
+  --dark-green:#1A2D2A;
+  --clear-blue:#EAF3FA;
+  --clear-green:#EFF5EC;
+  --rose-light:#FAE9EC;
+  --cream:#FAF7F2;
+  --navy:#1A2B3C;
+  --sky:#F0F8FF;
+  --bg:#FBFBFA;
+  --ink:#1A2B3C;
+  --ink-soft:#475569;
+  --line:#e2e8f0;
+  --gold-line:rgba(184,150,90,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;font-size:16px;line-height:1.75;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+
+/* ═══ Nav ═══ */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,251,250,.88);backdrop-filter:blur(20px);border-bottom:.5px solid var(--line)}
+.site-nav-inner{display:flex;justify-content:space-between;align-items:center;padding:18px 24px 18px 48px;max-width:1920px;margin:0 auto;position:relative}
+.site-nav .logo-link{font-family:'Manrope',sans-serif;font-weight:700;font-size:24px;letter-spacing:.15em;color:var(--accent);text-decoration:none;flex-shrink:0}
+.site-nav .logo-link sup{font-size:.65em;vertical-align:super}
+.site-nav .nav-center{display:flex;align-items:center;gap:48px;position:absolute;left:50%;transform:translateX(-50%);font-family:'Manrope',sans-serif;font-size:14px;font-weight:500;color:var(--accent)}
+.site-nav .nav-center a{text-decoration:none;color:inherit;transition:opacity .3s}
+.site-nav .nav-center a:hover{opacity:.7}
+.site-nav .nav-center a.active{border-bottom:1px solid var(--accent);padding-bottom:4px}
+.site-nav .nav-cta{display:inline-flex;align-items:center;padding:14px 40px;border-radius:100px;background:var(--accent);color:#fff;font-family:'Manrope',sans-serif;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .3s;flex-shrink:0}
+.site-nav .nav-cta:hover{background:var(--blue-dark);box-shadow:0 4px 16px rgba(0,113,187,.25)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;z-index:99;background:rgba(251,251,250,.97);backdrop-filter:blur(20px);border-bottom:.5px solid var(--line);padding:24px;flex-direction:column;gap:16px}
+.mobile-menu a{font-family:'Manrope',sans-serif;font-size:16px;font-weight:500;color:var(--ink-soft);text-decoration:none;padding:8px 0;display:block}
+.mobile-menu a.active{color:var(--accent);border-bottom:1px solid var(--accent);display:inline-block}
+@media(max-width:1024px){.site-nav .nav-center{display:none}}
+@media(min-width:1025px){.hamburger-btn{display:none!important}}
+
+/* ═══════════════════════════════════════════
+   HERO — EDITORIAL MAGAZINE
+═══════════════════════════════════════════ */
+.faq-hero{
+  padding:150px 24px 100px;
+  background:#ffffff;
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+}
+/* Blueprint grid background */
+.faq-hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(0,113,187,.035) .5px, transparent .5px),
+    linear-gradient(90deg, rgba(0,113,187,.035) .5px, transparent .5px);
+  background-size:64px 64px;
+  pointer-events:none;
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,#000 0%,transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,#000 0%,transparent 100%);
+}
+/* Gold glow bottom-right */
+.faq-hero::after{
+  content:"";
+  position:absolute;bottom:-160px;right:-160px;
+  width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle,rgba(184,150,90,.10) 0%,transparent 65%);
+  filter:blur(40px);pointer-events:none;
+}
+.faq-hero>*{position:relative;z-index:2}
+
+/* Magazine issue decorators */
+.hero-meta{
+  display:flex;align-items:center;justify-content:center;gap:32px;
+  margin-bottom:36px;
+}
+.hero-meta-line{width:36px;height:.5px;background:var(--gold-line)}
+.hero-meta-text{
+  font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:.32em;text-transform:uppercase;color:var(--ink-soft);
+}
+
+/* Eyebrow */
+.faq-hero .eyebrow{
+  display:inline-flex;align-items:center;gap:14px;
+  font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:.32em;text-transform:uppercase;color:var(--accent);
+  margin-bottom:28px;
+}
+.faq-hero .eyebrow::before,
+.faq-hero .eyebrow::after{content:"";width:28px;height:.5px;background:var(--accent);opacity:.6}
+
+/* Giant Cormorant headline */
+.faq-hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-size:clamp(44px,6.5vw,88px);
+  line-height:1.02;
+  letter-spacing:-.03em;
+  color:var(--ink);
+  margin-bottom:20px;
+  max-width:820px;
+  margin-left:auto;margin-right:auto;
+}
+.faq-hero h1 em{
+  font-style:italic;
+  font-weight:300;
+  color:var(--accent);
+}
+
+/* Caveat tagline in red */
+.faq-hero .caveat-tag{
+  font-family:'Caveat',cursive;
+  font-size:clamp(22px,2.6vw,32px);
+  font-weight:500;
+  color:var(--red);
+  letter-spacing:.02em;
+  margin-bottom:32px;
+  display:block;
+}
+
+/* Hairline divider under headline block */
+.hero-rule{
+  width:64px;height:.5px;background:var(--gold);
+  margin:0 auto 28px;opacity:.7;
+}
+
+.faq-hero .lede{
+  font-family:'Manrope',sans-serif;font-size:16px;line-height:1.75;
+  color:var(--ink-soft);max-width:600px;margin:0 auto;
+}
+
+/* ═══ Category filter ═══ */
+.cat-bar{
+  background:#ffffff;
+  border-bottom:.5px solid var(--line);
+  position:sticky;top:68px;z-index:50;
+  padding:16px 24px;
+}
+.cat-bar-inner{
+  max-width:900px;margin:0 auto;
+  display:flex;gap:8px;flex-wrap:wrap;justify-content:center;
+}
+.cat-pill{
+  flex-shrink:0;
+  padding:9px 22px;
+  border-radius:100px;
+  font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  border:.5px solid var(--line);
+  color:var(--ink-soft);background:#fff;
+  cursor:pointer;transition:all .35s cubic-bezier(.2,.8,.2,1);white-space:nowrap;
+}
+.cat-pill:hover{background:var(--clear-blue);border-color:rgba(0,113,187,.25);color:var(--blue)}
+.cat-pill.active{background:var(--dark-green);color:#fff;border-color:var(--dark-green)}
+
+/* ═══════════════════════════════════════════
+   FAQ SECTIONS — ALTERNATING COLOR RHYTHM
+═══════════════════════════════════════════ */
+.faq-section{display:none}
+.faq-section.active{display:block}
+
+/* Each category section gets its own bg */
+.faq-block{padding:80px 24px}
+.faq-block-inner{max-width:820px;margin:0 auto}
+
+/* White */
+.faq-block-white{background:#ffffff}
+/* Clear blue */
+.faq-block-blue{background:var(--clear-blue)}
+/* Cream */
+.faq-block-cream{background:var(--cream)}
+/* Clear green */
+.faq-block-green{background:var(--clear-green)}
+
+/* ═══ Category Header — eyebrow + Cormorant title ═══ */
+.faq-cat-header{
+  margin-bottom:52px;
+  text-align:left;
+}
+.faq-cat-header .cat-eyebrow{
+  font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
+  display:flex;align-items:center;gap:14px;margin-bottom:16px;
+}
+.faq-cat-header .cat-eyebrow::after{
+  content:"";flex:1;max-width:80px;height:.5px;background:var(--gold);opacity:.5;
+}
+.faq-cat-header h2{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-size:clamp(30px,3.5vw,46px);
+  line-height:1.08;
+  letter-spacing:-.025em;
+  color:var(--ink);
+}
+.faq-cat-header h2 em{
+  font-style:italic;color:var(--accent);font-weight:300;
+}
+.faq-cat-header .caveat-sub{
+  font-family:'Caveat',cursive;
+  font-size:clamp(18px,2vw,24px);
+  font-weight:500;
+  color:var(--red);
+  margin-top:8px;
+  display:block;
+  letter-spacing:.01em;
+}
+
+/* ═══ Accordion Items ═══ */
+.faq-list{display:flex;flex-direction:column;gap:10px}
+
+.faq-item{
+  background:#ffffff;
+  border:.5px solid var(--gold-line);
+  border-radius:12px;
+  overflow:hidden;
+  transition:box-shadow .35s ease, border-color .35s ease;
+}
+.faq-item:hover{
+  border-color:rgba(184,150,90,.6);
+  box-shadow:0 6px 24px -8px rgba(26,45,42,.08);
+}
+.faq-item[open]{
+  border-color:rgba(184,150,90,.7);
+  box-shadow:0 12px 40px -12px rgba(26,45,42,.1);
+}
+
+/* Question row */
+.faq-item summary{
+  padding:22px 28px;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  list-style:none;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::marker{display:none}
+
+.faq-q{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400;
+  font-size:clamp(17px,1.5vw,20px);
+  line-height:1.3;
+  letter-spacing:-.01em;
+  color:var(--ink);
+  transition:color .3s;
+}
+.faq-item[open] .faq-q{color:var(--blue)}
+
+.faq-arrow{
+  flex-shrink:0;
+  width:22px;height:22px;
+  color:var(--gold);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1);
+}
+.faq-item[open] .faq-arrow{transform:rotate(180deg);color:var(--blue)}
+
+/* Answer body */
+.faq-answer{
+  padding:0 28px 26px;
+  font-family:'Manrope',sans-serif;
+  font-size:15px;
+  line-height:1.85;
+  color:var(--ink-soft);
+  border-top:.5px solid rgba(184,150,90,.2);
+  padding-top:20px;
+  margin:0 28px 0;
+}
+/* When open, restore outer padding */
+.faq-item[open] .faq-answer{margin:0;padding:20px 28px 26px}
+.faq-answer strong{color:var(--accent);font-weight:700}
+
+/* Subtle open indicator bar on left */
+.faq-item[open]>summary{
+  background:linear-gradient(90deg,rgba(0,113,187,.04) 0%,transparent 100%);
+  border-left:2.5px solid var(--blue);
+  padding-left:25.5px;
+}
+
+/* ═══════════════════════════════════════════
+   CTA SECTION — DARK GREEN
+═══════════════════════════════════════════ */
+.faq-cta{
+  background:var(--dark-green);
+  padding:120px 24px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+/* Subtle orbs */
+.faq-cta::before{
+  content:"";
+  position:absolute;top:-200px;right:-200px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,51,74,.10) 0%,transparent 65%);
+  pointer-events:none;
+}
+.faq-cta::after{
+  content:"";
+  position:absolute;bottom:-180px;left:-180px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.04) 0%,transparent 65%);
+  pointer-events:none;
+}
+.faq-cta>*{position:relative;z-index:1}
+
+.faq-cta .eyebrow{
+  font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.75);
+  display:inline-flex;align-items:center;gap:14px;
+  margin-bottom:24px;
+}
+.faq-cta .eyebrow::before,
+.faq-cta .eyebrow::after{content:"";width:24px;height:.5px;background:rgba(255,255,255,.4);opacity:1}
+
+.faq-cta h2{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-size:clamp(34px,5vw,64px);
+  line-height:1.04;
+  letter-spacing:-.03em;
+  color:#fff;
+  margin-bottom:14px;
+  max-width:680px;
+  margin-left:auto;margin-right:auto;
+}
+.faq-cta h2 em{font-style:italic;font-weight:300;color:var(--red)}
+
+.faq-cta .caveat-sub{
+  font-family:'Caveat',cursive;
+  font-size:clamp(20px,2.2vw,28px);
+  font-weight:500;
+  color:rgba(255,255,255,.6);
+  letter-spacing:.02em;
+  margin-bottom:20px;
+  display:block;
+}
+
+.faq-cta .sub{
+  font-family:'Manrope',sans-serif;font-size:16px;line-height:1.7;
+  color:rgba(255,255,255,.6);
+  margin-bottom:44px;max-width:520px;margin-left:auto;margin-right:auto;
+}
+
+.faq-cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+.faq-cta .btn-gold{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:18px 40px;border-radius:100px;
+  background:var(--red);color:#fff;
+  font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
+  transition:all .35s cubic-bezier(.2,.8,.2,1);border:none;cursor:pointer;
+}
+.faq-cta .btn-gold:hover{background:#c41e35;transform:translateY(-2px);box-shadow:0 10px 30px -8px rgba(232,51,74,.4)}
+
+.faq-cta .btn-outline{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:18px 40px;border-radius:100px;
+  background:transparent;color:#fff;
+  border:.5px solid rgba(255,255,255,.35);
+  font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
+  transition:all .35s cubic-bezier(.2,.8,.2,1);cursor:pointer;
+}
+.faq-cta .btn-outline:hover{border-color:rgba(255,255,255,.65);background:rgba(255,255,255,.06)}
+
+/* ═══ Footer ═══ */
+footer{background:#ffffff;color:#64748b;padding:5rem 3rem 2.5rem;border-top:.5px solid var(--line)}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:.5px solid var(--line)}
+.footer-grid h4{font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#1a2b3c;margin-bottom:1.25rem}
+.footer-grid a{display:block;font-size:13px;color:#475569;text-decoration:none;margin-bottom:.65rem;transition:color .2s}
+.footer-grid a:hover{color:var(--accent)}
+.footer-grid p{font-size:13px;line-height:1.9;color:#64748b}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:1.75rem;display:flex;justify-content:space-between;font-size:11px;color:#94a3b8}
+
+/* ═══ Reveal ═══ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ═══ Responsive ═══ */
+@media(max-width:768px){
+  .faq-hero{padding:120px 20px 72px}
+  .faq-block{padding:56px 20px}
+  .faq-item summary{padding:18px 20px}
+  .faq-item[open]>summary{padding-left:17.5px}
+  .faq-answer,.faq-item[open] .faq-answer{padding:16px 20px 22px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media(max-width:480px){
+  .faq-q{font-size:16px}
+  .hero-meta{display:none}
+  .footer-grid{grid-template-columns:1fr}
+}
+
+/* === FAQ photo banner === */
+.faq-photo-banner{position:relative;height:320px;overflow:hidden;margin:0}
+.faq-photo-banner img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;filter:brightness(.75)}
+.faq-photo-banner-content{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:0 24px}
+.faq-photo-banner-content h3{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(28px,4vw,48px);color:#fff;line-height:1.15;letter-spacing:-.025em;margin-bottom:16px}
+.faq-photo-banner-content a{display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff;text-decoration:none;padding:12px 28px;border:1.5px solid rgba(255,255,255,.6);border-radius:100px;transition:all .25s}
+.faq-photo-banner-content a:hover{background:rgba(255,255,255,.15);border-color:#fff}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="site-nav" id="mainNav">
+  <div class="site-nav-inner">
+    <a href="index.html" class="logo-link">RYZE<sup>&#8482;</sup> ALIGNERS</a>
+    <div class="nav-center">
+      <a href="index.html">Accueil</a>
+      <a href="treatment.html">Technologie</a>
+      <a href="scanner.html">Scanner</a>
+      <a href="results.html">R&eacute;sultats</a>
+      <a href="tarifs.html">Tarifs</a>
+      <a href="junior.html">Junior</a>
+      <a href="blog.html">Articles</a>
+      <a href="faq.html" class="active">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
+      <a href="index.html#clinic-finder" class="nav-cta">START SCAN</a>
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu" style="background:none;border:none;padding:8px;cursor:pointer;">
+        <span class="material-symbols-outlined" style="font-size:28px;color:var(--ink);">menu</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Accueil</a>
+  <a href="treatment.html">Technologie</a>
+  <a href="results.html">R&eacute;sultats</a>
+  <a href="tarifs.html">Tarifs</a>
+  <a href="junior.html">Junior</a>
+  <a href="blog.html">Articles</a>
+  <a href="faq.html" class="active">FAQ</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="faq-hero">
+  <div class="hero-meta">
+    <div class="hero-meta-line"></div>
+    <span class="hero-meta-text">Centre de documentation</span>
+    <div class="hero-meta-line"></div>
+    <span class="hero-meta-text">Ryze&#8482; Aligners</span>
+    <div class="hero-meta-line"></div>
+  </div>
+
+  <p class="eyebrow">Clart&eacute; &amp; Transparence</p>
+  <h1>Tout ce que vous<br><em>devez savoir</em></h1>
+  <span class="caveat-tag">vos questions, nos r&eacute;ponses</span>
+  <div class="hero-rule"></div>
+  <p class="lede">Orthodontistes partenaires, technologie Ryze, d&eacute;roulement du traitement, tarifs, prise en charge, dur&eacute;e et stabilisation. Des r&eacute;ponses simples et transparentes — sans jargon.</p>
+</section>
+
+<!-- ═══════════ CATEGORY FILTER ═══════════ -->
+<div class="cat-bar">
+  <div class="cat-bar-inner">
+    <button class="cat-pill active" data-cat="all">Toutes les questions</button>
+    <button class="cat-pill" data-cat="technologie">Technologie</button>
+    <button class="cat-pill" data-cat="traitement">Traitement</button>
+    <button class="cat-pill" data-cat="tarifs">Tarifs &amp; Remboursement</button>
+    <button class="cat-pill" data-cat="praticiens">Praticiens</button>
+  </div>
+</div>
+
+<!-- ═══════════ FAQ CONTENT ═══════════ -->
+
+<!-- ─── ALL QUESTIONS ─── -->
+<div id="cat-all" class="faq-section active">
+
+  <!-- Block 1: Technologie — white bg -->
+  <div class="faq-block faq-block-white">
+    <div class="faq-block-inner reveal">
+      <div class="faq-cat-header">
+        <p class="cat-eyebrow">01 — Technologie</p>
+        <h2>Innovation &amp; <em>Discr&eacute;tion</em></h2>
+        <span class="caveat-sub">ce qui nous rend diff&eacute;rents</span>
+      </div>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>
+            <span class="faq-q">Pourquoi les aligneurs Ryze&#8482; sont-ils plus discrets ?</span>
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Gr&acirc;ce &agrave; notre technologie brevet&eacute;e <strong>Precision Trigger Points&#8482;</strong>, nous r&eacute;duisons jusqu'&agrave; 80% le besoin d'attaches (taquets) visibles sur vos dents par rapport aux syst&egrave;mes classiques. R&eacute;sultat : c'est 100% invisible, vraiment.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span class="faq-q">O&ugrave; sont fabriqu&eacute;s les aligneurs ?</span>
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Chaque aligneur est issu d'une fabrication robotis&eacute;e 100% en France, garantissant une tra&ccedil;abilit&eacute; et une qualit&eacute; m&eacute;dicale exemplaire. La proximit&eacute; de notre usine nous permet une r&eacute;activit&eacute; maximale et des ajustements rapides si n&eacute;cessaire.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span class="faq-q">&Agrave; qui s'adresse ce traitement ?</span>
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Aux adultes et adolescents souhaitant une solution orthodontique haut de gamme, rapide et surtout invisible. Ryze&#8482; traite efficacement les encombrements, espaces, supraclusions, b&eacute;ances et articul&eacute;s crois&eacute;s.</div>
+        </details>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 2: Traitement — clear-blue bg -->
+  <div class="faq-block faq-block-blue">
+    <div class="faq-block-inner reveal">
+      <div class="faq-cat-header">
+        <p class="cat-eyebrow">02 — Traitement</p>
+        <h2>Parcours &amp; <em>R&eacute;sultats</em></h2>
+        <span class="caveat-sub">de la consultation &agrave; votre sourire</span>
+      </div>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>
+            <span class="faq-q">Suis-je &eacute;ligible si mon cas est complexe ?</span>
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">La majorit&eacute; des patients sont &eacute;ligibles. Seul un scan 3D et l'analyse de nos orthodontistes pourront confirmer le plan id&eacute;al pour vous. Ryze&#8482; traite efficacement les cas simples comme les plus complexes.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span class="faq-q">Comment se d&eacute;roule un traitement Ryze ?</span>
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Tout commence par une consultation gratuite avec un praticien partenaire. Il r&eacute;alise un diagnostic complet et &eacute;tablit un plan de traitement personnalis&eacute;, avec une simulation 3D de l'&eacute;volution de votre sourire. Une fois le plan valid&eacute;, vous recevez une s&eacute;rie d'aligneurs sur mesure. Vous b&eacute;n&eacute;ficiez d'un suivi r&eacute;gulier toutes les 10 &agrave; 12 semaines. &Agrave; la fin, des contentions de stabilisation sont pos&eacute;es pour maintenir durablement les r&eacute;sultats.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span class="faq-q">Le traitement est-il plus long pour une supraclusion ?</span>
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Chaque cas est unique, mais nos algorithmes optimisent les mouvements pour r&eacute;duire la dur&eacute;e du traitement. Des r&eacute;sultats visibles sont souvent constat&eacute;s d&egrave;s 3 mois, m&ecirc;me pour des cas complexes.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span class="faq-q">Les r&eacute;sultats sont-ils permanents ?</span>
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Oui, &agrave; condition de porter votre appareil de contention (retainer) apr&egrave;s le traitement pour stabiliser votre nouveau sourire. Cela est syst&eacute;matiquement inclus dans votre plan de traitement Ryze&#8482;.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span class="faq-q">Quelle est la dur&eacute;e d'un traitement Ryze ?</span>
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Du cas simple au plus complexe : des r&eacute;sultats d&egrave;s <strong>3 mois</strong>. Chaque sourire est unique. Qu'il s'agisse d'une correction l&eacute;g&egrave;re ou d'un cas plus complexe, le traitement Ryze est planifi&eacute; avec pr&eacute;cision par un orthodontiste pour agir progressivement et en douceur.</div>
+        </details>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 3: Tarifs — cream bg -->
+  <div class="faq-block faq-block-cream">
+    <div class="faq-block-inner reveal">
+      <div class="faq-cat-header">
+        <p class="cat-eyebrow">03 — Tarifs &amp; Remboursement</p>
+        <h2>Transparence <em>financi&egrave;re</em></h2>
+        <span class="caveat-sub">pas de surprises, jamais</span>
+      </div>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>
+            <span class="faq-q">Quel est le prix d'un traitement Ryze ?</span>
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Le prix d&eacute;pend de la complexit&eacute; de votre cas, de la dur&eacute;e du traitement et des honoraires du praticien. En moyenne, un traitement Ryze&#8482; se situe entre <strong>2 000&euro; et 5 000&euro;</strong>, selon le niveau de correction n&eacute;cessaire. Un devis pr&eacute;cis vous sera remis d&egrave;s la premi&egrave;re consultation, sans engagement.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span class="faq-q">La premi&egrave;re consultation est-elle payante ?</span>
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Non, chez Ryze, <strong>la premi&egrave;re consultation est offerte</strong>. Vous rencontrez un praticien certifi&eacute;, b&eacute;n&eacute;ficiez d'un diagnostic complet et repartez avec un plan de traitement personnalis&eacute; — sans engagement.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span class="faq-q">Quelle prise en charge pour un traitement Ryze ?</span>
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Les traitements d'alignement invisible ne sont g&eacute;n&eacute;ralement pas rembours&eacute;s par la S&eacute;curit&eacute; sociale &agrave; l'&acirc;ge adulte, mais peuvent &ecirc;tre partiellement pris en charge par certaines mutuelles. N'h&eacute;sitez pas &agrave; transmettre le devis remis lors de votre premi&egrave;re consultation.<br><br><strong>Bon &agrave; savoir :</strong> pour les patients de moins de 16 ans, une prise en charge par l'Assurance Maladie est possible, sur prescription de l'orthodontiste.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span class="faq-q">Comment obtenir un devis ?</span>
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Un devis clair et personnalis&eacute; vous sera remis d&egrave;s la premi&egrave;re consultation gratuite, apr&egrave;s un examen complet r&eacute;alis&eacute; par un praticien partenaire. Vous pourrez ensuite transmettre ce document &agrave; votre mutuelle pour conna&icirc;tre les modalit&eacute;s de prise en charge.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span class="faq-q">Peut-on payer en plusieurs fois ?</span>
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Des solutions de paiement &eacute;chelonn&eacute; (jusqu'&agrave; <strong>12 mois</strong>) peuvent &ecirc;tre propos&eacute;es selon l'&eacute;tablissement. Discutez-en directement avec votre praticien lors de la premi&egrave;re consultation.</div>
+        </details>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 4: Praticiens — clear-green bg -->
+  <div class="faq-block faq-block-green">
+    <div class="faq-block-inner reveal">
+      <div class="faq-cat-header">
+        <p class="cat-eyebrow">04 — Praticiens &amp; Suivi</p>
+        <h2>Un r&eacute;seau <em>d'experts</em></h2>
+        <span class="caveat-sub">certifi&eacute;s, proches de chez vous</span>
+      </div>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>
+            <span class="faq-q">Comment trouver un praticien partenaire Ryze ?</span>
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Parlez-en &agrave; votre dentiste ou orthodontiste habituel : s'il est d&eacute;j&agrave; partenaire, il pourra vous proposer directement notre solution. S'il ne l'est pas encore, vous pouvez nous laisser ses coordonn&eacute;es — ou les v&ocirc;tres — et notre &eacute;quipe se charge de tout pour le contacter et lui pr&eacute;senter Ryze. Vous pouvez aussi nous contacter directement par WhatsApp, c'est rapide, confidentiel et sans engagement.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span class="faq-q">Comment contacter le service client Ryze ?</span>
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Vous pouvez joindre notre &eacute;quipe par t&eacute;l&eacute;phone, email ou message, du lundi au vendredi, de <strong>9h &agrave; 18h</strong>. Pour une r&eacute;ponse rapide, vous pouvez aussi nous contacter sur WhatsApp ou par message direct, 7 jours sur 7.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span class="faq-q">&Agrave; quelle fr&eacute;quence sont les rendez-vous de suivi ?</span>
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Vous b&eacute;n&eacute;ficiez d'un suivi r&eacute;gulier toutes les <strong>10 &agrave; 12 semaines</strong> pour v&eacute;rifier l'avanc&eacute;e du traitement et ajuster si besoin. C'est beaucoup moins contraignant que les rendez-vous mensuels des bagues classiques.</div>
+        </details>
+
+      </div>
+    </div>
+  </div>
+
+</div><!-- /cat-all -->
+
+<!-- ─── TECHNOLOGIE only ─── -->
+<div id="cat-technologie" class="faq-section"></div>
+
+<!-- ─── TRAITEMENT only ─── -->
+<div id="cat-traitement" class="faq-section"></div>
+
+<!-- ─── TARIFS only ─── -->
+<div id="cat-tarifs" class="faq-section"></div>
+
+<!-- ─── PRATICIENS only ─── -->
+<div id="cat-praticiens" class="faq-section"></div>
+
+<!-- ═══════════ CTA BAND ═══════════ -->
+<section class="faq-cta">
+  <p class="eyebrow">Premi&egrave;re consultation gratuite</p>
+  <h2>Une question reste<br><em>sans r&eacute;ponse ?</em></h2>
+  <span class="caveat-sub">parlons-en ensemble</span>
+  <p class="sub">Rencontrez un praticien partenaire Ryze&#8482; pr&egrave;s de chez vous. Diagnostic complet, plan de traitement personnalis&eacute; &mdash; sans engagement, sans frais.</p>
+  <div class="faq-cta-btns">
+    <a href="index.html#clinic-finder" class="btn-gold">Consulter un praticien</a>
+    <a href="contact.html" class="btn-outline">Nous &eacute;crire</a>
+  </div>
+</section>
+
+<!-- PHOTO BANNER -->
+<div class="faq-photo-banner">
+  <img src="assets/firas-9.jpg" alt="" loading="lazy">
+  <div class="faq-photo-banner-content">
+    <h3>Une question sans r&eacute;ponse&nbsp;?<br>Parlons-en directement.</h3>
+    <a href="contact.html">Contacter l&rsquo;&eacute;quipe Ryze &rarr;</a>
+  </div>
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div style="font-family:'Manrope',sans-serif;font-size:18px;font-weight:700;letter-spacing:.15em;color:var(--accent);margin-bottom:1rem;">RYZE<span style="font-size:.65em;vertical-align:super;">&#8482;</span> ALIGNERS</div>
+      <p style="max-width:260px;">Aligneurs orthodontiques invisibles de haute pr&eacute;cision, fabriqu&eacute;s en France. Technologie sur-mesure pour un sourire parfaitement align&eacute;.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <a href="index.html">Accueil</a>
+      <a href="treatment.html">Technologie</a>
+      <a href="junior.html">Ryze Junior</a>
+      <a href="results.html">R&eacute;sultats</a>
+      <a href="tarifs.html">Tarifs</a>
+      <a href="blog.html">Articles</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>
+      <h4>L&eacute;gal</h4>
+      <a href="#">Mentions l&eacute;gales</a>
+      <a href="#">Confidentialit&eacute;</a>
+      <a href="#">CGV</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p style="margin-bottom:.65rem;">contact@ryze-aligners.fr</p>
+      <p style="margin-bottom:.65rem;">+33 1 23 45 67 89</p>
+      <p>Paris, France</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Ryze&#8482; Aligners — Made in France &middot; CE 2797 &middot; ISO 13485</span>
+    <span>Fabrication fran&ccedil;aise &middot; Aligneurs sur-mesure</span>
+  </div>
+</footer>
+
+<script>
+// Nav shadow on scroll
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.style.boxShadow = window.scrollY > 80 ? '0 2px 12px rgba(0,0,0,.06)' : 'none';
+}, { passive: true });
+
+// Mobile menu toggle
+document.getElementById('hamburgerBtn').addEventListener('click', () => {
+  const m = document.getElementById('mobileMenu');
+  const isOpen = m.style.display === 'flex';
+  m.style.display = isOpen ? 'none' : 'flex';
+  document.querySelector('.hamburger-btn .material-symbols-outlined').textContent = isOpen ? 'menu' : 'close';
+});
+
+// Category filtering — pull faq-block elements into category-specific sections
+(function(){
+  const blockToCat = [
+    { catId: 'cat-technologie', blockIndex: 0 },
+    { catId: 'cat-traitement',  blockIndex: 1 },
+    { catId: 'cat-tarifs',      blockIndex: 2 },
+    { catId: 'cat-praticiens',  blockIndex: 3 },
+  ];
+
+  const allBlocks = document.querySelectorAll('#cat-all .faq-block');
+
+  blockToCat.forEach(({ catId, blockIndex }) => {
+    const target = document.getElementById(catId);
+    if (allBlocks[blockIndex] && target) {
+      target.innerHTML = allBlocks[blockIndex].outerHTML;
+    }
+  });
+
+  const pills    = document.querySelectorAll('.cat-pill');
+  const sections = document.querySelectorAll('.faq-section');
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const cat = pill.dataset.cat;
+      sections.forEach(s => {
+        s.classList.toggle('active', s.id === 'cat-' + cat);
+      });
+      // Trigger reveal on newly visible items
+      requestAnimationFrame(() => {
+        document.querySelectorAll('.faq-section.active .reveal').forEach(el => {
+          el.classList.add('visible');
+        });
+      });
+    });
+  });
+})();
+
+// Scroll reveal via IntersectionObserver
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
