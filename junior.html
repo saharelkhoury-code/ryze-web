@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -20,7 +21,8 @@
           },
           fontFamily: {
             headline: ['Manrope', 'sans-serif'],
-            display: ['Cormorant Garamond', 'serif'],
+            display: ['Fraunces', 'Cormorant Garamond', 'serif'],
+            fraunces: ['Fraunces', 'serif'],
           }
         }
       }
@@ -29,35 +31,33 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Manrope', sans-serif; background: #ffffff; color: #1a2b3c; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Manrope', sans-serif; background: #FEFAE8; color: #1a2b3c; -webkit-font-smoothing: antialiased; }
 
-    /* Brand DNA tokens */
+    /* ── Junior color palette (Rocc Naturals inspired) ── */
     :root {
-      --red:        #E8334A;
-      --blue:       #0071BB;
-      --gold:       #B8965A;
-      --dark-green: #1A2D2A;
-      --ink:        #1a2b3c;
-      /* Surface tokens — the "clear" colors */
-      --clear-blue:  #EAF3FA;
-      --clear-green: #EFF5EC;
-      --rose-light:  #FAE9EC;
-      --cream:       #FAF7F2;
-      /* Deeper saturated versions for cards */
-      --deep-blue:   #C0D8F0;
-      --deep-green:  #C0DDB8;
-      --deep-rose:   #F5C0CC;
-      --deep-cream:  #F0E4C8;
+      --jr-cream:     #FEFAE8;
+      --jr-sage:      #C8DEB8;
+      --jr-amber:     #F5E4A0;
+      --jr-coral:     #F5C4A4;
+      --jr-forest:    #1A3024;
+      --jr-sky:       #BDD4EE;
+      --jr-tangerine: #E8763A;
+      --jr-mint:      #B8EDD4;
+      --jr-rose:      #F0D4E4;
+      --red:    #E8334A;
+      --blue:   #0071BB;
+      --gold:   #C9A84C;
+      --ink:    #1a2b3c;
     }
 
-    /* Eyebrow — red hairline prefix */
+    /* ── Eyebrows ── */
     .eyebrow {
       display: inline-flex; align-items: center; gap: 10px;
       font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase; color: #5c6a78;
+      letter-spacing: 0.18em; text-transform: uppercase; color: rgba(26,43,60,0.6);
     }
     .eyebrow::before {
-      content: ""; display: inline-block; width: 22px; height: 1px;
+      content: ""; display: inline-block; width: 22px; height: 1.5px;
       background: #E8334A; flex-shrink: 0;
     }
     .eyebrow-white {
@@ -66,29 +66,25 @@
       letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.85);
     }
     .eyebrow-white::before {
-      content: ""; display: inline-block; width: 22px; height: 1px;
-      background: rgba(255,255,255,0.65); flex-shrink: 0;
+      content: ""; display: inline-block; width: 22px; height: 1.5px;
+      background: rgba(255,255,255,0.6); flex-shrink: 0;
     }
 
     /* Hairline dividers */
-    .red-line   { width: 28px; height: 1px; background: #E8334A; margin: 1rem 0 1.5rem; }
-    .white-line { width: 28px; height: 1px; background: rgba(255,255,255,0.55); margin: 1rem 0 1.5rem; }
+    .red-line   { width: 32px; height: 2px; background: #E8334A; margin: 1rem 0 1.5rem; border-radius: 2px; }
+    .white-line { width: 32px; height: 2px; background: rgba(255,255,255,0.5); margin: 1rem 0 1.5rem; border-radius: 2px; }
     .red-line-center, .white-line-center { margin-left: auto; margin-right: auto; }
+    .gold-divider { width: 40px; height: 2px; background: var(--jr-tangerine); margin: 1.25rem 0; border-radius: 2px; }
+    .gold-divider-center { margin-left: auto; margin-right: auto; }
+    .section-gold-line { display: flex; align-items: center; gap: 16px; margin-bottom: 1rem; }
+    .section-gold-line::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(26,43,60,0.18), transparent); }
 
     /* Caveat signature */
     .caveat-sig { font-family: 'Caveat', cursive; font-size: clamp(18px, 2.2vw, 22px); color: #E8334A; font-weight: 500; line-height: 1.4; }
 
-    /* Decorative blobs */
-    .blob-wrap { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-    .blob { position: absolute; border-radius: 50%; filter: blur(60px); }
-    .blob-blue  { width: 360px; height: 360px; background: rgba(0,113,187,0.13); top: -60px; right: 4%; }
-    .blob-green { width: 300px; height: 300px; background: rgba(232,51,74,0.06); bottom: 8%; left: -40px; }
-    .blob-red   { width: 200px; height: 200px; background: rgba(232,51,74,0.10); top: 32%; right: 28%; }
-
     /* Animations */
     @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
     .animate-float { animation: float 6s ease-in-out infinite; }
-
     @keyframes fadeInUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
     .reveal { opacity: 0; }
     .reveal.visible { animation: fadeInUp 0.7s cubic-bezier(0.16,1,0.3,1) both; }
@@ -99,148 +95,126 @@
     .stagger>.reveal.visible:nth-child(5){animation-delay:480ms}
     .stagger>.reveal.visible:nth-child(6){animation-delay:600ms}
 
-    /* FAQ */
-    .faq-icon { transition: transform 0.3s ease; }
-    .faq-accordion[open] .faq-icon { transform: rotate(180deg); }
-    .faq-accordion[open] { border-left: 3px solid #E8334A !important; background: #fff !important; }
-    .faq-accordion summary { list-style: none; }
-    .faq-accordion summary::-webkit-details-marker { display: none; }
+    /* ── Card color fills (Rocc Naturals color-blocking) ── */
+    .card-sage    { background: var(--jr-sage); }
+    .card-amber   { background: var(--jr-amber); }
+    .card-coral   { background: var(--jr-coral); }
+    .card-sky     { background: var(--jr-sky); }
+    .card-mint    { background: var(--jr-mint); }
+    .card-rose    { background: var(--jr-rose); }
+    .card-cream   { background: var(--jr-cream); }
 
-    /* Process card — editorial white on dark */
-    .process-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 2.5rem 2rem;
-      border-top: 0.5px solid rgba(0,113,187,0.15);
-      position: relative;
-      box-shadow: 0 4px 24px -8px rgba(0,113,187,0.12);
-    }
-    .process-card-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(4rem, 6vw, 5.5rem);
-      font-weight: 300;
-      line-height: 1;
-      color: rgba(0,113,187,0.12);
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      letter-spacing: -0.03em;
-    }
-
-    /* Benefit cards — white with blue border */
+    /* ── Benefit cards — solid color fills ── */
     .benefit-card {
-      background: #fff;
-      border: 0.5px solid rgba(0,113,187,0.15);
-      border-radius: 14px;
+      border-radius: 20px;
       padding: 2.5rem 2.2rem;
-      box-shadow: 0 4px 32px -8px rgba(0,113,187,0.08);
-      transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+      transition: transform 0.3s ease;
     }
-    .benefit-card:hover {
-      box-shadow: 0 16px 48px -12px rgba(0,113,187,0.16);
-      border-color: rgba(0,113,187,0.35);
-      transform: translateY(-3px);
-    }
+    .benefit-card:hover { transform: translateY(-5px); }
     .benefit-card .icon-wrap {
       width: 52px; height: 52px;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 1.5rem;
+      background: rgba(26,43,60,0.1);
     }
 
-    /* Testimonial cards — editorial Cormorant quote */
+    /* ── Process cards — glass on dark forest ── */
+    .process-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .process-card:hover { background: rgba(255,255,255,0.16); transform: translateY(-4px); }
+    .process-card-num {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(4rem, 6vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1;
+      color: rgba(255,255,255,0.1);
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      letter-spacing: -0.03em;
+    }
+    .process-card h3 { color: #fff; }
+    .process-card p { color: rgba(255,255,255,0.68); }
+    .process-card .eyebrow { color: rgba(255,255,255,0.65); }
+    .process-card .eyebrow::before { background: rgba(255,255,255,0.45); }
+
+    /* ── Testimonial cards — solid colored ── */
     .testim-card {
-      background: #fff;
-      border: 0.5px solid rgba(26,43,60,0.1);
-      border-radius: 4px;
+      border-radius: 20px;
       padding: 2.2rem 2rem;
-      box-shadow: 0 2px 16px -4px rgba(26,43,60,0.06);
     }
     .testim-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.05rem, 1.4vw, 1.25rem);
       font-weight: 300;
       font-style: italic;
-      line-height: 1.45;
+      line-height: 1.5;
       color: #1a2b3c;
       position: relative;
       padding-top: 1.2rem;
     }
     .testim-quote::before {
       content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 28px; height: 1px;
-      background: #E8334A;
+      position: absolute; top: 0; left: 0;
+      width: 28px; height: 2px; background: #E8334A;
     }
 
-    /* Pricing icon-pills */
+    /* ── Pricing pills — solid colored ── */
     .price-pill {
-      background: #fff;
-      border: 0.5px solid rgba(0,113,187,0.18);
-      border-radius: 14px;
-      padding: 1.75rem 1.5rem;
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
       text-align: center;
-      box-shadow: 0 4px 20px -8px rgba(0,113,187,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s;
     }
-    .price-pill:hover { transform: translateY(-3px); box-shadow: 0 12px 32px -8px rgba(0,113,187,0.15); }
+    .price-pill:hover { transform: translateY(-5px); }
 
-    /* Section dividers */
-    .gold-divider {
-      width: 40px; height: 1.5px;
-      background: linear-gradient(90deg, #0071BB, transparent);
-      margin: 1.25rem 0;
-      border-radius: 2px;
+    /* ── FAQ ── */
+    .faq-icon { transition: transform 0.3s ease; }
+    .faq-accordion[open] .faq-icon { transform: rotate(180deg); }
+    .faq-accordion[open] { border-left: 3px solid #E8334A !important; }
+    .faq-accordion summary { list-style: none; }
+    .faq-accordion summary::-webkit-details-marker { display: none; }
+
+    /* ── CTA section — deep forest ── */
+    .cta-dark-section {
+      background: var(--jr-forest);
+      position: relative; overflow: hidden;
     }
-    .gold-divider-center { margin-left: auto; margin-right: auto; background: linear-gradient(90deg, transparent, #0071BB, transparent); }
+    .cta-dark-section::before {
+      content: ""; position: absolute; inset: 0;
+      background-image: radial-gradient(ellipse 60% 50% at 80% 50%, rgba(255,255,255,0.05) 0%, transparent 70%),
+                        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(255,255,255,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
 
-    /* Editorial large number */
+    /* ── Editorial large number ── */
     .editorial-num {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Fraunces', serif;
       font-weight: 300;
       font-style: italic;
-      color: rgba(0,113,187,0.12);
+      color: rgba(232,118,58,0.12);
       font-size: clamp(6rem, 12vw, 10rem);
       line-height: 1;
       letter-spacing: -0.04em;
       user-select: none;
     }
 
-    /* Trust strip item */
+    /* ── Trust strip ── */
     .trust-item {
       position: relative;
-      padding: 2rem 1.5rem;
-      border-right: 0.5px solid rgba(26,43,60,0.08);
+      padding: 2.5rem 1.5rem;
+      border-right: 1px solid rgba(26,43,60,0.1);
     }
     .trust-item:last-child { border-right: none; }
 
-    /* CTA dark section */
-    .cta-dark-section {
-      background: #0071BB;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-dark-section::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(ellipse 60% 50% at 80% 50%, rgba(255,255,255,0.08) 0%, transparent 70%),
-                        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(255,255,255,0.05) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    /* Gold hairline accent for section headings */
-    .section-gold-line {
-      display: flex; align-items: center; gap: 16px;
-      margin-bottom: 1rem;
-    }
-    .section-gold-line::after {
-      content: ""; flex: 1; height: 0.5px;
-      background: linear-gradient(90deg, rgba(0,113,187,0.4), transparent);
-    }
-
-    /* Material Symbols */
+    /* ── Material Symbols ── */
     .material-symbols-outlined {
       font-family: 'Material Symbols Outlined'; font-weight: normal; font-style: normal;
       font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none;
@@ -249,31 +223,34 @@
     }
     .star-filled { font-variation-settings: 'FILL' 1; }
 
-    @media (max-width: 768px) {
-      .hero-grid { grid-template-columns: 1fr !important; }
-      .hero-image-col { display: none; }
-    }
-
-    /* ── Junior photo elements ── */
+    /* ── Photo elements ── */
     .jr-photo-strip { display:flex; line-height:0; }
     .jps-cell { flex:1; min-width:0; overflow:hidden; aspect-ratio:4/3; }
     .jps-cell.jps-wide { flex:1.7; }
-    .jps-cell img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; transition:transform .8s cubic-bezier(.2,.8,.2,1); filter:brightness(.88); }
-    .jps-cell img:hover { transform:scale(1.04); filter:brightness(.95); }
+    .jps-cell img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; transition:transform .8s cubic-bezier(.2,.8,.2,1); }
+    .jps-cell img:hover { transform:scale(1.04); }
 
     .jr-edit-split { display:grid; grid-template-columns:1fr 1fr; }
     .jr-edit-photo { overflow:hidden; min-height:460px; }
     .jr-edit-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
-    .jr-edit-body { background:#1A2D2A; padding:80px 64px; display:flex; flex-direction:column; justify-content:center; gap:0; }
-    .jr-edit-body h3 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.5vw,3.2rem); font-weight:300; color:#fff; line-height:1.1; letter-spacing:-.025em; margin:1rem 0 1.5rem; }
-    .jr-edit-body h3 em { font-style:italic; color:#a8dff5; }
-    .jr-edit-desc { color:rgba(255,255,255,.62); font-size:.9rem; line-height:1.75; font-family:'Manrope',sans-serif; font-weight:300; max-width:380px; }
+    .jr-edit-body { background:var(--jr-tangerine); padding:80px 64px; display:flex; flex-direction:column; justify-content:center; gap:0; }
+    .jr-edit-body h3 { font-family:'Fraunces',serif; font-size:clamp(2rem,3.5vw,3.2rem); font-weight:700; color:#fff; line-height:1.05; letter-spacing:-.02em; margin:1rem 0 1.5rem; }
+    .jr-edit-body h3 em { font-style:italic; font-weight:300; color:rgba(255,255,255,0.88); }
+    .jr-edit-desc { color:rgba(255,255,255,.82); font-size:.9rem; line-height:1.75; font-family:'Manrope',sans-serif; font-weight:300; max-width:380px; }
     .jr-edit-cta { display:inline-flex; align-items:center; gap:14px; font-family:'Manrope',sans-serif; font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#fff; margin-top:2.25rem; text-decoration:none; }
-    .jr-edit-cta::after { content:''; flex-shrink:0; width:28px; height:1px; background:rgba(255,255,255,.5); }
-    .jr-edit-cta:hover::after { width:44px; }
+    .jr-edit-cta::after { content:''; flex-shrink:0; width:28px; height:2px; background:rgba(255,255,255,.6); }
+    .jr-edit-cta:hover::after { width:48px; }
 
     .testim-avatar-photo { width:38px; height:38px; border-radius:50%; overflow:hidden; flex-shrink:0; }
     .testim-avatar-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; border-radius:50%; display:block; }
+
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr !important; }
+      .hero-image-col { display: none; }
+      .jr-edit-split { grid-template-columns: 1fr; }
+      .jr-edit-photo { min-height: 280px; }
+      .jr-edit-body { padding: 48px 32px; }
+    }
   </style>
 </head>
 <body>
@@ -313,16 +290,16 @@
   <main>
 
   <!-- ==================== HERO ==================== -->
-  <section id="jr-hero" class="relative min-h-screen flex items-center pt-20 overflow-hidden" style="background:#ffffff;">
+  <section id="jr-hero" class="relative min-h-screen flex items-center pt-20 overflow-hidden" style="background:var(--jr-cream);">
     <div class="container mx-auto px-6 md:px-8 relative z-20 max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-[90vh] py-12">
 
       <!-- Left: text -->
       <div class="space-y-6">
         <div class="reveal"><span class="eyebrow">Ryze Junior &middot; D&egrave;s 7 ans &middot; Remboursement SS avant 16 ans</span></div>
 
-        <h1 class="font-display font-bold tracking-tighter leading-[1.0] reveal"
-            style="font-size:clamp(2.8rem,6vw,5rem);color:#000;mix-blend-mode:overlay;">
-          Le sourire<br>qu&rsquo;ils m&eacute;ritent.
+        <h1 class="font-display font-bold reveal"
+            style="font-family:'Fraunces',serif;font-size:clamp(3.5rem,8vw,7.5rem);color:#1a2b3c;line-height:0.95;letter-spacing:-0.03em;font-weight:900;">
+          Le sourire<br>qu&rsquo;ils<br><em style="font-style:italic;font-weight:300;color:var(--jr-tangerine);">méritent.</em>
         </h1>
 
         <p class="caveat-sig reveal">chaque sourire, d&egrave;s l&rsquo;enfance.</p>
@@ -332,7 +309,7 @@
         </p>
 
         <div class="flex flex-wrap gap-3 reveal">
-          <button class="text-white px-8 py-4 rounded-full font-headline font-semibold text-[11px] tracking-widest shadow-lg hover:brightness-110 transition-all uppercase" style="background:#0071BB;">
+          <button class="text-white px-8 py-4 rounded-full font-headline font-semibold text-[11px] tracking-widest shadow-lg hover:brightness-110 transition-all uppercase" style="background:var(--jr-tangerine);">
             Consulter un praticien
           </button>
           <a href="#benefits" class="px-8 py-4 rounded-full font-headline font-semibold text-[11px] tracking-widest border hover:bg-black/5 transition-all uppercase flex items-center gap-2" style="border-color:rgba(26,43,60,0.25);color:#1a2b3c;">
@@ -352,21 +329,21 @@
   </section>
 
   <!-- ==================== TRUST STRIP ==================== -->
-  <section style="background:radial-gradient(circle at 50% 50%, #d6ecf8 0%, #EAF3FA 60%, #f0f7fd 100%); border-top: 0.5px solid rgba(0,113,187,0.12); border-bottom: 0.5px solid rgba(0,113,187,0.12);">
+  <section style="background:var(--jr-sage); border-top: 2px solid rgba(26,43,60,0.08); border-bottom: 2px solid rgba(26,43,60,0.08);">
     <div class="container mx-auto px-6 md:px-8 max-w-6xl">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 stagger">
 
         <div class="trust-item flex flex-col items-center text-center gap-3 py-10 reveal">
-          <div style="width:44px;height:44px;border-radius:50%;background:rgba(0,113,187,0.1);display:flex;align-items:center;justify-content:center;">
-            <span class="material-symbols-outlined" style="font-size:22px;color:#0071BB;">precision_manufacturing</span>
+          <div style="width:44px;height:44px;border-radius:50%;background:rgba(26,48,36,0.12);display:flex;align-items:center;justify-content:center;">
+            <span class="material-symbols-outlined" style="font-size:22px;color:var(--jr-forest);">precision_manufacturing</span>
           </div>
           <h3 class="font-display font-light" style="font-size:1.15rem;color:#1a2b3c;letter-spacing:-0.01em;">Technologie PTP&trade;</h3>
           <p class="text-xs leading-relaxed font-headline" style="color:rgba(26,43,60,0.55);max-width:160px;">80&nbsp;% de taquets en moins pour un traitement discret</p>
         </div>
 
         <div class="trust-item flex flex-col items-center text-center gap-3 py-10 reveal">
-          <div style="width:44px;height:44px;border-radius:50%;background:rgba(0,113,187,0.1);display:flex;align-items:center;justify-content:center;">
-            <span class="material-symbols-outlined" style="font-size:22px;color:#0071BB;">sentiment_satisfied</span>
+          <div style="width:44px;height:44px;border-radius:50%;background:rgba(26,48,36,0.12);display:flex;align-items:center;justify-content:center;">
+            <span class="material-symbols-outlined" style="font-size:22px;color:var(--jr-forest);">sentiment_satisfied</span>
           </div>
           <h3 class="font-display font-light" style="font-size:1.15rem;color:#1a2b3c;letter-spacing:-0.01em;">Confiance pr&eacute;serv&eacute;e</h3>
           <p class="text-xs leading-relaxed font-headline" style="color:rgba(26,43,60,0.55);max-width:160px;">Aligneurs quasi-invisibles, aucun impact sur la vie sociale</p>
@@ -381,8 +358,8 @@
         </div>
 
         <div class="trust-item flex flex-col items-center text-center gap-3 py-10 reveal" style="border-right:none;">
-          <div style="width:44px;height:44px;border-radius:50%;background:rgba(0,113,187,0.1);display:flex;align-items:center;justify-content:center;">
-            <span class="material-symbols-outlined" style="font-size:22px;color:#0071BB;">flag</span>
+          <div style="width:44px;height:44px;border-radius:50%;background:rgba(26,48,36,0.12);display:flex;align-items:center;justify-content:center;">
+            <span class="material-symbols-outlined" style="font-size:22px;color:var(--jr-forest);">flag</span>
           </div>
           <h3 class="font-display font-light" style="font-size:1.15rem;color:#1a2b3c;letter-spacing:-0.01em;">Fabrication fran&ccedil;aise</h3>
           <p class="text-xs leading-relaxed font-headline" style="color:rgba(26,43,60,0.55);max-width:160px;">Con&ccedil;us et fabriqu&eacute;s dans nos laboratoires en France</p>
@@ -393,9 +370,9 @@
   </section>
 
   <!-- ==================== AGE SECTION ==================== -->
-  <section class="py-32 relative overflow-hidden" style="background:radial-gradient(circle at 30% 60%, #d6ecf8 0%, #EAF3FA 55%, #f4f9fd 100%);">
+  <section class="py-32 relative overflow-hidden" style="background:var(--jr-amber);">
     <!-- Watermark -->
-    <div style="position:absolute;right:-2%;top:50%;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(14rem,22vw,22rem);line-height:1;color:rgba(0,113,187,0.06);pointer-events:none;user-select:none;white-space:nowrap;z-index:0;">croissance</div>
+    <div style="position:absolute;right:-2%;top:50%;transform:translateY(-50%);font-family:'Fraunces',serif;font-weight:900;font-style:italic;font-size:clamp(14rem,22vw,22rem);line-height:1;color:rgba(26,43,60,0.06);pointer-events:none;user-select:none;white-space:nowrap;z-index:0;">croissance</div>
     <div class="container mx-auto px-6 md:px-8 max-w-6xl relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
@@ -403,9 +380,9 @@
         <div class="flex items-center justify-center reveal">
           <div class="relative text-center">
             <span class="font-display leading-none select-none block"
-              style="font-size:clamp(9rem,16vw,17rem);font-weight:300;font-style:italic;background:linear-gradient(155deg,#0071BB 0%,rgba(0,113,187,0.25) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">7+</span>
+              style="font-family:'Fraunces',serif;font-size:clamp(9rem,16vw,17rem);font-weight:900;font-style:italic;background:linear-gradient(155deg,var(--jr-tangerine) 0%,#E8334A 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">7+</span>
             <div style="position:absolute;bottom:10%;left:50%;transform:translateX(-50%);white-space:nowrap;">
-              <span class="eyebrow" style="color:#0071BB;">ans &mdash; d&egrave;s la dentition mixte</span>
+              <span class="eyebrow" style="color:var(--jr-forest);">ans &mdash; d&egrave;s la dentition mixte</span>
             </div>
           </div>
         </div>
@@ -415,10 +392,10 @@
           <div class="space-y-4 reveal">
             <p><span class="eyebrow">D&egrave;s 7 ans</span></p>
             <h2 class="font-display font-light leading-[1.05]" style="font-size:clamp(2.2rem,4vw,3.5rem);color:#1a2b3c;letter-spacing:-0.02em;">
-              Adapt&eacute; &agrave; chaque &eacute;tape<br><em class="font-display" style="color:#0071BB;">de leur croissance.</em>
+              Adapt&eacute; &agrave; chaque &eacute;tape<br><em class="font-display" style="color:var(--jr-tangerine);">de leur croissance.</em>
             </h2>
             <div class="gold-divider"></div>
-            <p class="caveat-sig" style="color:#0071BB;">parce que chaque dent compte.</p>
+            <p class="caveat-sig" style="color:var(--jr-tangerine);">parce que chaque dent compte.</p>
           </div>
           <p class="text-[#1a2b3c]/65 text-base leading-relaxed font-light reveal">
             Ryze Junior est sp&eacute;cialement con&ccedil;u pour les dentitions mixtes. Nos aligneurs s'adaptent aux dents de lait comme aux dents d&eacute;finitives en cours d'&eacute;ruption, pour guider naturellement la croissance dentaire.
@@ -430,12 +407,12 @@
               <p class="font-display font-light leading-none" style="font-size:clamp(2.2rem,4vw,3rem);color:#E8334A;letter-spacing:-0.03em;">3 <span style="font-size:1.25rem;">mois</span></p>
               <p class="font-headline text-[10px] tracking-widest uppercase mt-2" style="color:rgba(26,43,60,0.5);">Premiers r&eacute;sultats</p>
             </div>
-            <div class="text-center reveal" style="padding:1.5rem 1rem;background:#fff;border:0.5px solid rgba(0,113,187,0.2);border-top:2px solid #0071BB;">
-              <p class="font-display font-light leading-none" style="font-size:clamp(2.2rem,4vw,3rem);color:#0071BB;letter-spacing:-0.03em;">22<span style="font-size:1.25rem;">h</span></p>
+            <div class="text-center reveal" style="padding:1.5rem 1rem;background:#fff;border:0.5px solid rgba(232,118,58,0.2);border-top:2px solid var(--jr-tangerine);">
+              <p class="font-display font-light leading-none" style="font-size:clamp(2.2rem,4vw,3rem);color:var(--jr-tangerine);letter-spacing:-0.03em;">22<span style="font-size:1.25rem;">h</span></p>
               <p class="font-headline text-[10px] tracking-widest uppercase mt-2" style="color:rgba(26,43,60,0.5);">Port quotidien</p>
             </div>
-            <div class="text-center reveal" style="padding:1.5rem 1rem;background:#fff;border:0.5px solid rgba(0,113,187,0.2);border-top:2px solid #0071BB;">
-              <p class="font-display font-light leading-none" style="font-size:clamp(2.2rem,4vw,3rem);color:#0071BB;letter-spacing:-0.03em;">80<span style="font-size:1.25rem;">%</span></p>
+            <div class="text-center reveal" style="padding:1.5rem 1rem;background:#fff;border:0.5px solid rgba(232,118,58,0.2);border-top:2px solid var(--jr-tangerine);">
+              <p class="font-display font-light leading-none" style="font-size:clamp(2.2rem,4vw,3rem);color:var(--jr-tangerine);letter-spacing:-0.03em;">80<span style="font-size:1.25rem;">%</span></p>
               <p class="font-headline text-[10px] tracking-widest uppercase mt-2" style="color:rgba(26,43,60,0.5);">Moins de taquets</p>
             </div>
           </div>
@@ -446,11 +423,11 @@
   </section>
 
   <!-- ==================== BENEFITS ==================== -->
-  <section id="benefits" class="py-32" style="background:radial-gradient(circle at center, #eef9ff 0%, #f8fafc 60%, #ffffff 100%);">
+  <section id="benefits" class="py-32" style="background:var(--jr-coral);">
     <div class="container mx-auto px-6 md:px-8 max-w-6xl">
       <div class="mb-16 space-y-4 reveal">
         <p><span class="eyebrow">Pourquoi Ryze Junior ?</span></p>
-        <h2 class="font-display font-light leading-[1.05]" style="font-size:clamp(2.4rem,4.5vw,3.8rem);color:#1a2b3c;letter-spacing:-0.025em;max-width:680px;">
+        <h2 class="font-display font-bold leading-[1.0]" style="font-family:'Fraunces',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);color:#1a2b3c;letter-spacing:-0.03em;max-width:680px;font-weight:900;">
           Quatre avantages <em class="font-display" style="color:#E8334A;">qui changent tout.</em>
         </h2>
         <div class="gold-divider"></div>
@@ -458,55 +435,55 @@
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5 stagger">
 
-        <!-- Card 1 — Blue accent -->
-        <div class="benefit-card reveal" style="border-top:3px solid #0071BB;">
-          <div class="icon-wrap" style="background:rgba(0,113,187,0.08);">
-            <span class="material-symbols-outlined" style="font-size:24px;color:#0071BB;">visibility_off</span>
+        <!-- Card 1 — Sage -->
+        <div class="benefit-card card-sage reveal">
+          <div class="icon-wrap">
+            <span class="material-symbols-outlined" style="font-size:24px;color:#1a2b3c;">visibility_off</span>
           </div>
-          <h3 class="font-display font-light leading-snug mb-4" style="font-size:clamp(1.4rem,2.2vw,1.85rem);color:#1a2b3c;letter-spacing:-0.02em;">Discr&eacute;tion absolue &agrave; l'&eacute;cole</h3>
+          <h3 class="font-display font-light leading-snug mb-4" style="font-family:'Fraunces',serif;font-size:clamp(1.4rem,2.2vw,1.85rem);font-weight:700;color:#1a2b3c;letter-spacing:-0.02em;">Discr&eacute;tion absolue &agrave; l'&eacute;cole</h3>
           <p class="font-light text-sm leading-relaxed mb-5" style="color:rgba(26,43,60,0.65);">
             Gr&acirc;ce &agrave; notre technologie PTP&trade;, Ryze Junior &eacute;limine jusqu'&agrave; 80&nbsp;% des taquets n&eacute;cessaires. Un traitement quasi-invisible qui pr&eacute;serve la confiance en soi.
           </p>
-          <div style="display:flex;align-items:baseline;gap:8px;padding-top:1rem;border-top:0.5px solid rgba(0,113,187,0.15);">
-            <span class="font-display font-light" style="font-size:2.75rem;color:#0071BB;letter-spacing:-0.04em;line-height:1;">80%</span>
+          <div style="display:flex;align-items:baseline;gap:8px;padding-top:1rem;border-top:0.5px solid rgba(26,48,36,0.2);">
+            <span class="font-display font-light" style="font-size:2.75rem;color:var(--jr-forest);letter-spacing:-0.04em;line-height:1;">80%</span>
             <span class="font-headline text-[10px] tracking-widest uppercase" style="color:rgba(26,43,60,0.4);">de taquets<br>en moins</span>
           </div>
         </div>
 
-        <!-- Card 2 — Green accent -->
-        <div class="benefit-card reveal" style="border-top:3px solid #0071BB;">
-          <div class="icon-wrap" style="background:rgba(0,113,187,0.08);">
-            <span class="material-symbols-outlined" style="font-size:24px;color:#0071BB;">health_and_safety</span>
+        <!-- Card 2 — Cream -->
+        <div class="benefit-card card-cream reveal">
+          <div class="icon-wrap">
+            <span class="material-symbols-outlined" style="font-size:24px;color:#1a2b3c;">health_and_safety</span>
           </div>
-          <h3 class="font-display font-light leading-snug mb-4" style="font-size:clamp(1.4rem,2.2vw,1.85rem);color:#1a2b3c;letter-spacing:-0.02em;">Hygi&egrave;ne parfaite</h3>
+          <h3 class="font-display font-light leading-snug mb-4" style="font-family:'Fraunces',serif;font-size:clamp(1.4rem,2.2vw,1.85rem);font-weight:700;color:#1a2b3c;letter-spacing:-0.02em;">Hygi&egrave;ne parfaite</h3>
           <p class="font-light text-sm leading-relaxed" style="color:rgba(26,43,60,0.65);">
             Les aligneurs Ryze Junior sont amovibles&nbsp;: votre enfant les retire pour manger et se brosser les dents normalement. Fini les difficult&eacute;s de brossage autour des bagues fixes.
           </p>
-          <p class="caveat-sig mt-4" style="font-size:1rem;color:#0071BB;">retirer, brosser, sourire.</p>
+          <p class="caveat-sig mt-4" style="font-size:1rem;color:var(--jr-tangerine);">retirer, brosser, sourire.</p>
         </div>
 
-        <!-- Card 3 — Red accent -->
-        <div class="benefit-card reveal" style="border-top:3px solid #E8334A;">
-          <div class="icon-wrap" style="background:rgba(232,51,74,0.08);">
-            <span class="material-symbols-outlined" style="font-size:24px;color:#E8334A;">sports_martial_arts</span>
+        <!-- Card 3 — Amber -->
+        <div class="benefit-card card-amber reveal">
+          <div class="icon-wrap">
+            <span class="material-symbols-outlined" style="font-size:24px;color:#1a2b3c;">sports_martial_arts</span>
           </div>
-          <h3 class="font-display font-light leading-snug mb-4" style="font-size:clamp(1.4rem,2.2vw,1.85rem);color:#1a2b3c;letter-spacing:-0.02em;">Sport &amp; musique sans g&ecirc;ne</h3>
+          <h3 class="font-display font-light leading-snug mb-4" style="font-family:'Fraunces',serif;font-size:clamp(1.4rem,2.2vw,1.85rem);font-weight:700;color:#1a2b3c;letter-spacing:-0.02em;">Sport &amp; musique sans g&ecirc;ne</h3>
           <p class="font-light text-sm leading-relaxed" style="color:rgba(26,43,60,0.65);">
             Les aligneurs se retirent en un geste pour les sports de contact, les instruments &agrave; vent. Aucun risque de blessure aux l&egrave;vres, aucune contrainte sur leur passion.
           </p>
           <p class="caveat-sig mt-4" style="font-size:1rem;">libre comme l'air.</p>
         </div>
 
-        <!-- Card 4 — Blue accent -->
-        <div class="benefit-card reveal" style="border-top:3px solid #0071BB;">
-          <div class="icon-wrap" style="background:rgba(0,113,187,0.08);">
-            <span class="material-symbols-outlined" style="font-size:24px;color:#0071BB;">trending_up</span>
+        <!-- Card 4 — Sky -->
+        <div class="benefit-card card-sky reveal">
+          <div class="icon-wrap">
+            <span class="material-symbols-outlined" style="font-size:24px;color:#1a2b3c;">trending_up</span>
           </div>
-          <h3 class="font-display font-light leading-snug mb-4" style="font-size:clamp(1.4rem,2.2vw,1.85rem);color:#1a2b3c;letter-spacing:-0.02em;">Guidage de croissance int&eacute;gr&eacute;</h3>
+          <h3 class="font-display font-light leading-snug mb-4" style="font-family:'Fraunces',serif;font-size:clamp(1.4rem,2.2vw,1.85rem);font-weight:700;color:#1a2b3c;letter-spacing:-0.02em;">Guidage de croissance int&eacute;gr&eacute;</h3>
           <p class="font-light text-sm leading-relaxed" style="color:rgba(26,43,60,0.65);">
             Ryze Junior anticipe l'&eacute;ruption des dents d&eacute;finitives et guide la croissance dentaire pour un r&eacute;sultat durable qui &eacute;volue avec votre enfant.
           </p>
-          <p class="caveat-sig mt-4" style="font-size:1rem;color:#0071BB;">grandir avec le bon sourire.</p>
+          <p class="caveat-sig mt-4" style="font-size:1rem;color:var(--jr-tangerine);">grandir avec le bon sourire.</p>
         </div>
 
       </div>
@@ -522,7 +499,7 @@
       <!-- Header -->
       <div class="mb-16 space-y-4 reveal">
         <p><span class="eyebrow-white">Le parcours Ryze Junior</span></p>
-        <h2 class="font-display font-light leading-[1.05]" style="font-size:clamp(2.4rem,4.5vw,3.8rem);color:#fff;letter-spacing:-0.025em;max-width:620px;">
+        <h2 class="font-display font-bold leading-[1.0]" style="font-family:'Fraunces',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);color:#fff;letter-spacing:-0.03em;max-width:620px;font-weight:900;">
           Quatre &eacute;tapes vers <em class="font-display" style="color:#E8334A;">leur sourire.</em>
         </h2>
         <div class="white-line"></div>
@@ -533,36 +510,36 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 stagger">
 
         <!-- Step 1 -->
-        <div class="process-card reveal" style="border-top:2px solid #0071BB;">
+        <div class="process-card reveal" style="border-top:2px solid rgba(255,255,255,0.35);">
           <span class="process-card-num">01</span>
           <div style="margin-bottom:1.25rem;">
-            <span class="eyebrow" style="color:#0071BB;">Consultation</span>
+            <span class="eyebrow-white">Consultation</span>
           </div>
-          <h3 class="font-display font-light leading-snug mb-3" style="font-size:1.35rem;color:#1a2b3c;letter-spacing:-0.015em;">Consultation chez un praticien certifi&eacute;</h3>
-          <p class="text-[#1a2b3c]/60 text-sm leading-relaxed mb-4">Rendez-vous avec un orthodontiste partenaire Ryze&trade; pour une &eacute;valuation compl&egrave;te.</p>
-          <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#0071BB;padding:6px 12px;border:0.5px solid rgba(0,113,187,0.3);border-radius:100px;">Consultation offerte</span>
+          <h3 class="font-display font-light leading-snug mb-3" style="font-size:1.35rem;letter-spacing:-0.015em;">Consultation chez un praticien certifi&eacute;</h3>
+          <p class="text-sm leading-relaxed mb-4" style="color:rgba(255,255,255,0.6);">Rendez-vous avec un orthodontiste partenaire Ryze&trade; pour une &eacute;valuation compl&egrave;te.</p>
+          <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.85);padding:6px 12px;border:0.5px solid rgba(255,255,255,0.3);border-radius:100px;">Consultation offerte</span>
         </div>
 
         <!-- Step 2 -->
-        <div class="process-card reveal" style="border-top:2px solid #0071BB;">
+        <div class="process-card reveal" style="border-top:2px solid rgba(255,255,255,0.35);">
           <span class="process-card-num">02</span>
           <div style="margin-bottom:1.25rem;">
-            <span class="eyebrow" style="color:#0071BB;">Scan 3D</span>
+            <span class="eyebrow-white">Scan 3D</span>
           </div>
-          <h3 class="font-display font-light leading-snug mb-3" style="font-size:1.35rem;color:#1a2b3c;letter-spacing:-0.015em;">Scan 3D &amp; plan personnalis&eacute;</h3>
-          <p class="text-[#1a2b3c]/60 text-sm leading-relaxed mb-4">Scanner num&eacute;rique 3D rapide — un plan de traitement sur-mesure pour la dentition mixte.</p>
-          <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#0071BB;padding:6px 12px;border:0.5px solid rgba(0,113,187,0.3);border-radius:100px;">Simulation 3D incluse</span>
+          <h3 class="font-display font-light leading-snug mb-3" style="font-size:1.35rem;letter-spacing:-0.015em;">Scan 3D &amp; plan personnalis&eacute;</h3>
+          <p class="text-sm leading-relaxed mb-4" style="color:rgba(255,255,255,0.6);">Scanner num&eacute;rique 3D rapide — un plan de traitement sur-mesure pour la dentition mixte.</p>
+          <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.85);padding:6px 12px;border:0.5px solid rgba(255,255,255,0.3);border-radius:100px;">Simulation 3D incluse</span>
         </div>
 
         <!-- Step 3 -->
-        <div class="process-card reveal" style="border-top:2px solid #0071BB;">
+        <div class="process-card reveal" style="border-top:2px solid rgba(255,255,255,0.35);">
           <span class="process-card-num">03</span>
           <div style="margin-bottom:1.25rem;">
-            <span class="eyebrow" style="color:#0071BB;">Fabrication</span>
+            <span class="eyebrow-white">Fabrication</span>
           </div>
-          <h3 class="font-display font-light leading-snug mb-3" style="font-size:1.35rem;color:#1a2b3c;letter-spacing:-0.015em;">R&eacute;ception des aligneurs fran&ccedil;ais</h3>
-          <p class="text-[#1a2b3c]/60 text-sm leading-relaxed mb-4">Fabriqu&eacute;s dans nos laboratoires en France avec une pr&eacute;cision robotis&eacute;e. D&eacute;lai ma&icirc;tris&eacute;.</p>
-          <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#0071BB;padding:6px 12px;border:0.5px solid rgba(0,113,187,0.3);border-radius:100px;">D&eacute;lais ma&icirc;tris&eacute;s</span>
+          <h3 class="font-display font-light leading-snug mb-3" style="font-size:1.35rem;letter-spacing:-0.015em;">R&eacute;ception des aligneurs fran&ccedil;ais</h3>
+          <p class="text-sm leading-relaxed mb-4" style="color:rgba(255,255,255,0.6);">Fabriqu&eacute;s dans nos laboratoires en France avec une pr&eacute;cision robotis&eacute;e. D&eacute;lai ma&icirc;tris&eacute;.</p>
+          <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.85);padding:6px 12px;border:0.5px solid rgba(255,255,255,0.3);border-radius:100px;">D&eacute;lais ma&icirc;tris&eacute;s</span>
         </div>
 
         <!-- Step 4 -->
@@ -589,23 +566,23 @@
   </div>
 
   <!-- ==================== TESTIMONIALS ==================== -->
-  <section class="py-32" style="background:#f4f8fc;">
+  <section class="py-32" style="background:var(--jr-sky);">
     <div class="container mx-auto px-6 md:px-8 max-w-6xl">
 
       <!-- Header -->
       <div class="mb-16 space-y-4 reveal">
         <p><span class="eyebrow">Les familles Ryze&trade;</span></p>
-        <h2 class="font-display font-light leading-[1.05]" style="font-size:clamp(2.4rem,4.5vw,3.8rem);color:#1a2b3c;letter-spacing:-0.025em;">
-          Le sourire <em class="font-display" style="color:#0071BB;">des plus jeunes.</em>
+        <h2 class="font-display font-bold leading-[1.0]" style="font-family:'Fraunces',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);color:#1a2b3c;letter-spacing:-0.03em;font-weight:900;">
+          Le sourire <em class="font-display" style="color:var(--jr-tangerine);">des plus jeunes.</em>
         </h2>
         <div class="gold-divider"></div>
-        <p class="caveat-sig" style="color:#0071BB;">des familles qui nous font confiance.</p>
+        <p class="caveat-sig" style="color:var(--jr-tangerine);">des familles qui nous font confiance.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger">
 
         <!-- T1 -->
-        <div class="testim-card reveal">
+        <div class="testim-card card-cream reveal">
           <div class="flex gap-0.5 mb-4">
             <span class="material-symbols-outlined star-filled" style="font-size:16px;color:#E8334A;">star</span>
             <span class="material-symbols-outlined star-filled" style="font-size:16px;color:#E8334A;">star</span>
@@ -624,7 +601,7 @@
         </div>
 
         <!-- T2 -->
-        <div class="testim-card reveal">
+        <div class="testim-card card-mint reveal">
           <div class="flex gap-0.5 mb-4">
             <span class="material-symbols-outlined star-filled" style="font-size:16px;color:#E8334A;">star</span>
             <span class="material-symbols-outlined star-filled" style="font-size:16px;color:#E8334A;">star</span>
@@ -643,7 +620,7 @@
         </div>
 
         <!-- T3 -->
-        <div class="testim-card reveal">
+        <div class="testim-card card-sage reveal">
           <div class="flex gap-0.5 mb-4">
             <span class="material-symbols-outlined star-filled" style="font-size:16px;color:#E8334A;">star</span>
             <span class="material-symbols-outlined star-filled" style="font-size:16px;color:#E8334A;">star</span>
@@ -653,7 +630,7 @@
           </div>
           <p class="testim-quote">&laquo;&nbsp;Thomas les oublie compl&egrave;tement tellement c'est confortable. Il peut se brosser les dents normalement.&nbsp;&raquo;</p>
           <div style="display:flex;align-items:center;gap:12px;margin-top:1.5rem;padding-top:1.2rem;border-top:0.5px solid rgba(26,43,60,0.08);">
-            <div style="width:38px;height:38px;border-radius:50%;background:#FAE9EC;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:16px;color:#0071BB;font-weight:400;flex-shrink:0;">N</div>
+            <div style="width:38px;height:38px;border-radius:50%;background:var(--jr-coral);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:16px;color:var(--jr-forest);font-weight:700;flex-shrink:0;">N</div>
             <div>
               <p class="font-headline text-sm font-bold" style="color:#1a2b3c;">Nicolas</p>
               <p class="font-headline text-xs" style="color:rgba(26,43,60,0.45);">Papa de Thomas, 15&nbsp;ans</p>
@@ -662,7 +639,7 @@
         </div>
 
         <!-- T4 -->
-        <div class="testim-card reveal">
+        <div class="testim-card card-amber reveal">
           <div class="flex gap-0.5 mb-4">
             <span class="material-symbols-outlined star-filled" style="font-size:16px;color:#E8334A;">star</span>
             <span class="material-symbols-outlined star-filled" style="font-size:16px;color:#E8334A;">star</span>
@@ -672,7 +649,7 @@
           </div>
           <p class="testim-quote">&laquo;&nbsp;Avec Ryze, personne ne voit que je porte un appareil. J'ai vu mes dents s'aligner d&egrave;s le 3e mois — super motivant&nbsp;!&nbsp;&raquo;</p>
           <div style="display:flex;align-items:center;gap:12px;margin-top:1.5rem;padding-top:1.2rem;border-top:0.5px solid rgba(26,43,60,0.08);">
-            <div style="width:38px;height:38px;border-radius:50%;background:#EAF3FA;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:16px;color:#0071BB;font-weight:400;flex-shrink:0;">I</div>
+            <div style="width:38px;height:38px;border-radius:50%;background:var(--jr-sky);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:16px;color:var(--jr-forest);font-weight:700;flex-shrink:0;">I</div>
             <div>
               <p class="font-headline text-sm font-bold" style="color:#1a2b3c;">In&egrave;s, 16&nbsp;ans</p>
               <p class="font-headline text-xs" style="color:rgba(26,43,60,0.45);">Lyc&eacute;enne</p>
@@ -681,7 +658,7 @@
         </div>
 
         <!-- T5 -->
-        <div class="testim-card reveal">
+        <div class="testim-card card-rose reveal">
           <div class="flex gap-0.5 mb-4">
             <span class="material-symbols-outlined star-filled" style="font-size:16px;color:#E8334A;">star</span>
             <span class="material-symbols-outlined star-filled" style="font-size:16px;color:#E8334A;">star</span>
@@ -691,7 +668,7 @@
           </div>
           <p class="testim-quote">&laquo;&nbsp;Le scan 3D c'est comme un jeu vid&eacute;o, super rapide. Et je peux enlever mes goutti&egrave;res pour manger mes c&eacute;r&eacute;ales&nbsp;!&nbsp;&raquo;</p>
           <div style="display:flex;align-items:center;gap:12px;margin-top:1.5rem;padding-top:1.2rem;border-top:0.5px solid rgba(26,43,60,0.08);">
-            <div style="width:38px;height:38px;border-radius:50%;background:#EAF3FA;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:16px;color:#0071BB;font-weight:400;flex-shrink:0;">H</div>
+            <div style="width:38px;height:38px;border-radius:50%;background:var(--jr-mint);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:16px;color:var(--jr-forest);font-weight:700;flex-shrink:0;">H</div>
             <div>
               <p class="font-headline text-sm font-bold" style="color:#1a2b3c;">Hugo, 9&nbsp;ans</p>
               <p class="font-headline text-xs" style="color:rgba(26,43,60,0.45);">Dentition mixte</p>
@@ -700,7 +677,7 @@
         </div>
 
         <!-- T6 -->
-        <div class="testim-card reveal">
+        <div class="testim-card card-coral reveal">
           <div class="flex gap-0.5 mb-4">
             <span class="material-symbols-outlined star-filled" style="font-size:16px;color:#E8334A;">star</span>
             <span class="material-symbols-outlined star-filled" style="font-size:16px;color:#E8334A;">star</span>
@@ -710,7 +687,7 @@
           </div>
           <p class="testim-quote">&laquo;&nbsp;Mes copines ne remarquent rien. Je continue la fl&ucirc;te et le sport sans avoir mal. C'est facile &agrave; porter.&nbsp;&raquo;</p>
           <div style="display:flex;align-items:center;gap:12px;margin-top:1.5rem;padding-top:1.2rem;border-top:0.5px solid rgba(26,43,60,0.08);">
-            <div style="width:38px;height:38px;border-radius:50%;background:#FAE9EC;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:16px;color:#0071BB;font-weight:400;flex-shrink:0;">M</div>
+            <div style="width:38px;height:38px;border-radius:50%;background:var(--jr-amber);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:16px;color:var(--jr-forest);font-weight:700;flex-shrink:0;">M</div>
             <div>
               <p class="font-headline text-sm font-bold" style="color:#1a2b3c;">Manon, 11&nbsp;ans</p>
               <p class="font-headline text-xs" style="color:rgba(26,43,60,0.45);">Entr&eacute;e au coll&egrave;ge</p>
@@ -721,14 +698,14 @@
       </div>
 
       <!-- Preventive callout — editorial pull quote -->
-      <div class="reveal" style="max-width:860px;margin:56px auto 0;padding:2.5rem 3rem;background:#fff;border-left:3px solid #0071BB;box-shadow:0 4px 32px -8px rgba(26,43,60,0.08);">
-        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(1.2rem,1.8vw,1.5rem);line-height:1.45;color:#1a2b3c;margin:0 0 0.75rem;">
+      <div class="reveal" style="max-width:860px;margin:56px auto 0;padding:2.5rem 3rem;background:var(--jr-cream);border-left:4px solid var(--jr-tangerine);border-radius:0 16px 16px 0;">
+        <p style="font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(1.2rem,1.8vw,1.5rem);line-height:1.45;color:#1a2b3c;margin:0 0 0.75rem;">
           Traiter un enfant t&ocirc;t avec Ryze Junior,
         </p>
         <p style="color:rgba(26,43,60,0.6);font-size:0.95rem;line-height:1.65;font-family:'Manrope',sans-serif;margin:0;">
           c'est souvent &eacute;viter des extractions de dents d&eacute;finitives ou des chirurgies complexes &agrave; l'&acirc;ge adulte.
         </p>
-        <p class="caveat-sig" style="font-size:1rem;color:#0071BB;margin-top:1rem;">— les orthodontistes Ryze™</p>
+        <p class="caveat-sig" style="font-size:1rem;color:var(--jr-tangerine);margin-top:1rem;">— les orthodontistes Ryze™</p>
       </div>
 
     </div>
@@ -747,9 +724,9 @@
   </div>
 
   <!-- ==================== PRICING TEASER ==================== -->
-  <section class="py-32 relative overflow-hidden" style="background:radial-gradient(circle at center, #eef9ff 0%, #f8fafc 60%, #ffffff 100%);">
+  <section class="py-32 relative overflow-hidden" style="background:var(--jr-mint);">
     <!-- Decorative italic watermark -->
-    <div style="position:absolute;left:-3%;top:50%;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(12rem,18vw,18rem);line-height:1;color:rgba(0,113,187,0.05);pointer-events:none;user-select:none;white-space:nowrap;z-index:0;">tarifs</div>
+    <div style="position:absolute;left:-3%;top:50%;transform:translateY(-50%);font-family:'Fraunces',serif;font-weight:900;font-style:italic;font-size:clamp(12rem,18vw,18rem);line-height:1;color:rgba(26,48,36,0.06);pointer-events:none;user-select:none;white-space:nowrap;z-index:0;">tarifs</div>
     <div class="container mx-auto px-6 md:px-8 max-w-5xl relative z-10">
 
       <!-- Header — left-aligned editorial -->
@@ -757,10 +734,10 @@
         <div class="space-y-4 reveal">
           <p><span class="eyebrow">Un prix transparent pour leur avenir</span></p>
           <h2 class="font-display font-light leading-[1.05]" style="font-size:clamp(2.2rem,4vw,3.4rem);color:#1a2b3c;letter-spacing:-0.025em;">
-            Un investissement<br><em class="font-display" style="color:#0071BB;">pour un sourire &agrave; vie.</em>
+            Un investissement<br><em class="font-display" style="color:var(--jr-tangerine);">pour un sourire &agrave; vie.</em>
           </h2>
           <div class="gold-divider"></div>
-          <p class="caveat-sig" style="color:#0071BB;">30 à 40 % moins cher.</p>
+          <p class="caveat-sig" style="color:var(--jr-tangerine);">30 à 40 % moins cher.</p>
         </div>
         <div class="reveal">
           <p class="font-light text-base leading-relaxed" style="color:rgba(26,43,60,0.65);">
@@ -772,45 +749,45 @@
       <!-- 4 price pills -->
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 stagger">
 
-        <div class="price-pill reveal">
-          <div style="width:44px;height:44px;border-radius:50%;background:rgba(0,113,187,0.08);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
-            <span class="material-symbols-outlined" style="font-size:22px;color:#0071BB;">verified</span>
+        <div class="price-pill card-sage reveal">
+          <div style="width:44px;height:44px;border-radius:50%;background:rgba(26,43,60,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+            <span class="material-symbols-outlined" style="font-size:22px;color:#1a2b3c;">verified</span>
           </div>
-          <h3 class="font-display font-light" style="font-size:1.2rem;color:#1a2b3c;margin-bottom:0.4rem;letter-spacing:-0.01em;">Remboursement SS</h3>
-          <p class="font-headline text-[10px] tracking-widest uppercase" style="color:rgba(26,43,60,0.4);">Avant 16 ans</p>
+          <h3 class="font-display" style="font-family:'Fraunces',serif;font-weight:700;font-size:1.2rem;color:#1a2b3c;margin-bottom:0.4rem;letter-spacing:-0.01em;">Remboursement SS</h3>
+          <p class="font-headline text-[10px] tracking-widest uppercase" style="color:rgba(26,43,60,0.55);">Avant 16 ans</p>
         </div>
 
-        <div class="price-pill reveal">
-          <div style="width:44px;height:44px;border-radius:50%;background:rgba(0,113,187,0.08);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
-            <span class="material-symbols-outlined" style="font-size:22px;color:#0071BB;">credit_card</span>
+        <div class="price-pill card-amber reveal">
+          <div style="width:44px;height:44px;border-radius:50%;background:rgba(26,43,60,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+            <span class="material-symbols-outlined" style="font-size:22px;color:#1a2b3c;">credit_card</span>
           </div>
-          <h3 class="font-display font-light" style="font-size:1.2rem;color:#1a2b3c;margin-bottom:0.4rem;letter-spacing:-0.01em;">Paiement 12x</h3>
-          <p class="font-headline text-[10px] tracking-widest uppercase" style="color:rgba(26,43,60,0.4);">Sans frais</p>
+          <h3 class="font-display" style="font-family:'Fraunces',serif;font-weight:700;font-size:1.2rem;color:#1a2b3c;margin-bottom:0.4rem;letter-spacing:-0.01em;">Paiement 12x</h3>
+          <p class="font-headline text-[10px] tracking-widest uppercase" style="color:rgba(26,43,60,0.55);">Sans frais</p>
         </div>
 
-        <div class="price-pill reveal">
-          <div style="width:44px;height:44px;border-radius:50%;background:rgba(232,51,74,0.08);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
-            <span class="material-symbols-outlined" style="font-size:22px;color:#E8334A;">receipt_long</span>
+        <div class="price-pill card-coral reveal">
+          <div style="width:44px;height:44px;border-radius:50%;background:rgba(26,43,60,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+            <span class="material-symbols-outlined" style="font-size:22px;color:#1a2b3c;">receipt_long</span>
           </div>
-          <h3 class="font-display font-light" style="font-size:1.2rem;color:#1a2b3c;margin-bottom:0.4rem;letter-spacing:-0.01em;">Bilan d&egrave;s 23&nbsp;&euro;</h3>
-          <p class="font-headline text-[10px] tracking-widest uppercase" style="color:rgba(26,43,60,0.4);">Apr&egrave;s remboursement</p>
+          <h3 class="font-display" style="font-family:'Fraunces',serif;font-weight:700;font-size:1.2rem;color:#1a2b3c;margin-bottom:0.4rem;letter-spacing:-0.01em;">Bilan d&egrave;s 23&nbsp;&euro;</h3>
+          <p class="font-headline text-[10px] tracking-widest uppercase" style="color:rgba(26,43,60,0.55);">Apr&egrave;s remboursement</p>
         </div>
 
-        <div class="price-pill reveal">
-          <div style="width:44px;height:44px;border-radius:50%;background:rgba(0,113,187,0.08);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
-            <span class="material-symbols-outlined" style="font-size:22px;color:#0071BB;">autorenew</span>
+        <div class="price-pill card-sky reveal">
+          <div style="width:44px;height:44px;border-radius:50%;background:rgba(26,43,60,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+            <span class="material-symbols-outlined" style="font-size:22px;color:#1a2b3c;">autorenew</span>
           </div>
-          <h3 class="font-display font-light" style="font-size:1.2rem;color:#1a2b3c;margin-bottom:0.4rem;letter-spacing:-0.01em;">Remplacement rapide</h3>
-          <p class="font-headline text-[10px] tracking-widest uppercase" style="color:rgba(26,43,60,0.4);">Fabrication fran&ccedil;aise</p>
+          <h3 class="font-display" style="font-family:'Fraunces',serif;font-weight:700;font-size:1.2rem;color:#1a2b3c;margin-bottom:0.4rem;letter-spacing:-0.01em;">Remplacement rapide</h3>
+          <p class="font-headline text-[10px] tracking-widest uppercase" style="color:rgba(26,43,60,0.55);">Fabrication fran&ccedil;aise</p>
         </div>
 
       </div>
 
       <!-- CTA link -->
       <div class="text-center mt-12 reveal">
-        <a href="tarifs.html" class="inline-flex items-center gap-3 font-headline font-semibold text-[11px] tracking-widest uppercase" style="color:#0071BB;">
+        <a href="tarifs.html" class="inline-flex items-center gap-3 font-headline font-semibold text-[11px] tracking-widest uppercase" style="color:var(--jr-tangerine);">
           Voir les tarifs complets
-          <span style="display:inline-block;width:28px;height:1px;background:#0071BB;"></span>
+          <span style="display:inline-block;width:28px;height:1px;background:var(--jr-tangerine);"></span>
         </a>
       </div>
 
@@ -818,7 +795,7 @@
   </section>
 
   <!-- ==================== FAQ ==================== -->
-  <section class="py-32" style="background:#f7f9fc;">
+  <section class="py-32" style="background:var(--jr-rose);">
     <div class="container mx-auto px-6 md:px-8 max-w-3xl">
 
       <!-- Header -->
@@ -832,7 +809,7 @@
 
       <div class="space-y-3 stagger">
 
-        <details class="faq-accordion group reveal" style="border:0.5px solid rgba(0,113,187,0.15);background:#EAF3FA;">
+        <details class="faq-accordion group reveal" style="border:1px solid rgba(26,43,60,0.08);background:var(--jr-cream);border-radius:12px;">
           <summary class="flex items-center justify-between cursor-pointer px-6 py-5">
             <span class="font-display font-light" style="font-size:1.05rem;color:#1a2b3c;letter-spacing:-0.01em;">&Agrave; partir de quel &acirc;ge mon enfant peut-il porter des aligneurs&nbsp;?</span>
             <span class="material-symbols-outlined faq-icon flex-shrink-0 ml-4" style="color:rgba(26,43,60,0.35);font-size:20px;">expand_more</span>
@@ -842,7 +819,7 @@
           </div>
         </details>
 
-        <details class="faq-accordion group reveal" style="border:0.5px solid rgba(0,113,187,0.15);background:#FAE9EC;">
+        <details class="faq-accordion group reveal" style="border:1px solid rgba(26,43,60,0.08);background:var(--jr-amber);border-radius:12px;">
           <summary class="flex items-center justify-between cursor-pointer px-6 py-5">
             <span class="font-display font-light" style="font-size:1.05rem;color:#1a2b3c;letter-spacing:-0.01em;">Les aligneurs sont-ils aussi efficaces que les bagues&nbsp;?</span>
             <span class="material-symbols-outlined faq-icon flex-shrink-0 ml-4" style="color:rgba(26,43,60,0.35);font-size:20px;">expand_more</span>
@@ -852,7 +829,7 @@
           </div>
         </details>
 
-        <details class="faq-accordion group reveal" style="border:0.5px solid rgba(0,113,187,0.15);background:#EAF3FA;">
+        <details class="faq-accordion group reveal" style="border:1px solid rgba(26,43,60,0.08);background:var(--jr-cream);border-radius:12px;">
           <summary class="flex items-center justify-between cursor-pointer px-6 py-5">
             <span class="font-display font-light" style="font-size:1.05rem;color:#1a2b3c;letter-spacing:-0.01em;">Le traitement Ryze Junior est-il plus cher que les bagues m&eacute;talliques&nbsp;?</span>
             <span class="material-symbols-outlined faq-icon flex-shrink-0 ml-4" style="color:rgba(26,43,60,0.35);font-size:20px;">expand_more</span>
@@ -862,7 +839,7 @@
           </div>
         </details>
 
-        <details class="faq-accordion group reveal" style="border:0.5px solid rgba(0,113,187,0.15);background:#FAE9EC;">
+        <details class="faq-accordion group reveal" style="border:1px solid rgba(26,43,60,0.08);background:var(--jr-amber);border-radius:12px;">
           <summary class="flex items-center justify-between cursor-pointer px-6 py-5">
             <span class="font-display font-light" style="font-size:1.05rem;color:#1a2b3c;letter-spacing:-0.01em;">Mon enfant peut-il faire du sport ou jouer de la musique&nbsp;?</span>
             <span class="material-symbols-outlined faq-icon flex-shrink-0 ml-4" style="color:rgba(26,43,60,0.35);font-size:20px;">expand_more</span>
@@ -872,7 +849,7 @@
           </div>
         </details>
 
-        <details class="faq-accordion group reveal" style="border:0.5px solid rgba(0,113,187,0.15);background:#EAF3FA;">
+        <details class="faq-accordion group reveal" style="border:1px solid rgba(26,43,60,0.08);background:var(--jr-cream);border-radius:12px;">
           <summary class="flex items-center justify-between cursor-pointer px-6 py-5">
             <span class="font-display font-light" style="font-size:1.05rem;color:#1a2b3c;letter-spacing:-0.01em;">Que se passe-t-il si mon enfant perd un aligneur&nbsp;?</span>
             <span class="material-symbols-outlined faq-icon flex-shrink-0 ml-4" style="color:rgba(26,43,60,0.35);font-size:20px;">expand_more</span>
@@ -882,7 +859,7 @@
           </div>
         </details>
 
-        <details class="faq-accordion group reveal" style="border:0.5px solid rgba(0,113,187,0.15);background:#FAE9EC;">
+        <details class="faq-accordion group reveal" style="border:1px solid rgba(26,43,60,0.08);background:var(--jr-amber);border-radius:12px;">
           <summary class="flex items-center justify-between cursor-pointer px-6 py-5">
             <span class="font-display font-light" style="font-size:1.05rem;color:#1a2b3c;letter-spacing:-0.01em;">Le traitement est-il pris en charge par la S&eacute;curit&eacute; Sociale&nbsp;?</span>
             <span class="material-symbols-outlined faq-icon flex-shrink-0 ml-4" style="color:rgba(26,43,60,0.35);font-size:20px;">expand_more</span>
@@ -892,7 +869,7 @@
           </div>
         </details>
 
-        <details class="faq-accordion group reveal" style="border:0.5px solid rgba(0,113,187,0.15);background:#EAF3FA;">
+        <details class="faq-accordion group reveal" style="border:1px solid rgba(26,43,60,0.08);background:var(--jr-cream);border-radius:12px;">
           <summary class="flex items-center justify-between cursor-pointer px-6 py-5">
             <span class="font-display font-light" style="font-size:1.05rem;color:#1a2b3c;letter-spacing:-0.01em;">Le traitement est-il adapt&eacute; si mon enfant a encore des dents de lait&nbsp;?</span>
             <span class="material-symbols-outlined faq-icon flex-shrink-0 ml-4" style="color:rgba(26,43,60,0.35);font-size:20px;">expand_more</span>
@@ -902,7 +879,7 @@
           </div>
         </details>
 
-        <details class="faq-accordion group reveal" style="border:0.5px solid rgba(0,113,187,0.15);background:#FAE9EC;">
+        <details class="faq-accordion group reveal" style="border:1px solid rgba(26,43,60,0.08);background:var(--jr-amber);border-radius:12px;">
           <summary class="flex items-center justify-between cursor-pointer px-6 py-5">
             <span class="font-display font-light" style="font-size:1.05rem;color:#1a2b3c;letter-spacing:-0.01em;">Quels avantages par rapport aux aligneurs vendus sur Internet&nbsp;?</span>
             <span class="material-symbols-outlined faq-icon flex-shrink-0 ml-4" style="color:rgba(26,43,60,0.35);font-size:20px;">expand_more</span>
