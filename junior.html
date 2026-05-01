@@ -93,42 +93,52 @@
       object-fit: cover; object-position: center 20%;
       z-index: 0;
     }
-    /* Warm sand gradient over photo — matches Rocc skin-tone hero */
+    /* Warm sand gradient — lighter at top so photo reads clearly */
     .hero-veil {
       position: absolute; inset: 0; z-index: 1;
       background: linear-gradient(
         180deg,
-        rgba(242,222,200,.08) 0%,
-        rgba(242,222,200,.30) 50%,
-        rgba(242,222,200,.90) 85%,
+        rgba(242,222,200,.04) 0%,
+        rgba(242,222,200,.14) 38%,
+        rgba(242,222,200,.65) 74%,
         rgba(242,222,200,1.0) 100%
       );
     }
+    /* Hero body: wordmark centred vertically over the photo */
     .hero-body {
       position: relative; z-index: 2;
       flex: 1; display: flex; flex-direction: column;
-      align-items: center; justify-content: flex-end;
-      text-align: center; padding: 0 24px 72px;
-      padding-top: 72px;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 72px 24px 0;
     }
-    /* Giant logo text overlaid on photo — like "ROCC" on the model */
+    /* Sub strip on sand bg: tagline + scroll arrow (below photo) */
+    .hero-sub {
+      position: relative; z-index: 2;
+      background: var(--sand); padding: 28px 24px 40px;
+      text-align: center; display: flex; flex-direction: column;
+      align-items: center; gap: 18px;
+    }
+    /* Giant wordmark centred over photo — mix-blend-mode like Rocc */
     .hero-wordmark {
       font-family: 'Syne', sans-serif; font-weight: 800;
-      font-size: clamp(5rem, 16vw, 16rem);
-      line-height: .88; letter-spacing: -.03em;
-      color: rgba(255,255,255,.82);
+      font-size: clamp(5rem, 18vw, 18rem);
+      line-height: .88; letter-spacing: -.04em;
+      color: rgba(255,255,255,.92);
       mix-blend-mode: overlay;
       pointer-events: none; user-select: none;
     }
     .hero-tagline {
       font-family: 'DM Sans', sans-serif;
-      font-size: clamp(.9rem, 1.4vw, 1.15rem);
-      font-weight: 400; letter-spacing: .08em;
-      color: rgba(26,30,24,.72); margin-top: 1.25rem;
+      font-size: clamp(.88rem, 1.25vw, 1.05rem);
+      font-weight: 400; letter-spacing: .06em;
+      color: rgba(26,30,24,.62);
+    }
+    .hero-divider {
+      width: 40px; height: 1px; background: rgba(26,30,24,.2);
     }
     .hero-arrow {
-      margin-top: 2.5rem; width: 44px; height: 44px;
-      border-radius: 50%; border: 1.5px solid rgba(26,30,24,.25);
+      width: 44px; height: 44px;
+      border-radius: 50%; border: 1.5px solid rgba(26,30,24,.22);
       display: flex; align-items: center; justify-content: center;
       animation: arrowBounce 2.2s ease-in-out infinite;
     }
@@ -146,36 +156,39 @@
     /* ─────────────────────────────
        INTRO  (Rocc: white, centered headline + 4 product tiles)
     ───────────────────────────── */
-    .intro { background: var(--white); padding: 88px 24px 72px; }
+    .intro { background: var(--white); padding: 80px 24px 0; }
     .intro-headline {
       font-family: 'Syne', sans-serif; font-weight: 700;
       font-size: clamp(1.6rem, 3vw, 2.75rem);
       letter-spacing: -.025em; line-height: 1.15;
-      text-align: center; max-width: 620px; margin: 0 auto 72px;
+      text-align: center; max-width: 580px; margin: 0 auto 64px;
     }
     .intro-row {
       display: grid; grid-template-columns: repeat(4,1fr);
       border-top: 1px solid rgba(0,0,0,.08);
-      max-width: 1200px; margin: 0 auto;
+      margin: 0;
     }
     .intro-tile {
-      padding: 40px 28px 44px;
+      padding: 0;
       border-right: 1px solid rgba(0,0,0,.08);
-      text-align: center;
+      text-align: center; display: flex; flex-direction: column;
     }
     .intro-tile:last-child { border-right: none; }
+    /* Full-height color block — entire tile carries the accent color */
     .intro-tile-img {
-      width: 100%; aspect-ratio: 1/1; border-radius: 14px;
-      overflow: hidden; margin-bottom: 22px;
-      background: var(--sand); flex-shrink: 0;
+      width: 100%; aspect-ratio: 3/4;
+      overflow: hidden; flex-shrink: 0;
     }
     .intro-tile-img img { width:100%;height:100%;object-fit:cover;display:block; }
+    .intro-tile-meta {
+      padding: 22px 20px 28px; flex: 1;
+    }
     .intro-tile-name {
       font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem;
       color: var(--ink); margin-bottom: 6px;
     }
     .intro-tile-sub { font-size: 12px; color: rgba(26,30,24,.48); }
-    .intro-cta { text-align: center; margin-top: 52px; }
+    .intro-cta { background: var(--white); text-align: center; padding: 52px 24px 72px; }
     .btn-outline {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 13px 34px; border-radius: 9999px;
@@ -220,8 +233,8 @@
     }
     .marquee-item {
       font-family: 'Syne', sans-serif; font-weight: 700;
-      font-size: clamp(1rem, 1.6vw, 1.3rem); letter-spacing: .04em;
-      color: #fff; padding: 0 44px; flex-shrink: 0;
+      font-size: clamp(1.1rem, 1.8vw, 1.5rem); letter-spacing: .06em;
+      color: #fff; padding: 0 48px; flex-shrink: 0;
     }
     .marquee-dot { color: rgba(255,255,255,.45); }
     @keyframes marquee {
@@ -241,14 +254,15 @@
     .feat-photo-col:hover img { transform: scale(1.04); }
 
     /* 2×2 photo grid — like Rocc's product cluster */
+    .feat-quad-wrap { height: 100%; display: flex; }
     .feat-quad {
       display: grid; grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr; height: 100%;
+      grid-template-rows: 1fr 1fr;
+      flex: 1; min-height: 680px;
     }
     .feat-quad-cell { overflow: hidden; }
     .feat-quad-cell img {
       width: 100%; height: 100%; object-fit: cover; display: block;
-      aspect-ratio: 1/1;
       transition: transform .9s cubic-bezier(.2,.8,.2,1);
     }
     .feat-quad-cell:hover img { transform: scale(1.05); }
@@ -327,28 +341,29 @@
     /* ─────────────────────────────
        CTA SECTION  (Rocc: "Get it in your mouth." — dark green, big text + photos)
     ───────────────────────────── */
+    /* CTA — cream bg, huge dark heading + 2 portrait photos (Rocc style) */
     .cta-dark {
-      background: var(--forest);
+      background: var(--cream);
       display: grid; grid-template-columns: 1fr 1fr;
-      min-height: 620px;
+      min-height: 680px;
     }
     .cta-text {
-      padding: 100px 72px; display: flex; flex-direction: column; justify-content: center;
+      padding: 88px 72px; display: flex; flex-direction: column; justify-content: center;
     }
     .cta-eyebrow {
       font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700;
-      letter-spacing: .2em; text-transform: uppercase;
-      color: rgba(255,255,255,.4); margin-bottom: 1.5rem; display: block;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: rgba(26,30,24,.38); margin-bottom: 1.5rem; display: block;
     }
     .cta-h2 {
       font-family: 'Syne', sans-serif; font-weight: 800;
-      font-size: clamp(2.8rem, 5.5vw, 5.5rem);
-      line-height: .9; letter-spacing: -.04em;
-      color: #fff; margin-bottom: 2.5rem;
+      font-size: clamp(3rem, 6.5vw, 7rem);
+      line-height: .88; letter-spacing: -.04em;
+      color: var(--ink); margin-bottom: 2.5rem;
     }
-    .cta-h2 em { font-style: normal; color: var(--sand); }
+    .cta-h2 em { font-style: normal; color: var(--forest); }
     .cta-desc {
-      font-size: 15px; line-height: 1.75; color: rgba(255,255,255,.6);
+      font-size: 15px; line-height: 1.75; color: rgba(26,30,24,.56);
       max-width: 360px; margin-bottom: 2.75rem;
     }
     .cta-btns { display: flex; gap: 16px; flex-wrap: wrap; }
@@ -473,8 +488,8 @@
        PHOTO STRIP  (Rocc: horizontal photo band between sections)
     ───────────────────────────── */
     .photo-strip { display: flex; line-height: 0; }
-    .ps-cell { flex: 1; overflow: hidden; aspect-ratio: 4/3; }
-    .ps-cell.wide { flex: 1.8; }
+    .ps-cell { flex: 1; overflow: hidden; aspect-ratio: 3/2; }
+    .ps-cell.wide { flex: 2; }
     .ps-cell img {
       width:100%;height:100%;object-fit:cover;display:block;
       transition: transform .8s cubic-bezier(.2,.8,.2,1);
@@ -564,12 +579,17 @@
     <div class="hero-veil"></div>
     <div class="hero-body">
       <div class="hero-wordmark">RYZE<br>JUNIOR</div>
-      <p class="hero-tagline">Aligneurs Invisibles &nbsp;·&nbsp; Enfants &amp; Ados &nbsp;·&nbsp; Dès 7 ans</p>
-      <a href="#intro" class="hero-arrow">
-        <span class="material-symbols-outlined" style="font-size:19px;color:var(--ink);">arrow_downward</span>
-      </a>
     </div>
   </section>
+
+  <!-- ═══ hero sub — tagline + divider + arrow on sand bg ═══ -->
+  <div class="hero-sub">
+    <p class="hero-tagline">Aligneurs Invisibles &nbsp;·&nbsp; Enfants &amp; Ados &nbsp;·&nbsp; Dès 7 ans</p>
+    <div class="hero-divider"></div>
+    <a href="#intro" class="hero-arrow">
+      <span class="material-symbols-outlined" style="font-size:19px;color:var(--ink);">arrow_downward</span>
+    </a>
+  </div>
 
   <!-- ═══════════════════════════════════════
        INTRO — white section, headline + 4 tiles (like Rocc's product row)
@@ -580,43 +600,51 @@
     </h2>
     <div class="intro-row">
 
-      <div class="intro-tile reveal">
-        <div class="intro-tile-img" style="background:var(--purple);">
+      <div class="intro-tile reveal" style="background:var(--purple);">
+        <div class="intro-tile-img">
           <img src="assets/firas-1.jpg" alt="Aligneurs Ryze Junior">
         </div>
-        <p class="intro-tile-name">Aligneurs PTP™</p>
-        <p class="intro-tile-sub">Quasi-invisible &mdash; dès 7 ans</p>
+        <div class="intro-tile-meta">
+          <p class="intro-tile-name">Aligneurs PTP™</p>
+          <p class="intro-tile-sub">Quasi-invisible &mdash; dès 7 ans</p>
+        </div>
       </div>
 
-      <div class="intro-tile reveal">
-        <div class="intro-tile-img" style="background:var(--sage);">
+      <div class="intro-tile reveal" style="background:var(--sage);">
+        <div class="intro-tile-img">
           <img src="assets/lab-3.jpg" alt="Fabrication française">
         </div>
-        <p class="intro-tile-name">Made in France</p>
-        <p class="intro-tile-sub">Nos laboratoires en France</p>
+        <div class="intro-tile-meta">
+          <p class="intro-tile-name">Made in France</p>
+          <p class="intro-tile-sub">Nos laboratoires en France</p>
+        </div>
       </div>
 
-      <div class="intro-tile reveal">
-        <div class="intro-tile-img" style="background:var(--peach);">
+      <div class="intro-tile reveal" style="background:var(--peach);">
+        <div class="intro-tile-img">
           <img src="assets/firas-3.jpg" alt="Praticiens certifiés">
         </div>
-        <p class="intro-tile-name">Praticiens certifiés</p>
-        <p class="intro-tile-sub">25+ ans d'expertise</p>
+        <div class="intro-tile-meta">
+          <p class="intro-tile-name">Praticiens certifiés</p>
+          <p class="intro-tile-sub">25+ ans d'expertise</p>
+        </div>
       </div>
 
-      <div class="intro-tile reveal">
-        <div class="intro-tile-img" style="background:var(--sky);">
+      <div class="intro-tile reveal" style="background:var(--sky);">
+        <div class="intro-tile-img">
           <img src="assets/lab-5.jpg" alt="Remboursement SS">
         </div>
-        <p class="intro-tile-name">Remboursement SS</p>
-        <p class="intro-tile-sub">Possible avant 16 ans</p>
+        <div class="intro-tile-meta">
+          <p class="intro-tile-name">Remboursement SS</p>
+          <p class="intro-tile-sub">Possible avant 16 ans</p>
+        </div>
       </div>
 
     </div>
-    <div class="intro-cta">
-      <a href="#feat-1" class="btn-outline reveal">Découvrir Ryze Junior</a>
-    </div>
   </section>
+  <div class="intro-cta">
+    <a href="#feat-1" class="btn-outline reveal">Découvrir Ryze Junior</a>
+  </div>
 
   <!-- ═══════════════════════════════════════
        MARQUEE — sky blue scrolling text (exact Rocc style)
@@ -650,8 +678,8 @@
   <section id="feat-1">
     <div class="feat">
       <!-- Left: 2×2 photo grid -->
-      <div style="background:var(--purple);">
-        <div class="feat-quad" style="min-height:600px;">
+      <div style="background:var(--purple);" class="feat-quad-wrap">
+        <div class="feat-quad">
           <div class="feat-quad-cell"><img src="assets/firas-2.jpg" alt=""></div>
           <div class="feat-quad-cell"><img src="assets/lab-4.jpg" alt=""></div>
           <div class="feat-quad-cell"><img src="assets/firas-6.jpg" alt=""></div>
@@ -715,8 +743,8 @@
   <section>
     <div class="feat">
       <!-- Left: 2×2 photo grid -->
-      <div style="background:var(--sage);">
-        <div class="feat-quad" style="min-height:600px;">
+      <div style="background:var(--sage);" class="feat-quad-wrap">
+        <div class="feat-quad">
           <div class="feat-quad-cell"><img src="assets/lab-1.jpg" alt=""></div>
           <div class="feat-quad-cell"><img src="assets/firas-5.jpg" alt=""></div>
           <div class="feat-quad-cell"><img src="assets/lab-5.jpg" alt=""></div>
@@ -803,8 +831,8 @@
         Prenez rendez-vous pour une évaluation complète. Découvrez le futur sourire de votre enfant grâce à la simulation 3D. La consultation est offerte.
       </p>
       <div class="cta-btns reveal">
-        <a href="contact.html" class="btn-solid-sand">Trouver un praticien</a>
-        <a href="tarifs.html" class="btn-outline-light">Voir les tarifs</a>
+        <a href="contact.html" class="btn-outline">Trouver un praticien</a>
+        <a href="tarifs.html" class="btn-outline" style="opacity:.55;">Voir les tarifs</a>
       </div>
     </div>
     <div class="cta-photos">
