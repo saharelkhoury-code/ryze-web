@@ -114,6 +114,34 @@ a:focus-visible,button:focus-visible{
 }
 .nav-toggle:hover{background:rgba(255,255,255,0.18); transform:scale(1.06)}
 .nav-toggle svg{width:14px;height:14px; stroke:#fff}
+/* Sibling-page nav links (Accueil, Traitement, Scanner, ...) */
+.nav-links{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2.4rem;
+  align-items: center;
+}
+.nav-links a{
+  color: #fff;
+  font-family: 'DM Sans', "Inter", system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  opacity: 0.78;
+  transition: opacity .25s ease;
+}
+.nav-links a:hover{ opacity: 1; }
+.nav-links a.is-current{
+  opacity: 1;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+@media (max-width: 900px){
+  .nav-links{ display: none; }
+}
 
 /* === ALIGNER STAGE — wraps hero + method + marquee + void; the pinned aligner lives here === */
 .aligner-stage{
@@ -2680,15 +2708,26 @@ a:focus-visible,button:focus-visible{
 <div class="grain" aria-hidden="true"></div>
 
 <nav class="nav">
-  <a href="#" class="nav-mark" aria-label="augen">
+  <a href="index.html" class="nav-mark" aria-label="Ryze Aligners — Accueil">
     <svg class="star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
       <line x1="12" y1="2" x2="12" y2="22"/>
       <line x1="2" y1="12" x2="22" y2="12"/>
       <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
       <line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/>
     </svg>
-    augen
+    Ryze
   </a>
+  <ul class="nav-links" role="menubar">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="treatment.html" class="is-current" aria-current="page">Traitement</a></li>
+    <li><a href="scanner.html">Scanner</a></li>
+    <li><a href="junior.html">Ryze Junior</a></li>
+    <li><a href="results.html">Résultats</a></li>
+    <li><a href="tarifs.html">Tarifs</a></li>
+    <li><a href="blog.html">Articles</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
   <button class="nav-toggle" aria-label="Open menu">
     <svg viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" aria-hidden="true">
       <line x1="0" y1="2" x2="14" y2="2"/>
