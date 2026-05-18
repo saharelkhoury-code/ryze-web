@@ -1858,49 +1858,58 @@ a:focus-visible,button:focus-visible{
   pointer-events: none;
 }
 
-/* The handle — circle with soft halo, scales on grab, moves on Y */
+/* The handle — small precise knob with a soft halo. The clickable hit area
+   stays generous via a transparent ::after so it's easy to grab even at 20px. */
 .td-slider-handle{
   position: absolute;
   left: 50%;
   top: 8%;                /* JS sets via inline top */
-  width: 32px;
-  height: 32px;
-  margin-left: -16px;
-  margin-top: -16px;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
   border-radius: 50%;
   border: 0;
   background: #FFFFFF;
   box-shadow:
-    0 0 0 6px rgba(42, 77, 178, 0.10),
-    0 6px 18px rgba(42, 77, 178, 0.28);
+    0 0 0 3px rgba(42, 77, 178, 0.10),
+    0 4px 12px rgba(42, 77, 178, 0.28);
   cursor: grab;
-  transition: transform .3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow .3s ease, top .12s linear;
+  transition: transform .25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow .25s ease, top .12s linear;
+}
+/* Invisible 36px hit area around the visible 20px handle — easier to grab
+   without making the knob itself look chunky. */
+.td-slider-handle::after{
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
 }
 .td-slider-handle:hover{
   box-shadow:
-    0 0 0 8px rgba(42, 77, 178, 0.14),
-    0 8px 22px rgba(42, 77, 178, 0.40);
+    0 0 0 5px rgba(42, 77, 178, 0.14),
+    0 6px 16px rgba(42, 77, 178, 0.40);
 }
 .td-slider-handle:active,
 .td-slider-handle.is-dragging{
   cursor: grabbing;
-  transform: scale(1.18);
+  transform: scale(1.25);
   box-shadow:
-    0 0 0 10px rgba(42, 77, 178, 0.18),
-    0 10px 28px rgba(42, 77, 178, 0.50);
-  transition: transform .15s cubic-bezier(0.22, 1, 0.36, 1), box-shadow .15s ease;
+    0 0 0 6px rgba(42, 77, 178, 0.18),
+    0 8px 20px rgba(42, 77, 178, 0.50);
+  transition: transform .12s cubic-bezier(0.22, 1, 0.36, 1), box-shadow .12s ease;
 }
 .td-slider-handle:focus-visible{
   outline: 2px solid #2A4DB2;
-  outline-offset: 6px;
+  outline-offset: 4px;
 }
 .td-slider-handle-dot{
   display: block;
   position: absolute;
   inset: 50% auto auto 50%;
   transform: translate(-50%, -50%);
-  width: 10px;
-  height: 10px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: #2A4DB2;
   transition: background .3s ease;
