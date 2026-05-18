@@ -1714,15 +1714,22 @@ a:focus-visible,button:focus-visible{
   flex-direction: column;
   gap: 3rem;
 }
-
-/* STAGE — big serif months number + active case info (horizontal) */
-.td-stage{
+/* Two-column grid: vertical slider on left, stage (months + info) on right */
+.td-vstage{
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 2.4rem;
-  align-items: end;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(10, 22, 38, 0.08);
+  gap: 3.5rem;
+  align-items: center;
+  min-height: 440px;
+}
+
+/* STAGE — big serif months number + active case info (vertical stack) */
+.td-stage{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.6rem;
+  padding-left: 0.5rem;
 }
 .td-months{
   display: flex;
@@ -1790,82 +1797,84 @@ a:focus-visible,button:focus-visible{
   transform: translateY(6px);
 }
 
-/* SLIDER — HORIZONTAL track with draggable handle */
+/* SLIDER — VERTICAL track with draggable handle.
+   Grid: month marks (left) | track (center) | zone labels (right). */
 .td-slider{
   position: relative;
-  padding: 2.4rem 0 0;
+  display: grid;
+  grid-template-columns: auto 56px auto;
+  align-items: stretch;
+  gap: 1.6rem;
   user-select: none;
   touch-action: none;
+  min-width: 240px;
 }
-.td-slider-zones{
-  display: grid;
-  grid-template-columns: 0.6fr 1fr 1fr;
-  margin-bottom: 1.2rem;
+.td-slider-marks{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: right;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 0.95rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-}
-.td-zone{
-  color: rgba(10, 22, 38, 0.35);
-  transition: color .3s ease;
-  padding-left: 0.4rem;
-}
-.td-slider[data-case="simple"]   .td-zone[data-case="simple"],
-.td-slider[data-case="modere"]   .td-zone[data-case="modere"],
-.td-slider[data-case="complexe"] .td-zone[data-case="complexe"]{
-  color: #0A1626;
-  font-weight: 700;
+  color: rgba(10, 22, 38, 0.55);
+  padding: 4px 0;     /* aligns first/last marks with the track ends */
 }
 .td-slider-track{
   position: relative;
-  height: 56px;
+  width: 56px;
+  min-height: 420px;
+  height: 100%;
   display: flex;
-  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
+/* Three subtle zone backgrounds — stacked vertically */
 .td-slider-zone-bg{
   position: absolute;
-  top: 50%;
-  height: 4px;
+  left: 50%;
+  width: 4px;
   border-radius: 2px;
-  transform: translateY(-50%);
+  transform: translateX(-50%);
   background: rgba(10, 22, 38, 0.08);
 }
-.td-zone-simple{   left: 0;     width: 20%; }
-.td-zone-modere{   left: 20%;   width: 40%; }
-.td-zone-complexe{ left: 60%;   width: 40%; }
+.td-zone-simple{   top: 0;    height: 20%; }
+.td-zone-modere{   top: 20%;  height: 40%; }
+.td-zone-complexe{ top: 60%;  height: 40%; }
 
+/* Filled gradient that grows top-down from 0 to the handle position */
 .td-slider-fill{
   position: absolute;
-  top: 50%;
-  left: 0;
-  height: 4px;
+  left: 50%;
+  top: 0;
+  width: 4px;
   border-radius: 2px;
-  width: 8%;
-  background: linear-gradient(90deg, #3aafe8 0%, #2A4DB2 100%);
-  transform: translateY(-50%);
+  height: 8%;             /* JS sets via inline height */
+  background: linear-gradient(180deg, #3aafe8 0%, #2A4DB2 100%);
+  transform: translateX(-50%);
   box-shadow: 0 0 14px rgba(58, 175, 232, 0.35);
-  transition: width .12s linear;
+  transition: height .12s linear;
   pointer-events: none;
 }
 
+/* The handle — circle with soft halo, scales on grab, moves on Y */
 .td-slider-handle{
   position: absolute;
-  top: 50%;
-  left: 8%;
+  left: 50%;
+  top: 8%;                /* JS sets via inline top */
   width: 32px;
   height: 32px;
   margin-left: -16px;
+  margin-top: -16px;
   border-radius: 50%;
   border: 0;
   background: #FFFFFF;
   box-shadow:
     0 0 0 6px rgba(42, 77, 178, 0.10),
     0 6px 18px rgba(42, 77, 178, 0.28);
-  transform: translateY(-50%);
   cursor: grab;
-  transition: transform .3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow .3s ease, left .12s linear;
+  transition: transform .3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow .3s ease, top .12s linear;
 }
 .td-slider-handle:hover{
   box-shadow:
@@ -1875,7 +1884,7 @@ a:focus-visible,button:focus-visible{
 .td-slider-handle:active,
 .td-slider-handle.is-dragging{
   cursor: grabbing;
-  transform: translateY(-50%) scale(1.18);
+  transform: scale(1.18);
   box-shadow:
     0 0 0 10px rgba(42, 77, 178, 0.18),
     0 10px 28px rgba(42, 77, 178, 0.50);
@@ -1901,17 +1910,28 @@ a:focus-visible,button:focus-visible{
   background: #3aafe8;
 }
 
-.td-slider-marks{
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1.2rem;
+/* Zone labels — stacked vertically right of the track, each centered on its zone */
+.td-slider-zones{
+  display: grid;
+  grid-template-rows: 0.6fr 1fr 1fr;  /* matches 20% / 40% / 40% zone heights */
+  align-items: center;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 0.95rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(10, 22, 38, 0.55);
 }
-.td-slider-marks span:last-child{ text-align: right; }
+.td-zone{
+  color: rgba(10, 22, 38, 0.35);
+  transition: color .3s ease, transform .3s ease;
+  white-space: nowrap;
+}
+.td-slider[data-case="simple"]   .td-zone[data-case="simple"],
+.td-slider[data-case="modere"]   .td-zone[data-case="modere"],
+.td-slider[data-case="complexe"] .td-zone[data-case="complexe"]{
+  color: #0A1626;
+  font-weight: 700;
+  transform: translateX(2px);
+}
 
 .td-hint{
   text-align: right;
@@ -1926,12 +1946,17 @@ a:focus-visible,button:focus-visible{
 @media (max-width: 1024px){
   .td-inner{ grid-template-columns: 1fr; gap: 5rem; }
   .td-right{ padding-top: 0; }
-  .td-stage{ grid-template-columns: 1fr; gap: 1.5rem; align-items: start; }
+  .td-vstage{ grid-template-columns: auto 1fr; gap: 2.5rem; min-height: 380px; }
   .td-active{ min-height: auto; }
 }
 @media (max-width: 560px){
   .treatment-duration{ padding: 6rem var(--gut); }
   .td-months-num{ font-size: clamp(4rem, 16vw, 6rem); }
+  .td-slider-track{ min-height: 320px; }
+  .td-vstage{ gap: 1.6rem; min-height: 340px; }
+  .td-slider{ gap: 1rem; min-width: auto; }
+  .td-slider-marks,
+  .td-slider-zones{ font-size: 0.78rem; }
 }
 
 /* === PRICING === */
@@ -3023,46 +3048,52 @@ a:focus-visible,button:focus-visible{
     </div>
 
     <div class="td-right">
-      <!-- BIG kinetic months display + active case info -->
-      <div class="td-stage">
-        <div class="td-months" aria-live="polite">
-          <span class="td-months-num" id="tdMonthsNum">3–6</span>
-          <span class="td-months-unit">mois</span>
+      <div class="td-vstage">
+        <!-- VERTICAL draggable months slider on the LEFT of the right column -->
+        <div class="td-slider td-slider--vertical" id="tdSlider">
+          <div class="td-slider-marks" aria-hidden="true">
+            <span>3</span>
+            <span>6</span>
+            <span>12</span>
+            <span>18 mois</span>
+          </div>
+          <div class="td-slider-track">
+            <div class="td-slider-zone-bg td-zone-simple"></div>
+            <div class="td-slider-zone-bg td-zone-modere"></div>
+            <div class="td-slider-zone-bg td-zone-complexe"></div>
+            <div class="td-slider-fill" id="tdSliderFill"></div>
+            <button type="button"
+                    class="td-slider-handle"
+                    id="tdSliderHandle"
+                    role="slider"
+                    aria-orientation="vertical"
+                    aria-label="Durée du traitement"
+                    aria-valuemin="3"
+                    aria-valuemax="18"
+                    aria-valuenow="4"
+                    aria-valuetext="3 à 6 mois — Cas simple"
+                    tabindex="0">
+              <span class="td-slider-handle-dot" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="td-slider-zones" aria-hidden="true">
+            <span class="td-zone" data-case="simple">Cas simple</span>
+            <span class="td-zone" data-case="modere">Cas modéré</span>
+            <span class="td-zone" data-case="complexe">Cas complexe</span>
+          </div>
         </div>
-        <div class="td-active" id="tdActive">
-          <h3 class="td-active-title" id="tdActiveTitle">Cas simple</h3>
-          <p class="td-active-sub"   id="tdActiveSub">Corrections légères</p>
-          <p class="td-active-desc"  id="tdActiveDesc">Alignement esthétique, petits espaces, rotations mineures.</p>
-        </div>
-      </div>
 
-      <!-- HORIZONTAL draggable months slider -->
-      <div class="td-slider" id="tdSlider">
-        <div class="td-slider-zones" aria-hidden="true">
-          <span class="td-zone" data-case="simple">Cas simple</span>
-          <span class="td-zone" data-case="modere">Cas modéré</span>
-          <span class="td-zone" data-case="complexe">Cas complexe</span>
-        </div>
-        <div class="td-slider-track">
-          <div class="td-slider-zone-bg td-zone-simple"></div>
-          <div class="td-slider-zone-bg td-zone-modere"></div>
-          <div class="td-slider-zone-bg td-zone-complexe"></div>
-          <div class="td-slider-fill" id="tdSliderFill"></div>
-          <button type="button"
-                  class="td-slider-handle"
-                  id="tdSliderHandle"
-                  role="slider"
-                  aria-label="Durée du traitement"
-                  aria-valuemin="3"
-                  aria-valuemax="18"
-                  aria-valuenow="4"
-                  aria-valuetext="3 à 6 mois — Cas simple"
-                  tabindex="0">
-            <span class="td-slider-handle-dot" aria-hidden="true"></span>
-          </button>
-        </div>
-        <div class="td-slider-marks" aria-hidden="true">
-          <span>3</span><span>6</span><span>12</span><span>18 mois</span>
+        <!-- BIG kinetic months display + active case info, stacked on the RIGHT -->
+        <div class="td-stage">
+          <div class="td-months" aria-live="polite">
+            <span class="td-months-num" id="tdMonthsNum">3–6</span>
+            <span class="td-months-unit">mois</span>
+          </div>
+          <div class="td-active" id="tdActive">
+            <h3 class="td-active-title" id="tdActiveTitle">Cas simple</h3>
+            <p class="td-active-sub"   id="tdActiveSub">Corrections légères</p>
+            <p class="td-active-desc"  id="tdActiveDesc">Alignement esthétique, petits espaces, rotations mineures.</p>
+          </div>
         </div>
       </div>
 
@@ -3826,9 +3857,9 @@ a:focus-visible,button:focus-visible{
 
       const setVisuals = (fraction) => {
         const pct = Math.max(0, Math.min(1, fraction)) * 100;
-        // Horizontal slider: handle moves on X, fill grows in width.
-        tdHandle.style.left = pct + '%';
-        tdFill.style.width  = pct + '%';
+        // Vertical slider: handle moves on Y, fill grows in height (top→down).
+        tdHandle.style.top  = pct + '%';
+        tdFill.style.height = pct + '%';
         const c = caseFromFraction(fraction);
         tdSlider.setAttribute('data-case', c);
         if (c !== currentCase){
@@ -3855,8 +3886,8 @@ a:focus-visible,button:focus-visible{
       };
       const setFraction = (f, animate = false) => {
         if (animate){
-          tdHandle.style.transition = 'left .45s cubic-bezier(0.22, 1, 0.36, 1)';
-          tdFill.style.transition   = 'width .45s cubic-bezier(0.22, 1, 0.36, 1)';
+          tdHandle.style.transition = 'top .45s cubic-bezier(0.22, 1, 0.36, 1)';
+          tdFill.style.transition   = 'height .45s cubic-bezier(0.22, 1, 0.36, 1)';
           setTimeout(() => {
             tdHandle.style.transition = '';
             tdFill.style.transition   = '';
@@ -3865,20 +3896,20 @@ a:focus-visible,button:focus-visible{
         setVisuals(f);
       };
 
-      const fractionFromEvent = (clientX) => {
+      const fractionFromEvent = (clientY) => {
         const r = track.getBoundingClientRect();
-        return (clientX - r.left) / r.width;
+        return (clientY - r.top) / r.height;
       };
 
       const onPointerDown = (e) => {
         isDragging = true;
         tdHandle.classList.add('is-dragging');
         tdHandle.setPointerCapture && tdHandle.setPointerCapture(e.pointerId);
-        setFraction(fractionFromEvent(e.clientX));
+        setFraction(fractionFromEvent(e.clientY));
       };
       const onPointerMove = (e) => {
         if (!isDragging) return;
-        setFraction(fractionFromEvent(e.clientX));
+        setFraction(fractionFromEvent(e.clientY));
       };
       const onPointerUp = (e) => {
         if (!isDragging) return;
@@ -3893,7 +3924,7 @@ a:focus-visible,button:focus-visible{
         if (e.target === tdHandle) return;
         isDragging = true;
         tdHandle.classList.add('is-dragging');
-        setFraction(fractionFromEvent(e.clientX));
+        setFraction(fractionFromEvent(e.clientY));
       });
       window.addEventListener('pointermove', onPointerMove);
       window.addEventListener('pointerup',   onPointerUp);
